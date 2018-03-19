@@ -135,7 +135,6 @@ func resourceVLANTemplateCreate(d *schema.ResourceData, m interface{}) error {
 		o.ExternalID = attr.(string)
 	}
 
-	fmt.Println("Value %d", o.Value)
 	if attr, ok := d.GetOk("parent_ns_port_template"); ok {
 		parent := &vspk.NSPortTemplate{ID: attr.(string)}
 		err := parent.CreateVLANTemplate(o)

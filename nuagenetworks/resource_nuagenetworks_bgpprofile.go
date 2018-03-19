@@ -15,76 +15,76 @@ func resourceBGPProfile() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"dampening_half_life": &schema.Schema{
+			"dampening_half_life": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  15,
 			},
-			"dampening_max_suppress": &schema.Schema{
+			"dampening_max_suppress": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  60,
 			},
-			"dampening_name": &schema.Schema{
+			"dampening_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dampening_reuse": &schema.Schema{
+			"dampening_reuse": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  750,
 			},
-			"dampening_suppress": &schema.Schema{
+			"dampening_suppress": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  3000,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_export_routing_policy_id": &schema.Schema{
+			"associated_export_routing_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_import_routing_policy_id": &schema.Schema{
+			"associated_import_routing_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

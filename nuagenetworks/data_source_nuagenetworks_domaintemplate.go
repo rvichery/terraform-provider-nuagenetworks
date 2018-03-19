@@ -12,72 +12,72 @@ func dataSourceDomainTemplate() *schema.Resource {
 		Read: dataSourceDomainTemplateRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dpi": &schema.Schema{
+			"dpi": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"encryption": &schema.Schema{
+			"encryption": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"policy_change_status": &schema.Schema{
+			"policy_change_status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_bgp_profile_id": &schema.Schema{
+			"associated_bgp_profile_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_multicast_channel_map_id": &schema.Schema{
+			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_pat_mapper_id": &schema.Schema{
+			"associated_pat_mapper_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"multicast": &schema.Schema{
+			"multicast": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain"},
@@ -127,9 +127,9 @@ func dataSourceDomainTemplateRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredDomainTemplates) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		DomainTemplate = filteredDomainTemplates[0]
 	}
+
+	DomainTemplate = filteredDomainTemplates[0]
 
 	d.Set("dpi", DomainTemplate.DPI)
 	d.Set("name", DomainTemplate.Name)

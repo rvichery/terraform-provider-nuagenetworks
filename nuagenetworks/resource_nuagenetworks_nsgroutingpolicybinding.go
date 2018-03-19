@@ -15,66 +15,66 @@ func resourceNSGRoutingPolicyBinding() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_export_routing_policy_id": &schema.Schema{
+			"associated_export_routing_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_import_routing_policy_id": &schema.Schema{
+			"associated_import_routing_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_policy_object_group_id": &schema.Schema{
+			"associated_policy_object_group_id": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"export_to_overlay": &schema.Schema{
+			"export_to_overlay": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "INHERITED",
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

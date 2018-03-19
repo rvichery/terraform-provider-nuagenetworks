@@ -12,56 +12,56 @@ func dataSourceEnterpriseNetwork() *schema.Resource {
 		Read: dataSourceEnterpriseNetworkRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ipv6_address": &schema.Schema{
+			"ipv6_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_network_macro_group": &schema.Schema{
+			"parent_network_macro_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_network_macro_group"},
@@ -111,9 +111,9 @@ func dataSourceEnterpriseNetworkRead(d *schema.ResourceData, m interface{}) erro
 	if len(filteredEnterpriseNetworks) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		EnterpriseNetwork = filteredEnterpriseNetworks[0]
 	}
+
+	EnterpriseNetwork = filteredEnterpriseNetworks[0]
 
 	d.Set("ip_type", EnterpriseNetwork.IPType)
 	d.Set("ipv6_address", EnterpriseNetwork.IPv6Address)

@@ -12,32 +12,32 @@ func dataSourceSPATSourcesPool() *schema.Resource {
 		Read: dataSourceSPATSourcesPoolRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"family": &schema.Schema{
+			"family": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address_list": &schema.Schema{
+			"address_list": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -78,9 +78,9 @@ func dataSourceSPATSourcesPoolRead(d *schema.ResourceData, m interface{}) error 
 	if len(filteredSPATSourcesPools) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		SPATSourcesPool = filteredSPATSourcesPools[0]
 	}
+
+	SPATSourcesPool = filteredSPATSourcesPools[0]
 
 	d.Set("name", SPATSourcesPool.Name)
 	d.Set("family", SPATSourcesPool.Family)

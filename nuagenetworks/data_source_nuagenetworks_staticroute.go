@@ -12,87 +12,87 @@ func dataSourceStaticRoute() *schema.Resource {
 		Read: dataSourceStaticRouteRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bfd_enabled": &schema.Schema{
+			"bfd_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ipv6_address": &schema.Schema{
+			"ipv6_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"next_hop_ip": &schema.Schema{
+			"next_hop_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"route_distinguisher": &schema.Schema{
+			"route_distinguisher": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_subnet_id": &schema.Schema{
+			"associated_subnet_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_container_interface": &schema.Schema{
+			"parent_container_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_domain", "parent_vm_interface", "parent_host_interface"},
 			},
-			"parent_shared_network_resource": &schema.Schema{
+			"parent_shared_network_resource": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_domain", "parent_vm_interface", "parent_host_interface"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_shared_network_resource", "parent_vm_interface", "parent_host_interface"},
 			},
-			"parent_vm_interface": &schema.Schema{
+			"parent_vm_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_shared_network_resource", "parent_domain", "parent_host_interface"},
 			},
-			"parent_host_interface": &schema.Schema{
+			"parent_host_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_shared_network_resource", "parent_domain", "parent_vm_interface"},
@@ -166,9 +166,9 @@ func dataSourceStaticRouteRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredStaticRoutes) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		StaticRoute = filteredStaticRoutes[0]
 	}
+
+	StaticRoute = filteredStaticRoutes[0]
 
 	d.Set("bfd_enabled", StaticRoute.BFDEnabled)
 	d.Set("ip_type", StaticRoute.IPType)

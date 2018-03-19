@@ -12,51 +12,51 @@ func dataSourceKeyServerMember() *schema.Resource {
 		Read: dataSourceKeyServerMemberRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"pem_encoded": &schema.Schema{
+			"pem_encoded": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"certificate_serial_number": &schema.Schema{
+			"certificate_serial_number": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"fqdn": &schema.Schema{
+			"fqdn": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"issuer_dn": &schema.Schema{
+			"issuer_dn": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"subject_dn": &schema.Schema{
+			"subject_dn": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"public_key": &schema.Schema{
+			"public_key": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -97,9 +97,9 @@ func dataSourceKeyServerMemberRead(d *schema.ResourceData, m interface{}) error 
 	if len(filteredKeyServerMembers) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		KeyServerMember = filteredKeyServerMembers[0]
 	}
+
+	KeyServerMember = filteredKeyServerMembers[0]
 
 	d.Set("last_updated_by", KeyServerMember.LastUpdatedBy)
 	d.Set("pem_encoded", KeyServerMember.PemEncoded)

@@ -12,89 +12,89 @@ func dataSourcePolicyGroup() *schema.Resource {
 		Read: dataSourcePolicyGroupRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"evpn_community_tag": &schema.Schema{
+			"evpn_community_tag": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"policy_group_id": &schema.Schema{
+			"policy_group_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external": &schema.Schema{
+			"external": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_container_interface": &schema.Schema{
+			"parent_container_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain", "parent_vport", "parent_vm_interface", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_vport", "parent_vm_interface", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface"},
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_domain", "parent_vm_interface", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface"},
 			},
-			"parent_vm_interface": &schema.Schema{
+			"parent_vm_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_domain", "parent_vport", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface"},
 			},
-			"parent_bridge_interface": &schema.Schema{
+			"parent_bridge_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_domain", "parent_vport", "parent_vm_interface", "parent_l2_domain", "parent_host_interface"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_domain", "parent_vport", "parent_vm_interface", "parent_bridge_interface", "parent_host_interface"},
 			},
-			"parent_host_interface": &schema.Schema{
+			"parent_host_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_domain", "parent_vport", "parent_vm_interface", "parent_bridge_interface", "parent_l2_domain"},
@@ -180,9 +180,9 @@ func dataSourcePolicyGroupRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredPolicyGroups) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		PolicyGroup = filteredPolicyGroups[0]
 	}
+
+	PolicyGroup = filteredPolicyGroups[0]
 
 	d.Set("evpn_community_tag", PolicyGroup.EVPNCommunityTag)
 	d.Set("name", PolicyGroup.Name)

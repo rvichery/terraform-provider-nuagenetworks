@@ -12,70 +12,70 @@ func dataSourceIngressExternalServiceTemplate() *schema.Resource {
 		Read: dataSourceIngressExternalServiceTemplateRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"active": &schema.Schema{
+			"active": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"policy_state": &schema.Schema{
+			"policy_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"priority_type": &schema.Schema{
+			"priority_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_live_entity_id": &schema.Schema{
+			"associated_live_entity_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_l2_domain_template", "parent_l2_domain", "parent_domain_template"},
 			},
-			"parent_l2_domain_template": &schema.Schema{
+			"parent_l2_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain", "parent_l2_domain", "parent_domain_template"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain", "parent_l2_domain_template", "parent_domain_template"},
 			},
-			"parent_domain_template": &schema.Schema{
+			"parent_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain", "parent_l2_domain_template", "parent_l2_domain"},
@@ -137,9 +137,9 @@ func dataSourceIngressExternalServiceTemplateRead(d *schema.ResourceData, m inte
 	if len(filteredIngressExternalServiceTemplates) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		IngressExternalServiceTemplate = filteredIngressExternalServiceTemplates[0]
 	}
+
+	IngressExternalServiceTemplate = filteredIngressExternalServiceTemplates[0]
 
 	d.Set("name", IngressExternalServiceTemplate.Name)
 	d.Set("active", IngressExternalServiceTemplate.Active)

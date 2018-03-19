@@ -12,43 +12,43 @@ func dataSourceQosPolicer() *schema.Resource {
 		Read: dataSourceQosPolicerRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"rate": &schema.Schema{
+			"rate": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"burst": &schema.Schema{
+			"burst": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -89,9 +89,9 @@ func dataSourceQosPolicerRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredQosPolicers) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		QosPolicer = filteredQosPolicers[0]
 	}
+
+	QosPolicer = filteredQosPolicers[0]
 
 	d.Set("name", QosPolicer.Name)
 	d.Set("last_updated_by", QosPolicer.LastUpdatedBy)

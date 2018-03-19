@@ -15,154 +15,154 @@ func resourceVirtualFirewallRule() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"acl_template_name": &schema.Schema{
+			"acl_template_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"icmp_code": &schema.Schema{
+			"icmp_code": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"icmp_type": &schema.Schema{
+			"icmp_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dscp": &schema.Schema{
+			"dscp": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"action": &schema.Schema{
+			"action": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"destination_port": &schema.Schema{
+			"destination_port": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"network_id": &schema.Schema{
+			"network_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"network_type": &schema.Schema{
+			"network_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "ANY",
 			},
-			"mirror_destination_id": &schema.Schema{
+			"mirror_destination_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"flow_logging_enabled": &schema.Schema{
+			"flow_logging_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"enterprise_name": &schema.Schema{
+			"enterprise_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"location_id": &schema.Schema{
+			"location_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"location_type": &schema.Schema{
+			"location_type": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"policy_state": &schema.Schema{
+			"policy_state": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"domain_name": &schema.Schema{
+			"domain_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"source_port": &schema.Schema{
+			"source_port": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"protocol": &schema.Schema{
+			"protocol": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_l7_application_signature_id": &schema.Schema{
+			"associated_l7_application_signature_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_live_entity_id": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"associated_traffic_type": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"associated_traffic_type_id": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"stats_id": &schema.Schema{
+			"associated_live_entity_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"stats_logging_enabled": &schema.Schema{
+			"associated_traffic_type": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"associated_traffic_type_id": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"stats_id": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Computed: true,
+			},
+			"stats_logging_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"overlay_mirror_destination_id": &schema.Schema{
+			"overlay_mirror_destination_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_virtual_firewall_policy": &schema.Schema{
+			"parent_virtual_firewall_policy": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

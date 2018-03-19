@@ -12,39 +12,39 @@ func dataSourceL4ServiceGroup() *schema.Resource {
 		Read: dataSourceL4ServiceGroupRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -85,9 +85,9 @@ func dataSourceL4ServiceGroupRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredL4ServiceGroups) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		L4ServiceGroup = filteredL4ServiceGroups[0]
 	}
+
+	L4ServiceGroup = filteredL4ServiceGroups[0]
 
 	d.Set("name", L4ServiceGroup.Name)
 	d.Set("last_updated_by", L4ServiceGroup.LastUpdatedBy)

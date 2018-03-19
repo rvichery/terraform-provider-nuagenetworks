@@ -15,54 +15,54 @@ func resourceProxyARPFilter() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "IPV4",
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"max_address": &schema.Schema{
+			"max_address": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"min_address": &schema.Schema{
+			"min_address": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

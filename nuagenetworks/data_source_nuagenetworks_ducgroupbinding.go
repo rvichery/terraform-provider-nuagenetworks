@@ -12,31 +12,31 @@ func dataSourceDUCGroupBinding() *schema.Resource {
 		Read: dataSourceDUCGroupBindingRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"one_way_delay": &schema.Schema{
+			"one_way_delay": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"associated_duc_group_id": &schema.Schema{
+			"associated_duc_group_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_nsg_group": &schema.Schema{
+			"parent_nsg_group": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -77,9 +77,9 @@ func dataSourceDUCGroupBindingRead(d *schema.ResourceData, m interface{}) error 
 	if len(filteredDUCGroupBindings) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		DUCGroupBinding = filteredDUCGroupBindings[0]
 	}
+
+	DUCGroupBinding = filteredDUCGroupBindings[0]
 
 	d.Set("one_way_delay", DUCGroupBinding.OneWayDelay)
 	d.Set("priority", DUCGroupBinding.Priority)

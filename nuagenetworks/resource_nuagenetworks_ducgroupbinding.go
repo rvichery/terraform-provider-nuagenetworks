@@ -15,40 +15,40 @@ func resourceDUCGroupBinding() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"one_way_delay": &schema.Schema{
+			"one_way_delay": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  50,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"associated_duc_group_id": &schema.Schema{
+			"associated_duc_group_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_nsg_group": &schema.Schema{
+			"parent_nsg_group": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

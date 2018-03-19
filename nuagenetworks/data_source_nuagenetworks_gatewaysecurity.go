@@ -12,39 +12,39 @@ func dataSourceGatewaySecurity() *schema.Resource {
 		Read: dataSourceGatewaySecurityRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_id": &schema.Schema{
+			"gateway_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"revision": &schema.Schema{
+			"revision": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -85,9 +85,9 @@ func dataSourceGatewaySecurityRead(d *schema.ResourceData, m interface{}) error 
 	if len(filteredGatewaySecurities) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		GatewaySecurity = filteredGatewaySecurities[0]
 	}
+
+	GatewaySecurity = filteredGatewaySecurities[0]
 
 	d.Set("last_updated_by", GatewaySecurity.LastUpdatedBy)
 	d.Set("gateway_id", GatewaySecurity.GatewayID)

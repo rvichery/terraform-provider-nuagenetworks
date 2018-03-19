@@ -15,61 +15,61 @@ func resourceEnterpriseSecuredData() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"hash": &schema.Schema{
+			"hash": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"data": &schema.Schema{
+			"data": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"sek_id": &schema.Schema{
+			"sek_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"keyserver_cert_serial_number": &schema.Schema{
+			"keyserver_cert_serial_number": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"signed_hash": &schema.Schema{
+			"signed_hash": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_enterprise_security": &schema.Schema{
+			"parent_enterprise_security": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

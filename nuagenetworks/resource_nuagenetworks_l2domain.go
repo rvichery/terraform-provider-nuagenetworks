@@ -15,160 +15,160 @@ func resourceL2Domain() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"dhcp_managed": &schema.Schema{
+			"dhcp_managed": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"dpi": &schema.Schema{
+			"dpi": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "DISABLED",
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ipv6_address": &schema.Schema{
+			"ipv6_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ipv6_gateway": &schema.Schema{
+			"ipv6_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"maintenance_mode": &schema.Schema{
+			"maintenance_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"gateway": &schema.Schema{
+			"gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"gateway_mac_address": &schema.Schema{
+			"gateway_mac_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"service_id": &schema.Schema{
+			"service_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"flow_collection_enabled": &schema.Schema{
+			"flow_collection_enabled": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "INHERITED",
 			},
-			"vn_id": &schema.Schema{
+			"vn_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"encryption": &schema.Schema{
+			"encryption": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"entity_state": &schema.Schema{
+			"entity_state": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"policy_change_status": &schema.Schema{
+			"policy_change_status": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"route_distinguisher": &schema.Schema{
+			"route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"route_target": &schema.Schema{
+			"route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"uplink_preference": &schema.Schema{
+			"uplink_preference": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"use_global_mac": &schema.Schema{
+			"use_global_mac": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_multicast_channel_map_id": &schema.Schema{
+			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_shared_network_resource_id": &schema.Schema{
+			"associated_shared_network_resource_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_underlay_id": &schema.Schema{
+			"associated_underlay_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"stretched": &schema.Schema{
+			"stretched": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"multicast": &schema.Schema{
+			"multicast": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dynamic_ipv6_address": &schema.Schema{
+			"dynamic_ipv6_address": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

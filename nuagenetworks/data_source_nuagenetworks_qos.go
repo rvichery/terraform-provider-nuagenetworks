@@ -12,198 +12,198 @@ func dataSourceQOS() *schema.Resource {
 		Read: dataSourceQOSRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"fip_committed_burst_size": &schema.Schema{
+			"fip_committed_burst_size": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"fip_committed_information_rate": &schema.Schema{
+			"fip_committed_information_rate": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"fip_peak_burst_size": &schema.Schema{
+			"fip_peak_burst_size": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"fip_peak_information_rate": &schema.Schema{
+			"fip_peak_information_rate": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"fip_rate_limiting_active": &schema.Schema{
+			"fip_rate_limiting_active": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"bum_committed_burst_size": &schema.Schema{
+			"bum_committed_burst_size": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bum_committed_information_rate": &schema.Schema{
+			"bum_committed_information_rate": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bum_peak_burst_size": &schema.Schema{
+			"bum_peak_burst_size": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bum_peak_information_rate": &schema.Schema{
+			"bum_peak_information_rate": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bum_rate_limiting_active": &schema.Schema{
+			"bum_rate_limiting_active": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"rate_limiting_active": &schema.Schema{
+			"rate_limiting_active": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"active": &schema.Schema{
+			"active": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"peak": &schema.Schema{
+			"peak": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"service_class": &schema.Schema{
+			"service_class": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"rewrite_forwarding_class": &schema.Schema{
+			"rewrite_forwarding_class": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"egress_fip_committed_burst_size": &schema.Schema{
+			"egress_fip_committed_burst_size": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"egress_fip_committed_information_rate": &schema.Schema{
+			"egress_fip_committed_information_rate": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"egress_fip_peak_burst_size": &schema.Schema{
+			"egress_fip_peak_burst_size": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"egress_fip_peak_information_rate": &schema.Schema{
+			"egress_fip_peak_information_rate": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"committed_burst_size": &schema.Schema{
+			"committed_burst_size": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"committed_information_rate": &schema.Schema{
+			"committed_information_rate": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"trusted_forwarding_class": &schema.Schema{
+			"trusted_forwarding_class": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"assoc_qos_id": &schema.Schema{
+			"assoc_qos_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_dscp_forwarding_class_table_id": &schema.Schema{
+			"associated_dscp_forwarding_class_table_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_dscp_forwarding_class_table_name": &schema.Schema{
+			"associated_dscp_forwarding_class_table_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"burst": &schema.Schema{
+			"burst": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_zone": &schema.Schema{
+			"parent_zone": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template", "parent_policy_decision"},
 			},
-			"parent_subnet_template": &schema.Schema{
+			"parent_subnet_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template", "parent_policy_decision"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template", "parent_policy_decision"},
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template", "parent_policy_decision"},
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template", "parent_policy_decision"},
 			},
-			"parent_zone_template": &schema.Schema{
+			"parent_zone_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template", "parent_policy_decision"},
 			},
-			"parent_l2_domain_template": &schema.Schema{
+			"parent_l2_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template", "parent_policy_decision"},
 			},
-			"parent_bridge_interface": &schema.Schema{
+			"parent_bridge_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_l2_domain", "parent_host_interface", "parent_domain_template", "parent_policy_decision"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_host_interface", "parent_domain_template", "parent_policy_decision"},
 			},
-			"parent_host_interface": &schema.Schema{
+			"parent_host_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_domain_template", "parent_policy_decision"},
 			},
-			"parent_domain_template": &schema.Schema{
+			"parent_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_policy_decision"},
 			},
-			"parent_policy_decision": &schema.Schema{
+			"parent_policy_decision": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template"},
@@ -313,9 +313,9 @@ func dataSourceQOSRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredQOSs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		QOS = filteredQOSs[0]
 	}
+
+	QOS = filteredQOSs[0]
 
 	d.Set("fip_committed_burst_size", QOS.FIPCommittedBurstSize)
 	d.Set("fip_committed_information_rate", QOS.FIPCommittedInformationRate)

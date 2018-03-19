@@ -15,83 +15,83 @@ func resourceStaticRoute() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"bfd_enabled": &schema.Schema{
+			"bfd_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ipv6_address": &schema.Schema{
+			"ipv6_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"address": &schema.Schema{
-				Type:     schema.TypeString,
-				Required: true,
-			},
-			"netmask": &schema.Schema{
-				Type:     schema.TypeString,
-				Required: true,
-			},
-			"next_hop_ip": &schema.Schema{
-				Type:     schema.TypeString,
-				Required: true,
-			},
-			"entity_scope": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"route_distinguisher": &schema.Schema{
+			"address": {
+				Type:     schema.TypeString,
+				Required: true,
+			},
+			"netmask": {
+				Type:     schema.TypeString,
+				Required: true,
+			},
+			"next_hop_ip": {
+				Type:     schema.TypeString,
+				Required: true,
+			},
+			"entity_scope": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Computed: true,
+			},
+			"route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_subnet_id": &schema.Schema{
+			"associated_subnet_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_shared_network_resource": &schema.Schema{
+			"parent_shared_network_resource": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource"},

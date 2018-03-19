@@ -15,106 +15,106 @@ func resourceSubnetTemplate() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"dpi": &schema.Schema{
+			"dpi": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "INHERITED",
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ipv6_address": &schema.Schema{
+			"ipv6_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ipv6_gateway": &schema.Schema{
+			"ipv6_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"gateway": &schema.Schema{
+			"gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"encryption": &schema.Schema{
+			"encryption": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"split_subnet": &schema.Schema{
+			"split_subnet": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"proxy_arp": &schema.Schema{
+			"proxy_arp": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"use_global_mac": &schema.Schema{
+			"use_global_mac": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_multicast_channel_map_id": &schema.Schema{
+			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"multicast": &schema.Schema{
+			"multicast": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dynamic_ipv6_address": &schema.Schema{
+			"dynamic_ipv6_address": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"parent_zone_template": &schema.Schema{
+			"parent_zone_template": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

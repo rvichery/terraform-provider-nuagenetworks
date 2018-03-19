@@ -15,40 +15,40 @@ func resourcePSPATMap() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"reserved_spatips": &schema.Schema{
+			"reserved_spatips": {
 				Type:     schema.TypeList,
 				Required: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"associated_spat_sources_pool_id": &schema.Schema{
+			"associated_spat_sources_pool_id": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"parent_psnat_pool": &schema.Schema{
+			"parent_psnat_pool": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

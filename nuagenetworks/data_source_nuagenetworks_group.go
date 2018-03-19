@@ -12,93 +12,93 @@ func dataSourceGroup() *schema.Resource {
 		Read: dataSourceGroupRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ldap_group_dn": &schema.Schema{
+			"ldap_group_dn": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"management_mode": &schema.Schema{
+			"management_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"account_restrictions": &schema.Schema{
+			"account_restrictions": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"restriction_date": &schema.Schema{
+			"restriction_date": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"role": &schema.Schema{
+			"role": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"private": &schema.Schema{
+			"private": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_zone": &schema.Schema{
+			"parent_zone": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain", "parent_l2_domain_template", "parent_l2_domain", "parent_domain_template", "parent_user", "parent_enterprise"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_l2_domain_template", "parent_l2_domain", "parent_domain_template", "parent_user", "parent_enterprise"},
 			},
-			"parent_l2_domain_template": &schema.Schema{
+			"parent_l2_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_l2_domain", "parent_domain_template", "parent_user", "parent_enterprise"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_l2_domain_template", "parent_domain_template", "parent_user", "parent_enterprise"},
 			},
-			"parent_domain_template": &schema.Schema{
+			"parent_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_l2_domain_template", "parent_l2_domain", "parent_user", "parent_enterprise"},
 			},
-			"parent_user": &schema.Schema{
+			"parent_user": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_l2_domain_template", "parent_l2_domain", "parent_domain_template", "parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_l2_domain_template", "parent_l2_domain", "parent_domain_template", "parent_user"},
@@ -178,9 +178,9 @@ func dataSourceGroupRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredGroups) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Group = filteredGroups[0]
 	}
+
+	Group = filteredGroups[0]
 
 	d.Set("ldap_group_dn", Group.LDAPGroupDN)
 	d.Set("name", Group.Name)

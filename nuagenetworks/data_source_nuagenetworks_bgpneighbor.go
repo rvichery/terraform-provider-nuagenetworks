@@ -12,73 +12,73 @@ func dataSourceBGPNeighbor() *schema.Resource {
 		Read: dataSourceBGPNeighborRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bfd_enabled": &schema.Schema{
+			"bfd_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dampening_enabled": &schema.Schema{
+			"dampening_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"peer_as": &schema.Schema{
+			"peer_as": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"peer_ip": &schema.Schema{
+			"peer_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"session": &schema.Schema{
+			"session": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_export_routing_policy_id": &schema.Schema{
+			"associated_export_routing_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_import_routing_policy_id": &schema.Schema{
+			"associated_import_routing_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_subnet", "parent_vlan"},
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport", "parent_vlan"},
 			},
-			"parent_vlan": &schema.Schema{
+			"parent_vlan": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport", "parent_subnet"},
@@ -140,9 +140,9 @@ func dataSourceBGPNeighborRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredBGPNeighbors) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		BGPNeighbor = filteredBGPNeighbors[0]
 	}
+
+	BGPNeighbor = filteredBGPNeighbors[0]
 
 	d.Set("bfd_enabled", BGPNeighbor.BFDEnabled)
 	d.Set("name", BGPNeighbor.Name)

@@ -12,80 +12,80 @@ func dataSourceUser() *schema.Resource {
 		Read: dataSourceUserRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ldapuser_dn": &schema.Schema{
+			"ldapuser_dn": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"management_mode": &schema.Schema{
+			"management_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"password": &schema.Schema{
+			"password": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_name": &schema.Schema{
+			"last_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"first_name": &schema.Schema{
+			"first_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"disabled": &schema.Schema{
+			"disabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"email": &schema.Schema{
+			"email": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mobile_number": &schema.Schema{
+			"mobile_number": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"user_name": &schema.Schema{
+			"user_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"avatar_data": &schema.Schema{
+			"avatar_data": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"avatar_type": &schema.Schema{
+			"avatar_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_group": &schema.Schema{
+			"parent_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_group"},
@@ -141,9 +141,9 @@ func dataSourceUserRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredUsers) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		User = filteredUsers[0]
 	}
+
+	User = filteredUsers[0]
 
 	d.Set("ldapuser_dn", User.LDAPUserDN)
 	d.Set("management_mode", User.ManagementMode)

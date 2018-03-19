@@ -15,65 +15,65 @@ func resourceBFDSession() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"bfd_destination_ip": &schema.Schema{
+			"bfd_destination_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"bfd_multiplier": &schema.Schema{
+			"bfd_multiplier": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  3,
 			},
-			"bfd_timer": &schema.Schema{
+			"bfd_timer": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  500,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"multi_hop_enabled": &schema.Schema{
+			"multi_hop_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_uplink_connection": &schema.Schema{
+			"parent_uplink_connection": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_br_connection"},
 			},
-			"parent_br_connection": &schema.Schema{
+			"parent_br_connection": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_uplink_connection"},

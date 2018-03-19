@@ -15,135 +15,135 @@ func resourceUplinkConnection() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"pat_enabled": &schema.Schema{
+			"pat_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  true,
 			},
-			"dns_address": &schema.Schema{
+			"dns_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"password": &schema.Schema{
+			"password": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"gateway": &schema.Schema{
+			"gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"advertisement_criteria": &schema.Schema{
+			"advertisement_criteria": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"secondary_address": &schema.Schema{
+			"secondary_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vlan_id": &schema.Schema{
+			"vlan_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"underlay_enabled": &schema.Schema{
+			"underlay_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  true,
 			},
-			"installer_managed": &schema.Schema{
+			"installer_managed": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"interface_connection_type": &schema.Schema{
+			"interface_connection_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "AUTOMATIC",
 			},
-			"mode": &schema.Schema{
+			"mode": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "Dynamic",
 			},
-			"role": &schema.Schema{
+			"role": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "PRIMARY",
 			},
-			"role_order": &schema.Schema{
+			"role_order": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"port_name": &schema.Schema{
+			"port_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"download_rate_limit": &schema.Schema{
+			"download_rate_limit": {
 				Type:     schema.TypeFloat,
 				Optional: true,
 				Default:  8,
 			},
-			"uplink_id": &schema.Schema{
+			"uplink_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"username": &schema.Schema{
+			"username": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"assoc_underlay_id": &schema.Schema{
+			"assoc_underlay_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_bgp_neighbor_id": &schema.Schema{
+			"associated_bgp_neighbor_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_underlay_name": &schema.Schema{
+			"associated_underlay_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"auxiliary_link": &schema.Schema{
+			"auxiliary_link": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"parent_vlan": &schema.Schema{
+			"parent_vlan": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vlan_template"},
 			},
-			"parent_vlan_template": &schema.Schema{
+			"parent_vlan_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vlan"},

@@ -12,69 +12,69 @@ func dataSourceMonitoringPort() *schema.Resource {
 		Read: dataSourceMonitoringPortRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_state_change": &schema.Schema{
+			"last_state_change": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"access": &schema.Schema{
+			"access": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"resiliency_state": &schema.Schema{
+			"resiliency_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"resilient": &schema.Schema{
+			"resilient": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"uplink": &schema.Schema{
+			"uplink": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"state": &schema.Schema{
+			"state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vrs": &schema.Schema{
+			"parent_vrs": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_hsc", "parent_vsc"},
 			},
-			"parent_hsc": &schema.Schema{
+			"parent_hsc": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vrs", "parent_vsc"},
 			},
-			"parent_vsc": &schema.Schema{
+			"parent_vsc": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vrs", "parent_hsc"},
@@ -130,9 +130,9 @@ func dataSourceMonitoringPortRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredMonitoringPorts) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		MonitoringPort = filteredMonitoringPorts[0]
 	}
+
+	MonitoringPort = filteredMonitoringPorts[0]
 
 	d.Set("name", MonitoringPort.Name)
 	d.Set("last_state_change", MonitoringPort.LastStateChange)

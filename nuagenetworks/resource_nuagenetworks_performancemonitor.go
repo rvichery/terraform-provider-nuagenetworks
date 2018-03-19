@@ -15,92 +15,92 @@ func resourcePerformanceMonitor() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"payload_size": &schema.Schema{
+			"payload_size": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  137,
 			},
-			"read_only": &schema.Schema{
+			"read_only": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"service_class": &schema.Schema{
+			"service_class": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "H",
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"destination_target_list": &schema.Schema{
+			"destination_target_list": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"timeout": &schema.Schema{
+			"timeout": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  1000,
 			},
-			"interval": &schema.Schema{
+			"interval": {
 				Type:     schema.TypeInt,
 				Required: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"hold_down_timer": &schema.Schema{
+			"hold_down_timer": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  900,
 			},
-			"probe_type": &schema.Schema{
+			"probe_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "ONEWAY",
 			},
-			"number_of_packets": &schema.Schema{
+			"number_of_packets": {
 				Type:     schema.TypeInt,
 				Required: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},

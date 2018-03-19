@@ -12,352 +12,352 @@ func dataSourceEventLog() *schema.Resource {
 		Read: dataSourceEventLogRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"request_id": &schema.Schema{
+			"request_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"diff": &schema.Schema{
+			"diff": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"enterprise": &schema.Schema{
+			"enterprise": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entities": &schema.Schema{
+			"entities": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"entity_id": &schema.Schema{
+			"entity_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_parent_id": &schema.Schema{
+			"entity_parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_parent_type": &schema.Schema{
+			"entity_parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_type": &schema.Schema{
+			"entity_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"user": &schema.Schema{
+			"user": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"event_received_time": &schema.Schema{
+			"event_received_time": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_container_interface": &schema.Schema{
+			"parent_container_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_qos": &schema.Schema{
+			"parent_qos": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_virtual_ip": &schema.Schema{
+			"parent_virtual_ip": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_multi_cast_channel_map": &schema.Schema{
+			"parent_multi_cast_channel_map": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_redundancy_group": &schema.Schema{
+			"parent_redundancy_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_tca": &schema.Schema{
+			"parent_tca": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_group": &schema.Schema{
+			"parent_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_zone": &schema.Schema{
+			"parent_zone": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_enterprise_network": &schema.Schema{
+			"parent_enterprise_network": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_permission": &schema.Schema{
+			"parent_permission": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_ip_reservation": &schema.Schema{
+			"parent_ip_reservation": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_redirection_target_template": &schema.Schema{
+			"parent_redirection_target_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_subnet_template": &schema.Schema{
+			"parent_subnet_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_redirection_target": &schema.Schema{
+			"parent_redirection_target": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_vsp": &schema.Schema{
+			"parent_vsp": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_proxy_arp_filter": &schema.Schema{
+			"parent_proxy_arp_filter": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_wan_service": &schema.Schema{
+			"parent_wan_service": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_vsd": &schema.Schema{
+			"parent_vsd": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_port": &schema.Schema{
+			"parent_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_container": &schema.Schema{
+			"parent_container": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_metadata": &schema.Schema{
+			"parent_metadata": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_zone_template": &schema.Schema{
+			"parent_zone_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_vrs": &schema.Schema{
+			"parent_vrs": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_hsc": &schema.Schema{
+			"parent_hsc": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_l2_domain_template": &schema.Schema{
+			"parent_l2_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_vlan": &schema.Schema{
+			"parent_vlan": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_static_route": &schema.Schema{
+			"parent_static_route": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_vm_interface": &schema.Schema{
+			"parent_vm_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_license": &schema.Schema{
+			"parent_license": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_enterprise_profile": &schema.Schema{
+			"parent_enterprise_profile": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_policy_group_template": &schema.Schema{
+			"parent_policy_group_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_bridge_interface": &schema.Schema{
+			"parent_bridge_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_ssid_connection": &schema.Schema{
+			"parent_ssid_connection": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_auto_discovered_gateway": &schema.Schema{
+			"parent_auto_discovered_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_gateway": &schema.Schema{
+			"parent_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_vm": &schema.Schema{
+			"parent_vm": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_host_interface": &schema.Schema{
+			"parent_host_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_dhcp_option": &schema.Schema{
+			"parent_dhcp_option": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_vsc": &schema.Schema{
+			"parent_vsc": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_ns_port": &schema.Schema{
+			"parent_ns_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_public_network_macro": &schema.Schema{
+			"parent_public_network_macro": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_address_range": &schema.Schema{
+			"parent_address_range": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_domain_template": &schema.Schema{
+			"parent_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_floating_ip": &schema.Schema{
+			"parent_floating_ip": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_egress_acl_template": &schema.Schema{
+			"parent_egress_acl_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_multi_cast_range": &schema.Schema{
+			"parent_multi_cast_range": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_ns_redundant_gateway_group": &schema.Schema{
+			"parent_ns_redundant_gateway_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_wireless_port": &schema.Schema{
+			"parent_wireless_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_user", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_user": &schema.Schema{
+			"parent_user": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_policy_group": &schema.Schema{
+			"parent_policy_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_ingress_acl_template"},
 			},
-			"parent_ingress_acl_template": &schema.Schema{
+			"parent_ingress_acl_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_qos", "parent_virtual_ip", "parent_multi_cast_channel_map", "parent_redundancy_group", "parent_tca", "parent_group", "parent_zone", "parent_enterprise_network", "parent_permission", "parent_ip_reservation", "parent_redirection_target_template", "parent_subnet_template", "parent_redirection_target", "parent_vsp", "parent_domain", "parent_proxy_arp_filter", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_subnet", "parent_container", "parent_metadata", "parent_zone_template", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_vlan", "parent_static_route", "parent_vm_interface", "parent_license", "parent_enterprise_profile", "parent_policy_group_template", "parent_bridge_interface", "parent_ssid_connection", "parent_auto_discovered_gateway", "parent_gateway", "parent_vm", "parent_l2_domain", "parent_host_interface", "parent_dhcp_option", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_public_network_macro", "parent_address_range", "parent_domain_template", "parent_floating_ip", "parent_egress_acl_template", "parent_multi_cast_range", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_user", "parent_policy_group", "parent_enterprise"},
@@ -737,9 +737,9 @@ func dataSourceEventLogRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredEventLogs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		EventLog = filteredEventLogs[0]
 	}
+
+	EventLog = filteredEventLogs[0]
 
 	d.Set("request_id", EventLog.RequestID)
 	d.Set("diff", EventLog.Diff)

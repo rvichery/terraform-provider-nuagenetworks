@@ -15,122 +15,122 @@ func resourceVirtualFirewallPolicy() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"active": &schema.Schema{
+			"active": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"default_allow_ip": &schema.Schema{
+			"default_allow_ip": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"default_allow_non_ip": &schema.Schema{
+			"default_allow_non_ip": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"default_install_acl_implicit_rules": &schema.Schema{
+			"default_install_acl_implicit_rules": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"allow_address_spoof": &schema.Schema{
+			"allow_address_spoof": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"entity_scope": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"policy_state": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"policy_state": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Computed: true,
+			},
+			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"priority_type": &schema.Schema{
+			"priority_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_egress_template_id": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"associated_ingress_template_id": &schema.Schema{
+			"associated_egress_template_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_live_entity_id": &schema.Schema{
+			"associated_ingress_template_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"auto_generate_priority": &schema.Schema{
+			"associated_live_entity_id": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Computed: true,
+			},
+			"auto_generate_priority": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_l2_domain_template", "parent_l2_domain", "parent_domain_template"},
 			},
-			"parent_l2_domain_template": &schema.Schema{
+			"parent_l2_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain", "parent_l2_domain", "parent_domain_template"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain", "parent_l2_domain_template", "parent_domain_template"},
 			},
-			"parent_domain_template": &schema.Schema{
+			"parent_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain", "parent_l2_domain_template", "parent_l2_domain"},

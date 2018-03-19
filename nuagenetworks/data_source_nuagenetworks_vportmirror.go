@@ -12,72 +12,72 @@ func dataSourceVPortMirror() *schema.Resource {
 		Read: dataSourceVPortMirrorRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vport_name": &schema.Schema{
+			"vport_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"network_name": &schema.Schema{
+			"network_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mirror_destination_id": &schema.Schema{
+			"mirror_destination_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mirror_destination_name": &schema.Schema{
+			"mirror_destination_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mirror_direction": &schema.Schema{
+			"mirror_direction": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"enterpise_name": &schema.Schema{
+			"enterpise_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"domain_name": &schema.Schema{
+			"domain_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vport_id": &schema.Schema{
+			"vport_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"attached_network_type": &schema.Schema{
+			"attached_network_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_mirror_destination"},
 			},
-			"parent_mirror_destination": &schema.Schema{
+			"parent_mirror_destination": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport"},
@@ -127,9 +127,9 @@ func dataSourceVPortMirrorRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredVPortMirrors) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VPortMirror = filteredVPortMirrors[0]
 	}
+
+	VPortMirror = filteredVPortMirrors[0]
 
 	d.Set("vport_name", VPortMirror.VPortName)
 	d.Set("last_updated_by", VPortMirror.LastUpdatedBy)

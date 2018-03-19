@@ -15,65 +15,65 @@ func resourceKeyServerMonitorSeed() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"seed_traffic_authentication_algorithm": &schema.Schema{
+			"seed_traffic_authentication_algorithm": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"seed_traffic_encryption_algorithm": &schema.Schema{
+			"seed_traffic_encryption_algorithm": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"seed_traffic_encryption_key_lifetime": &schema.Schema{
+			"seed_traffic_encryption_key_lifetime": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"lifetime": &schema.Schema{
+			"lifetime": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"creation_time": &schema.Schema{
+			"creation_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"start_time": &schema.Schema{
+			"start_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_key_server_monitor": &schema.Schema{
+			"parent_key_server_monitor": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

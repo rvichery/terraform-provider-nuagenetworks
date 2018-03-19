@@ -12,39 +12,39 @@ func dataSourceNetworkLayout() *schema.Resource {
 		Read: dataSourceNetworkLayoutRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"service_type": &schema.Schema{
+			"service_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"route_reflector_ip": &schema.Schema{
+			"route_reflector_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"autonomous_system_num": &schema.Schema{
+			"autonomous_system_num": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -85,9 +85,9 @@ func dataSourceNetworkLayoutRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredNetworkLayouts) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		NetworkLayout = filteredNetworkLayouts[0]
 	}
+
+	NetworkLayout = filteredNetworkLayouts[0]
 
 	d.Set("last_updated_by", NetworkLayout.LastUpdatedBy)
 	d.Set("service_type", NetworkLayout.ServiceType)

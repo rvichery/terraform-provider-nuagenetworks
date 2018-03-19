@@ -15,130 +15,130 @@ func resourceContainer() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"l2_domain_ids": &schema.Schema{
+			"l2_domain_ids": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"vrsid": &schema.Schema{
+			"vrsid": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"uuid": &schema.Schema{
+			"uuid": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"reason_type": &schema.Schema{
+			"reason_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"delete_expiry": &schema.Schema{
+			"delete_expiry": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"delete_mode": &schema.Schema{
+			"delete_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"resync_info": &schema.Schema{
+			"resync_info": {
+				Type:     schema.TypeMap,
+				Optional: true,
+			},
+			"site_identifier": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"site_identifier": &schema.Schema{
+			"image_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"image_id": &schema.Schema{
+			"image_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"image_name": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"interfaces": &schema.Schema{
+			"interfaces": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"enterprise_name": &schema.Schema{
+			"enterprise_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"domain_ids": &schema.Schema{
+			"domain_ids": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"zone_ids": &schema.Schema{
+			"zone_ids": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"orchestration_id": &schema.Schema{
+			"orchestration_id": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"user_id": &schema.Schema{
+			"user_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"user_name": &schema.Schema{
+			"user_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"subnet_ids": &schema.Schema{
+			"subnet_ids": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"hypervisor_ip": &schema.Schema{
+			"hypervisor_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},

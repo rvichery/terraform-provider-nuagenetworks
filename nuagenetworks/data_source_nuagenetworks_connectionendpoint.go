@@ -12,39 +12,39 @@ func dataSourceConnectionendpoint() *schema.Resource {
 		Read: dataSourceConnectionendpointRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ip_address": &schema.Schema{
+			"ip_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"end_point_type": &schema.Schema{
+			"end_point_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_infrastructure_access_profile": &schema.Schema{
+			"parent_infrastructure_access_profile": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -85,9 +85,9 @@ func dataSourceConnectionendpointRead(d *schema.ResourceData, m interface{}) err
 	if len(filteredConnectionendpoints) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Connectionendpoint = filteredConnectionendpoints[0]
 	}
+
+	Connectionendpoint = filteredConnectionendpoints[0]
 
 	d.Set("ip_address", Connectionendpoint.IPAddress)
 	d.Set("ip_type", Connectionendpoint.IPType)

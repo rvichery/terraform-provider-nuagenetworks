@@ -12,83 +12,83 @@ func dataSourceZoneTemplate() *schema.Resource {
 		Read: dataSourceZoneTemplateRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dpi": &schema.Schema{
+			"dpi": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ipv6_address": &schema.Schema{
+			"ipv6_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"encryption": &schema.Schema{
+			"encryption": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_multicast_channel_map_id": &schema.Schema{
+			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"public_zone": &schema.Schema{
+			"public_zone": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"multicast": &schema.Schema{
+			"multicast": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"number_of_hosts_in_subnets": &schema.Schema{
+			"number_of_hosts_in_subnets": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dynamic_ipv6_address": &schema.Schema{
+			"dynamic_ipv6_address": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"parent_domain_template": &schema.Schema{
+			"parent_domain_template": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -129,9 +129,9 @@ func dataSourceZoneTemplateRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredZoneTemplates) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		ZoneTemplate = filteredZoneTemplates[0]
 	}
+
+	ZoneTemplate = filteredZoneTemplates[0]
 
 	d.Set("dpi", ZoneTemplate.DPI)
 	d.Set("ip_type", ZoneTemplate.IPType)

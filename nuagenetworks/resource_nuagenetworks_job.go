@@ -15,220 +15,226 @@ func resourceJob() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parameters": &schema.Schema{
-				Type:     schema.TypeString,
+			"parameters": {
+				Type:     schema.TypeMap,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"result": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"entity_scope": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"command": &schema.Schema{
+			"result": {
+				Type:     schema.TypeMap,
+				Optional: true,
+				Computed: true,
+			},
+			"result_raw": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Computed: true,
+			},
+			"entity_scope": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Computed: true,
+			},
+			"command": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"progress": &schema.Schema{
+			"progress": {
 				Type:     schema.TypeFloat,
 				Optional: true,
 			},
-			"assoc_entity_type": &schema.Schema{
+			"assoc_entity_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_ingress_adv_fwd_entry_template": &schema.Schema{
+			"parent_ingress_adv_fwd_entry_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_egress_adv_fwd_entry_template": &schema.Schema{
+			"parent_egress_adv_fwd_entry_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_redirection_target_template": &schema.Schema{
+			"parent_redirection_target_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_ingress_adv_fwd_template": &schema.Schema{
+			"parent_ingress_adv_fwd_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_redirection_target": &schema.Schema{
+			"parent_redirection_target": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_egress_acl_entry_template": &schema.Schema{
+			"parent_egress_acl_entry_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_ingress_external_service_template_entry": &schema.Schema{
+			"parent_ingress_external_service_template_entry": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_vsd": &schema.Schema{
+			"parent_vsd": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_vrs": &schema.Schema{
+			"parent_vrs": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_hsc": &schema.Schema{
+			"parent_hsc": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_l2_domain_template": &schema.Schema{
+			"parent_l2_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_zfb_request": &schema.Schema{
+			"parent_zfb_request": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_policy_group_template": &schema.Schema{
+			"parent_policy_group_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_vcenter_cluster": &schema.Schema{
+			"parent_vcenter_cluster": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_gateway": &schema.Schema{
+			"parent_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_virtual_firewall_rule": &schema.Schema{
+			"parent_virtual_firewall_rule": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_vcenter": &schema.Schema{
+			"parent_vcenter": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_ingress_acl_entry_template": &schema.Schema{
+			"parent_ingress_acl_entry_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_ingress_external_service_template": &schema.Schema{
+			"parent_ingress_external_service_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_egress_adv_fwd_template": &schema.Schema{
+			"parent_egress_adv_fwd_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_vsc": &schema.Schema{
+			"parent_vsc": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_domain_template": &schema.Schema{
+			"parent_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_egress_acl_template": &schema.Schema{
+			"parent_egress_acl_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_vnf": &schema.Schema{
+			"parent_vnf": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_policy_group": &schema.Schema{
+			"parent_policy_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_enterprise", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_ingress_acl_template", "parent_vcenter_hypervisor"},
 			},
-			"parent_ingress_acl_template": &schema.Schema{
+			"parent_ingress_acl_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_vcenter_hypervisor"},
 			},
-			"parent_vcenter_hypervisor": &schema.Schema{
+			"parent_vcenter_hypervisor": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ingress_adv_fwd_entry_template", "parent_egress_adv_fwd_entry_template", "parent_redirection_target_template", "parent_ingress_adv_fwd_template", "parent_redirection_target", "parent_egress_acl_entry_template", "parent_ingress_external_service_template_entry", "parent_domain", "parent_vsd", "parent_vport", "parent_vrs", "parent_hsc", "parent_l2_domain_template", "parent_zfb_request", "parent_policy_group_template", "parent_vcenter_cluster", "parent_gateway", "parent_virtual_firewall_rule", "parent_vcenter", "parent_ingress_acl_entry_template", "parent_l2_domain", "parent_ingress_external_service_template", "parent_egress_adv_fwd_template", "parent_ns_gateway", "parent_vsc", "parent_domain_template", "parent_egress_acl_template", "parent_vnf", "parent_policy_group", "parent_enterprise", "parent_ingress_acl_template"},
@@ -510,14 +516,19 @@ func resourceJobRead(d *schema.ResourceData, m interface{}) error {
 
 	d.Set("parameters", o.Parameters)
 	d.Set("last_updated_by", o.LastUpdatedBy)
-	d.Set("result", o.Result)
 	d.Set("entity_scope", o.EntityScope)
 	d.Set("command", o.Command)
 	d.Set("progress", o.Progress)
 	d.Set("assoc_entity_type", o.AssocEntityType)
 	d.Set("status", o.Status)
 	d.Set("external_id", o.ExternalID)
-
+	if v, ok := o.Result.(string); ok {
+		raw := make(map[string]string)
+		raw["raw"] = v
+		d.Set("result_raw", raw)
+	} else {
+		d.Set("result", o.Result)
+	}
 	d.Set("id", o.Identifier())
 	d.Set("parent_id", o.ParentID)
 	d.Set("parent_type", o.ParentType)

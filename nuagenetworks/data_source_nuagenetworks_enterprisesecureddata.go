@@ -12,51 +12,51 @@ func dataSourceEnterpriseSecuredData() *schema.Resource {
 		Read: dataSourceEnterpriseSecuredDataRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"hash": &schema.Schema{
+			"hash": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"data": &schema.Schema{
+			"data": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"sek_id": &schema.Schema{
+			"sek_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"keyserver_cert_serial_number": &schema.Schema{
+			"keyserver_cert_serial_number": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"signed_hash": &schema.Schema{
+			"signed_hash": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise_security": &schema.Schema{
+			"parent_enterprise_security": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -97,9 +97,9 @@ func dataSourceEnterpriseSecuredDataRead(d *schema.ResourceData, m interface{}) 
 	if len(filteredEnterpriseSecuredDatas) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		EnterpriseSecuredData = filteredEnterpriseSecuredDatas[0]
 	}
+
+	EnterpriseSecuredData = filteredEnterpriseSecuredDatas[0]
 
 	d.Set("hash", EnterpriseSecuredData.Hash)
 	d.Set("last_updated_by", EnterpriseSecuredData.LastUpdatedBy)

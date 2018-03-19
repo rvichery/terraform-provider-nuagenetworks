@@ -12,259 +12,259 @@ func dataSourceVCenterVRSConfig() *schema.Resource {
 		Read: dataSourceVCenterVRSConfigRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"v_require_nuage_metadata": &schema.Schema{
+			"v_require_nuage_metadata": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"data_dns1": &schema.Schema{
+			"data_dns1": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"data_dns2": &schema.Schema{
+			"data_dns2": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"data_gateway": &schema.Schema{
+			"data_gateway": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"data_network_portgroup": &schema.Schema{
+			"data_network_portgroup": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"datapath_sync_timeout": &schema.Schema{
+			"datapath_sync_timeout": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"secondary_nuage_controller": &schema.Schema{
+			"secondary_nuage_controller": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"generic_split_activation": &schema.Schema{
+			"generic_split_activation": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"separate_data_network": &schema.Schema{
+			"separate_data_network": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"personality": &schema.Schema{
+			"personality": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"metadata_server_ip": &schema.Schema{
+			"metadata_server_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"metadata_server_listen_port": &schema.Schema{
+			"metadata_server_listen_port": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"metadata_server_port": &schema.Schema{
+			"metadata_server_port": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"metadata_service_enabled": &schema.Schema{
+			"metadata_service_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"network_uplink_interface": &schema.Schema{
+			"network_uplink_interface": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"network_uplink_interface_gateway": &schema.Schema{
+			"network_uplink_interface_gateway": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"network_uplink_interface_ip": &schema.Schema{
+			"network_uplink_interface_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"network_uplink_interface_netmask": &schema.Schema{
+			"network_uplink_interface_netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nfs_log_server": &schema.Schema{
+			"nfs_log_server": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nfs_mount_path": &schema.Schema{
+			"nfs_mount_path": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mgmt_dns1": &schema.Schema{
+			"mgmt_dns1": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mgmt_dns2": &schema.Schema{
+			"mgmt_dns2": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mgmt_gateway": &schema.Schema{
+			"mgmt_gateway": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mgmt_network_portgroup": &schema.Schema{
+			"mgmt_network_portgroup": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dhcp_relay_server": &schema.Schema{
+			"dhcp_relay_server": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"site_id": &schema.Schema{
+			"site_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"allow_data_dhcp": &schema.Schema{
+			"allow_data_dhcp": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"allow_mgmt_dhcp": &schema.Schema{
+			"allow_mgmt_dhcp": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"flow_eviction_threshold": &schema.Schema{
+			"flow_eviction_threshold": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"vm_network_portgroup": &schema.Schema{
+			"vm_network_portgroup": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"portgroup_metadata": &schema.Schema{
+			"portgroup_metadata": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"nova_client_version": &schema.Schema{
+			"nova_client_version": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"nova_metadata_service_auth_url": &schema.Schema{
+			"nova_metadata_service_auth_url": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nova_metadata_service_endpoint": &schema.Schema{
+			"nova_metadata_service_endpoint": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nova_metadata_service_password": &schema.Schema{
+			"nova_metadata_service_password": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nova_metadata_service_tenant": &schema.Schema{
+			"nova_metadata_service_tenant": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nova_metadata_service_username": &schema.Schema{
+			"nova_metadata_service_username": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nova_metadata_shared_secret": &schema.Schema{
+			"nova_metadata_shared_secret": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nova_region_name": &schema.Schema{
+			"nova_region_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"primary_nuage_controller": &schema.Schema{
+			"primary_nuage_controller": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vrs_password": &schema.Schema{
+			"vrs_password": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vrs_user_name": &schema.Schema{
+			"vrs_user_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"static_route": &schema.Schema{
+			"static_route": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"static_route_gateway": &schema.Schema{
+			"static_route_gateway": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"static_route_netmask": &schema.Schema{
+			"static_route_netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ntp_server1": &schema.Schema{
+			"ntp_server1": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ntp_server2": &schema.Schema{
+			"ntp_server2": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mtu": &schema.Schema{
+			"mtu": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"multi_vmssupport": &schema.Schema{
+			"multi_vmssupport": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"multicast_receive_interface": &schema.Schema{
+			"multicast_receive_interface": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"multicast_receive_interface_ip": &schema.Schema{
+			"multicast_receive_interface_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"multicast_receive_interface_netmask": &schema.Schema{
+			"multicast_receive_interface_netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"multicast_receive_range": &schema.Schema{
+			"multicast_receive_range": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"multicast_send_interface": &schema.Schema{
+			"multicast_send_interface": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"multicast_send_interface_ip": &schema.Schema{
+			"multicast_send_interface_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"multicast_send_interface_netmask": &schema.Schema{
+			"multicast_send_interface_netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"multicast_source_portgroup": &schema.Schema{
+			"multicast_source_portgroup": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"customized_script_url": &schema.Schema{
+			"customized_script_url": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -305,9 +305,9 @@ func dataSourceVCenterVRSConfigRead(d *schema.ResourceData, m interface{}) error
 	if len(filteredVCenterVRSConfigs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VCenterVRSConfig = filteredVCenterVRSConfigs[0]
 	}
+
+	VCenterVRSConfig = filteredVCenterVRSConfigs[0]
 
 	d.Set("v_require_nuage_metadata", VCenterVRSConfig.VRequireNuageMetadata)
 	d.Set("last_updated_by", VCenterVRSConfig.LastUpdatedBy)

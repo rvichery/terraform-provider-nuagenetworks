@@ -15,61 +15,61 @@ func resourceFloatingIp() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"access_control": &schema.Schema{
+			"access_control": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"assigned": &schema.Schema{
+			"assigned": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"assigned_to_object_type": &schema.Schema{
+			"assigned_to_object_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_shared_network_resource_id": &schema.Schema{
+			"associated_shared_network_resource_id": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

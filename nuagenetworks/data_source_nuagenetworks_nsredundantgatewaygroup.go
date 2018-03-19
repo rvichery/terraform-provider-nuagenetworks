@@ -12,96 +12,96 @@ func dataSourceNSRedundantGatewayGroup() *schema.Resource {
 		Read: dataSourceNSRedundantGatewayGroupRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_peer1_autodiscovered_gateway_id": &schema.Schema{
+			"gateway_peer1_autodiscovered_gateway_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_peer1_id": &schema.Schema{
+			"gateway_peer1_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_peer1_name": &schema.Schema{
+			"gateway_peer1_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_peer2_autodiscovered_gateway_id": &schema.Schema{
+			"gateway_peer2_autodiscovered_gateway_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_peer2_id": &schema.Schema{
+			"gateway_peer2_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_peer2_name": &schema.Schema{
+			"gateway_peer2_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"heartbeat_interval": &schema.Schema{
+			"heartbeat_interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"heartbeat_vlanid": &schema.Schema{
+			"heartbeat_vlanid": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"redundancy_port_ids": &schema.Schema{
+			"redundancy_port_ids": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"redundant_gateway_status": &schema.Schema{
+			"redundant_gateway_status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"personality": &schema.Schema{
+			"personality": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"consecutive_failures_count": &schema.Schema{
+			"consecutive_failures_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
@@ -150,9 +150,9 @@ func dataSourceNSRedundantGatewayGroupRead(d *schema.ResourceData, m interface{}
 	if len(filteredNSRedundantGatewayGroups) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		NSRedundantGatewayGroup = filteredNSRedundantGatewayGroups[0]
 	}
+
+	NSRedundantGatewayGroup = filteredNSRedundantGatewayGroups[0]
 
 	d.Set("name", NSRedundantGatewayGroup.Name)
 	d.Set("last_updated_by", NSRedundantGatewayGroup.LastUpdatedBy)

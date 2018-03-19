@@ -15,94 +15,94 @@ func resourceGateway() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"redundancy_group_id": &schema.Schema{
+			"redundancy_group_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"peer": &schema.Schema{
+			"peer": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"pending": &schema.Schema{
+			"pending": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"personality": &schema.Schema{
+			"personality": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"use_gateway_vlanvnid": &schema.Schema{
+			"use_gateway_vlanvnid": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"vtep": &schema.Schema{
+			"vtep": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"auto_disc_gateway_id": &schema.Schema{
+			"auto_disc_gateway_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"system_id": &schema.Schema{
+			"system_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},

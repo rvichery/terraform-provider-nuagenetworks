@@ -12,35 +12,35 @@ func dataSourceIKEGatewayConfig() *schema.Resource {
 		Read: dataSourceIKEGatewayConfigRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"config": &schema.Schema{
+			"config": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_ike_gateway": &schema.Schema{
+			"parent_ike_gateway": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -81,9 +81,9 @@ func dataSourceIKEGatewayConfigRead(d *schema.ResourceData, m interface{}) error
 	if len(filteredIKEGatewayConfigs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		IKEGatewayConfig = filteredIKEGatewayConfigs[0]
 	}
+
+	IKEGatewayConfig = filteredIKEGatewayConfigs[0]
 
 	d.Set("last_updated_by", IKEGatewayConfig.LastUpdatedBy)
 	d.Set("entity_scope", IKEGatewayConfig.EntityScope)

@@ -12,39 +12,39 @@ func dataSourceNetworkPerformanceMeasurement() *schema.Resource {
 		Read: dataSourceNetworkPerformanceMeasurementRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"npm_type": &schema.Schema{
+			"npm_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"read_only": &schema.Schema{
+			"read_only": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_performance_monitor_id": &schema.Schema{
+			"associated_performance_monitor_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -85,9 +85,9 @@ func dataSourceNetworkPerformanceMeasurementRead(d *schema.ResourceData, m inter
 	if len(filteredNetworkPerformanceMeasurements) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		NetworkPerformanceMeasurement = filteredNetworkPerformanceMeasurements[0]
 	}
+
+	NetworkPerformanceMeasurement = filteredNetworkPerformanceMeasurements[0]
 
 	d.Set("npm_type", NetworkPerformanceMeasurement.NPMType)
 	d.Set("name", NetworkPerformanceMeasurement.Name)

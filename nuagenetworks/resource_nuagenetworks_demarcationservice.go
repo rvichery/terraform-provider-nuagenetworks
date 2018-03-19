@@ -15,47 +15,47 @@ func resourceDemarcationService() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"route_distinguisher": &schema.Schema{
+			"route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"associated_gateway_id": &schema.Schema{
+			"associated_gateway_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_vlanid": &schema.Schema{
+			"associated_vlanid": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_link": &schema.Schema{
+			"parent_link": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

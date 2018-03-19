@@ -12,54 +12,54 @@ func dataSourceMultiCastChannelMap() *schema.Resource {
 		Read: dataSourceMultiCastChannelMapRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_container_interface": &schema.Schema{
+			"parent_container_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vm_interface", "parent_multi_cast_list", "parent_host_interface"},
 			},
-			"parent_vm_interface": &schema.Schema{
+			"parent_vm_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_multi_cast_list", "parent_host_interface"},
 			},
-			"parent_multi_cast_list": &schema.Schema{
+			"parent_multi_cast_list": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_vm_interface", "parent_host_interface"},
 			},
-			"parent_host_interface": &schema.Schema{
+			"parent_host_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_vm_interface", "parent_multi_cast_list"},
@@ -127,9 +127,9 @@ func dataSourceMultiCastChannelMapRead(d *schema.ResourceData, m interface{}) er
 	if len(filteredMultiCastChannelMaps) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		MultiCastChannelMap = filteredMultiCastChannelMaps[0]
 	}
+
+	MultiCastChannelMap = filteredMultiCastChannelMaps[0]
 
 	d.Set("name", MultiCastChannelMap.Name)
 	d.Set("last_updated_by", MultiCastChannelMap.LastUpdatedBy)

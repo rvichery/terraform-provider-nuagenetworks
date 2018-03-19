@@ -15,155 +15,155 @@ func resourceEnterprise() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"ldap_authorization_enabled": &schema.Schema{
+			"ldap_authorization_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"ldap_enabled": &schema.Schema{
+			"ldap_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"bgp_enabled": &schema.Schema{
+			"bgp_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"dhcp_lease_interval": &schema.Schema{
+			"dhcp_lease_interval": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"vnf_management_enabled": &schema.Schema{
+			"vnf_management_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"receive_multi_cast_list_id": &schema.Schema{
+			"receive_multi_cast_list_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"send_multi_cast_list_id": &schema.Schema{
+			"send_multi_cast_list_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"shared_enterprise": &schema.Schema{
+			"shared_enterprise": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Computed: true,
 			},
-			"dictionary_version": &schema.Schema{
+			"dictionary_version": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  1,
 			},
-			"allow_advanced_qos_configuration": &schema.Schema{
+			"allow_advanced_qos_configuration": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"allow_gateway_management": &schema.Schema{
+			"allow_gateway_management": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"allow_trusted_forwarding_class": &schema.Schema{
+			"allow_trusted_forwarding_class": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"allowed_forwarding_classes": &schema.Schema{
+			"allowed_forwarding_classes": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"floating_ips_quota": &schema.Schema{
+			"floating_ips_quota": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"floating_ips_used": &schema.Schema{
+			"floating_ips_used": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"flow_collection_enabled": &schema.Schema{
+			"flow_collection_enabled": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "DISABLED",
 			},
-			"enable_application_performance_management": &schema.Schema{
+			"enable_application_performance_management": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"encryption_management_mode": &schema.Schema{
+			"encryption_management_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"enterprise_profile_id": &schema.Schema{
+			"enterprise_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"local_as": &schema.Schema{
+			"local_as": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"associated_enterprise_security_id": &schema.Schema{
+			"associated_enterprise_security_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_group_key_encryption_profile_id": &schema.Schema{
+			"associated_group_key_encryption_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_key_server_monitor_id": &schema.Schema{
+			"associated_key_server_monitor_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"customer_id": &schema.Schema{
+			"customer_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"avatar_data": &schema.Schema{
+			"avatar_data": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"avatar_type": &schema.Schema{
+			"avatar_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},

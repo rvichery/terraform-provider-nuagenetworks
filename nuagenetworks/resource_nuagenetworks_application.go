@@ -15,137 +15,137 @@ func resourceApplication() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"dscp": &schema.Schema{
+			"dscp": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"bandwidth": &schema.Schema{
+			"bandwidth": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"read_only": &schema.Schema{
+			"read_only": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"performance_monitor_type": &schema.Schema{
+			"performance_monitor_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "FIRST_PACKET",
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"destination_ip": &schema.Schema{
+			"destination_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"destination_port": &schema.Schema{
+			"destination_port": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"enable_pps": &schema.Schema{
+			"enable_pps": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"one_way_delay": &schema.Schema{
+			"one_way_delay": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"one_way_jitter": &schema.Schema{
+			"one_way_jitter": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"one_way_loss": &schema.Schema{
+			"one_way_loss": {
 				Type:     schema.TypeFloat,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"post_classification_path": &schema.Schema{
+			"post_classification_path": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "ANY",
 			},
-			"source_ip": &schema.Schema{
+			"source_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"source_port": &schema.Schema{
+			"source_port": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"app_id": &schema.Schema{
+			"app_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Computed: true,
 			},
-			"optimize_path_selection": &schema.Schema{
+			"optimize_path_selection": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"pre_classification_path": &schema.Schema{
+			"pre_classification_path": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "DEFAULT",
 			},
-			"protocol": &schema.Schema{
+			"protocol": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "NONE",
 			},
-			"associated_l7_application_signature_id": &schema.Schema{
+			"associated_l7_application_signature_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ether_type": &schema.Schema{
+			"ether_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"symmetry": &schema.Schema{
+			"symmetry": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

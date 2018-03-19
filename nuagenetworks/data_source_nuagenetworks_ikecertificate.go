@@ -12,67 +12,67 @@ func dataSourceIKECertificate() *schema.Resource {
 		Read: dataSourceIKECertificateRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"pem_encoded": &schema.Schema{
+			"pem_encoded": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"serial_number": &schema.Schema{
+			"serial_number": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"not_after": &schema.Schema{
+			"not_after": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"not_before": &schema.Schema{
+			"not_before": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"associated_enterprise_id": &schema.Schema{
+			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"issuer_dn": &schema.Schema{
+			"issuer_dn": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"subject_dn": &schema.Schema{
+			"subject_dn": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -113,9 +113,9 @@ func dataSourceIKECertificateRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredIKECertificates) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		IKECertificate = filteredIKECertificates[0]
 	}
+
+	IKECertificate = filteredIKECertificates[0]
 
 	d.Set("pem_encoded", IKECertificate.PEMEncoded)
 	d.Set("name", IKECertificate.Name)

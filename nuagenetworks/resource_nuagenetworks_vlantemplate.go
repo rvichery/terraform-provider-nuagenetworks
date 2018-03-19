@@ -1,6 +1,7 @@
 package nuagenetworks
 
 import (
+	"fmt"
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/nuagenetworks/vspk-go/vspk"
 )
@@ -15,90 +16,89 @@ func resourceVLANTemplate() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"value": &schema.Schema{
+			"value": {
 				Type:     schema.TypeInt,
-				Optional: true,
-				Computed: true,
+				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"is_uplink": &schema.Schema{
+			"is_uplink": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_connection_type": &schema.Schema{
+			"associated_connection_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_egress_qos_policy_id": &schema.Schema{
+			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_ingress_qos_policy_id": &schema.Schema{
+			"associated_ingress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_uplink_connection_id": &schema.Schema{
+			"associated_uplink_connection_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_vsc_profile_id": &schema.Schema{
+			"associated_vsc_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"duc_vlan": &schema.Schema{
+			"duc_vlan": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_ns_port_template": &schema.Schema{
+			"parent_ns_port_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_port_template"},
 			},
-			"parent_port_template": &schema.Schema{
+			"parent_port_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ns_port_template"},
@@ -134,6 +134,8 @@ func resourceVLANTemplateCreate(d *schema.ResourceData, m interface{}) error {
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
 	}
+
+	fmt.Println("Value %d", o.Value)
 	if attr, ok := d.GetOk("parent_ns_port_template"); ok {
 		parent := &vspk.NSPortTemplate{ID: attr.(string)}
 		err := parent.CreateVLANTemplate(o)

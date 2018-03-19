@@ -15,118 +15,118 @@ func resourceZFBRequest() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"mac_address": &schema.Schema{
+			"mac_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"zfb_approval_status": &schema.Schema{
+			"zfb_approval_status": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"zfb_bootstrap_enabled": &schema.Schema{
+			"zfb_bootstrap_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"zfb_info": &schema.Schema{
+			"zfb_info": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"zfb_request_retry_timer": &schema.Schema{
+			"zfb_request_retry_timer": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"sku": &schema.Schema{
+			"sku": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ip_address": &schema.Schema{
+			"ip_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"cpu_type": &schema.Schema{
+			"cpu_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nsg_version": &schema.Schema{
+			"nsg_version": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"uuid": &schema.Schema{
+			"uuid": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"family": &schema.Schema{
+			"family": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_connected_time": &schema.Schema{
+			"last_connected_time": {
 				Type:     schema.TypeFloat,
 				Optional: true,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"serial_number": &schema.Schema{
+			"serial_number": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"hostname": &schema.Schema{
+			"hostname": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_enterprise_id": &schema.Schema{
+			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_enterprise_name": &schema.Schema{
+			"associated_enterprise_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_ns_gateway_id": &schema.Schema{
+			"associated_ns_gateway_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_ns_gateway_name": &schema.Schema{
+			"associated_ns_gateway_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"status_string": &schema.Schema{
+			"status_string": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},

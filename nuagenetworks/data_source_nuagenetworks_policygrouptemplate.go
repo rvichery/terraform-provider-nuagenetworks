@@ -12,56 +12,56 @@ func dataSourcePolicyGroupTemplate() *schema.Resource {
 		Read: dataSourcePolicyGroupTemplateRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"evpn_community_tag": &schema.Schema{
+			"evpn_community_tag": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external": &schema.Schema{
+			"external": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_l2_domain_template": &schema.Schema{
+			"parent_l2_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain_template"},
 			},
-			"parent_domain_template": &schema.Schema{
+			"parent_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_l2_domain_template"},
@@ -111,9 +111,9 @@ func dataSourcePolicyGroupTemplateRead(d *schema.ResourceData, m interface{}) er
 	if len(filteredPolicyGroupTemplates) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		PolicyGroupTemplate = filteredPolicyGroupTemplates[0]
 	}
+
+	PolicyGroupTemplate = filteredPolicyGroupTemplates[0]
 
 	d.Set("evpn_community_tag", PolicyGroupTemplate.EVPNCommunityTag)
 	d.Set("name", PolicyGroupTemplate.Name)

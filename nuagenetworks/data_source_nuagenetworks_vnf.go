@@ -12,104 +12,104 @@ func dataSourceVNF() *schema.Resource {
 		Read: dataSourceVNFRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vnf_descriptor_id": &schema.Schema{
+			"vnf_descriptor_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vnf_descriptor_name": &schema.Schema{
+			"vnf_descriptor_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"cpu_count": &schema.Schema{
+			"cpu_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"nsg_name": &schema.Schema{
+			"nsg_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nsg_system_id": &schema.Schema{
+			"nsg_system_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ns_gateway_id": &schema.Schema{
+			"ns_gateway_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"task_state": &schema.Schema{
+			"task_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_known_error": &schema.Schema{
+			"last_known_error": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"memory_mb": &schema.Schema{
+			"memory_mb": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"vendor": &schema.Schema{
+			"vendor": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"metadata_id": &schema.Schema{
+			"metadata_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"allowed_actions": &schema.Schema{
+			"allowed_actions": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"is_attached_to_descriptor": &schema.Schema{
+			"is_attached_to_descriptor": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"associated_vnf_metadata_id": &schema.Schema{
+			"associated_vnf_metadata_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_vnf_threshold_policy_id": &schema.Schema{
+			"associated_vnf_threshold_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"storage_gb": &schema.Schema{
+			"storage_gb": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -150,9 +150,9 @@ func dataSourceVNFRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredVNFs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VNF = filteredVNFs[0]
 	}
+
+	VNF = filteredVNFs[0]
 
 	d.Set("vnf_descriptor_id", VNF.VNFDescriptorID)
 	d.Set("vnf_descriptor_name", VNF.VNFDescriptorName)

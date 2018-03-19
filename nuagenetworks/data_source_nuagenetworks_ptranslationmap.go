@@ -12,36 +12,36 @@ func dataSourcePTranslationMap() *schema.Resource {
 		Read: dataSourcePTranslationMapRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"spat_source_list": &schema.Schema{
+			"spat_source_list": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"mapping_type": &schema.Schema{
+			"mapping_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"provider_alias_ip": &schema.Schema{
+			"provider_alias_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"provider_ip": &schema.Schema{
+			"provider_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_psnat_pool": &schema.Schema{
+			"parent_psnat_pool": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -82,9 +82,9 @@ func dataSourcePTranslationMapRead(d *schema.ResourceData, m interface{}) error 
 	if len(filteredPTranslationMaps) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		PTranslationMap = filteredPTranslationMaps[0]
 	}
+
+	PTranslationMap = filteredPTranslationMaps[0]
 
 	d.Set("spat_source_list", PTranslationMap.SPATSourceList)
 	d.Set("mapping_type", PTranslationMap.MappingType)

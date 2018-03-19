@@ -15,77 +15,77 @@ func resourceVPortMirror() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"vport_name": &schema.Schema{
+			"vport_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"network_name": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"mirror_destination_id": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"mirror_destination_name": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"mirror_direction": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"enterpise_name": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"entity_scope": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"domain_name": &schema.Schema{
+			"network_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vport_id": &schema.Schema{
+			"mirror_destination_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"attached_network_type": &schema.Schema{
+			"mirror_destination_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"mirror_direction": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_vport": &schema.Schema{
+			"enterpise_name": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"entity_scope": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Computed: true,
+			},
+			"domain_name": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"vport_id": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"attached_network_type": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"external_id": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"parent_vport": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

@@ -12,48 +12,48 @@ func dataSourceContainerResync() *schema.Resource {
 		Read: dataSourceContainerResyncRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_request_timestamp": &schema.Schema{
+			"last_request_timestamp": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_time_resync_initiated": &schema.Schema{
+			"last_time_resync_initiated": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container"},
 			},
-			"parent_container": &schema.Schema{
+			"parent_container": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_subnet"},
@@ -103,9 +103,9 @@ func dataSourceContainerResyncRead(d *schema.ResourceData, m interface{}) error 
 	if len(filteredContainerResyncs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		ContainerResync = filteredContainerResyncs[0]
 	}
+
+	ContainerResync = filteredContainerResyncs[0]
 
 	d.Set("last_request_timestamp", ContainerResync.LastRequestTimestamp)
 	d.Set("last_time_resync_initiated", ContainerResync.LastTimeResyncInitiated)

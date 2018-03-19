@@ -12,152 +12,152 @@ func dataSourceL2Domain() *schema.Resource {
 		Read: dataSourceL2DomainRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dhcp_managed": &schema.Schema{
+			"dhcp_managed": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"dpi": &schema.Schema{
+			"dpi": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ipv6_address": &schema.Schema{
+			"ipv6_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ipv6_gateway": &schema.Schema{
+			"ipv6_gateway": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"maintenance_mode": &schema.Schema{
+			"maintenance_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway": &schema.Schema{
+			"gateway": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_mac_address": &schema.Schema{
+			"gateway_mac_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"service_id": &schema.Schema{
+			"service_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"flow_collection_enabled": &schema.Schema{
+			"flow_collection_enabled": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vn_id": &schema.Schema{
+			"vn_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"encryption": &schema.Schema{
+			"encryption": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_state": &schema.Schema{
+			"entity_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"policy_change_status": &schema.Schema{
+			"policy_change_status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"route_distinguisher": &schema.Schema{
+			"route_distinguisher": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"route_target": &schema.Schema{
+			"route_target": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"uplink_preference": &schema.Schema{
+			"uplink_preference": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"use_global_mac": &schema.Schema{
+			"use_global_mac": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_multicast_channel_map_id": &schema.Schema{
+			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_shared_network_resource_id": &schema.Schema{
+			"associated_shared_network_resource_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_underlay_id": &schema.Schema{
+			"associated_underlay_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"stretched": &schema.Schema{
+			"stretched": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"multicast": &schema.Schema{
+			"multicast": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dynamic_ipv6_address": &schema.Schema{
+			"dynamic_ipv6_address": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"parent_l2_domain_template": &schema.Schema{
+			"parent_l2_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_l2_domain_template"},
@@ -213,9 +213,9 @@ func dataSourceL2DomainRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredL2Domains) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		L2Domain = filteredL2Domains[0]
 	}
+
+	L2Domain = filteredL2Domains[0]
 
 	d.Set("dhcp_managed", L2Domain.DHCPManaged)
 	d.Set("dpi", L2Domain.DPI)

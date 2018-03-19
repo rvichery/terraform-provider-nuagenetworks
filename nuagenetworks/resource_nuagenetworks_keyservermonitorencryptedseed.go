@@ -15,69 +15,69 @@ func resourceKeyServerMonitorEncryptedSeed() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"sek_creation_time": &schema.Schema{
+			"sek_creation_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"key_server_certificate_serial_number": &schema.Schema{
+			"key_server_certificate_serial_number": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"enterprise_secured_data_id": &schema.Schema{
+			"enterprise_secured_data_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_key_server_monitor_sek_creation_time": &schema.Schema{
+			"associated_key_server_monitor_sek_creation_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"associated_key_server_monitor_sekid": &schema.Schema{
+			"associated_key_server_monitor_sekid": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_key_server_monitor_seed_creation_time": &schema.Schema{
+			"associated_key_server_monitor_seed_creation_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"associated_key_server_monitor_seed_id": &schema.Schema{
+			"associated_key_server_monitor_seed_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_key_server_monitor": &schema.Schema{
+			"parent_key_server_monitor": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

@@ -15,35 +15,35 @@ func resourceCustomProperty() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"attribute_name": &schema.Schema{
+			"attribute_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"attribute_value": &schema.Schema{
+			"attribute_value": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_uplink_connection": &schema.Schema{
+			"parent_uplink_connection": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

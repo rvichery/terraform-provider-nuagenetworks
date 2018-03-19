@@ -12,59 +12,59 @@ func dataSourceVSDComponent() *schema.Resource {
 		Read: dataSourceVSDComponentRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"management_ip": &schema.Schema{
+			"management_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"location": &schema.Schema{
+			"location": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"product_version": &schema.Schema{
+			"product_version": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vsd": &schema.Schema{
+			"parent_vsd": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -105,9 +105,9 @@ func dataSourceVSDComponentRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredVSDComponents) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VSDComponent = filteredVSDComponents[0]
 	}
+
+	VSDComponent = filteredVSDComponents[0]
 
 	d.Set("name", VSDComponent.Name)
 	d.Set("management_ip", VSDComponent.ManagementIP)

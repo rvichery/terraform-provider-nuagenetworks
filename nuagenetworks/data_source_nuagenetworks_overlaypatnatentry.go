@@ -12,39 +12,39 @@ func dataSourceOverlayPATNATEntry() *schema.Resource {
 		Read: dataSourceOverlayPATNATEntryRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nat_enabled": &schema.Schema{
+			"nat_enabled": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"private_ip": &schema.Schema{
+			"private_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_domain_id": &schema.Schema{
+			"associated_domain_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_link_id": &schema.Schema{
+			"associated_link_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"public_ip": &schema.Schema{
+			"public_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_overlay_address_pool": &schema.Schema{
+			"parent_overlay_address_pool": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -85,9 +85,9 @@ func dataSourceOverlayPATNATEntryRead(d *schema.ResourceData, m interface{}) err
 	if len(filteredOverlayPATNATEntries) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		OverlayPATNATEntry = filteredOverlayPATNATEntries[0]
 	}
+
+	OverlayPATNATEntry = filteredOverlayPATNATEntries[0]
 
 	d.Set("nat_enabled", OverlayPATNATEntry.NATEnabled)
 	d.Set("private_ip", OverlayPATNATEntry.PrivateIP)

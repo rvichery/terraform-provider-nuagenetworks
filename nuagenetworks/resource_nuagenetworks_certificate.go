@@ -15,52 +15,52 @@ func resourceCertificate() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"pem_encoded": &schema.Schema{
+			"pem_encoded": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"serial_number": &schema.Schema{
+			"serial_number": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"issuer_dn": &schema.Schema{
+			"issuer_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"subject_dn": &schema.Schema{
+			"subject_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"public_key": &schema.Schema{
+			"public_key": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},

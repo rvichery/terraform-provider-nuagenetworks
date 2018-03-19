@@ -15,99 +15,99 @@ func resourcePort() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"vlan_range": &schema.Schema{
+			"vlan_range": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"physical_name": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"entity_scope": &schema.Schema{
+			"physical_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"port_type": &schema.Schema{
+			"entity_scope": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Computed: true,
+			},
+			"port_type": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"is_resilient": &schema.Schema{
+			"is_resilient": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"use_user_mnemonic": &schema.Schema{
+			"use_user_mnemonic": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"user_mnemonic": &schema.Schema{
+			"user_mnemonic": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_egress_qos_policy_id": &schema.Schema{
+			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_redundant_port_id": &schema.Schema{
+			"associated_redundant_port_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_redundancy_group": &schema.Schema{
+			"parent_redundancy_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_gateway"},
 			},
-			"parent_gateway": &schema.Schema{
+			"parent_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group"},

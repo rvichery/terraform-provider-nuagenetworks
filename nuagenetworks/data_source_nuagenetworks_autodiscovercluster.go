@@ -12,43 +12,43 @@ func dataSourceAutoDiscoverCluster() *schema.Resource {
 		Read: dataSourceAutoDiscoverClusterRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"managed_object_id": &schema.Schema{
+			"managed_object_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"assoc_vcenter_data_center_id": &schema.Schema{
+			"assoc_vcenter_data_center_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vcenter_data_center": &schema.Schema{
+			"parent_vcenter_data_center": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -89,9 +89,9 @@ func dataSourceAutoDiscoverClusterRead(d *schema.ResourceData, m interface{}) er
 	if len(filteredAutoDiscoverClusters) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		AutoDiscoverCluster = filteredAutoDiscoverClusters[0]
 	}
+
+	AutoDiscoverCluster = filteredAutoDiscoverClusters[0]
 
 	d.Set("name", AutoDiscoverCluster.Name)
 	d.Set("managed_object_id", AutoDiscoverCluster.ManagedObjectID)

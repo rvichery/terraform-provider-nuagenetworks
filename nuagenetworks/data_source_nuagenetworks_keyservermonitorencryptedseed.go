@@ -12,64 +12,64 @@ func dataSourceKeyServerMonitorEncryptedSeed() *schema.Resource {
 		Read: dataSourceKeyServerMonitorEncryptedSeedRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"sek_creation_time": &schema.Schema{
+			"sek_creation_time": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"key_server_certificate_serial_number": &schema.Schema{
+			"key_server_certificate_serial_number": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"enterprise_secured_data_id": &schema.Schema{
+			"enterprise_secured_data_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_key_server_monitor_sek_creation_time": &schema.Schema{
+			"associated_key_server_monitor_sek_creation_time": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"associated_key_server_monitor_sekid": &schema.Schema{
+			"associated_key_server_monitor_sekid": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_key_server_monitor_seed_creation_time": &schema.Schema{
+			"associated_key_server_monitor_seed_creation_time": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"associated_key_server_monitor_seed_id": &schema.Schema{
+			"associated_key_server_monitor_seed_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_key_server_monitor_seed": &schema.Schema{
+			"parent_key_server_monitor_seed": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_key_server_monitor"},
 			},
-			"parent_key_server_monitor": &schema.Schema{
+			"parent_key_server_monitor": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_key_server_monitor_seed"},
@@ -119,9 +119,9 @@ func dataSourceKeyServerMonitorEncryptedSeedRead(d *schema.ResourceData, m inter
 	if len(filteredKeyServerMonitorEncryptedSeeds) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		KeyServerMonitorEncryptedSeed = filteredKeyServerMonitorEncryptedSeeds[0]
 	}
+
+	KeyServerMonitorEncryptedSeed = filteredKeyServerMonitorEncryptedSeeds[0]
 
 	d.Set("sek_creation_time", KeyServerMonitorEncryptedSeed.SEKCreationTime)
 	d.Set("last_updated_by", KeyServerMonitorEncryptedSeed.LastUpdatedBy)

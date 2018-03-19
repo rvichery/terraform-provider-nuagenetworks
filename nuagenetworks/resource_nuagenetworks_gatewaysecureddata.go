@@ -15,57 +15,57 @@ func resourceGatewaySecuredData() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"data": &schema.Schema{
+			"data": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"gateway_cert_serial_number": &schema.Schema{
+			"gateway_cert_serial_number": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"keyserver_cert_serial_number": &schema.Schema{
+			"keyserver_cert_serial_number": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"signed_data": &schema.Schema{
+			"signed_data": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_gateway_security": &schema.Schema{
+			"parent_gateway_security": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

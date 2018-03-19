@@ -12,140 +12,140 @@ func dataSourceContainerInterface() *schema.Resource {
 		Read: dataSourceContainerInterfaceRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mac": &schema.Schema{
+			"mac": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ip_address": &schema.Schema{
+			"ip_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vport_id": &schema.Schema{
+			"vport_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vport_name": &schema.Schema{
+			"vport_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway": &schema.Schema{
+			"gateway": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"network_id": &schema.Schema{
+			"network_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"network_name": &schema.Schema{
+			"network_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"tier_id": &schema.Schema{
+			"tier_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"endpoint_id": &schema.Schema{
+			"endpoint_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"policy_decision_id": &schema.Schema{
+			"policy_decision_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"domain_id": &schema.Schema{
+			"domain_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"domain_name": &schema.Schema{
+			"domain_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"zone_id": &schema.Schema{
+			"zone_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"zone_name": &schema.Schema{
+			"zone_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"container_uuid": &schema.Schema{
+			"container_uuid": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_floating_ip_address": &schema.Schema{
+			"associated_floating_ip_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"attached_network_id": &schema.Schema{
+			"attached_network_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"attached_network_type": &schema.Schema{
+			"attached_network_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"multi_nic_vport_name": &schema.Schema{
+			"multi_nic_vport_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_zone": &schema.Schema{
+			"parent_zone": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain", "parent_vport", "parent_subnet", "parent_container", "parent_l2_domain"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_vport", "parent_subnet", "parent_container", "parent_l2_domain"},
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_subnet", "parent_container", "parent_l2_domain"},
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_vport", "parent_container", "parent_l2_domain"},
 			},
-			"parent_container": &schema.Schema{
+			"parent_container": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_l2_domain"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_container"},
@@ -225,9 +225,9 @@ func dataSourceContainerInterfaceRead(d *schema.ResourceData, m interface{}) err
 	if len(filteredContainerInterfaces) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		ContainerInterface = filteredContainerInterfaces[0]
 	}
+
+	ContainerInterface = filteredContainerInterfaces[0]
 
 	d.Set("mac", ContainerInterface.MAC)
 	d.Set("ip_address", ContainerInterface.IPAddress)

@@ -12,36 +12,36 @@ func dataSourceApplicationBinding() *schema.Resource {
 		Read: dataSourceApplicationBindingRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"read_only": &schema.Schema{
+			"read_only": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"associated_application_id": &schema.Schema{
+			"associated_application_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_applicationperformancemanagement": &schema.Schema{
+			"parent_applicationperformancemanagement": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_application"},
 			},
-			"parent_application": &schema.Schema{
+			"parent_application": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_applicationperformancemanagement"},
@@ -91,9 +91,9 @@ func dataSourceApplicationBindingRead(d *schema.ResourceData, m interface{}) err
 	if len(filteredApplicationBindings) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		ApplicationBinding = filteredApplicationBindings[0]
 	}
+
+	ApplicationBinding = filteredApplicationBindings[0]
 
 	d.Set("read_only", ApplicationBinding.ReadOnly)
 	d.Set("priority", ApplicationBinding.Priority)

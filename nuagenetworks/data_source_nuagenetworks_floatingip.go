@@ -12,51 +12,51 @@ func dataSourceFloatingIp() *schema.Resource {
 		Read: dataSourceFloatingIpRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"access_control": &schema.Schema{
+			"access_control": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"assigned": &schema.Schema{
+			"assigned": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"assigned_to_object_type": &schema.Schema{
+			"assigned_to_object_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_shared_network_resource_id": &schema.Schema{
+			"associated_shared_network_resource_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
@@ -105,9 +105,9 @@ func dataSourceFloatingIpRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredFloatingIps) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		FloatingIp = filteredFloatingIps[0]
 	}
+
+	FloatingIp = filteredFloatingIps[0]
 
 	d.Set("last_updated_by", FloatingIp.LastUpdatedBy)
 	d.Set("access_control", FloatingIp.AccessControl)

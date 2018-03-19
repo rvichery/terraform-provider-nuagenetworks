@@ -12,52 +12,52 @@ func dataSourceAggregateMetadata() *schema.Resource {
 		Read: dataSourceAggregateMetadataRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"metadata_tag_ids": &schema.Schema{
+			"metadata_tag_ids": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"network_notification_disabled": &schema.Schema{
+			"network_notification_disabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"blob": &schema.Schema{
+			"blob": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"global_metadata": &schema.Schema{
+			"global_metadata": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -98,9 +98,9 @@ func dataSourceAggregateMetadataRead(d *schema.ResourceData, m interface{}) erro
 	if len(filteredAggregateMetadatas) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		AggregateMetadata = filteredAggregateMetadatas[0]
 	}
+
+	AggregateMetadata = filteredAggregateMetadatas[0]
 
 	d.Set("name", AggregateMetadata.Name)
 	d.Set("description", AggregateMetadata.Description)

@@ -15,93 +15,93 @@ func resourcePATNATPool() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"address_range": &schema.Schema{
+			"address_range": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"default_patip": &schema.Schema{
+			"default_patip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"end_address_range": &schema.Schema{
+			"end_address_range": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"end_source_address": &schema.Schema{
+			"end_source_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_gateway_id": &schema.Schema{
+			"associated_gateway_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_gateway_type": &schema.Schema{
+			"associated_gateway_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_subnet_id": &schema.Schema{
+			"associated_subnet_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_vlan_id": &schema.Schema{
+			"associated_vlan_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"start_address_range": &schema.Schema{
+			"start_address_range": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"start_source_address": &schema.Schema{
+			"start_source_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dynamic_source_enabled": &schema.Schema{
+			"dynamic_source_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},

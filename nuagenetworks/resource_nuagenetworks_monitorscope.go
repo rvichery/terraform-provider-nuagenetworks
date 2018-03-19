@@ -15,59 +15,59 @@ func resourceMonitorscope() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"read_only": &schema.Schema{
+			"read_only": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"destination_nsgs": &schema.Schema{
+			"destination_nsgs": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"allow_all_destination_nsgs": &schema.Schema{
+			"allow_all_destination_nsgs": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"allow_all_source_nsgs": &schema.Schema{
+			"allow_all_source_nsgs": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"source_nsgs": &schema.Schema{
+			"source_nsgs": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"parent_application": &schema.Schema{
+			"parent_application": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_network_performance_measurement"},
 			},
-			"parent_network_performance_measurement": &schema.Schema{
+			"parent_network_performance_measurement": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_application"},

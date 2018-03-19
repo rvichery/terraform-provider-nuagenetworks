@@ -12,36 +12,36 @@ func dataSourceVNFMetadata() *schema.Resource {
 		Read: dataSourceVNFMetadataRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"blob": &schema.Schema{
+			"blob": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vnf": &schema.Schema{
+			"parent_vnf": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vnf"},
@@ -97,9 +97,9 @@ func dataSourceVNFMetadataRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredVNFMetadatas) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VNFMetadata = filteredVNFMetadatas[0]
 	}
+
+	VNFMetadata = filteredVNFMetadatas[0]
 
 	d.Set("name", VNFMetadata.Name)
 	d.Set("description", VNFMetadata.Description)

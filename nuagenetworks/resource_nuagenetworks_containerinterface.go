@@ -15,125 +15,125 @@ func resourceContainerInterface() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"mac": &schema.Schema{
+			"mac": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ip_address": &schema.Schema{
+			"ip_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vport_id": &schema.Schema{
+			"vport_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vport_name": &schema.Schema{
+			"vport_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"gateway": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"netmask": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"network_id": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"network_name": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"tier_id": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"endpoint_id": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"entity_scope": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"policy_decision_id": &schema.Schema{
+			"gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"domain_id": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"domain_name": &schema.Schema{
+			"network_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"zone_id": &schema.Schema{
+			"network_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"zone_name": &schema.Schema{
+			"tier_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"container_uuid": &schema.Schema{
+			"endpoint_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_floating_ip_address": &schema.Schema{
+			"entity_scope": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Computed: true,
+			},
+			"policy_decision_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"attached_network_id": &schema.Schema{
+			"domain_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"attached_network_type": &schema.Schema{
+			"domain_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"multi_nic_vport_name": &schema.Schema{
+			"zone_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"zone_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_container": &schema.Schema{
+			"container_uuid": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"associated_floating_ip_address": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"attached_network_id": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"attached_network_type": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"multi_nic_vport_name": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"external_id": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"parent_container": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

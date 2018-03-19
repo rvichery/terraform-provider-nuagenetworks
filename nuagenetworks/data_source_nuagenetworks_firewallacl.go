@@ -12,49 +12,49 @@ func dataSourceFirewallAcl() *schema.Resource {
 		Read: dataSourceFirewallAclRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"active": &schema.Schema{
+			"active": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"default_allow_ip": &schema.Schema{
+			"default_allow_ip": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"default_allow_non_ip": &schema.Schema{
+			"default_allow_non_ip": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"rule_ids": &schema.Schema{
+			"rule_ids": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain"},
@@ -104,9 +104,9 @@ func dataSourceFirewallAclRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredFirewallAcls) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		FirewallAcl = filteredFirewallAcls[0]
 	}
+
+	FirewallAcl = filteredFirewallAcls[0]
 
 	d.Set("name", FirewallAcl.Name)
 	d.Set("active", FirewallAcl.Active)

@@ -12,59 +12,59 @@ func dataSourceDestinationurl() *schema.Resource {
 		Read: dataSourceDestinationurlRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"url": &schema.Schema{
+			"url": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"http_method": &schema.Schema{
+			"http_method": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"packet_count": &schema.Schema{
+			"packet_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"percentage_weight": &schema.Schema{
+			"percentage_weight": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"timeout": &schema.Schema{
+			"timeout": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"down_threshold_count": &schema.Schema{
+			"down_threshold_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"probe_interval": &schema.Schema{
+			"probe_interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_tier": &schema.Schema{
+			"parent_tier": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -105,9 +105,9 @@ func dataSourceDestinationurlRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredDestinationurls) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Destinationurl = filteredDestinationurls[0]
 	}
+
+	Destinationurl = filteredDestinationurls[0]
 
 	d.Set("url", Destinationurl.URL)
 	d.Set("http_method", Destinationurl.HTTPMethod)

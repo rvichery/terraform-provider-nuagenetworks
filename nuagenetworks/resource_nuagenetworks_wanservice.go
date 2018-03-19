@@ -15,118 +15,118 @@ func resourceWANService() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"wan_service_identifier": &schema.Schema{
+			"wan_service_identifier": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"irb_enabled": &schema.Schema{
+			"irb_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"service_policy": &schema.Schema{
+			"service_policy": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"service_type": &schema.Schema{
+			"service_type": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vn_id": &schema.Schema{
+			"vn_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"enterprise_name": &schema.Schema{
+			"enterprise_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"domain_name": &schema.Schema{
+			"domain_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"config_type": &schema.Schema{
+			"config_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"orphan": &schema.Schema{
+			"orphan": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"use_user_mnemonic": &schema.Schema{
+			"use_user_mnemonic": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"user_mnemonic": &schema.Schema{
+			"user_mnemonic": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_domain_id": &schema.Schema{
+			"associated_domain_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_vpn_connect_id": &schema.Schema{
+			"associated_vpn_connect_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"tunnel_type": &schema.Schema{
+			"tunnel_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_route_target": &schema.Schema{
+			"external_route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_redundancy_group": &schema.Schema{
+			"parent_redundancy_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_gateway"},
 			},
-			"parent_gateway": &schema.Schema{
+			"parent_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group"},

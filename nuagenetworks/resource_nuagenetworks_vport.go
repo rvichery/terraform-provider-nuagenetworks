@@ -15,149 +15,149 @@ func resourceVPort() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"vlanid": &schema.Schema{
+			"vlanid": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dpi": &schema.Schema{
+			"dpi": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "INHERITED",
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"has_attached_interfaces": &schema.Schema{
+			"has_attached_interfaces": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"gateway_mac_move_role": &schema.Schema{
+			"gateway_mac_move_role": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"active": &schema.Schema{
+			"active": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"address_spoofing": &schema.Schema{
+			"address_spoofing": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"segmentation_id": &schema.Schema{
+			"segmentation_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"segmentation_type": &schema.Schema{
+			"segmentation_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"flow_collection_enabled": &schema.Schema{
+			"flow_collection_enabled": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "INHERITED",
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"domain_id": &schema.Schema{
+			"domain_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"zone_id": &schema.Schema{
+			"zone_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"operational_state": &schema.Schema{
+			"operational_state": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"trunk_role": &schema.Schema{
+			"trunk_role": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_floating_ip_id": &schema.Schema{
+			"associated_floating_ip_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_multicast_channel_map_id": &schema.Schema{
+			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_ssid": &schema.Schema{
+			"associated_ssid": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_send_multicast_channel_map_id": &schema.Schema{
+			"associated_send_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_trunk_id": &schema.Schema{
+			"associated_trunk_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"sub_type": &schema.Schema{
+			"sub_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "NONE",
 			},
-			"multi_nic_vport_id": &schema.Schema{
+			"multi_nic_vport_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"multicast": &schema.Schema{
+			"multicast": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"system_type": &schema.Schema{
+			"system_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_l2_domain"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_subnet"},

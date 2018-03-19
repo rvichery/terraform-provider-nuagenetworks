@@ -15,83 +15,83 @@ func resourceBGPNeighbor() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"bfd_enabled": &schema.Schema{
+			"bfd_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"dampening_enabled": &schema.Schema{
+			"dampening_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"peer_as": &schema.Schema{
+			"peer_as": {
 				Type:     schema.TypeInt,
 				Required: true,
 			},
-			"peer_ip": &schema.Schema{
+			"peer_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"session": &schema.Schema{
+			"session": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_export_routing_policy_id": &schema.Schema{
+			"associated_export_routing_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_import_routing_policy_id": &schema.Schema{
+			"associated_import_routing_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_subnet", "parent_vlan"},
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport", "parent_vlan"},
 			},
-			"parent_vlan": &schema.Schema{
+			"parent_vlan": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport", "parent_subnet"},

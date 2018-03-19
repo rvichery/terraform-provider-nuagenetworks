@@ -12,56 +12,56 @@ func dataSourcePATIPEntry() *schema.Resource {
 		Read: dataSourcePATIPEntryRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"pat_centralized": &schema.Schema{
+			"pat_centralized": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"ip_address": &schema.Schema{
+			"ip_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_domain_id": &schema.Schema{
+			"associated_domain_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"hypervisor_id": &schema.Schema{
+			"hypervisor_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_shared_network_resource": &schema.Schema{
+			"parent_shared_network_resource": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_subnet"},
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource"},
@@ -111,9 +111,9 @@ func dataSourcePATIPEntryRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredPATIPEntries) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		PATIPEntry = filteredPATIPEntries[0]
 	}
+
+	PATIPEntry = filteredPATIPEntries[0]
 
 	d.Set("pat_centralized", PATIPEntry.PATCentralized)
 	d.Set("ip_address", PATIPEntry.IPAddress)

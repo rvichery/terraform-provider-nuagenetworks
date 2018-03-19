@@ -12,99 +12,99 @@ func dataSourceZone() *schema.Resource {
 		Read: dataSourceZoneRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dpi": &schema.Schema{
+			"dpi": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ipv6_address": &schema.Schema{
+			"ipv6_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"maintenance_mode": &schema.Schema{
+			"maintenance_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"flow_collection_enabled": &schema.Schema{
+			"flow_collection_enabled": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"encryption": &schema.Schema{
+			"encryption": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"policy_group_id": &schema.Schema{
+			"policy_group_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"associated_multicast_channel_map_id": &schema.Schema{
+			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"public_zone": &schema.Schema{
+			"public_zone": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"multicast": &schema.Schema{
+			"multicast": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"number_of_hosts_in_subnets": &schema.Schema{
+			"number_of_hosts_in_subnets": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dynamic_ipv6_address": &schema.Schema{
+			"dynamic_ipv6_address": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
@@ -153,9 +153,9 @@ func dataSourceZoneRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredZones) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Zone = filteredZones[0]
 	}
+
+	Zone = filteredZones[0]
 
 	d.Set("dpi", Zone.DPI)
 	d.Set("ip_type", Zone.IPType)

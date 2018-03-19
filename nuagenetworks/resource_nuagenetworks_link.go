@@ -15,78 +15,78 @@ func resourceLink() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"acceptance_criteria": &schema.Schema{
+			"acceptance_criteria": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "ALL",
 			},
-			"read_only": &schema.Schema{
+			"read_only": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_destination_id": &schema.Schema{
+			"associated_destination_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_destination_name": &schema.Schema{
+			"associated_destination_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_destination_type": &schema.Schema{
+			"associated_destination_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_source_id": &schema.Schema{
+			"associated_source_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_source_name": &schema.Schema{
+			"associated_source_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_source_type": &schema.Schema{
+			"associated_source_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

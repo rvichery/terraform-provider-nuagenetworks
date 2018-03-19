@@ -12,55 +12,55 @@ func dataSourceKeyServerMonitorSeed() *schema.Resource {
 		Read: dataSourceKeyServerMonitorSeedRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"seed_traffic_authentication_algorithm": &schema.Schema{
+			"seed_traffic_authentication_algorithm": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"seed_traffic_encryption_algorithm": &schema.Schema{
+			"seed_traffic_encryption_algorithm": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"seed_traffic_encryption_key_lifetime": &schema.Schema{
+			"seed_traffic_encryption_key_lifetime": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"lifetime": &schema.Schema{
+			"lifetime": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"creation_time": &schema.Schema{
+			"creation_time": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"start_time": &schema.Schema{
+			"start_time": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_key_server_monitor": &schema.Schema{
+			"parent_key_server_monitor": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -101,9 +101,9 @@ func dataSourceKeyServerMonitorSeedRead(d *schema.ResourceData, m interface{}) e
 	if len(filteredKeyServerMonitorSeeds) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		KeyServerMonitorSeed = filteredKeyServerMonitorSeeds[0]
 	}
+
+	KeyServerMonitorSeed = filteredKeyServerMonitorSeeds[0]
 
 	d.Set("last_updated_by", KeyServerMonitorSeed.LastUpdatedBy)
 	d.Set("seed_traffic_authentication_algorithm", KeyServerMonitorSeed.SeedTrafficAuthenticationAlgorithm)

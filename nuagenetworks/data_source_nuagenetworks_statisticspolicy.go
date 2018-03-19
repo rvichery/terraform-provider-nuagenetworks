@@ -12,78 +12,78 @@ func dataSourceStatisticsPolicy() *schema.Resource {
 		Read: dataSourceStatisticsPolicyRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"data_collection_frequency": &schema.Schema{
+			"data_collection_frequency": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_zone": &schema.Schema{
+			"parent_zone": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain", "parent_vport", "parent_subnet", "parent_address_map", "parent_l2_domain", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_vport", "parent_subnet", "parent_address_map", "parent_l2_domain", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_subnet", "parent_address_map", "parent_l2_domain", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_vport", "parent_address_map", "parent_l2_domain", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_address_map": &schema.Schema{
+			"parent_address_map": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_l2_domain", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_address_map", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_ns_port": &schema.Schema{
+			"parent_ns_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_address_map", "parent_l2_domain", "parent_patnat_pool"},
 			},
-			"parent_patnat_pool": &schema.Schema{
+			"parent_patnat_pool": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_address_map", "parent_l2_domain", "parent_ns_port"},
@@ -169,9 +169,9 @@ func dataSourceStatisticsPolicyRead(d *schema.ResourceData, m interface{}) error
 	if len(filteredStatisticsPolicies) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		StatisticsPolicy = filteredStatisticsPolicies[0]
 	}
+
+	StatisticsPolicy = filteredStatisticsPolicies[0]
 
 	d.Set("name", StatisticsPolicy.Name)
 	d.Set("last_updated_by", StatisticsPolicy.LastUpdatedBy)

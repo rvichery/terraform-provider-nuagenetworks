@@ -12,31 +12,31 @@ func dataSourceDefaultGateway() *schema.Resource {
 		Read: dataSourceDefaultGatewayRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_ip_address": &schema.Schema{
+			"gateway_ip_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_mac_address": &schema.Schema{
+			"gateway_mac_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -77,9 +77,9 @@ func dataSourceDefaultGatewayRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredDefaultGateways) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		DefaultGateway = filteredDefaultGateways[0]
 	}
+
+	DefaultGateway = filteredDefaultGateways[0]
 
 	d.Set("name", DefaultGateway.Name)
 	d.Set("gateway_ip_address", DefaultGateway.GatewayIPAddress)

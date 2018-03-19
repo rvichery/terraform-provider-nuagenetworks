@@ -12,35 +12,35 @@ func dataSourceSSHKey() *schema.Resource {
 		Read: dataSourceSSHKeyRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"key_type": &schema.Schema{
+			"key_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"public_key": &schema.Schema{
+			"public_key": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_infrastructure_access_profile": &schema.Schema{
+			"parent_infrastructure_access_profile": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -81,9 +81,9 @@ func dataSourceSSHKeyRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredSSHKeys) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		SSHKey = filteredSSHKeys[0]
 	}
+
+	SSHKey = filteredSSHKeys[0]
 
 	d.Set("name", SSHKey.Name)
 	d.Set("description", SSHKey.Description)

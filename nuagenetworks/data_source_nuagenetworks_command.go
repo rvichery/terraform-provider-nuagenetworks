@@ -12,71 +12,71 @@ func dataSourceCommand() *schema.Resource {
 		Read: dataSourceCommandRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"detailed_status": &schema.Schema{
+			"detailed_status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"detailed_status_code": &schema.Schema{
+			"detailed_status_code": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"command": &schema.Schema{
+			"command": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"command_information": &schema.Schema{
+			"command_information": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_param": &schema.Schema{
+			"associated_param": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_param_type": &schema.Schema{
+			"associated_param_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"full_command": &schema.Schema{
+			"full_command": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"summary": &schema.Schema{
+			"summary": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"override": &schema.Schema{
+			"override": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -117,9 +117,9 @@ func dataSourceCommandRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredCommands) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Command = filteredCommands[0]
 	}
+
+	Command = filteredCommands[0]
 
 	d.Set("last_updated_by", Command.LastUpdatedBy)
 	d.Set("detailed_status", Command.DetailedStatus)

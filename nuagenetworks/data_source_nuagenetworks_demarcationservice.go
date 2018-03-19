@@ -12,39 +12,39 @@ func dataSourceDemarcationService() *schema.Resource {
 		Read: dataSourceDemarcationServiceRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"route_distinguisher": &schema.Schema{
+			"route_distinguisher": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"associated_gateway_id": &schema.Schema{
+			"associated_gateway_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_vlanid": &schema.Schema{
+			"associated_vlanid": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_link": &schema.Schema{
+			"parent_link": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -85,9 +85,9 @@ func dataSourceDemarcationServiceRead(d *schema.ResourceData, m interface{}) err
 	if len(filteredDemarcationServices) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		DemarcationService = filteredDemarcationServices[0]
 	}
+
+	DemarcationService = filteredDemarcationServices[0]
 
 	d.Set("route_distinguisher", DemarcationService.RouteDistinguisher)
 	d.Set("priority", DemarcationService.Priority)

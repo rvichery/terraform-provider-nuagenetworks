@@ -12,31 +12,31 @@ func dataSourceCTranslationMap() *schema.Resource {
 		Read: dataSourceCTranslationMapRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mapping_type": &schema.Schema{
+			"mapping_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"customer_alias_ip": &schema.Schema{
+			"customer_alias_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"customer_ip": &schema.Schema{
+			"customer_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_csnat_pool": &schema.Schema{
+			"parent_csnat_pool": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -77,9 +77,9 @@ func dataSourceCTranslationMapRead(d *schema.ResourceData, m interface{}) error 
 	if len(filteredCTranslationMaps) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		CTranslationMap = filteredCTranslationMaps[0]
 	}
+
+	CTranslationMap = filteredCTranslationMaps[0]
 
 	d.Set("mapping_type", CTranslationMap.MappingType)
 	d.Set("customer_alias_ip", CTranslationMap.CustomerAliasIP)

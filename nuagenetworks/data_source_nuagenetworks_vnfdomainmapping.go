@@ -12,35 +12,35 @@ func dataSourceVNFDomainMapping() *schema.Resource {
 		Read: dataSourceVNFDomainMappingRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"segmentation_id": &schema.Schema{
+			"segmentation_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"segmentation_type": &schema.Schema{
+			"segmentation_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_ns_gateway_id": &schema.Schema{
+			"associated_ns_gateway_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_ns_gateway_name": &schema.Schema{
+			"associated_ns_gateway_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -81,9 +81,9 @@ func dataSourceVNFDomainMappingRead(d *schema.ResourceData, m interface{}) error
 	if len(filteredVNFDomainMappings) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VNFDomainMapping = filteredVNFDomainMappings[0]
 	}
+
+	VNFDomainMapping = filteredVNFDomainMappings[0]
 
 	d.Set("segmentation_id", VNFDomainMapping.SegmentationID)
 	d.Set("segmentation_type", VNFDomainMapping.SegmentationType)

@@ -12,140 +12,140 @@ func dataSourceSharedNetworkResource() *schema.Resource {
 		Read: dataSourceSharedNetworkResourceRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ecmp_count": &schema.Schema{
+			"ecmp_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"dhcp_managed": &schema.Schema{
+			"dhcp_managed": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"back_haul_route_distinguisher": &schema.Schema{
+			"back_haul_route_distinguisher": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"back_haul_route_target": &schema.Schema{
+			"back_haul_route_target": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"back_haul_vnid": &schema.Schema{
+			"back_haul_vnid": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway": &schema.Schema{
+			"gateway": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_mac_address": &schema.Schema{
+			"gateway_mac_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"access_restriction_enabled": &schema.Schema{
+			"access_restriction_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"permitted_action_type": &schema.Schema{
+			"permitted_action_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"shared_resource_parent_id": &schema.Schema{
+			"shared_resource_parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vn_id": &schema.Schema{
+			"vn_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"underlay": &schema.Schema{
+			"underlay": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"domain_route_distinguisher": &schema.Schema{
+			"domain_route_distinguisher": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"domain_route_target": &schema.Schema{
+			"domain_route_target": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"uplink_gw_vlan_attachment_id": &schema.Schema{
+			"uplink_gw_vlan_attachment_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"uplink_interface_ip": &schema.Schema{
+			"uplink_interface_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"uplink_interface_mac": &schema.Schema{
+			"uplink_interface_mac": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"uplink_vport_name": &schema.Schema{
+			"uplink_vport_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"use_global_mac": &schema.Schema{
+			"use_global_mac": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_pat_mapper_id": &schema.Schema{
+			"associated_pat_mapper_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dynamic_pat_allocation_enabled": &schema.Schema{
+			"dynamic_pat_allocation_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_pat_mapper": &schema.Schema{
+			"parent_pat_mapper": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_pat_mapper"},
@@ -201,9 +201,9 @@ func dataSourceSharedNetworkResourceRead(d *schema.ResourceData, m interface{}) 
 	if len(filteredSharedNetworkResources) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		SharedNetworkResource = filteredSharedNetworkResources[0]
 	}
+
+	SharedNetworkResource = filteredSharedNetworkResources[0]
 
 	d.Set("ecmp_count", SharedNetworkResource.ECMPCount)
 	d.Set("dhcp_managed", SharedNetworkResource.DHCPManaged)

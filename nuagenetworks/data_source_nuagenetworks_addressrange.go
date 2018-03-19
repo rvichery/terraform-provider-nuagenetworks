@@ -12,67 +12,67 @@ func dataSourceAddressRange() *schema.Resource {
 		Read: dataSourceAddressRangeRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dhcp_pool_type": &schema.Schema{
+			"dhcp_pool_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"max_address": &schema.Schema{
+			"max_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"min_address": &schema.Schema{
+			"min_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_shared_network_resource": &schema.Schema{
+			"parent_shared_network_resource": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_subnet_template", "parent_subnet", "parent_l2_domain_template", "parent_l2_domain"},
 			},
-			"parent_subnet_template": &schema.Schema{
+			"parent_subnet_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_subnet", "parent_l2_domain_template", "parent_l2_domain"},
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_subnet_template", "parent_l2_domain_template", "parent_l2_domain"},
 			},
-			"parent_l2_domain_template": &schema.Schema{
+			"parent_l2_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_subnet_template", "parent_subnet", "parent_l2_domain"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_subnet_template", "parent_subnet", "parent_l2_domain_template"},
@@ -140,9 +140,9 @@ func dataSourceAddressRangeRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredAddressRanges) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		AddressRange = filteredAddressRanges[0]
 	}
+
+	AddressRange = filteredAddressRanges[0]
 
 	d.Set("dhcp_pool_type", AddressRange.DHCPPoolType)
 	d.Set("ip_type", AddressRange.IPType)

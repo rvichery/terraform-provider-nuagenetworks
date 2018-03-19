@@ -15,88 +15,88 @@ func resourceCommand() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"detailed_status": &schema.Schema{
+			"detailed_status": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"detailed_status_code": &schema.Schema{
+			"detailed_status_code": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"command": &schema.Schema{
+			"command": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"command_information": &schema.Schema{
+			"command_information": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_param": &schema.Schema{
+			"associated_param": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_param_type": &schema.Schema{
+			"associated_param_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"status": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"full_command": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"summary": &schema.Schema{
+			"full_command": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"override": &schema.Schema{
+			"summary": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Computed: true,
+			},
+			"override": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "UNSPECIFIED",
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

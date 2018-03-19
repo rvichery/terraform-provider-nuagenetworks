@@ -15,231 +15,231 @@ func resourceDomain() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"pat_enabled": &schema.Schema{
+			"pat_enabled": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ecmp_count": &schema.Schema{
+			"ecmp_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"bgp_enabled": &schema.Schema{
+			"bgp_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"dhcp_behavior": &schema.Schema{
+			"dhcp_behavior": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dhcp_server_address": &schema.Schema{
+			"dhcp_server_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"fip_underlay": &schema.Schema{
+			"fip_underlay": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"dpi": &schema.Schema{
+			"dpi": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "DISABLED",
 			},
-			"label_id": &schema.Schema{
+			"label_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"back_haul_route_distinguisher": &schema.Schema{
+			"back_haul_route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"back_haul_route_target": &schema.Schema{
+			"back_haul_route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"back_haul_service_id": &schema.Schema{
+			"back_haul_service_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Computed: true,
 			},
-			"back_haul_subnet_ip_address": &schema.Schema{
+			"back_haul_subnet_ip_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"back_haul_subnet_mask": &schema.Schema{
+			"back_haul_subnet_mask": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"back_haul_vnid": &schema.Schema{
+			"back_haul_vnid": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"maintenance_mode": &schema.Schema{
+			"maintenance_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"advertise_criteria": &schema.Schema{
+			"advertise_criteria": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"leaking_enabled": &schema.Schema{
+			"leaking_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"secondary_dhcp_server_address": &schema.Schema{
+			"secondary_dhcp_server_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"service_id": &schema.Schema{
+			"service_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dhcp_server_addresses": &schema.Schema{
+			"dhcp_server_addresses": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"global_routing_enabled": &schema.Schema{
+			"global_routing_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"flow_collection_enabled": &schema.Schema{
+			"flow_collection_enabled": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "INHERITED",
 			},
-			"import_route_target": &schema.Schema{
+			"import_route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"encryption": &schema.Schema{
+			"encryption": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"underlay_enabled": &schema.Schema{
+			"underlay_enabled": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"local_as": &schema.Schema{
+			"local_as": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"policy_change_status": &schema.Schema{
+			"policy_change_status": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"domain_id": &schema.Schema{
+			"domain_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"domain_vlanid": &schema.Schema{
+			"domain_vlanid": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"route_distinguisher": &schema.Schema{
+			"route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"route_target": &schema.Schema{
+			"route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"uplink_preference": &schema.Schema{
+			"uplink_preference": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_bgp_profile_id": &schema.Schema{
+			"associated_bgp_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_multicast_channel_map_id": &schema.Schema{
+			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_pat_mapper_id": &schema.Schema{
+			"associated_pat_mapper_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_shared_pat_mapper_id": &schema.Schema{
+			"associated_shared_pat_mapper_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_underlay_id": &schema.Schema{
+			"associated_underlay_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"stretched": &schema.Schema{
+			"stretched": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"multicast": &schema.Schema{
+			"multicast": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"tunnel_type": &schema.Schema{
+			"tunnel_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"customer_id": &schema.Schema{
+			"customer_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"export_route_target": &schema.Schema{
+			"export_route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

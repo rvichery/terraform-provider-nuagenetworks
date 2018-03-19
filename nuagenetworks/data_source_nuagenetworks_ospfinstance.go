@@ -12,67 +12,67 @@ func dataSourceOSPFInstance() *schema.Resource {
 		Read: dataSourceOSPFInstanceRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"preference": &schema.Schema{
+			"preference": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"associated_export_routing_policy_id": &schema.Schema{
+			"associated_export_routing_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_import_routing_policy_id": &schema.Schema{
+			"associated_import_routing_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"super_backbone_enabled": &schema.Schema{
+			"super_backbone_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"export_limit": &schema.Schema{
+			"export_limit": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"export_to_overlay": &schema.Schema{
+			"export_to_overlay": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_preference": &schema.Schema{
+			"external_preference": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -113,9 +113,9 @@ func dataSourceOSPFInstanceRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredOSPFInstances) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		OSPFInstance = filteredOSPFInstances[0]
 	}
+
+	OSPFInstance = filteredOSPFInstances[0]
 
 	d.Set("name", OSPFInstance.Name)
 	d.Set("last_updated_by", OSPFInstance.LastUpdatedBy)

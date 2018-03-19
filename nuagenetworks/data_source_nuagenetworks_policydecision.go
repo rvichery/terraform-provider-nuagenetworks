@@ -12,83 +12,83 @@ func dataSourcePolicyDecision() *schema.Resource {
 		Read: dataSourcePolicyDecisionRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"egress_acls": &schema.Schema{
+			"egress_acls": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"egress_qos": &schema.Schema{
+			"egress_qos": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"fip_acls": &schema.Schema{
+			"fip_acls": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"ingress_acls": &schema.Schema{
+			"ingress_acls": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"ingress_adv_fwd": &schema.Schema{
+			"ingress_adv_fwd": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"ingress_external_service_acls": &schema.Schema{
+			"ingress_external_service_acls": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"qos": &schema.Schema{
+			"qos": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"stats": &schema.Schema{
+			"stats": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_container_interface": &schema.Schema{
+			"parent_container_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vm_interface", "parent_bridge_interface", "parent_host_interface"},
 			},
-			"parent_vm_interface": &schema.Schema{
+			"parent_vm_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_bridge_interface", "parent_host_interface"},
 			},
-			"parent_bridge_interface": &schema.Schema{
+			"parent_bridge_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_vm_interface", "parent_host_interface"},
 			},
-			"parent_host_interface": &schema.Schema{
+			"parent_host_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container_interface", "parent_vm_interface", "parent_bridge_interface"},
@@ -150,9 +150,9 @@ func dataSourcePolicyDecisionRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredPolicyDecisions) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		PolicyDecision = filteredPolicyDecisions[0]
 	}
+
+	PolicyDecision = filteredPolicyDecisions[0]
 
 	d.Set("last_updated_by", PolicyDecision.LastUpdatedBy)
 	d.Set("egress_acls", PolicyDecision.EgressACLs)

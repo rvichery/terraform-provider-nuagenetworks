@@ -15,579 +15,579 @@ func resourceVCenterHypervisor() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"vcenter_ip": &schema.Schema{
+			"vcenter_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vcenter_password": &schema.Schema{
+			"vcenter_password": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vcenter_user": &schema.Schema{
+			"vcenter_user": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vrs_agent_moid": &schema.Schema{
+			"vrs_agent_moid": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vrs_agent_name": &schema.Schema{
+			"vrs_agent_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vrs_configuration_time_limit": &schema.Schema{
+			"vrs_configuration_time_limit": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"vrs_metrics_id": &schema.Schema{
+			"vrs_metrics_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vrs_mgmt_hostname": &schema.Schema{
+			"vrs_mgmt_hostname": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vrs_state": &schema.Schema{
+			"vrs_state": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "NOT_DEPLOYED",
 			},
-			"v_require_nuage_metadata": &schema.Schema{
+			"v_require_nuage_metadata": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"managed_object_id": &schema.Schema{
+			"managed_object_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"last_vrs_deployed_date": &schema.Schema{
+			"last_vrs_deployed_date": {
 				Type:     schema.TypeFloat,
 				Optional: true,
 			},
-			"data_dns1": &schema.Schema{
+			"data_dns1": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"data_dns2": &schema.Schema{
+			"data_dns2": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"data_gateway": &schema.Schema{
+			"data_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"data_ip_address": &schema.Schema{
+			"data_ip_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"data_netmask": &schema.Schema{
+			"data_netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"data_network_portgroup": &schema.Schema{
+			"data_network_portgroup": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"datapath_sync_timeout": &schema.Schema{
+			"datapath_sync_timeout": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"scope": &schema.Schema{
+			"scope": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"secondary_data_uplink_dhcp_enabled": &schema.Schema{
+			"secondary_data_uplink_dhcp_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"secondary_data_uplink_enabled": &schema.Schema{
+			"secondary_data_uplink_enabled": {
 				Type:     schema.TypeBool,
 				Required: true,
 			},
-			"secondary_data_uplink_ip": &schema.Schema{
+			"secondary_data_uplink_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"secondary_data_uplink_interface": &schema.Schema{
+			"secondary_data_uplink_interface": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"secondary_data_uplink_mtu": &schema.Schema{
+			"secondary_data_uplink_mtu": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  1500,
 			},
-			"secondary_data_uplink_netmask": &schema.Schema{
+			"secondary_data_uplink_netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"secondary_data_uplink_primary_controller": &schema.Schema{
+			"secondary_data_uplink_primary_controller": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"secondary_data_uplink_secondary_controller": &schema.Schema{
+			"secondary_data_uplink_secondary_controller": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"secondary_data_uplink_underlay_id": &schema.Schema{
+			"secondary_data_uplink_underlay_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  1,
 			},
-			"secondary_nuage_controller": &schema.Schema{
+			"secondary_nuage_controller": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"memory_size_in_gb": &schema.Schema{
+			"memory_size_in_gb": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "DEFAULT_4",
 			},
-			"remote_syslog_server_ip": &schema.Schema{
+			"remote_syslog_server_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"remote_syslog_server_port": &schema.Schema{
+			"remote_syslog_server_port": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  514,
 			},
-			"remote_syslog_server_type": &schema.Schema{
+			"remote_syslog_server_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "NONE",
 			},
-			"removed_from_vcenter_inventory": &schema.Schema{
+			"removed_from_vcenter_inventory": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"generic_split_activation": &schema.Schema{
+			"generic_split_activation": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"separate_data_network": &schema.Schema{
+			"separate_data_network": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"deployment_count": &schema.Schema{
+			"deployment_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"personality": &schema.Schema{
+			"personality": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"destination_mirror_port": &schema.Schema{
+			"destination_mirror_port": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "no_mirror",
 			},
-			"metadata_server_ip": &schema.Schema{
+			"metadata_server_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"metadata_server_listen_port": &schema.Schema{
+			"metadata_server_listen_port": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"metadata_server_port": &schema.Schema{
+			"metadata_server_port": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"metadata_service_enabled": &schema.Schema{
+			"metadata_service_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"network_uplink_interface": &schema.Schema{
+			"network_uplink_interface": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"network_uplink_interface_gateway": &schema.Schema{
+			"network_uplink_interface_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"network_uplink_interface_ip": &schema.Schema{
+			"network_uplink_interface_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"network_uplink_interface_netmask": &schema.Schema{
+			"network_uplink_interface_netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"revertive_controller_enabled": &schema.Schema{
+			"revertive_controller_enabled": {
 				Type:     schema.TypeBool,
 				Required: true,
 			},
-			"revertive_timer": &schema.Schema{
+			"revertive_timer": {
 				Type:     schema.TypeInt,
 				Required: true,
 			},
-			"nfs_log_server": &schema.Schema{
+			"nfs_log_server": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nfs_mount_path": &schema.Schema{
+			"nfs_mount_path": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"mgmt_dns1": &schema.Schema{
+			"mgmt_dns1": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"mgmt_dns2": &schema.Schema{
+			"mgmt_dns2": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"mgmt_gateway": &schema.Schema{
+			"mgmt_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"mgmt_ip_address": &schema.Schema{
+			"mgmt_ip_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"mgmt_netmask": &schema.Schema{
+			"mgmt_netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"mgmt_network_portgroup": &schema.Schema{
+			"mgmt_network_portgroup": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"dhcp_relay_server": &schema.Schema{
+			"dhcp_relay_server": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"mirror_network_portgroup": &schema.Schema{
+			"mirror_network_portgroup": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"disable_gro_on_datapath": &schema.Schema{
+			"disable_gro_on_datapath": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"disable_lro_on_datapath": &schema.Schema{
+			"disable_lro_on_datapath": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"site_id": &schema.Schema{
+			"site_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"allow_data_dhcp": &schema.Schema{
+			"allow_data_dhcp": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"allow_mgmt_dhcp": &schema.Schema{
+			"allow_mgmt_dhcp": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"flow_eviction_threshold": &schema.Schema{
+			"flow_eviction_threshold": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"vm_network_portgroup": &schema.Schema{
+			"vm_network_portgroup": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"enable_vrs_resource_reservation": &schema.Schema{
+			"enable_vrs_resource_reservation": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"configured_metrics_push_interval": &schema.Schema{
+			"configured_metrics_push_interval": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  60,
 			},
-			"toolbox_deployment_mode": &schema.Schema{
+			"toolbox_deployment_mode": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"toolbox_group": &schema.Schema{
+			"toolbox_group": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"toolbox_ip": &schema.Schema{
+			"toolbox_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"toolbox_password": &schema.Schema{
+			"toolbox_password": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"toolbox_user_name": &schema.Schema{
+			"toolbox_user_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"portgroup_metadata": &schema.Schema{
+			"portgroup_metadata": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"nova_client_version": &schema.Schema{
+			"nova_client_version": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"nova_identity_url_version": &schema.Schema{
+			"nova_identity_url_version": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nova_metadata_service_auth_url": &schema.Schema{
+			"nova_metadata_service_auth_url": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nova_metadata_service_endpoint": &schema.Schema{
+			"nova_metadata_service_endpoint": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nova_metadata_service_password": &schema.Schema{
+			"nova_metadata_service_password": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nova_metadata_service_tenant": &schema.Schema{
+			"nova_metadata_service_tenant": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nova_metadata_service_username": &schema.Schema{
+			"nova_metadata_service_username": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nova_metadata_shared_secret": &schema.Schema{
+			"nova_metadata_shared_secret": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nova_os_keystone_username": &schema.Schema{
+			"nova_os_keystone_username": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nova_project_domain_name": &schema.Schema{
+			"nova_project_domain_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nova_project_name": &schema.Schema{
+			"nova_project_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nova_region_name": &schema.Schema{
+			"nova_region_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nova_user_domain_name": &schema.Schema{
+			"nova_user_domain_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"upgrade_package_password": &schema.Schema{
+			"upgrade_package_password": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"upgrade_package_url": &schema.Schema{
+			"upgrade_package_url": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"upgrade_package_username": &schema.Schema{
+			"upgrade_package_username": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"upgrade_script_time_limit": &schema.Schema{
+			"upgrade_script_time_limit": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"upgrade_status": &schema.Schema{
+			"upgrade_status": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"upgrade_timedout": &schema.Schema{
+			"upgrade_timedout": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"cpu_count": &schema.Schema{
+			"cpu_count": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "DEFAULT_2",
 			},
-			"primary_data_uplink_underlay_id": &schema.Schema{
+			"primary_data_uplink_underlay_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  0,
 			},
-			"primary_nuage_controller": &schema.Schema{
+			"primary_nuage_controller": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vrs_id": &schema.Schema{
+			"vrs_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vrs_password": &schema.Schema{
+			"vrs_password": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vrs_user_name": &schema.Schema{
+			"vrs_user_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"static_route": &schema.Schema{
+			"static_route": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"static_route_gateway": &schema.Schema{
+			"static_route_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"static_route_netmask": &schema.Schema{
+			"static_route_netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ntp_server1": &schema.Schema{
+			"ntp_server1": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ntp_server2": &schema.Schema{
+			"ntp_server2": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"mtu": &schema.Schema{
+			"mtu": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"successfully_applied_upgrade_package_password": &schema.Schema{
+			"successfully_applied_upgrade_package_password": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"successfully_applied_upgrade_package_url": &schema.Schema{
+			"successfully_applied_upgrade_package_url": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"successfully_applied_upgrade_package_username": &schema.Schema{
+			"successfully_applied_upgrade_package_username": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"successfully_applied_version": &schema.Schema{
+			"successfully_applied_version": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"multi_vmssupport": &schema.Schema{
+			"multi_vmssupport": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"multicast_receive_interface": &schema.Schema{
+			"multicast_receive_interface": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"multicast_receive_interface_ip": &schema.Schema{
+			"multicast_receive_interface_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"multicast_receive_interface_netmask": &schema.Schema{
+			"multicast_receive_interface_netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"multicast_receive_range": &schema.Schema{
+			"multicast_receive_range": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"multicast_send_interface": &schema.Schema{
+			"multicast_send_interface": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"multicast_send_interface_ip": &schema.Schema{
+			"multicast_send_interface_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"multicast_send_interface_netmask": &schema.Schema{
+			"multicast_send_interface_netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"multicast_source_portgroup": &schema.Schema{
+			"multicast_source_portgroup": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"customized_script_url": &schema.Schema{
+			"customized_script_url": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"available_networks": &schema.Schema{
+			"available_networks": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"ovf_url": &schema.Schema{
+			"ovf_url": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"avrs_enabled": &schema.Schema{
+			"avrs_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"avrs_profile": &schema.Schema{
+			"avrs_profile": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "AVRS_25G",
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"hypervisor_ip": &schema.Schema{
+			"hypervisor_ip": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"hypervisor_password": &schema.Schema{
+			"hypervisor_password": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"hypervisor_user": &schema.Schema{
+			"hypervisor_user": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"parent_vcenter_cluster": &schema.Schema{
+			"parent_vcenter_cluster": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vcenter_data_center"},
 			},
-			"parent_vcenter_data_center": &schema.Schema{
+			"parent_vcenter_data_center": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vcenter_cluster"},

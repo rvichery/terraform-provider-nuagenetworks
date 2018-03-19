@@ -12,43 +12,43 @@ func dataSourceProxyARPFilter() *schema.Resource {
 		Read: dataSourceProxyARPFilterRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"max_address": &schema.Schema{
+			"max_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"min_address": &schema.Schema{
+			"min_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -89,9 +89,9 @@ func dataSourceProxyARPFilterRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredProxyARPFilters) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		ProxyARPFilter = filteredProxyARPFilters[0]
 	}
+
+	ProxyARPFilter = filteredProxyARPFilters[0]
 
 	d.Set("ip_type", ProxyARPFilter.IPType)
 	d.Set("last_updated_by", ProxyARPFilter.LastUpdatedBy)

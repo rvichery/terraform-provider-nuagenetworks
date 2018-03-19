@@ -15,44 +15,44 @@ func resourceVNFDomainMapping() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"segmentation_id": &schema.Schema{
+			"segmentation_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"segmentation_type": &schema.Schema{
+			"segmentation_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "VLAN",
 			},
-			"associated_ns_gateway_id": &schema.Schema{
+			"associated_ns_gateway_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_ns_gateway_name": &schema.Schema{
+			"associated_ns_gateway_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

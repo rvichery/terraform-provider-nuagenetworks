@@ -15,92 +15,92 @@ func resourceOSPFArea() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"redistribute_external_enabled": &schema.Schema{
+			"redistribute_external_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  true,
 			},
-			"default_metric": &schema.Schema{
+			"default_metric": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"default_originate_option": &schema.Schema{
+			"default_originate_option": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"aggregate_area_range": &schema.Schema{
+			"aggregate_area_range": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"aggregate_area_range_nssa": &schema.Schema{
+			"aggregate_area_range_nssa": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"area_id": &schema.Schema{
+			"area_id": {
 				Type:     schema.TypeInt,
 				Required: true,
 			},
-			"area_type": &schema.Schema{
+			"area_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "NORMAL",
 			},
-			"summaries_enabled": &schema.Schema{
+			"summaries_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  true,
 			},
-			"suppress_area_range": &schema.Schema{
+			"suppress_area_range": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"suppress_area_range_nssa": &schema.Schema{
+			"suppress_area_range_nssa": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_ospf_instance": &schema.Schema{
+			"parent_ospf_instance": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

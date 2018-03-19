@@ -12,49 +12,49 @@ func dataSourceAutoDiscoverHypervisorFromCluster() *schema.Resource {
 		Read: dataSourceAutoDiscoverHypervisorFromClusterRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"network_list": &schema.Schema{
+			"network_list": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"assoc_entity_id": &schema.Schema{
+			"assoc_entity_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"hypervisor_ip": &schema.Schema{
+			"hypervisor_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vcenter_cluster": &schema.Schema{
+			"parent_vcenter_cluster": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vcenter_data_center"},
 			},
-			"parent_vcenter_data_center": &schema.Schema{
+			"parent_vcenter_data_center": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vcenter_cluster"},
@@ -104,9 +104,9 @@ func dataSourceAutoDiscoverHypervisorFromClusterRead(d *schema.ResourceData, m i
 	if len(filteredAutoDiscoverHypervisorFromClusters) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		AutoDiscoverHypervisorFromCluster = filteredAutoDiscoverHypervisorFromClusters[0]
 	}
+
+	AutoDiscoverHypervisorFromCluster = filteredAutoDiscoverHypervisorFromClusters[0]
 
 	d.Set("last_updated_by", AutoDiscoverHypervisorFromCluster.LastUpdatedBy)
 	d.Set("network_list", AutoDiscoverHypervisorFromCluster.NetworkList)

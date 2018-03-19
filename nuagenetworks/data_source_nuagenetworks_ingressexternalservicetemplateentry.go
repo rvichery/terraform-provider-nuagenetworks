@@ -12,139 +12,139 @@ func dataSourceIngressExternalServiceTemplateEntry() *schema.Resource {
 		Read: dataSourceIngressExternalServiceTemplateEntryRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"acl_template_name": &schema.Schema{
+			"acl_template_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"icmp_code": &schema.Schema{
+			"icmp_code": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"icmp_type": &schema.Schema{
+			"icmp_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ipv6_address_override": &schema.Schema{
+			"ipv6_address_override": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dscp": &schema.Schema{
+			"dscp": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"action": &schema.Schema{
+			"action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address_override": &schema.Schema{
+			"address_override": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"redirect_external_service_end_point_id": &schema.Schema{
+			"redirect_external_service_end_point_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"destination_port": &schema.Schema{
+			"destination_port": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"network_id": &schema.Schema{
+			"network_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"network_type": &schema.Schema{
+			"network_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mirror_destination_id": &schema.Schema{
+			"mirror_destination_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"flow_logging_enabled": &schema.Schema{
+			"flow_logging_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"enterprise_name": &schema.Schema{
+			"enterprise_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"location_id": &schema.Schema{
+			"location_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"location_type": &schema.Schema{
+			"location_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"policy_state": &schema.Schema{
+			"policy_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"domain_name": &schema.Schema{
+			"domain_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"source_port": &schema.Schema{
+			"source_port": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"protocol": &schema.Schema{
+			"protocol": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_live_entity_id": &schema.Schema{
+			"associated_live_entity_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"stats_id": &schema.Schema{
+			"stats_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"stats_logging_enabled": &schema.Schema{
+			"stats_logging_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"ether_type": &schema.Schema{
+			"ether_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_ingress_external_service_template": &schema.Schema{
+			"parent_ingress_external_service_template": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -185,9 +185,9 @@ func dataSourceIngressExternalServiceTemplateEntryRead(d *schema.ResourceData, m
 	if len(filteredIngressExternalServiceTemplateEntries) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		IngressExternalServiceTemplateEntry = filteredIngressExternalServiceTemplateEntries[0]
 	}
+
+	IngressExternalServiceTemplateEntry = filteredIngressExternalServiceTemplateEntries[0]
 
 	d.Set("acl_template_name", IngressExternalServiceTemplateEntry.ACLTemplateName)
 	d.Set("icmp_code", IngressExternalServiceTemplateEntry.ICMPCode)

@@ -12,43 +12,43 @@ func dataSourceStatsCollectorInfo() *schema.Resource {
 		Read: dataSourceStatsCollectorInfoRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address_type": &schema.Schema{
+			"address_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"port": &schema.Schema{
+			"port": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ip_address": &schema.Schema{
+			"ip_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"proto_buf_port": &schema.Schema{
+			"proto_buf_port": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -89,9 +89,9 @@ func dataSourceStatsCollectorInfoRead(d *schema.ResourceData, m interface{}) err
 	if len(filteredStatsCollectorInfos) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		StatsCollectorInfo = filteredStatsCollectorInfos[0]
 	}
+
+	StatsCollectorInfo = filteredStatsCollectorInfos[0]
 
 	d.Set("last_updated_by", StatsCollectorInfo.LastUpdatedBy)
 	d.Set("address_type", StatsCollectorInfo.AddressType)

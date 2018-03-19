@@ -15,121 +15,121 @@ func resourceVRSRedeploymentpolicy() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"al_ubr0_status_redeployment_enabled": &schema.Schema{
+			"al_ubr0_status_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"cpu_utilization_redeployment_enabled": &schema.Schema{
+			"cpu_utilization_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"cpu_utilization_threshold": &schema.Schema{
+			"cpu_utilization_threshold": {
 				Type:     schema.TypeFloat,
 				Optional: true,
 			},
-			"vrs_corrective_action_delay": &schema.Schema{
+			"vrs_corrective_action_delay": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"vrs_process_redeployment_enabled": &schema.Schema{
+			"vrs_process_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"vrsvsc_status_redeployment_enabled": &schema.Schema{
+			"vrsvsc_status_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"redeployment_delay": &schema.Schema{
+			"redeployment_delay": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"memory_utilization_redeployment_enabled": &schema.Schema{
+			"memory_utilization_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"memory_utilization_threshold": &schema.Schema{
+			"memory_utilization_threshold": {
 				Type:     schema.TypeFloat,
 				Optional: true,
 			},
-			"deployment_count_threshold": &schema.Schema{
+			"deployment_count_threshold": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"jesxmon_process_redeployment_enabled": &schema.Schema{
+			"jesxmon_process_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"log_disk_utilization_redeployment_enabled": &schema.Schema{
+			"log_disk_utilization_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"log_disk_utilization_threshold": &schema.Schema{
+			"log_disk_utilization_threshold": {
 				Type:     schema.TypeFloat,
 				Optional: true,
 			},
-			"root_disk_utilization_redeployment_enabled": &schema.Schema{
+			"root_disk_utilization_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"root_disk_utilization_threshold": &schema.Schema{
+			"root_disk_utilization_threshold": {
 				Type:     schema.TypeFloat,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_vcenter_cluster": &schema.Schema{
+			"parent_vcenter_cluster": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vcenter_data_center", "parent_vcenter", "parent_vcenter_vrs_config", "parent_vcenter_hypervisor"},
 			},
-			"parent_vcenter_data_center": &schema.Schema{
+			"parent_vcenter_data_center": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vcenter_cluster", "parent_vcenter", "parent_vcenter_vrs_config", "parent_vcenter_hypervisor"},
 			},
-			"parent_vcenter": &schema.Schema{
+			"parent_vcenter": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vcenter_cluster", "parent_vcenter_data_center", "parent_vcenter_vrs_config", "parent_vcenter_hypervisor"},
 			},
-			"parent_vcenter_vrs_config": &schema.Schema{
+			"parent_vcenter_vrs_config": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vcenter_cluster", "parent_vcenter_data_center", "parent_vcenter", "parent_vcenter_hypervisor"},
 			},
-			"parent_vcenter_hypervisor": &schema.Schema{
+			"parent_vcenter_hypervisor": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vcenter_cluster", "parent_vcenter_data_center", "parent_vcenter", "parent_vcenter_vrs_config"},

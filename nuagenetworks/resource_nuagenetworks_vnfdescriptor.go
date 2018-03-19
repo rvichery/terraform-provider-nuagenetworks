@@ -15,69 +15,69 @@ func resourceVNFDescriptor() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"cpu_count": &schema.Schema{
+			"cpu_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"memory_mb": &schema.Schema{
+			"memory_mb": {
 				Type:     schema.TypeInt,
 				Required: true,
 			},
-			"vendor": &schema.Schema{
+			"vendor": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"metadata_id": &schema.Schema{
+			"metadata_id": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"visible": &schema.Schema{
+			"visible": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  true,
 			},
-			"associated_vnf_threshold_policy_id": &schema.Schema{
+			"associated_vnf_threshold_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"storage_gb": &schema.Schema{
+			"storage_gb": {
 				Type:     schema.TypeInt,
 				Required: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "FIREWALL",
 			},
-			"parent_vnf_catalog": &schema.Schema{
+			"parent_vnf_catalog": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

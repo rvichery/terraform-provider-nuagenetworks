@@ -12,88 +12,88 @@ func dataSourceGateway() *schema.Resource {
 		Read: dataSourceGatewayRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"redundancy_group_id": &schema.Schema{
+			"redundancy_group_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"peer": &schema.Schema{
+			"peer": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"pending": &schema.Schema{
+			"pending": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"personality": &schema.Schema{
+			"personality": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"use_gateway_vlanvnid": &schema.Schema{
+			"use_gateway_vlanvnid": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"vtep": &schema.Schema{
+			"vtep": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"auto_disc_gateway_id": &schema.Schema{
+			"auto_disc_gateway_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"system_id": &schema.Schema{
+			"system_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_redundancy_group": &schema.Schema{
+			"parent_redundancy_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group"},
@@ -149,9 +149,9 @@ func dataSourceGatewayRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredGateways) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Gateway = filteredGateways[0]
 	}
+
+	Gateway = filteredGateways[0]
 
 	d.Set("name", Gateway.Name)
 	d.Set("last_updated_by", Gateway.LastUpdatedBy)

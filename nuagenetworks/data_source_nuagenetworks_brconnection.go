@@ -12,52 +12,52 @@ func dataSourceBRConnection() *schema.Resource {
 		Read: dataSourceBRConnectionRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dns_address": &schema.Schema{
+			"dns_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway": &schema.Schema{
+			"gateway": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"advertisement_criteria": &schema.Schema{
+			"advertisement_criteria": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mode": &schema.Schema{
+			"mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"uplink_id": &schema.Schema{
+			"uplink_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"parent_vlan": &schema.Schema{
+			"parent_vlan": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vlan_template"},
 			},
-			"parent_vlan_template": &schema.Schema{
+			"parent_vlan_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vlan"},
@@ -107,9 +107,9 @@ func dataSourceBRConnectionRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredBRConnections) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		BRConnection = filteredBRConnections[0]
 	}
+
+	BRConnection = filteredBRConnections[0]
 
 	d.Set("dns_address", BRConnection.DNSAddress)
 	d.Set("gateway", BRConnection.Gateway)

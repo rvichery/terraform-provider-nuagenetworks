@@ -12,96 +12,96 @@ func dataSourceIKEGatewayConnection() *schema.Resource {
 		Read: dataSourceIKEGatewayConnectionRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nsg_identifier": &schema.Schema{
+			"nsg_identifier": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nsg_identifier_type": &schema.Schema{
+			"nsg_identifier_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nsg_role": &schema.Schema{
+			"nsg_role": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mark": &schema.Schema{
+			"mark": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"sequence": &schema.Schema{
+			"sequence": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"allow_any_subnet": &schema.Schema{
+			"allow_any_subnet": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"unencrypted_psk": &schema.Schema{
+			"unencrypted_psk": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"port_vlan_name": &schema.Schema{
+			"port_vlan_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"associated_ike_authentication_id": &schema.Schema{
+			"associated_ike_authentication_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_ike_authentication_type": &schema.Schema{
+			"associated_ike_authentication_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_ike_encryption_profile_id": &schema.Schema{
+			"associated_ike_encryption_profile_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_ike_gateway_profile_id": &schema.Schema{
+			"associated_ike_gateway_profile_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_vlanid": &schema.Schema{
+			"associated_vlanid": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vlan"},
 			},
-			"parent_vlan": &schema.Schema{
+			"parent_vlan": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_subnet"},
@@ -151,9 +151,9 @@ func dataSourceIKEGatewayConnectionRead(d *schema.ResourceData, m interface{}) e
 	if len(filteredIKEGatewayConnections) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		IKEGatewayConnection = filteredIKEGatewayConnections[0]
 	}
+
+	IKEGatewayConnection = filteredIKEGatewayConnections[0]
 
 	d.Set("nsg_identifier", IKEGatewayConnection.NSGIdentifier)
 	d.Set("nsg_identifier_type", IKEGatewayConnection.NSGIdentifierType)

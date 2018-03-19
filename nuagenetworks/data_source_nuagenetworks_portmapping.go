@@ -12,39 +12,39 @@ func dataSourcePortMapping() *schema.Resource {
 		Read: dataSourcePortMappingRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"private_port": &schema.Schema{
+			"private_port": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"public_port": &schema.Schema{
+			"public_port": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -85,9 +85,9 @@ func dataSourcePortMappingRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredPortMappings) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		PortMapping = filteredPortMappings[0]
 	}
+
+	PortMapping = filteredPortMappings[0]
 
 	d.Set("last_updated_by", PortMapping.LastUpdatedBy)
 	d.Set("entity_scope", PortMapping.EntityScope)

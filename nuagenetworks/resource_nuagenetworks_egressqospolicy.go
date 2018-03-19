@@ -15,105 +15,105 @@ func resourceEgressQOSPolicy() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"parent_queue_associated_rate_limiter_id": &schema.Schema{
+			"parent_queue_associated_rate_limiter_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"default_service_class": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"description": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"entity_scope": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"assoc_egress_qos_id": &schema.Schema{
+			"default_service_class": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_cos_remarking_policy_table_id": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_dscp_remarking_policy_table_id": &schema.Schema{
+			"entity_scope": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Computed: true,
+			},
+			"assoc_egress_qos_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"queue1_associated_rate_limiter_id": &schema.Schema{
+			"associated_cos_remarking_policy_table_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"queue1_forwarding_classes": &schema.Schema{
+			"associated_dscp_remarking_policy_table_id": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"queue1_associated_rate_limiter_id": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"queue1_forwarding_classes": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"queue2_associated_rate_limiter_id": &schema.Schema{
+			"queue2_associated_rate_limiter_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"queue2_forwarding_classes": &schema.Schema{
+			"queue2_forwarding_classes": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"queue3_associated_rate_limiter_id": &schema.Schema{
+			"queue3_associated_rate_limiter_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"queue3_forwarding_classes": &schema.Schema{
+			"queue3_forwarding_classes": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"queue4_associated_rate_limiter_id": &schema.Schema{
+			"queue4_associated_rate_limiter_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"queue4_forwarding_classes": &schema.Schema{
+			"queue4_forwarding_classes": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},

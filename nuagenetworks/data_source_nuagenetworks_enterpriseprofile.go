@@ -12,84 +12,84 @@ func dataSourceEnterpriseProfile() *schema.Resource {
 		Read: dataSourceEnterpriseProfileRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bgp_enabled": &schema.Schema{
+			"bgp_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"dhcp_lease_interval": &schema.Schema{
+			"dhcp_lease_interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"vnf_management_enabled": &schema.Schema{
+			"vnf_management_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"receive_multi_cast_list_id": &schema.Schema{
+			"receive_multi_cast_list_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"send_multi_cast_list_id": &schema.Schema{
+			"send_multi_cast_list_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"allow_advanced_qos_configuration": &schema.Schema{
+			"allow_advanced_qos_configuration": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"allow_gateway_management": &schema.Schema{
+			"allow_gateway_management": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"allow_trusted_forwarding_class": &schema.Schema{
+			"allow_trusted_forwarding_class": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"allowed_forwarding_classes": &schema.Schema{
+			"allowed_forwarding_classes": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"floating_ips_quota": &schema.Schema{
+			"floating_ips_quota": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"enable_application_performance_management": &schema.Schema{
+			"enable_application_performance_management": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"encryption_management_mode": &schema.Schema{
+			"encryption_management_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -130,9 +130,9 @@ func dataSourceEnterpriseProfileRead(d *schema.ResourceData, m interface{}) erro
 	if len(filteredEnterpriseProfiles) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		EnterpriseProfile = filteredEnterpriseProfiles[0]
 	}
+
+	EnterpriseProfile = filteredEnterpriseProfiles[0]
 
 	d.Set("bgp_enabled", EnterpriseProfile.BGPEnabled)
 	d.Set("dhcp_lease_interval", EnterpriseProfile.DHCPLeaseInterval)

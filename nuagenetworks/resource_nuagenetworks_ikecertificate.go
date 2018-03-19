@@ -15,77 +15,77 @@ func resourceIKECertificate() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"pem_encoded": &schema.Schema{
+			"pem_encoded": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"serial_number": &schema.Schema{
+			"serial_number": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"not_after": &schema.Schema{
+			"not_after": {
 				Type:     schema.TypeFloat,
 				Optional: true,
 			},
-			"not_before": &schema.Schema{
+			"not_before": {
 				Type:     schema.TypeFloat,
 				Optional: true,
 			},
-			"associated_enterprise_id": &schema.Schema{
+			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"issuer_dn": &schema.Schema{
+			"issuer_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"subject_dn": &schema.Schema{
+			"subject_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

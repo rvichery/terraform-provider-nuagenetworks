@@ -12,40 +12,40 @@ func dataSourceBulkStatistics() *schema.Resource {
 		Read: dataSourceBulkStatisticsRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"data": &schema.Schema{
+			"data": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"version": &schema.Schema{
+			"version": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"end_time": &schema.Schema{
+			"end_time": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"start_time": &schema.Schema{
+			"start_time": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"number_of_data_points": &schema.Schema{
+			"number_of_data_points": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"parent_patnat_pool": &schema.Schema{
+			"parent_patnat_pool": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -86,9 +86,9 @@ func dataSourceBulkStatisticsRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredBulkStatistics) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		BulkStatistics = filteredBulkStatistics[0]
 	}
+
+	BulkStatistics = filteredBulkStatistics[0]
 
 	d.Set("data", BulkStatistics.Data)
 	d.Set("version", BulkStatistics.Version)

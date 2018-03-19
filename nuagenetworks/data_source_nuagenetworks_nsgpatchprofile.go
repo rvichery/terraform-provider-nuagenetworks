@@ -12,47 +12,47 @@ func dataSourceNSGPatchProfile() *schema.Resource {
 		Read: dataSourceNSGPatchProfileRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"patch_tag": &schema.Schema{
+			"patch_tag": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"patch_url": &schema.Schema{
+			"patch_url": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -93,9 +93,9 @@ func dataSourceNSGPatchProfileRead(d *schema.ResourceData, m interface{}) error 
 	if len(filteredNSGPatchProfiles) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		NSGPatchProfile = filteredNSGPatchProfiles[0]
 	}
+
+	NSGPatchProfile = filteredNSGPatchProfiles[0]
 
 	d.Set("name", NSGPatchProfile.Name)
 	d.Set("last_updated_by", NSGPatchProfile.LastUpdatedBy)

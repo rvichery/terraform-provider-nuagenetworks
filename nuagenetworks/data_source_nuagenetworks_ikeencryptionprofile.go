@@ -12,107 +12,107 @@ func dataSourceIKEEncryptionprofile() *schema.Resource {
 		Read: dataSourceIKEEncryptionprofileRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dpd_interval": &schema.Schema{
+			"dpd_interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"dpd_mode": &schema.Schema{
+			"dpd_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dpd_timeout": &schema.Schema{
+			"dpd_timeout": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"ipsec_authentication_algorithm": &schema.Schema{
+			"ipsec_authentication_algorithm": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ipsec_dont_fragment": &schema.Schema{
+			"ipsec_dont_fragment": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"ipsec_enable_pfs": &schema.Schema{
+			"ipsec_enable_pfs": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"ipsec_encryption_algorithm": &schema.Schema{
+			"ipsec_encryption_algorithm": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ipsec_pre_fragment": &schema.Schema{
+			"ipsec_pre_fragment": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"ipsec_sa_lifetime": &schema.Schema{
+			"ipsec_sa_lifetime": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"ipsec_sa_replay_window_size": &schema.Schema{
+			"ipsec_sa_replay_window_size": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"isakmp_authentication_mode": &schema.Schema{
+			"isakmp_authentication_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"isakmp_diffie_helman_group_identifier": &schema.Schema{
+			"isakmp_diffie_helman_group_identifier": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"isakmp_encryption_algorithm": &schema.Schema{
+			"isakmp_encryption_algorithm": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"isakmp_encryption_key_lifetime": &schema.Schema{
+			"isakmp_encryption_key_lifetime": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"isakmp_hash_algorithm": &schema.Schema{
+			"isakmp_hash_algorithm": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"sequence": &schema.Schema{
+			"sequence": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_enterprise_id": &schema.Schema{
+			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -153,9 +153,9 @@ func dataSourceIKEEncryptionprofileRead(d *schema.ResourceData, m interface{}) e
 	if len(filteredIKEEncryptionprofiles) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		IKEEncryptionprofile = filteredIKEEncryptionprofiles[0]
 	}
+
+	IKEEncryptionprofile = filteredIKEEncryptionprofiles[0]
 
 	d.Set("dpd_interval", IKEEncryptionprofile.DPDInterval)
 	d.Set("dpd_mode", IKEEncryptionprofile.DPDMode)

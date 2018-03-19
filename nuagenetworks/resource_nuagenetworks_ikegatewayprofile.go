@@ -15,86 +15,86 @@ func resourceIKEGatewayProfile() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"ike_gateway_identifier": &schema.Schema{
+			"ike_gateway_identifier": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ike_gateway_identifier_type": &schema.Schema{
+			"ike_gateway_identifier_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "ID_IPV4_ADDR",
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"service_class": &schema.Schema{
+			"service_class": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"anti_replay_check": &schema.Schema{
+			"anti_replay_check": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_enterprise_id": &schema.Schema{
+			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_ike_authentication_id": &schema.Schema{
+			"associated_ike_authentication_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_ike_authentication_type": &schema.Schema{
+			"associated_ike_authentication_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_ike_encryption_profile_id": &schema.Schema{
+			"associated_ike_encryption_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_ike_gateway_id": &schema.Schema{
+			"associated_ike_gateway_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

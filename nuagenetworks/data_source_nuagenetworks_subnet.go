@@ -12,204 +12,204 @@ func dataSourceSubnet() *schema.Resource {
 		Read: dataSourceSubnetRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"pat_enabled": &schema.Schema{
+			"pat_enabled": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dhcp_relay_status": &schema.Schema{
+			"dhcp_relay_status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dpi": &schema.Schema{
+			"dpi": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ipv6_address": &schema.Schema{
+			"ipv6_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ipv6_gateway": &schema.Schema{
+			"ipv6_gateway": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"maintenance_mode": &schema.Schema{
+			"maintenance_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway": &schema.Schema{
+			"gateway": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_mac_address": &schema.Schema{
+			"gateway_mac_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"access_restriction_enabled": &schema.Schema{
+			"access_restriction_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"advertise": &schema.Schema{
+			"advertise": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"default_action": &schema.Schema{
+			"default_action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"service_id": &schema.Schema{
+			"service_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"resource_type": &schema.Schema{
+			"resource_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"flow_collection_enabled": &schema.Schema{
+			"flow_collection_enabled": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vn_id": &schema.Schema{
+			"vn_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"encryption": &schema.Schema{
+			"encryption": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"underlay": &schema.Schema{
+			"underlay": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"underlay_enabled": &schema.Schema{
+			"underlay_enabled": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_state": &schema.Schema{
+			"entity_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"policy_group_id": &schema.Schema{
+			"policy_group_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"route_distinguisher": &schema.Schema{
+			"route_distinguisher": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"route_target": &schema.Schema{
+			"route_target": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"split_subnet": &schema.Schema{
+			"split_subnet": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"proxy_arp": &schema.Schema{
+			"proxy_arp": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"use_global_mac": &schema.Schema{
+			"use_global_mac": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_multicast_channel_map_id": &schema.Schema{
+			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_shared_network_resource_id": &schema.Schema{
+			"associated_shared_network_resource_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"public": &schema.Schema{
+			"public": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"multi_home_enabled": &schema.Schema{
+			"multi_home_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"multicast": &schema.Schema{
+			"multicast": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dynamic_ipv6_address": &schema.Schema{
+			"dynamic_ipv6_address": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"parent_zone": &schema.Schema{
+			"parent_zone": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_subnet_template", "parent_ike_gateway_connection", "parent_domain", "parent_ns_gateway", "parent_pat_mapper"},
 			},
-			"parent_subnet_template": &schema.Schema{
+			"parent_subnet_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_ike_gateway_connection", "parent_domain", "parent_ns_gateway", "parent_pat_mapper"},
 			},
-			"parent_ike_gateway_connection": &schema.Schema{
+			"parent_ike_gateway_connection": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_ns_gateway", "parent_pat_mapper"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_ike_gateway_connection", "parent_ns_gateway", "parent_pat_mapper"},
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_ike_gateway_connection", "parent_domain", "parent_pat_mapper"},
 			},
-			"parent_pat_mapper": &schema.Schema{
+			"parent_pat_mapper": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_ike_gateway_connection", "parent_domain", "parent_ns_gateway"},
@@ -289,9 +289,9 @@ func dataSourceSubnetRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredSubnets) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Subnet = filteredSubnets[0]
 	}
+
+	Subnet = filteredSubnets[0]
 
 	d.Set("pat_enabled", Subnet.PATEnabled)
 	d.Set("dhcp_relay_status", Subnet.DHCPRelayStatus)

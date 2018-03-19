@@ -12,151 +12,151 @@ func dataSourceLicense() *schema.Resource {
 		Read: dataSourceLicenseRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"major_release": &schema.Schema{
+			"major_release": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"additional_supported_versions": &schema.Schema{
+			"additional_supported_versions": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"phone": &schema.Schema{
+			"phone": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"license": &schema.Schema{
+			"license": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"license_encryption": &schema.Schema{
+			"license_encryption": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"license_entities": &schema.Schema{
+			"license_entities": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"license_id": &schema.Schema{
+			"license_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"license_type": &schema.Schema{
+			"license_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"minor_release": &schema.Schema{
+			"minor_release": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"zip": &schema.Schema{
+			"zip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"city": &schema.Schema{
+			"city": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"allowed_avrsgs_count": &schema.Schema{
+			"allowed_avrsgs_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"allowed_avrss_count": &schema.Schema{
+			"allowed_avrss_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"allowed_cpes_count": &schema.Schema{
+			"allowed_cpes_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"allowed_nics_count": &schema.Schema{
+			"allowed_nics_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"allowed_vms_count": &schema.Schema{
+			"allowed_vms_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"allowed_vrsgs_count": &schema.Schema{
+			"allowed_vrsgs_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"allowed_vrss_count": &schema.Schema{
+			"allowed_vrss_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"email": &schema.Schema{
+			"email": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"encryption_mode": &schema.Schema{
+			"encryption_mode": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"unique_license_identifier": &schema.Schema{
+			"unique_license_identifier": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"company": &schema.Schema{
+			"company": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"country": &schema.Schema{
+			"country": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"product_version": &schema.Schema{
+			"product_version": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"is_cluster_license": &schema.Schema{
+			"is_cluster_license": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"user_name": &schema.Schema{
+			"user_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"state": &schema.Schema{
+			"state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"street": &schema.Schema{
+			"street": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"customer_key": &schema.Schema{
+			"customer_key": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"expiration_date": &schema.Schema{
+			"expiration_date": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"expiry_timestamp": &schema.Schema{
+			"expiry_timestamp": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -197,9 +197,9 @@ func dataSourceLicenseRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredLicenses) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		License = filteredLicenses[0]
 	}
+
+	License = filteredLicenses[0]
 
 	d.Set("major_release", License.MajorRelease)
 	d.Set("last_updated_by", License.LastUpdatedBy)

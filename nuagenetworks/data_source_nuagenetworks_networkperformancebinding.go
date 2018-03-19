@@ -12,41 +12,41 @@ func dataSourceNetworkPerformanceBinding() *schema.Resource {
 		Read: dataSourceNetworkPerformanceBindingRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"read_only": &schema.Schema{
+			"read_only": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"associated_network_measurement_id": &schema.Schema{
+			"associated_network_measurement_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_l2_domain", "parent_network_performance_measurement"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain", "parent_network_performance_measurement"},
 			},
-			"parent_network_performance_measurement": &schema.Schema{
+			"parent_network_performance_measurement": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain", "parent_l2_domain"},
@@ -102,9 +102,9 @@ func dataSourceNetworkPerformanceBindingRead(d *schema.ResourceData, m interface
 	if len(filteredNetworkPerformanceBindings) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		NetworkPerformanceBinding = filteredNetworkPerformanceBindings[0]
 	}
+
+	NetworkPerformanceBinding = filteredNetworkPerformanceBindings[0]
 
 	d.Set("read_only", NetworkPerformanceBinding.ReadOnly)
 	d.Set("priority", NetworkPerformanceBinding.Priority)

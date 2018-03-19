@@ -12,27 +12,27 @@ func dataSourceNSGGroup() *schema.Resource {
 		Read: dataSourceNSGGroupRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
@@ -81,9 +81,9 @@ func dataSourceNSGGroupRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredNSGGroups) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		NSGGroup = filteredNSGGroups[0]
 	}
+
+	NSGGroup = filteredNSGGroups[0]
 
 	d.Set("name", NSGGroup.Name)
 	d.Set("description", NSGGroup.Description)

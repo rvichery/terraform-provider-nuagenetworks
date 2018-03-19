@@ -12,59 +12,59 @@ func dataSourceKeyServerMonitor() *schema.Resource {
 		Read: dataSourceKeyServerMonitorRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_update_time": &schema.Schema{
+			"last_update_time": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_secured_data_record_count": &schema.Schema{
+			"gateway_secured_data_record_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"keyserver_monitor_encrypted_sek_count": &schema.Schema{
+			"keyserver_monitor_encrypted_sek_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"keyserver_monitor_encrypted_seed_count": &schema.Schema{
+			"keyserver_monitor_encrypted_seed_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"keyserver_monitor_sek_count": &schema.Schema{
+			"keyserver_monitor_sek_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"keyserver_monitor_seed_count": &schema.Schema{
+			"keyserver_monitor_seed_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"enterprise_secured_data_record_count": &schema.Schema{
+			"enterprise_secured_data_record_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -105,9 +105,9 @@ func dataSourceKeyServerMonitorRead(d *schema.ResourceData, m interface{}) error
 	if len(filteredKeyServerMonitors) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		KeyServerMonitor = filteredKeyServerMonitors[0]
 	}
+
+	KeyServerMonitor = filteredKeyServerMonitors[0]
 
 	d.Set("last_update_time", KeyServerMonitor.LastUpdateTime)
 	d.Set("last_updated_by", KeyServerMonitor.LastUpdatedBy)

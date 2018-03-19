@@ -12,59 +12,59 @@ func dataSourceVNFDescriptor() *schema.Resource {
 		Read: dataSourceVNFDescriptorRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"cpu_count": &schema.Schema{
+			"cpu_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"memory_mb": &schema.Schema{
+			"memory_mb": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"vendor": &schema.Schema{
+			"vendor": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"metadata_id": &schema.Schema{
+			"metadata_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"visible": &schema.Schema{
+			"visible": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"associated_vnf_threshold_policy_id": &schema.Schema{
+			"associated_vnf_threshold_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"storage_gb": &schema.Schema{
+			"storage_gb": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vnf_catalog": &schema.Schema{
+			"parent_vnf_catalog": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -105,9 +105,9 @@ func dataSourceVNFDescriptorRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredVNFDescriptors) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VNFDescriptor = filteredVNFDescriptors[0]
 	}
+
+	VNFDescriptor = filteredVNFDescriptors[0]
 
 	d.Set("cpu_count", VNFDescriptor.CPUCount)
 	d.Set("name", VNFDescriptor.Name)

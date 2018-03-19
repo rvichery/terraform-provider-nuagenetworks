@@ -12,51 +12,51 @@ func dataSourceVCenterEAMConfig() *schema.Resource {
 		Read: dataSourceVCenterEAMConfigRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"eam_server_ip": &schema.Schema{
+			"eam_server_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"eam_server_port_number": &schema.Schema{
+			"eam_server_port_number": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"eam_server_port_type": &schema.Schema{
+			"eam_server_port_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vib_url": &schema.Schema{
+			"vib_url": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ovf_url": &schema.Schema{
+			"ovf_url": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"extension_key": &schema.Schema{
+			"extension_key": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -97,9 +97,9 @@ func dataSourceVCenterEAMConfigRead(d *schema.ResourceData, m interface{}) error
 	if len(filteredVCenterEAMConfigs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VCenterEAMConfig = filteredVCenterEAMConfigs[0]
 	}
+
+	VCenterEAMConfig = filteredVCenterEAMConfigs[0]
 
 	d.Set("eam_server_ip", VCenterEAMConfig.EamServerIP)
 	d.Set("eam_server_port_number", VCenterEAMConfig.EamServerPortNumber)

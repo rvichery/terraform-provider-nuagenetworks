@@ -12,70 +12,70 @@ func dataSourceJob() *schema.Resource {
 		Read: dataSourceJobRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parameters": &schema.Schema{
+			"parameters": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"result": &schema.Schema{
+			"result": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"command": &schema.Schema{
+			"command": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"progress": &schema.Schema{
+			"progress": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"assoc_entity_type": &schema.Schema{
+			"assoc_entity_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_gateway", "parent_ns_gateway", "parent_enterprise"},
 			},
-			"parent_gateway": &schema.Schema{
+			"parent_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport", "parent_ns_gateway", "parent_enterprise"},
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport", "parent_gateway", "parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport", "parent_gateway", "parent_ns_gateway"},
@@ -143,9 +143,9 @@ func dataSourceJobRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredJobs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Job = filteredJobs[0]
 	}
+
+	Job = filteredJobs[0]
 
 	d.Set("parameters", Job.Parameters)
 	d.Set("last_updated_by", Job.LastUpdatedBy)

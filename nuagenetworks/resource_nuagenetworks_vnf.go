@@ -15,115 +15,115 @@ func resourceVNF() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"vnf_descriptor_id": &schema.Schema{
+			"vnf_descriptor_id": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"vnf_descriptor_name": &schema.Schema{
+			"vnf_descriptor_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"cpu_count": &schema.Schema{
+			"cpu_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"nsg_name": &schema.Schema{
+			"nsg_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nsg_system_id": &schema.Schema{
+			"nsg_system_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ns_gateway_id": &schema.Schema{
+			"ns_gateway_id": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"task_state": &schema.Schema{
+			"task_state": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_known_error": &schema.Schema{
+			"last_known_error": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"memory_mb": &schema.Schema{
+			"memory_mb": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"vendor": &schema.Schema{
+			"vendor": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"metadata_id": &schema.Schema{
+			"metadata_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"allowed_actions": &schema.Schema{
+			"allowed_actions": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"is_attached_to_descriptor": &schema.Schema{
+			"is_attached_to_descriptor": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  true,
 			},
-			"associated_vnf_metadata_id": &schema.Schema{
+			"associated_vnf_metadata_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_vnf_threshold_policy_id": &schema.Schema{
+			"associated_vnf_threshold_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"storage_gb": &schema.Schema{
+			"storage_gb": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

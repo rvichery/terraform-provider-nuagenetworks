@@ -15,196 +15,196 @@ func resourceSubnet() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"pat_enabled": &schema.Schema{
+			"pat_enabled": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dhcp_relay_status": &schema.Schema{
+			"dhcp_relay_status": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dpi": &schema.Schema{
+			"dpi": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "INHERITED",
 			},
-			"ip_type": &schema.Schema{
+			"ip_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ipv6_address": &schema.Schema{
+			"ipv6_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ipv6_gateway": &schema.Schema{
+			"ipv6_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"maintenance_mode": &schema.Schema{
+			"maintenance_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"gateway": &schema.Schema{
+			"gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"gateway_mac_address": &schema.Schema{
+			"gateway_mac_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"access_restriction_enabled": &schema.Schema{
+			"access_restriction_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"advertise": &schema.Schema{
+			"advertise": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  true,
 			},
-			"default_action": &schema.Schema{
+			"default_action": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"service_id": &schema.Schema{
+			"service_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"resource_type": &schema.Schema{
+			"resource_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "STANDARD",
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"flow_collection_enabled": &schema.Schema{
+			"flow_collection_enabled": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "INHERITED",
 			},
-			"vn_id": &schema.Schema{
+			"vn_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"encryption": &schema.Schema{
+			"encryption": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"underlay": &schema.Schema{
+			"underlay": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"underlay_enabled": &schema.Schema{
+			"underlay_enabled": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"entity_state": &schema.Schema{
+			"entity_state": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"policy_group_id": &schema.Schema{
+			"policy_group_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"route_distinguisher": &schema.Schema{
+			"route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"route_target": &schema.Schema{
+			"route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"split_subnet": &schema.Schema{
+			"split_subnet": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"proxy_arp": &schema.Schema{
+			"proxy_arp": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"use_global_mac": &schema.Schema{
+			"use_global_mac": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_multicast_channel_map_id": &schema.Schema{
+			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_shared_network_resource_id": &schema.Schema{
+			"associated_shared_network_resource_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"public": &schema.Schema{
+			"public": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"multi_home_enabled": &schema.Schema{
-				Type:     schema.TypeBool,
-				Optional: true,
-				Default:  false,
-			},
-			"multicast": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"external_id": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"dynamic_ipv6_address": &schema.Schema{
+			"multi_home_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"parent_zone": &schema.Schema{
+			"multicast": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"external_id": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"dynamic_ipv6_address": {
+				Type:     schema.TypeBool,
+				Optional: true,
+				Default:  false,
+			},
+			"parent_zone": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

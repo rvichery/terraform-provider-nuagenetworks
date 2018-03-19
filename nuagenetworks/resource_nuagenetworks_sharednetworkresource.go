@@ -15,141 +15,141 @@ func resourceSharedNetworkResource() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"ecmp_count": &schema.Schema{
+			"ecmp_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"dhcp_managed": &schema.Schema{
+			"dhcp_managed": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"back_haul_route_distinguisher": &schema.Schema{
+			"back_haul_route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"back_haul_route_target": &schema.Schema{
+			"back_haul_route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"back_haul_vnid": &schema.Schema{
+			"back_haul_vnid": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"gateway": &schema.Schema{
+			"gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"gateway_mac_address": &schema.Schema{
+			"gateway_mac_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"access_restriction_enabled": &schema.Schema{
+			"access_restriction_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"permitted_action_type": &schema.Schema{
+			"permitted_action_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"shared_resource_parent_id": &schema.Schema{
+			"shared_resource_parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vn_id": &schema.Schema{
+			"vn_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"underlay": &schema.Schema{
+			"underlay": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"domain_route_distinguisher": &schema.Schema{
+			"domain_route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"domain_route_target": &schema.Schema{
+			"domain_route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"uplink_gw_vlan_attachment_id": &schema.Schema{
+			"uplink_gw_vlan_attachment_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"uplink_interface_ip": &schema.Schema{
+			"uplink_interface_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"uplink_interface_mac": &schema.Schema{
+			"uplink_interface_mac": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"uplink_vport_name": &schema.Schema{
+			"uplink_vport_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"use_global_mac": &schema.Schema{
+			"use_global_mac": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_pat_mapper_id": &schema.Schema{
+			"associated_pat_mapper_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dynamic_pat_allocation_enabled": &schema.Schema{
+			"dynamic_pat_allocation_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

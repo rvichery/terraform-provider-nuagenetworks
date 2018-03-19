@@ -12,83 +12,83 @@ func dataSourceLicenseStatus() *schema.Resource {
 		Read: dataSourceLicenseStatusRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"accumulate_licenses_enabled": &schema.Schema{
+			"accumulate_licenses_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"total_licensed_avrsgs_count": &schema.Schema{
+			"total_licensed_avrsgs_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_avrss_count": &schema.Schema{
+			"total_licensed_avrss_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_gateways_count": &schema.Schema{
+			"total_licensed_gateways_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_nics_count": &schema.Schema{
+			"total_licensed_nics_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_nsgs_count": &schema.Schema{
+			"total_licensed_nsgs_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_used_avrsgs_count": &schema.Schema{
+			"total_licensed_used_avrsgs_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_used_avrss_count": &schema.Schema{
+			"total_licensed_used_avrss_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_used_nics_count": &schema.Schema{
+			"total_licensed_used_nics_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_used_nsgs_count": &schema.Schema{
+			"total_licensed_used_nsgs_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_used_vms_count": &schema.Schema{
+			"total_licensed_used_vms_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_used_vrsgs_count": &schema.Schema{
+			"total_licensed_used_vrsgs_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_used_vrss_count": &schema.Schema{
+			"total_licensed_used_vrss_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_vms_count": &schema.Schema{
+			"total_licensed_vms_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_vrsgs_count": &schema.Schema{
+			"total_licensed_vrsgs_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_licensed_vrss_count": &schema.Schema{
+			"total_licensed_vrss_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"total_used_gateways_count": &schema.Schema{
+			"total_used_gateways_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
@@ -129,9 +129,9 @@ func dataSourceLicenseStatusRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredLicenseStatus) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		LicenseStatus = filteredLicenseStatus[0]
 	}
+
+	LicenseStatus = filteredLicenseStatus[0]
 
 	d.Set("accumulate_licenses_enabled", LicenseStatus.AccumulateLicensesEnabled)
 	d.Set("total_licensed_avrsgs_count", LicenseStatus.TotalLicensedAVRSGsCount)

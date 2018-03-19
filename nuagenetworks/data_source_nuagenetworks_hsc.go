@@ -12,118 +12,118 @@ func dataSourceHSC() *schema.Resource {
 		Read: dataSourceHSCRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"management_ip": &schema.Schema{
+			"management_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_state_change": &schema.Schema{
+			"last_state_change": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"peak_cpuusage": &schema.Schema{
+			"peak_cpuusage": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"peak_memory_usage": &schema.Schema{
+			"peak_memory_usage": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"messages": &schema.Schema{
+			"messages": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"disks": &schema.Schema{
+			"disks": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"already_marked_for_unavailable": &schema.Schema{
+			"already_marked_for_unavailable": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"unavailable_timestamp": &schema.Schema{
+			"unavailable_timestamp": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"location": &schema.Schema{
+			"location": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"model": &schema.Schema{
+			"model": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"product_version": &schema.Schema{
+			"product_version": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vsds": &schema.Schema{
+			"vsds": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"current_cpuusage": &schema.Schema{
+			"current_cpuusage": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"current_memory_usage": &schema.Schema{
+			"current_memory_usage": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"average_cpuusage": &schema.Schema{
+			"average_cpuusage": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"average_memory_usage": &schema.Schema{
+			"average_memory_usage": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vsp": &schema.Schema{
+			"parent_vsp": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -164,9 +164,9 @@ func dataSourceHSCRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredHSCs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		HSC = filteredHSCs[0]
 	}
+
+	HSC = filteredHSCs[0]
 
 	d.Set("name", HSC.Name)
 	d.Set("management_ip", HSC.ManagementIP)

@@ -12,87 +12,87 @@ func dataSourceNSGInfo() *schema.Resource {
 		Read: dataSourceNSGInfoRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mac_address": &schema.Schema{
+			"mac_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bios_release_date": &schema.Schema{
+			"bios_release_date": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bios_version": &schema.Schema{
+			"bios_version": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"sku": &schema.Schema{
+			"sku": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"tpm_status": &schema.Schema{
+			"tpm_status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"tpm_version": &schema.Schema{
+			"tpm_version": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"cpu_type": &schema.Schema{
+			"cpu_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nsg_version": &schema.Schema{
+			"nsg_version": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"uuid": &schema.Schema{
+			"uuid": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"family": &schema.Schema{
+			"family": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"patches": &schema.Schema{
+			"patches": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"serial_number": &schema.Schema{
+			"serial_number": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"libraries": &schema.Schema{
+			"libraries": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"product_name": &schema.Schema{
+			"product_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_ns_gateway_id": &schema.Schema{
+			"associated_ns_gateway_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -133,9 +133,9 @@ func dataSourceNSGInfoRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredNSGInfos) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		NSGInfo = filteredNSGInfos[0]
 	}
+
+	NSGInfo = filteredNSGInfos[0]
 
 	d.Set("mac_address", NSGInfo.MACAddress)
 	d.Set("bios_release_date", NSGInfo.BIOSReleaseDate)

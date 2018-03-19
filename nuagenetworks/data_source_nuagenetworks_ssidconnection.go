@@ -12,77 +12,77 @@ func dataSourceSSIDConnection() *schema.Resource {
 		Read: dataSourceSSIDConnectionRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"passphrase": &schema.Schema{
+			"passphrase": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"redirect_option": &schema.Schema{
+			"redirect_option": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"redirect_url": &schema.Schema{
+			"redirect_url": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"generic_config": &schema.Schema{
+			"generic_config": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"white_list": &schema.Schema{
+			"white_list": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"black_list": &schema.Schema{
+			"black_list": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"interface_name": &schema.Schema{
+			"interface_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vport_id": &schema.Schema{
+			"vport_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"broadcast_ssid": &schema.Schema{
+			"broadcast_ssid": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"associated_captive_portal_profile_id": &schema.Schema{
+			"associated_captive_portal_profile_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_egress_qos_policy_id": &schema.Schema{
+			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"authentication_mode": &schema.Schema{
+			"authentication_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_wireless_port": &schema.Schema{
+			"parent_wireless_port": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -123,9 +123,9 @@ func dataSourceSSIDConnectionRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredSSIDConnections) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		SSIDConnection = filteredSSIDConnections[0]
 	}
+
+	SSIDConnection = filteredSSIDConnections[0]
 
 	d.Set("name", SSIDConnection.Name)
 	d.Set("passphrase", SSIDConnection.Passphrase)

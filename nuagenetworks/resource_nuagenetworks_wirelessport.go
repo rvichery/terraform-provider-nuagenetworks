@@ -15,63 +15,63 @@ func resourceWirelessPort() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"generic_config": &schema.Schema{
+			"generic_config": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"physical_name": &schema.Schema{
+			"physical_name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"wifi_frequency_band": &schema.Schema{
+			"wifi_frequency_band": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"wifi_mode": &schema.Schema{
+			"wifi_mode": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"port_type": &schema.Schema{
+			"port_type": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"country_code": &schema.Schema{
+			"country_code": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"frequency_channel": &schema.Schema{
+			"frequency_channel": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

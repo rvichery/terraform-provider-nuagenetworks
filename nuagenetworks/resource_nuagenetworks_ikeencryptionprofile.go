@@ -15,129 +15,129 @@ func resourceIKEEncryptionprofile() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"dpd_interval": &schema.Schema{
+			"dpd_interval": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  0,
 			},
-			"dpd_mode": &schema.Schema{
+			"dpd_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "REPLY_ONLY",
 			},
-			"dpd_timeout": &schema.Schema{
+			"dpd_timeout": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  0,
 			},
-			"ipsec_authentication_algorithm": &schema.Schema{
+			"ipsec_authentication_algorithm": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "HMAC_SHA256",
 			},
-			"ipsec_dont_fragment": &schema.Schema{
+			"ipsec_dont_fragment": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"ipsec_enable_pfs": &schema.Schema{
+			"ipsec_enable_pfs": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"ipsec_encryption_algorithm": &schema.Schema{
+			"ipsec_encryption_algorithm": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "AES256",
 			},
-			"ipsec_pre_fragment": &schema.Schema{
+			"ipsec_pre_fragment": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"ipsec_sa_lifetime": &schema.Schema{
+			"ipsec_sa_lifetime": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  3600,
 			},
-			"ipsec_sa_replay_window_size": &schema.Schema{
+			"ipsec_sa_replay_window_size": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "WINDOW_SIZE_32",
 			},
-			"isakmp_authentication_mode": &schema.Schema{
+			"isakmp_authentication_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "PRE_SHARED_KEY",
 			},
-			"isakmp_diffie_helman_group_identifier": &schema.Schema{
+			"isakmp_diffie_helman_group_identifier": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "GROUP_5_1536_BIT_DH",
 			},
-			"isakmp_encryption_algorithm": &schema.Schema{
+			"isakmp_encryption_algorithm": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "AES256",
 			},
-			"isakmp_encryption_key_lifetime": &schema.Schema{
+			"isakmp_encryption_key_lifetime": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  28800,
 			},
-			"isakmp_hash_algorithm": &schema.Schema{
+			"isakmp_hash_algorithm": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "SHA256",
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"sequence": &schema.Schema{
+			"sequence": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_enterprise_id": &schema.Schema{
+			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

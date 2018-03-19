@@ -12,63 +12,63 @@ func dataSourceNSGatewayTemplate() *schema.Resource {
 		Read: dataSourceNSGatewayTemplateRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ssh_service": &schema.Schema{
+			"ssh_service": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"personality": &schema.Schema{
+			"personality": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"infrastructure_access_profile_id": &schema.Schema{
+			"infrastructure_access_profile_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"infrastructure_profile_id": &schema.Schema{
+			"infrastructure_profile_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"instance_ssh_override": &schema.Schema{
+			"instance_ssh_override": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
@@ -117,9 +117,9 @@ func dataSourceNSGatewayTemplateRead(d *schema.ResourceData, m interface{}) erro
 	if len(filteredNSGatewayTemplates) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		NSGatewayTemplate = filteredNSGatewayTemplates[0]
 	}
+
+	NSGatewayTemplate = filteredNSGatewayTemplates[0]
 
 	d.Set("ssh_service", NSGatewayTemplate.SSHService)
 	d.Set("name", NSGatewayTemplate.Name)

@@ -15,39 +15,39 @@ func resourceCTranslationMap() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"mapping_type": &schema.Schema{
+			"mapping_type": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"customer_alias_ip": &schema.Schema{
+			"customer_alias_ip": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"customer_ip": &schema.Schema{
+			"customer_ip": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"parent_csnat_pool": &schema.Schema{
+			"parent_csnat_pool": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

@@ -12,56 +12,56 @@ func dataSourceRedirectionTargetTemplate() *schema.Resource {
 		Read: dataSourceRedirectionTargetTemplateRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"redundancy_enabled": &schema.Schema{
+			"redundancy_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"end_point_type": &schema.Schema{
+			"end_point_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"trigger_type": &schema.Schema{
+			"trigger_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_l2_domain_template": &schema.Schema{
+			"parent_l2_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain_template"},
 			},
-			"parent_domain_template": &schema.Schema{
+			"parent_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_l2_domain_template"},
@@ -111,9 +111,9 @@ func dataSourceRedirectionTargetTemplateRead(d *schema.ResourceData, m interface
 	if len(filteredRedirectionTargetTemplates) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		RedirectionTargetTemplate = filteredRedirectionTargetTemplates[0]
 	}
+
+	RedirectionTargetTemplate = filteredRedirectionTargetTemplates[0]
 
 	d.Set("name", RedirectionTargetTemplate.Name)
 	d.Set("last_updated_by", RedirectionTargetTemplate.LastUpdatedBy)

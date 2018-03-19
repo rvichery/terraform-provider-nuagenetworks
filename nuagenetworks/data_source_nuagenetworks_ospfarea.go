@@ -12,79 +12,79 @@ func dataSourceOSPFArea() *schema.Resource {
 		Read: dataSourceOSPFAreaRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"redistribute_external_enabled": &schema.Schema{
+			"redistribute_external_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"default_metric": &schema.Schema{
+			"default_metric": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"default_originate_option": &schema.Schema{
+			"default_originate_option": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"aggregate_area_range": &schema.Schema{
+			"aggregate_area_range": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"aggregate_area_range_nssa": &schema.Schema{
+			"aggregate_area_range_nssa": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"area_id": &schema.Schema{
+			"area_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"area_type": &schema.Schema{
+			"area_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"summaries_enabled": &schema.Schema{
+			"summaries_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"suppress_area_range": &schema.Schema{
+			"suppress_area_range": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"suppress_area_range_nssa": &schema.Schema{
+			"suppress_area_range_nssa": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_ospf_instance": &schema.Schema{
+			"parent_ospf_instance": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -125,9 +125,9 @@ func dataSourceOSPFAreaRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredOSPFAreas) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		OSPFArea = filteredOSPFAreas[0]
 	}
+
+	OSPFArea = filteredOSPFAreas[0]
 
 	d.Set("last_updated_by", OSPFArea.LastUpdatedBy)
 	d.Set("redistribute_external_enabled", OSPFArea.RedistributeExternalEnabled)

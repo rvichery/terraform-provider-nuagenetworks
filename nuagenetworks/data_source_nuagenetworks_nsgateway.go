@@ -12,236 +12,236 @@ func dataSourceNSGateway() *schema.Resource {
 		Read: dataSourceNSGatewayRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mac_address": &schema.Schema{
+			"mac_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nat_traversal_enabled": &schema.Schema{
+			"nat_traversal_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"tcpmss_enabled": &schema.Schema{
+			"tcpmss_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"tcp_maximum_segment_size": &schema.Schema{
+			"tcp_maximum_segment_size": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"bios_release_date": &schema.Schema{
+			"bios_release_date": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bios_version": &schema.Schema{
+			"bios_version": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"sku": &schema.Schema{
+			"sku": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"tpm_status": &schema.Schema{
+			"tpm_status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"tpm_version": &schema.Schema{
+			"tpm_version": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"cpu_type": &schema.Schema{
+			"cpu_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"nsg_version": &schema.Schema{
+			"nsg_version": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ssh_service": &schema.Schema{
+			"ssh_service": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"uuid": &schema.Schema{
+			"uuid": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"family": &schema.Schema{
+			"family": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_configuration_reload_timestamp": &schema.Schema{
+			"last_configuration_reload_timestamp": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"datapath_id": &schema.Schema{
+			"datapath_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"patches": &schema.Schema{
+			"patches": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"redundancy_group_id": &schema.Schema{
+			"redundancy_group_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"pending": &schema.Schema{
+			"pending": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"serial_number": &schema.Schema{
+			"serial_number": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"derived_ssh_service_state": &schema.Schema{
+			"derived_ssh_service_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"personality": &schema.Schema{
+			"personality": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"libraries": &schema.Schema{
+			"libraries": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"inherited_ssh_service_state": &schema.Schema{
+			"inherited_ssh_service_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"location_id": &schema.Schema{
+			"location_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"configuration_reload_state": &schema.Schema{
+			"configuration_reload_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"configuration_status": &schema.Schema{
+			"configuration_status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"control_traffic_cos_value": &schema.Schema{
+			"control_traffic_cos_value": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"control_traffic_dscp_value": &schema.Schema{
+			"control_traffic_dscp_value": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"bootstrap_id": &schema.Schema{
+			"bootstrap_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bootstrap_status": &schema.Schema{
+			"bootstrap_status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"operation_mode": &schema.Schema{
+			"operation_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"operation_status": &schema.Schema{
+			"operation_status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"product_name": &schema.Schema{
+			"product_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_gateway_security_id": &schema.Schema{
+			"associated_gateway_security_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_gateway_security_profile_id": &schema.Schema{
+			"associated_gateway_security_profile_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_nsg_info_id": &schema.Schema{
+			"associated_nsg_info_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_nsg_upgrade_profile_id": &schema.Schema{
+			"associated_nsg_upgrade_profile_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"auto_disc_gateway_id": &schema.Schema{
+			"auto_disc_gateway_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"system_id": &schema.Schema{
+			"system_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_duc_group": &schema.Schema{
+			"parent_duc_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_policy_object_group", "parent_performance_monitor", "parent_nsg_group", "parent_ns_redundant_gateway_group", "parent_enterprise"},
 			},
-			"parent_policy_object_group": &schema.Schema{
+			"parent_policy_object_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_duc_group", "parent_performance_monitor", "parent_nsg_group", "parent_ns_redundant_gateway_group", "parent_enterprise"},
 			},
-			"parent_performance_monitor": &schema.Schema{
+			"parent_performance_monitor": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_duc_group", "parent_policy_object_group", "parent_nsg_group", "parent_ns_redundant_gateway_group", "parent_enterprise"},
 			},
-			"parent_nsg_group": &schema.Schema{
+			"parent_nsg_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_duc_group", "parent_policy_object_group", "parent_performance_monitor", "parent_ns_redundant_gateway_group", "parent_enterprise"},
 			},
-			"parent_ns_redundant_gateway_group": &schema.Schema{
+			"parent_ns_redundant_gateway_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_duc_group", "parent_policy_object_group", "parent_performance_monitor", "parent_nsg_group", "parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_duc_group", "parent_policy_object_group", "parent_performance_monitor", "parent_nsg_group", "parent_ns_redundant_gateway_group"},
@@ -321,9 +321,9 @@ func dataSourceNSGatewayRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredNSGateways) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		NSGateway = filteredNSGateways[0]
 	}
+
+	NSGateway = filteredNSGateways[0]
 
 	d.Set("mac_address", NSGateway.MACAddress)
 	d.Set("nat_traversal_enabled", NSGateway.NATTraversalEnabled)

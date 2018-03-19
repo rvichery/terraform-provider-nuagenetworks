@@ -15,94 +15,94 @@ func resourceBootstrapActivation() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"cacert": &schema.Schema{
+			"cacert": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"hash": &schema.Schema{
+			"hash": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"action": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"seed": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"cert": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"entity_scope": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"config_url": &schema.Schema{
+			"action": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"tpm_owner_password": &schema.Schema{
+			"seed": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"tpm_state": &schema.Schema{
+			"cert": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"entity_scope": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Computed: true,
+			},
+			"config_url": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"tpm_owner_password": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"tpm_state": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  0,
 			},
-			"srk_password": &schema.Schema{
+			"srk_password": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"vsd_time": &schema.Schema{
+			"vsd_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"csr": &schema.Schema{
+			"csr": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"auto_bootstrap": &schema.Schema{
+			"auto_bootstrap": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

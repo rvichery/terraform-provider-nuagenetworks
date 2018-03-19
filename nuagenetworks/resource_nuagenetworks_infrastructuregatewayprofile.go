@@ -15,142 +15,142 @@ func resourceInfrastructureGatewayProfile() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"ntp_server_key": &schema.Schema{
+			"ntp_server_key": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ntp_server_key_id": &schema.Schema{
+			"ntp_server_key_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"datapath_sync_timeout": &schema.Schema{
+			"datapath_sync_timeout": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  1000,
 			},
-			"dead_timer": &schema.Schema{
+			"dead_timer": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dead_timer_enabled": &schema.Schema{
+			"dead_timer_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"remote_log_mode": &schema.Schema{
+			"remote_log_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "DISABLED",
 			},
-			"remote_log_server_address": &schema.Schema{
+			"remote_log_server_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"remote_log_server_port": &schema.Schema{
+			"remote_log_server_port": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  514,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"metadata_upgrade_path": &schema.Schema{
+			"metadata_upgrade_path": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"flow_eviction_threshold": &schema.Schema{
+			"flow_eviction_threshold": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  2500,
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"controller_less_duration": &schema.Schema{
+			"controller_less_duration": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "P7DT0H0M",
 			},
-			"controller_less_forwarding_mode": &schema.Schema{
+			"controller_less_forwarding_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "DISABLED",
 			},
-			"controller_less_remote_duration": &schema.Schema{
+			"controller_less_remote_duration": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "P3DT0H0M",
 			},
-			"force_immediate_system_sync": &schema.Schema{
+			"force_immediate_system_sync": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"open_flow_audit_timer": &schema.Schema{
+			"open_flow_audit_timer": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  180,
 			},
-			"upgrade_action": &schema.Schema{
+			"upgrade_action": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "DOWNLOAD_AND_UPGRADE_AT_WINDOW",
 			},
-			"proxy_dns_name": &schema.Schema{
+			"proxy_dns_name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"use_two_factor": &schema.Schema{
+			"use_two_factor": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  true,
 			},
-			"stats_collector_port": &schema.Schema{
+			"stats_collector_port": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  39090,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"system_sync_scheduler": &schema.Schema{
+			"system_sync_scheduler": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "0 0 * * *",

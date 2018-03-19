@@ -12,27 +12,27 @@ func dataSourceCustomProperty() *schema.Resource {
 		Read: dataSourceCustomPropertyRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"attribute_name": &schema.Schema{
+			"attribute_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"attribute_value": &schema.Schema{
+			"attribute_value": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_uplink_connection": &schema.Schema{
+			"parent_uplink_connection": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -73,9 +73,9 @@ func dataSourceCustomPropertyRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredCustomProperties) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		CustomProperty = filteredCustomProperties[0]
 	}
+
+	CustomProperty = filteredCustomProperties[0]
 
 	d.Set("attribute_name", CustomProperty.AttributeName)
 	d.Set("attribute_value", CustomProperty.AttributeValue)

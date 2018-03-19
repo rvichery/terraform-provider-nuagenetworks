@@ -12,88 +12,88 @@ func dataSourceOSPFInterface() *schema.Resource {
 		Read: dataSourceOSPFInterfaceRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"passive_enabled": &schema.Schema{
+			"passive_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"admin_state": &schema.Schema{
+			"admin_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dead_interval": &schema.Schema{
+			"dead_interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"hello_interval": &schema.Schema{
+			"hello_interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"message_digest_keys": &schema.Schema{
+			"message_digest_keys": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"metric": &schema.Schema{
+			"metric": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"interface_type": &schema.Schema{
+			"interface_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"associated_subnet_id": &schema.Schema{
+			"associated_subnet_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mtu": &schema.Schema{
+			"mtu": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"authentication_key": &schema.Schema{
+			"authentication_key": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"authentication_type": &schema.Schema{
+			"authentication_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_ospf_area": &schema.Schema{
+			"parent_ospf_area": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -134,9 +134,9 @@ func dataSourceOSPFInterfaceRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredOSPFInterfaces) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		OSPFInterface = filteredOSPFInterfaces[0]
 	}
+
+	OSPFInterface = filteredOSPFInterfaces[0]
 
 	d.Set("name", OSPFInterface.Name)
 	d.Set("passive_enabled", OSPFInterface.PassiveEnabled)

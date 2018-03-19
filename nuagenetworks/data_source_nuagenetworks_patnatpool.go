@@ -12,102 +12,102 @@ func dataSourcePATNATPool() *schema.Resource {
 		Read: dataSourcePATNATPoolRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address_range": &schema.Schema{
+			"address_range": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"default_patip": &schema.Schema{
+			"default_patip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"end_address_range": &schema.Schema{
+			"end_address_range": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"end_source_address": &schema.Schema{
+			"end_source_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_gateway_id": &schema.Schema{
+			"associated_gateway_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_gateway_type": &schema.Schema{
+			"associated_gateway_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_subnet_id": &schema.Schema{
+			"associated_subnet_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_vlan_id": &schema.Schema{
+			"associated_vlan_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"start_address_range": &schema.Schema{
+			"start_address_range": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"start_source_address": &schema.Schema{
+			"start_source_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dynamic_source_enabled": &schema.Schema{
+			"dynamic_source_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"parent_vlan": &schema.Schema{
+			"parent_vlan": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_gateway", "parent_ns_gateway", "parent_enterprise"},
 			},
-			"parent_gateway": &schema.Schema{
+			"parent_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vlan", "parent_ns_gateway", "parent_enterprise"},
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vlan", "parent_gateway", "parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vlan", "parent_gateway", "parent_ns_gateway"},
@@ -175,9 +175,9 @@ func dataSourcePATNATPoolRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredPATNATPools) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		PATNATPool = filteredPATNATPools[0]
 	}
+
+	PATNATPool = filteredPATNATPools[0]
 
 	d.Set("name", PATNATPool.Name)
 	d.Set("last_updated_by", PATNATPool.LastUpdatedBy)

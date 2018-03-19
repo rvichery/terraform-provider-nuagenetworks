@@ -15,96 +15,96 @@ func resourceEnterpriseProfile() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"bgp_enabled": &schema.Schema{
+			"bgp_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"dhcp_lease_interval": &schema.Schema{
+			"dhcp_lease_interval": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"vnf_management_enabled": &schema.Schema{
+			"vnf_management_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"receive_multi_cast_list_id": &schema.Schema{
+			"receive_multi_cast_list_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"send_multi_cast_list_id": &schema.Schema{
+			"send_multi_cast_list_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"allow_advanced_qos_configuration": &schema.Schema{
+			"allow_advanced_qos_configuration": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"allow_gateway_management": &schema.Schema{
+			"allow_gateway_management": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"allow_trusted_forwarding_class": &schema.Schema{
+			"allow_trusted_forwarding_class": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"allowed_forwarding_classes": &schema.Schema{
+			"allowed_forwarding_classes": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"floating_ips_quota": &schema.Schema{
+			"floating_ips_quota": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"enable_application_performance_management": &schema.Schema{
+			"enable_application_performance_management": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"encryption_management_mode": &schema.Schema{
+			"encryption_management_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},

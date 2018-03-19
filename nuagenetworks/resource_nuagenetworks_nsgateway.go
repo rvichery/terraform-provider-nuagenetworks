@@ -15,237 +15,237 @@ func resourceNSGateway() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"mac_address": &schema.Schema{
+			"mac_address": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nat_traversal_enabled": &schema.Schema{
+			"nat_traversal_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"tcpmss_enabled": &schema.Schema{
+			"tcpmss_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"tcp_maximum_segment_size": &schema.Schema{
+			"tcp_maximum_segment_size": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  1330,
 			},
-			"bios_release_date": &schema.Schema{
+			"bios_release_date": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"bios_version": &schema.Schema{
+			"bios_version": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"sku": &schema.Schema{
+			"sku": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"tpm_status": &schema.Schema{
+			"tpm_status": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "UNKNOWN",
 			},
-			"tpm_version": &schema.Schema{
+			"tpm_version": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"cpu_type": &schema.Schema{
+			"cpu_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nsg_version": &schema.Schema{
+			"nsg_version": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ssh_service": &schema.Schema{
+			"ssh_service": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "INHERITED",
 			},
-			"uuid": &schema.Schema{
+			"uuid": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"family": &schema.Schema{
+			"family": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_configuration_reload_timestamp": &schema.Schema{
+			"last_configuration_reload_timestamp": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"datapath_id": &schema.Schema{
+			"datapath_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"patches": &schema.Schema{
+			"patches": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"redundancy_group_id": &schema.Schema{
+			"redundancy_group_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"pending": &schema.Schema{
+			"pending": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"serial_number": &schema.Schema{
+			"serial_number": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"derived_ssh_service_state": &schema.Schema{
+			"derived_ssh_service_state": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"personality": &schema.Schema{
+			"personality": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"libraries": &schema.Schema{
+			"libraries": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"inherited_ssh_service_state": &schema.Schema{
+			"inherited_ssh_service_state": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "ENABLED",
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"location_id": &schema.Schema{
+			"location_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"configuration_reload_state": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-				Default:  "UNKNOWN",
-			},
-			"configuration_status": &schema.Schema{
+			"configuration_reload_state": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "UNKNOWN",
 			},
-			"control_traffic_cos_value": &schema.Schema{
+			"configuration_status": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Default:  "UNKNOWN",
+			},
+			"control_traffic_cos_value": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  7,
 			},
-			"control_traffic_dscp_value": &schema.Schema{
+			"control_traffic_dscp_value": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  56,
 			},
-			"bootstrap_id": &schema.Schema{
+			"bootstrap_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"bootstrap_status": &schema.Schema{
+			"bootstrap_status": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"operation_mode": &schema.Schema{
+			"operation_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"operation_status": &schema.Schema{
+			"operation_status": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"product_name": &schema.Schema{
+			"product_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_gateway_security_id": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"associated_gateway_security_profile_id": &schema.Schema{
+			"associated_gateway_security_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_nsg_info_id": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"associated_nsg_upgrade_profile_id": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"auto_disc_gateway_id": &schema.Schema{
+			"associated_gateway_security_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"associated_nsg_info_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"system_id": &schema.Schema{
+			"associated_nsg_upgrade_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"auto_disc_gateway_id": {
+				Type:     schema.TypeString,
+				Optional: true,
+				Computed: true,
+			},
+			"external_id": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"system_id": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

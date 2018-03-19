@@ -12,166 +12,166 @@ func dataSourceVM() *schema.Resource {
 		Read: dataSourceVMRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"l2_domain_ids": &schema.Schema{
+			"l2_domain_ids": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"vrsid": &schema.Schema{
+			"vrsid": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"uuid": &schema.Schema{
+			"uuid": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"reason_type": &schema.Schema{
+			"reason_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"delete_expiry": &schema.Schema{
+			"delete_expiry": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"delete_mode": &schema.Schema{
+			"delete_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"resync_info": &schema.Schema{
+			"resync_info": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"site_identifier": &schema.Schema{
+			"site_identifier": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"interfaces": &schema.Schema{
+			"interfaces": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"enterprise_name": &schema.Schema{
+			"enterprise_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"domain_ids": &schema.Schema{
+			"domain_ids": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"zone_ids": &schema.Schema{
+			"zone_ids": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"orchestration_id": &schema.Schema{
+			"orchestration_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"user_id": &schema.Schema{
+			"user_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"user_name": &schema.Schema{
+			"user_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"subnet_ids": &schema.Schema{
+			"subnet_ids": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"hypervisor_ip": &schema.Schema{
+			"hypervisor_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_qos": &schema.Schema{
+			"parent_qos": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_vrs", "parent_l2_domain", "parent_egress_acl_template", "parent_user", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_zone": &schema.Schema{
+			"parent_zone": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_qos", "parent_domain", "parent_vport", "parent_subnet", "parent_vrs", "parent_l2_domain", "parent_egress_acl_template", "parent_user", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_qos", "parent_zone", "parent_vport", "parent_subnet", "parent_vrs", "parent_l2_domain", "parent_egress_acl_template", "parent_user", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_qos", "parent_zone", "parent_domain", "parent_subnet", "parent_vrs", "parent_l2_domain", "parent_egress_acl_template", "parent_user", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_qos", "parent_zone", "parent_domain", "parent_vport", "parent_vrs", "parent_l2_domain", "parent_egress_acl_template", "parent_user", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_vrs": &schema.Schema{
+			"parent_vrs": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_qos", "parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_l2_domain", "parent_egress_acl_template", "parent_user", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_qos", "parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_vrs", "parent_egress_acl_template", "parent_user", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_egress_acl_template": &schema.Schema{
+			"parent_egress_acl_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_qos", "parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_vrs", "parent_l2_domain", "parent_user", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_user": &schema.Schema{
+			"parent_user": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_qos", "parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_vrs", "parent_l2_domain", "parent_egress_acl_template", "parent_enterprise", "parent_ingress_acl_template"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_qos", "parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_vrs", "parent_l2_domain", "parent_egress_acl_template", "parent_user", "parent_ingress_acl_template"},
 			},
-			"parent_ingress_acl_template": &schema.Schema{
+			"parent_ingress_acl_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_qos", "parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_vrs", "parent_l2_domain", "parent_egress_acl_template", "parent_user", "parent_enterprise"},
@@ -281,9 +281,9 @@ func dataSourceVMRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredVMs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VM = filteredVMs[0]
 	}
+
+	VM = filteredVMs[0]
 
 	d.Set("l2_domain_ids", VM.L2DomainIDs)
 	d.Set("vrsid", VM.VRSID)

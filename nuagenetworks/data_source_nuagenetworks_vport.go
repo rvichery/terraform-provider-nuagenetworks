@@ -12,181 +12,181 @@ func dataSourceVPort() *schema.Resource {
 		Read: dataSourceVPortRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vlanid": &schema.Schema{
+			"vlanid": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dpi": &schema.Schema{
+			"dpi": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"has_attached_interfaces": &schema.Schema{
+			"has_attached_interfaces": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_mac_move_role": &schema.Schema{
+			"gateway_mac_move_role": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"active": &schema.Schema{
+			"active": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"address_spoofing": &schema.Schema{
+			"address_spoofing": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"segmentation_id": &schema.Schema{
+			"segmentation_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"segmentation_type": &schema.Schema{
+			"segmentation_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"flow_collection_enabled": &schema.Schema{
+			"flow_collection_enabled": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"domain_id": &schema.Schema{
+			"domain_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"zone_id": &schema.Schema{
+			"zone_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"operational_state": &schema.Schema{
+			"operational_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"trunk_role": &schema.Schema{
+			"trunk_role": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_floating_ip_id": &schema.Schema{
+			"associated_floating_ip_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_multicast_channel_map_id": &schema.Schema{
+			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_ssid": &schema.Schema{
+			"associated_ssid": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_send_multicast_channel_map_id": &schema.Schema{
+			"associated_send_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_trunk_id": &schema.Schema{
+			"associated_trunk_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"sub_type": &schema.Schema{
+			"sub_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"multi_nic_vport_id": &schema.Schema{
+			"multi_nic_vport_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"multicast": &schema.Schema{
+			"multicast": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"system_type": &schema.Schema{
+			"system_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_overlay_mirror_destination": &schema.Schema{
+			"parent_overlay_mirror_destination": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_redirection_target", "parent_domain", "parent_subnet", "parent_multi_nic_vport", "parent_vrs", "parent_trunk", "parent_l2_domain", "parent_floating_ip", "parent_policy_group"},
 			},
-			"parent_zone": &schema.Schema{
+			"parent_zone": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_overlay_mirror_destination", "parent_redirection_target", "parent_domain", "parent_subnet", "parent_multi_nic_vport", "parent_vrs", "parent_trunk", "parent_l2_domain", "parent_floating_ip", "parent_policy_group"},
 			},
-			"parent_redirection_target": &schema.Schema{
+			"parent_redirection_target": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_overlay_mirror_destination", "parent_zone", "parent_domain", "parent_subnet", "parent_multi_nic_vport", "parent_vrs", "parent_trunk", "parent_l2_domain", "parent_floating_ip", "parent_policy_group"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_overlay_mirror_destination", "parent_zone", "parent_redirection_target", "parent_subnet", "parent_multi_nic_vport", "parent_vrs", "parent_trunk", "parent_l2_domain", "parent_floating_ip", "parent_policy_group"},
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_overlay_mirror_destination", "parent_zone", "parent_redirection_target", "parent_domain", "parent_multi_nic_vport", "parent_vrs", "parent_trunk", "parent_l2_domain", "parent_floating_ip", "parent_policy_group"},
 			},
-			"parent_multi_nic_vport": &schema.Schema{
+			"parent_multi_nic_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_overlay_mirror_destination", "parent_zone", "parent_redirection_target", "parent_domain", "parent_subnet", "parent_vrs", "parent_trunk", "parent_l2_domain", "parent_floating_ip", "parent_policy_group"},
 			},
-			"parent_vrs": &schema.Schema{
+			"parent_vrs": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_overlay_mirror_destination", "parent_zone", "parent_redirection_target", "parent_domain", "parent_subnet", "parent_multi_nic_vport", "parent_trunk", "parent_l2_domain", "parent_floating_ip", "parent_policy_group"},
 			},
-			"parent_trunk": &schema.Schema{
+			"parent_trunk": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_overlay_mirror_destination", "parent_zone", "parent_redirection_target", "parent_domain", "parent_subnet", "parent_multi_nic_vport", "parent_vrs", "parent_l2_domain", "parent_floating_ip", "parent_policy_group"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_overlay_mirror_destination", "parent_zone", "parent_redirection_target", "parent_domain", "parent_subnet", "parent_multi_nic_vport", "parent_vrs", "parent_trunk", "parent_floating_ip", "parent_policy_group"},
 			},
-			"parent_floating_ip": &schema.Schema{
+			"parent_floating_ip": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_overlay_mirror_destination", "parent_zone", "parent_redirection_target", "parent_domain", "parent_subnet", "parent_multi_nic_vport", "parent_vrs", "parent_trunk", "parent_l2_domain", "parent_policy_group"},
 			},
-			"parent_policy_group": &schema.Schema{
+			"parent_policy_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_overlay_mirror_destination", "parent_zone", "parent_redirection_target", "parent_domain", "parent_subnet", "parent_multi_nic_vport", "parent_vrs", "parent_trunk", "parent_l2_domain", "parent_floating_ip"},
@@ -290,9 +290,9 @@ func dataSourceVPortRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredVPorts) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VPort = filteredVPorts[0]
 	}
+
+	VPort = filteredVPorts[0]
 
 	d.Set("vlanid", VPort.VLANID)
 	d.Set("dpi", VPort.DPI)

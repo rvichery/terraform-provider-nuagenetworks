@@ -12,105 +12,105 @@ func dataSourceEnterprisePermission() *schema.Resource {
 		Read: dataSourceEnterprisePermissionRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"permitted_entity_description": &schema.Schema{
+			"permitted_entity_description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"permitted_entity_id": &schema.Schema{
+			"permitted_entity_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"permitted_entity_name": &schema.Schema{
+			"permitted_entity_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"permitted_entity_type": &schema.Schema{
+			"permitted_entity_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_shared_network_resource": &schema.Schema{
+			"parent_shared_network_resource": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_vsg_redundant_port", "parent_wan_service", "parent_port", "parent_subnet", "parent_vlan", "parent_gateway", "parent_ns_gateway", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_redundancy_group": &schema.Schema{
+			"parent_redundancy_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_vsg_redundant_port", "parent_wan_service", "parent_port", "parent_subnet", "parent_vlan", "parent_gateway", "parent_ns_gateway", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_vsg_redundant_port": &schema.Schema{
+			"parent_vsg_redundant_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_redundancy_group", "parent_wan_service", "parent_port", "parent_subnet", "parent_vlan", "parent_gateway", "parent_ns_gateway", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_wan_service": &schema.Schema{
+			"parent_wan_service": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_redundancy_group", "parent_vsg_redundant_port", "parent_port", "parent_subnet", "parent_vlan", "parent_gateway", "parent_ns_gateway", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_port": &schema.Schema{
+			"parent_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_redundancy_group", "parent_vsg_redundant_port", "parent_wan_service", "parent_subnet", "parent_vlan", "parent_gateway", "parent_ns_gateway", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_redundancy_group", "parent_vsg_redundant_port", "parent_wan_service", "parent_port", "parent_vlan", "parent_gateway", "parent_ns_gateway", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_vlan": &schema.Schema{
+			"parent_vlan": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_redundancy_group", "parent_vsg_redundant_port", "parent_wan_service", "parent_port", "parent_subnet", "parent_gateway", "parent_ns_gateway", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_gateway": &schema.Schema{
+			"parent_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_redundancy_group", "parent_vsg_redundant_port", "parent_wan_service", "parent_port", "parent_subnet", "parent_vlan", "parent_ns_gateway", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_redundancy_group", "parent_vsg_redundant_port", "parent_wan_service", "parent_port", "parent_subnet", "parent_vlan", "parent_gateway", "parent_ns_port", "parent_patnat_pool"},
 			},
-			"parent_ns_port": &schema.Schema{
+			"parent_ns_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_redundancy_group", "parent_vsg_redundant_port", "parent_wan_service", "parent_port", "parent_subnet", "parent_vlan", "parent_gateway", "parent_ns_gateway", "parent_patnat_pool"},
 			},
-			"parent_patnat_pool": &schema.Schema{
+			"parent_patnat_pool": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_shared_network_resource", "parent_redundancy_group", "parent_vsg_redundant_port", "parent_wan_service", "parent_port", "parent_subnet", "parent_vlan", "parent_gateway", "parent_ns_gateway", "parent_ns_port"},
@@ -214,9 +214,9 @@ func dataSourceEnterprisePermissionRead(d *schema.ResourceData, m interface{}) e
 	if len(filteredEnterprisePermissions) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		EnterprisePermission = filteredEnterprisePermissions[0]
 	}
+
+	EnterprisePermission = filteredEnterprisePermissions[0]
 
 	d.Set("name", EnterprisePermission.Name)
 	d.Set("last_updated_by", EnterprisePermission.LastUpdatedBy)

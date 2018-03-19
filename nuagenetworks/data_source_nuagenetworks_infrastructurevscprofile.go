@@ -12,51 +12,51 @@ func dataSourceInfrastructureVscProfile() *schema.Resource {
 		Read: dataSourceInfrastructureVscProfileRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"second_controller": &schema.Schema{
+			"second_controller": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"first_controller": &schema.Schema{
+			"first_controller": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"probe_interval": &schema.Schema{
+			"probe_interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -97,9 +97,9 @@ func dataSourceInfrastructureVscProfileRead(d *schema.ResourceData, m interface{
 	if len(filteredInfrastructureVscProfiles) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		InfrastructureVscProfile = filteredInfrastructureVscProfiles[0]
 	}
+
+	InfrastructureVscProfile = filteredInfrastructureVscProfiles[0]
 
 	d.Set("name", InfrastructureVscProfile.Name)
 	d.Set("last_updated_by", InfrastructureVscProfile.LastUpdatedBy)

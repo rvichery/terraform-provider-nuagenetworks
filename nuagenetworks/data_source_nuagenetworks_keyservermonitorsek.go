@@ -12,51 +12,51 @@ func dataSourceKeyServerMonitorSEK() *schema.Resource {
 		Read: dataSourceKeyServerMonitorSEKRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"seed_payload_authentication_algorithm": &schema.Schema{
+			"seed_payload_authentication_algorithm": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"seed_payload_encryption_algorithm": &schema.Schema{
+			"seed_payload_encryption_algorithm": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"lifetime": &schema.Schema{
+			"lifetime": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"creation_time": &schema.Schema{
+			"creation_time": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"start_time": &schema.Schema{
+			"start_time": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_key_server_monitor": &schema.Schema{
+			"parent_key_server_monitor": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -97,9 +97,9 @@ func dataSourceKeyServerMonitorSEKRead(d *schema.ResourceData, m interface{}) er
 	if len(filteredKeyServerMonitorSEKs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		KeyServerMonitorSEK = filteredKeyServerMonitorSEKs[0]
 	}
+
+	KeyServerMonitorSEK = filteredKeyServerMonitorSEKs[0]
 
 	d.Set("last_updated_by", KeyServerMonitorSEK.LastUpdatedBy)
 	d.Set("seed_payload_authentication_algorithm", KeyServerMonitorSEK.SeedPayloadAuthenticationAlgorithm)

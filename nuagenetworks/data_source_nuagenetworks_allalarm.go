@@ -12,71 +12,71 @@ func dataSourceAllAlarm() *schema.Resource {
 		Read: dataSourceAllAlarmRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"target_object": &schema.Schema{
+			"target_object": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"acknowledged": &schema.Schema{
+			"acknowledged": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"reason": &schema.Schema{
+			"reason": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"severity": &schema.Schema{
+			"severity": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"timestamp": &schema.Schema{
+			"timestamp": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"error_condition": &schema.Schema{
+			"error_condition": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"number_of_occurances": &schema.Schema{
+			"number_of_occurances": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -117,9 +117,9 @@ func dataSourceAllAlarmRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredAllAlarms) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		AllAlarm = filteredAllAlarms[0]
 	}
+
+	AllAlarm = filteredAllAlarms[0]
 
 	d.Set("name", AllAlarm.Name)
 	d.Set("target_object", AllAlarm.TargetObject)

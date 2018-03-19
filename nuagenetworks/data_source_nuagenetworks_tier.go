@@ -12,51 +12,51 @@ func dataSourceTier() *schema.Resource {
 		Read: dataSourceTierRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"packet_count": &schema.Schema{
+			"packet_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"tier_type": &schema.Schema{
+			"tier_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"timeout": &schema.Schema{
+			"timeout": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"down_threshold_count": &schema.Schema{
+			"down_threshold_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"probe_interval": &schema.Schema{
+			"probe_interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_performance_monitor": &schema.Schema{
+			"parent_performance_monitor": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -97,9 +97,9 @@ func dataSourceTierRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredTiers) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Tier = filteredTiers[0]
 	}
+
+	Tier = filteredTiers[0]
 
 	d.Set("packet_count", Tier.PacketCount)
 	d.Set("last_updated_by", Tier.LastUpdatedBy)

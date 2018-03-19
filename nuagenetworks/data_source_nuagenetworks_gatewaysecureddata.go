@@ -12,47 +12,47 @@ func dataSourceGatewaySecuredData() *schema.Resource {
 		Read: dataSourceGatewaySecuredDataRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"data": &schema.Schema{
+			"data": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_cert_serial_number": &schema.Schema{
+			"gateway_cert_serial_number": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"keyserver_cert_serial_number": &schema.Schema{
+			"keyserver_cert_serial_number": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"signed_data": &schema.Schema{
+			"signed_data": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_gateway_security": &schema.Schema{
+			"parent_gateway_security": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -93,9 +93,9 @@ func dataSourceGatewaySecuredDataRead(d *schema.ResourceData, m interface{}) err
 	if len(filteredGatewaySecuredDatas) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		GatewaySecuredData = filteredGatewaySecuredDatas[0]
 	}
+
+	GatewaySecuredData = filteredGatewaySecuredDatas[0]
 
 	d.Set("last_updated_by", GatewaySecuredData.LastUpdatedBy)
 	d.Set("data", GatewaySecuredData.Data)

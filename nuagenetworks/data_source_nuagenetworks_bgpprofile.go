@@ -12,63 +12,63 @@ func dataSourceBGPProfile() *schema.Resource {
 		Read: dataSourceBGPProfileRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dampening_half_life": &schema.Schema{
+			"dampening_half_life": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"dampening_max_suppress": &schema.Schema{
+			"dampening_max_suppress": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"dampening_name": &schema.Schema{
+			"dampening_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dampening_reuse": &schema.Schema{
+			"dampening_reuse": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"dampening_suppress": &schema.Schema{
+			"dampening_suppress": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_export_routing_policy_id": &schema.Schema{
+			"associated_export_routing_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_import_routing_policy_id": &schema.Schema{
+			"associated_import_routing_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
@@ -117,9 +117,9 @@ func dataSourceBGPProfileRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredBGPProfiles) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		BGPProfile = filteredBGPProfiles[0]
 	}
+
+	BGPProfile = filteredBGPProfiles[0]
 
 	d.Set("name", BGPProfile.Name)
 	d.Set("dampening_half_life", BGPProfile.DampeningHalfLife)

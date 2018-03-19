@@ -12,45 +12,45 @@ func dataSourceApplicationperformancemanagement() *schema.Resource {
 		Read: dataSourceApplicationperformancemanagementRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"read_only": &schema.Schema{
+			"read_only": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_performance_monitor_id": &schema.Schema{
+			"associated_performance_monitor_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_performance_monitor", "parent_enterprise"},
 			},
-			"parent_performance_monitor": &schema.Schema{
+			"parent_performance_monitor": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport", "parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport", "parent_performance_monitor"},
@@ -106,9 +106,9 @@ func dataSourceApplicationperformancemanagementRead(d *schema.ResourceData, m in
 	if len(filteredApplicationperformancemanagements) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Applicationperformancemanagement = filteredApplicationperformancemanagements[0]
 	}
+
+	Applicationperformancemanagement = filteredApplicationperformancemanagements[0]
 
 	d.Set("name", Applicationperformancemanagement.Name)
 	d.Set("read_only", Applicationperformancemanagement.ReadOnly)

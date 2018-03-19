@@ -12,39 +12,39 @@ func dataSourceUserContext() *schema.Resource {
 		Read: dataSourceUserContextRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"aar_flow_stats_interval": &schema.Schema{
+			"aar_flow_stats_interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"aar_probe_stats_interval": &schema.Schema{
+			"aar_probe_stats_interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"vss_stats_interval": &schema.Schema{
+			"vss_stats_interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"flow_collection_enabled": &schema.Schema{
+			"flow_collection_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"statistics_enabled": &schema.Schema{
+			"statistics_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"stats_tsdb_server_address": &schema.Schema{
+			"stats_tsdb_server_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -85,9 +85,9 @@ func dataSourceUserContextRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredUserContexts) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		UserContext = filteredUserContexts[0]
 	}
+
+	UserContext = filteredUserContexts[0]
 
 	d.Set("aar_flow_stats_interval", UserContext.AARFlowStatsInterval)
 	d.Set("aar_probe_stats_interval", UserContext.AARProbeStatsInterval)

@@ -12,238 +12,238 @@ func dataSourceVRS() *schema.Resource {
 		Read: dataSourceVRSRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"jsonrpc_connection_state": &schema.Schema{
+			"jsonrpc_connection_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"management_ip": &schema.Schema{
+			"management_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_ids": &schema.Schema{
+			"parent_ids": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"last_event_name": &schema.Schema{
+			"last_event_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_event_object": &schema.Schema{
+			"last_event_object": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_event_timestamp": &schema.Schema{
+			"last_event_timestamp": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_state_change": &schema.Schema{
+			"last_state_change": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"db_synced": &schema.Schema{
+			"db_synced": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"peak_cpuusage": &schema.Schema{
+			"peak_cpuusage": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"peak_memory_usage": &schema.Schema{
+			"peak_memory_usage": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"peer": &schema.Schema{
+			"peer": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"personality": &schema.Schema{
+			"personality": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"messages": &schema.Schema{
+			"messages": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"revert_behavior_enabled": &schema.Schema{
+			"revert_behavior_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"revert_completed": &schema.Schema{
+			"revert_completed": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"revert_count": &schema.Schema{
+			"revert_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"revert_failed_count": &schema.Schema{
+			"revert_failed_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"licensed_state": &schema.Schema{
+			"licensed_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"disks": &schema.Schema{
+			"disks": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"cluster_node_role": &schema.Schema{
+			"cluster_node_role": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"location": &schema.Schema{
+			"location": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"role": &schema.Schema{
+			"role": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"uptime": &schema.Schema{
+			"uptime": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"primary_vsc_connection_lost": &schema.Schema{
+			"primary_vsc_connection_lost": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"product_version": &schema.Schema{
+			"product_version": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"is_resilient": &schema.Schema{
+			"is_resilient": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"vsc_config_state": &schema.Schema{
+			"vsc_config_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vsc_current_state": &schema.Schema{
+			"vsc_current_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"multi_nic_vport_enabled": &schema.Schema{
+			"multi_nic_vport_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"number_of_bridge_interfaces": &schema.Schema{
+			"number_of_bridge_interfaces": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"number_of_containers": &schema.Schema{
+			"number_of_containers": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"number_of_host_interfaces": &schema.Schema{
+			"number_of_host_interfaces": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"number_of_virtual_machines": &schema.Schema{
+			"number_of_virtual_machines": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"current_cpuusage": &schema.Schema{
+			"current_cpuusage": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"current_memory_usage": &schema.Schema{
+			"current_memory_usage": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"average_cpuusage": &schema.Schema{
+			"average_cpuusage": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"average_memory_usage": &schema.Schema{
+			"average_memory_usage": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dynamic": &schema.Schema{
+			"dynamic": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"hypervisor_connection_state": &schema.Schema{
+			"hypervisor_connection_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"hypervisor_identifier": &schema.Schema{
+			"hypervisor_identifier": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"hypervisor_name": &schema.Schema{
+			"hypervisor_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"hypervisor_type": &schema.Schema{
+			"hypervisor_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_container", "parent_hsc", "parent_vm", "parent_vsc"},
 			},
-			"parent_container": &schema.Schema{
+			"parent_container": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport", "parent_hsc", "parent_vm", "parent_vsc"},
 			},
-			"parent_hsc": &schema.Schema{
+			"parent_hsc": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport", "parent_container", "parent_vm", "parent_vsc"},
 			},
-			"parent_vm": &schema.Schema{
+			"parent_vm": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport", "parent_container", "parent_hsc", "parent_vsc"},
 			},
-			"parent_vsc": &schema.Schema{
+			"parent_vsc": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vport", "parent_container", "parent_hsc", "parent_vm"},
@@ -311,9 +311,9 @@ func dataSourceVRSRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredVRSs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VRS = filteredVRSs[0]
 	}
+
+	VRS = filteredVRSs[0]
 
 	d.Set("jsonrpc_connection_state", VRS.JSONRPCConnectionState)
 	d.Set("name", VRS.Name)

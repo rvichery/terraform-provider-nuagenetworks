@@ -12,176 +12,176 @@ func dataSourceFirewallRule() *schema.Resource {
 		Read: dataSourceFirewallRuleRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"acl_template_name": &schema.Schema{
+			"acl_template_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"icmp_code": &schema.Schema{
+			"icmp_code": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"icmp_type": &schema.Schema{
+			"icmp_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ipv6_address_override": &schema.Schema{
+			"ipv6_address_override": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dscp": &schema.Schema{
+			"dscp": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"action": &schema.Schema{
+			"action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address_override": &schema.Schema{
+			"address_override": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dest_network": &schema.Schema{
+			"dest_network": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dest_pg_id": &schema.Schema{
+			"dest_pg_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dest_pg_type": &schema.Schema{
+			"dest_pg_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"destination_ipv6_value": &schema.Schema{
+			"destination_ipv6_value": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"destination_port": &schema.Schema{
+			"destination_port": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"destination_type": &schema.Schema{
+			"destination_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"destination_value": &schema.Schema{
+			"destination_value": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"network_id": &schema.Schema{
+			"network_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"network_type": &schema.Schema{
+			"network_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mirror_destination_id": &schema.Schema{
+			"mirror_destination_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"flow_logging_enabled": &schema.Schema{
+			"flow_logging_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"enterprise_name": &schema.Schema{
+			"enterprise_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"location_id": &schema.Schema{
+			"location_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"location_type": &schema.Schema{
+			"location_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"domain_name": &schema.Schema{
+			"domain_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"source_ipv6_value": &schema.Schema{
+			"source_ipv6_value": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"source_network": &schema.Schema{
+			"source_network": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"source_pg_id": &schema.Schema{
+			"source_pg_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"source_pg_type": &schema.Schema{
+			"source_pg_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"source_port": &schema.Schema{
+			"source_port": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"source_type": &schema.Schema{
+			"source_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"source_value": &schema.Schema{
+			"source_value": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_application_id": &schema.Schema{
+			"associated_application_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_application_object_id": &schema.Schema{
+			"associated_application_object_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associatedfirewall_aclid": &schema.Schema{
+			"associatedfirewall_aclid": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"stateful": &schema.Schema{
+			"stateful": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"stats_id": &schema.Schema{
+			"stats_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"stats_logging_enabled": &schema.Schema{
+			"stats_logging_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"ether_type": &schema.Schema{
+			"ether_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_firewall_acl": &schema.Schema{
+			"parent_firewall_acl": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_firewall_acl"},
@@ -231,9 +231,9 @@ func dataSourceFirewallRuleRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredFirewallRules) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		FirewallRule = filteredFirewallRules[0]
 	}
+
+	FirewallRule = filteredFirewallRules[0]
 
 	d.Set("acl_template_name", FirewallRule.ACLTemplateName)
 	d.Set("icmp_code", FirewallRule.ICMPCode)

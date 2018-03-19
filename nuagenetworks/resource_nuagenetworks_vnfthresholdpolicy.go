@@ -15,65 +15,65 @@ func resourceVNFThresholdPolicy() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"cpu_threshold": &schema.Schema{
+			"cpu_threshold": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  80,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"action": &schema.Schema{
+			"action": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "NONE",
 			},
-			"memory_threshold": &schema.Schema{
+			"memory_threshold": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  80,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"min_occurrence": &schema.Schema{
+			"min_occurrence": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  5,
 			},
-			"monit_interval": &schema.Schema{
+			"monit_interval": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  10,
 			},
-			"storage_threshold": &schema.Schema{
+			"storage_threshold": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  80,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},

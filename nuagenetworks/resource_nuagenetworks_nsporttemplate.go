@@ -15,80 +15,80 @@ func resourceNSPortTemplate() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"vlan_range": &schema.Schema{
+			"vlan_range": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "0-4094",
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"physical_name": &schema.Schema{
+			"physical_name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"infrastructure_profile_id": &schema.Schema{
+			"infrastructure_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"port_type": &schema.Schema{
+			"port_type": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"speed": &schema.Schema{
+			"speed": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "AUTONEGOTIATE",
 			},
-			"associated_egress_qos_policy_id": &schema.Schema{
+			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"mtu": &schema.Schema{
+			"mtu": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  1500,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_ns_gateway_template": &schema.Schema{
+			"parent_ns_gateway_template": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

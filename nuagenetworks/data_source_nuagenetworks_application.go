@@ -12,124 +12,124 @@ func dataSourceApplication() *schema.Resource {
 		Read: dataSourceApplicationRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dscp": &schema.Schema{
+			"dscp": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bandwidth": &schema.Schema{
+			"bandwidth": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"read_only": &schema.Schema{
+			"read_only": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"performance_monitor_type": &schema.Schema{
+			"performance_monitor_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"destination_ip": &schema.Schema{
+			"destination_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"destination_port": &schema.Schema{
+			"destination_port": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"enable_pps": &schema.Schema{
+			"enable_pps": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"one_way_delay": &schema.Schema{
+			"one_way_delay": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"one_way_jitter": &schema.Schema{
+			"one_way_jitter": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"one_way_loss": &schema.Schema{
+			"one_way_loss": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"post_classification_path": &schema.Schema{
+			"post_classification_path": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"source_ip": &schema.Schema{
+			"source_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"source_port": &schema.Schema{
+			"source_port": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"app_id": &schema.Schema{
+			"app_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"optimize_path_selection": &schema.Schema{
+			"optimize_path_selection": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"pre_classification_path": &schema.Schema{
+			"pre_classification_path": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"protocol": &schema.Schema{
+			"protocol": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_l7_application_signature_id": &schema.Schema{
+			"associated_l7_application_signature_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ether_type": &schema.Schema{
+			"ether_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"symmetry": &schema.Schema{
+			"symmetry": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"parent_l7applicationsignature": &schema.Schema{
+			"parent_l7applicationsignature": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_l7applicationsignature"},
@@ -179,9 +179,9 @@ func dataSourceApplicationRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredApplications) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Application = filteredApplications[0]
 	}
+
+	Application = filteredApplications[0]
 
 	d.Set("dscp", Application.DSCP)
 	d.Set("name", Application.Name)

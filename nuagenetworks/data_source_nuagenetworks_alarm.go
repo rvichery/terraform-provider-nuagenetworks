@@ -12,171 +12,171 @@ func dataSourceAlarm() *schema.Resource {
 		Read: dataSourceAlarmRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"target_object": &schema.Schema{
+			"target_object": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"acknowledged": &schema.Schema{
+			"acknowledged": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"reason": &schema.Schema{
+			"reason": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"severity": &schema.Schema{
+			"severity": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"timestamp": &schema.Schema{
+			"timestamp": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"error_condition": &schema.Schema{
+			"error_condition": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"number_of_occurances": &schema.Schema{
+			"number_of_occurances": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_redundancy_group": &schema.Schema{
+			"parent_redundancy_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_tca": &schema.Schema{
+			"parent_tca": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_vsg_redundant_port": &schema.Schema{
+			"parent_vsg_redundant_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_ike_gateway_connection": &schema.Schema{
+			"parent_ike_gateway_connection": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_wan_service": &schema.Schema{
+			"parent_wan_service": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_vsd": &schema.Schema{
+			"parent_vsd": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_port": &schema.Schema{
+			"parent_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_container": &schema.Schema{
+			"parent_container": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_vrs": &schema.Schema{
+			"parent_vrs": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_hsc": &schema.Schema{
+			"parent_hsc": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_vlan": &schema.Schema{
+			"parent_vlan": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_ssid_connection": &schema.Schema{
+			"parent_ssid_connection": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_gateway": &schema.Schema{
+			"parent_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_vm": &schema.Schema{
+			"parent_vm": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_vsc": &schema.Schema{
+			"parent_vsc": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_ns_port": &schema.Schema{
+			"parent_ns_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_redundant_gateway_group", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_ns_redundant_gateway_group": &schema.Schema{
+			"parent_ns_redundant_gateway_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_wireless_port", "parent_enterprise"},
 			},
-			"parent_wireless_port": &schema.Schema{
+			"parent_wireless_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_tca", "parent_vsg_redundant_port", "parent_ike_gateway_connection", "parent_wan_service", "parent_vsd", "parent_vport", "parent_port", "parent_container", "parent_vrs", "parent_hsc", "parent_vlan", "parent_ssid_connection", "parent_gateway", "parent_vm", "parent_ns_gateway", "parent_vsc", "parent_ns_port", "parent_ns_redundant_gateway_group", "parent_wireless_port"},
@@ -340,9 +340,9 @@ func dataSourceAlarmRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredAlarms) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Alarm = filteredAlarms[0]
 	}
+
+	Alarm = filteredAlarms[0]
 
 	d.Set("name", Alarm.Name)
 	d.Set("target_object", Alarm.TargetObject)

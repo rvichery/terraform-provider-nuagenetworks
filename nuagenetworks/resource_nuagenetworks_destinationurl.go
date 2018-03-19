@@ -15,74 +15,74 @@ func resourceDestinationurl() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"url": &schema.Schema{
+			"url": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"http_method": &schema.Schema{
+			"http_method": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "HEAD",
 			},
-			"packet_count": &schema.Schema{
+			"packet_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  1,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"percentage_weight": &schema.Schema{
+			"percentage_weight": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"timeout": &schema.Schema{
+			"timeout": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  3000,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"down_threshold_count": &schema.Schema{
+			"down_threshold_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  3,
 			},
-			"probe_interval": &schema.Schema{
+			"probe_interval": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  10,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_tier": &schema.Schema{
+			"parent_tier": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

@@ -12,51 +12,51 @@ func dataSourceVNFThresholdPolicy() *schema.Resource {
 		Read: dataSourceVNFThresholdPolicyRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"cpu_threshold": &schema.Schema{
+			"cpu_threshold": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"action": &schema.Schema{
+			"action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"memory_threshold": &schema.Schema{
+			"memory_threshold": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"min_occurrence": &schema.Schema{
+			"min_occurrence": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"monit_interval": &schema.Schema{
+			"monit_interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"storage_threshold": &schema.Schema{
+			"storage_threshold": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
@@ -105,9 +105,9 @@ func dataSourceVNFThresholdPolicyRead(d *schema.ResourceData, m interface{}) err
 	if len(filteredVNFThresholdPolicies) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VNFThresholdPolicy = filteredVNFThresholdPolicies[0]
 	}
+
+	VNFThresholdPolicy = filteredVNFThresholdPolicies[0]
 
 	d.Set("cpu_threshold", VNFThresholdPolicy.CPUThreshold)
 	d.Set("name", VNFThresholdPolicy.Name)

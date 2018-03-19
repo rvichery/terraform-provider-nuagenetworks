@@ -15,47 +15,47 @@ func resourceOverlayPATNATEntry() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"nat_enabled": &schema.Schema{
+			"nat_enabled": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"private_ip": &schema.Schema{
+			"private_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_domain_id": &schema.Schema{
+			"associated_domain_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_link_id": &schema.Schema{
+			"associated_link_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"public_ip": &schema.Schema{
+			"public_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_overlay_address_pool": &schema.Schema{
+			"parent_overlay_address_pool": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

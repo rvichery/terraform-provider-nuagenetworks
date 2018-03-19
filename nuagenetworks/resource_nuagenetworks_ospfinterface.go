@@ -15,105 +15,105 @@ func resourceOSPFInterface() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"passive_enabled": &schema.Schema{
+			"passive_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"admin_state": &schema.Schema{
+			"admin_state": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "UP",
 			},
-			"dead_interval": &schema.Schema{
+			"dead_interval": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  40,
 			},
-			"hello_interval": &schema.Schema{
+			"hello_interval": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  10,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"message_digest_keys": &schema.Schema{
+			"message_digest_keys": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"metric": &schema.Schema{
+			"metric": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"interface_type": &schema.Schema{
+			"interface_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "BROADCAST",
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  1,
 			},
-			"associated_subnet_id": &schema.Schema{
+			"associated_subnet_id": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"mtu": &schema.Schema{
+			"mtu": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"authentication_key": &schema.Schema{
+			"authentication_key": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"authentication_type": &schema.Schema{
+			"authentication_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "NONE",
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_ospf_area": &schema.Schema{
+			"parent_ospf_area": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

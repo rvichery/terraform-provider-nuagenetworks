@@ -12,27 +12,27 @@ func dataSourceVNFInterfaceDescriptor() *schema.Resource {
 		Read: dataSourceVNFInterfaceDescriptorRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vnf_descriptor": &schema.Schema{
+			"parent_vnf_descriptor": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -73,9 +73,9 @@ func dataSourceVNFInterfaceDescriptorRead(d *schema.ResourceData, m interface{})
 	if len(filteredVNFInterfaceDescriptors) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VNFInterfaceDescriptor = filteredVNFInterfaceDescriptors[0]
 	}
+
+	VNFInterfaceDescriptor = filteredVNFInterfaceDescriptors[0]
 
 	d.Set("name", VNFInterfaceDescriptor.Name)
 	d.Set("type", VNFInterfaceDescriptor.Type)

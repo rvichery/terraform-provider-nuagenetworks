@@ -12,75 +12,75 @@ func dataSourceL7applicationsignature() *schema.Resource {
 		Read: dataSourceL7applicationsignatureRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"category": &schema.Schema{
+			"category": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"readonly": &schema.Schema{
+			"readonly": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"reference": &schema.Schema{
+			"reference": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"deprecated": &schema.Schema{
+			"deprecated": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"deprecated_version": &schema.Schema{
+			"deprecated_version": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dictionary_version": &schema.Schema{
+			"dictionary_version": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"signature_index": &schema.Schema{
+			"signature_index": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"risk": &schema.Schema{
+			"risk": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"plugin_name": &schema.Schema{
+			"plugin_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"software_flags": &schema.Schema{
+			"software_flags": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"productivity": &schema.Schema{
+			"productivity": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"guidstring": &schema.Schema{
+			"guidstring": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -121,9 +121,9 @@ func dataSourceL7applicationsignatureRead(d *schema.ResourceData, m interface{})
 	if len(filteredL7applicationsignatures) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		L7applicationsignature = filteredL7applicationsignatures[0]
 	}
+
+	L7applicationsignature = filteredL7applicationsignatures[0]
 
 	d.Set("name", L7applicationsignature.Name)
 	d.Set("category", L7applicationsignature.Category)

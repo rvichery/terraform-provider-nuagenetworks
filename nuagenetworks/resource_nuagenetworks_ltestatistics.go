@@ -15,44 +15,44 @@ func resourceLtestatistics() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"version": &schema.Schema{
+			"version": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"end_time": &schema.Schema{
+			"end_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"start_time": &schema.Schema{
+			"start_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"stats_data": &schema.Schema{
+			"stats_data": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"parent_vlan": &schema.Schema{
+			"parent_vlan": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

@@ -15,161 +15,161 @@ func resourceLicense() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"major_release": &schema.Schema{
+			"major_release": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"additional_supported_versions": &schema.Schema{
+			"additional_supported_versions": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"phone": &schema.Schema{
+			"phone": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"license": &schema.Schema{
+			"license": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"license_encryption": &schema.Schema{
+			"license_encryption": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"license_entities": &schema.Schema{
+			"license_entities": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"license_id": &schema.Schema{
+			"license_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"license_type": &schema.Schema{
+			"license_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"minor_release": &schema.Schema{
+			"minor_release": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"zip": &schema.Schema{
+			"zip": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"city": &schema.Schema{
+			"city": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"allowed_avrsgs_count": &schema.Schema{
+			"allowed_avrsgs_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"allowed_avrss_count": &schema.Schema{
+			"allowed_avrss_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"allowed_cpes_count": &schema.Schema{
+			"allowed_cpes_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"allowed_nics_count": &schema.Schema{
+			"allowed_nics_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"allowed_vms_count": &schema.Schema{
+			"allowed_vms_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"allowed_vrsgs_count": &schema.Schema{
+			"allowed_vrsgs_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"allowed_vrss_count": &schema.Schema{
+			"allowed_vrss_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"email": &schema.Schema{
+			"email": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"encryption_mode": &schema.Schema{
+			"encryption_mode": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"unique_license_identifier": &schema.Schema{
+			"unique_license_identifier": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"company": &schema.Schema{
+			"company": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"country": &schema.Schema{
+			"country": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"product_version": &schema.Schema{
+			"product_version": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"is_cluster_license": &schema.Schema{
+			"is_cluster_license": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"user_name": &schema.Schema{
+			"user_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"state": &schema.Schema{
+			"state": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"street": &schema.Schema{
+			"street": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"customer_key": &schema.Schema{
+			"customer_key": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"expiration_date": &schema.Schema{
+			"expiration_date": {
 				Type:     schema.TypeFloat,
 				Optional: true,
 			},
-			"expiry_timestamp": &schema.Schema{
+			"expiry_timestamp": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},

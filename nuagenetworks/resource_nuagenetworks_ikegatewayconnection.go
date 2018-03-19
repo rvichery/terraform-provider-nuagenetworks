@@ -15,103 +15,103 @@ func resourceIKEGatewayConnection() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"nsg_identifier": &schema.Schema{
+			"nsg_identifier": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"nsg_identifier_type": &schema.Schema{
+			"nsg_identifier_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "ID_KEY_ID",
 			},
-			"nsg_role": &schema.Schema{
+			"nsg_role": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"mark": &schema.Schema{
+			"mark": {
 				Type:     schema.TypeInt,
 				Optional: true,
 				Default:  1,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"sequence": &schema.Schema{
+			"sequence": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"allow_any_subnet": &schema.Schema{
+			"allow_any_subnet": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"unencrypted_psk": &schema.Schema{
+			"unencrypted_psk": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"port_vlan_name": &schema.Schema{
+			"port_vlan_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"associated_ike_authentication_id": &schema.Schema{
+			"associated_ike_authentication_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_ike_authentication_type": &schema.Schema{
+			"associated_ike_authentication_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_ike_encryption_profile_id": &schema.Schema{
+			"associated_ike_encryption_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_ike_gateway_profile_id": &schema.Schema{
+			"associated_ike_gateway_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_vlanid": &schema.Schema{
+			"associated_vlanid": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_vlan": &schema.Schema{
+			"parent_vlan": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

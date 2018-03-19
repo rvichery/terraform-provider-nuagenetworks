@@ -15,77 +15,77 @@ func resourceIKEPSK() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"signature": &schema.Schema{
+			"signature": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"signing_certificate_serial_number": &schema.Schema{
+			"signing_certificate_serial_number": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"encrypted_psk": &schema.Schema{
+			"encrypted_psk": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"encrypting_certificate_serial_number": &schema.Schema{
+			"encrypting_certificate_serial_number": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"unencrypted_psk": &schema.Schema{
+			"unencrypted_psk": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"associated_enterprise_id": &schema.Schema{
+			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"auto_created": &schema.Schema{
+			"auto_created": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

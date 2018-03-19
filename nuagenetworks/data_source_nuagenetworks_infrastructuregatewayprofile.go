@@ -12,119 +12,119 @@ func dataSourceInfrastructureGatewayProfile() *schema.Resource {
 		Read: dataSourceInfrastructureGatewayProfileRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ntp_server_key": &schema.Schema{
+			"ntp_server_key": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ntp_server_key_id": &schema.Schema{
+			"ntp_server_key_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"datapath_sync_timeout": &schema.Schema{
+			"datapath_sync_timeout": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"dead_timer": &schema.Schema{
+			"dead_timer": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dead_timer_enabled": &schema.Schema{
+			"dead_timer_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"remote_log_mode": &schema.Schema{
+			"remote_log_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"remote_log_server_address": &schema.Schema{
+			"remote_log_server_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"remote_log_server_port": &schema.Schema{
+			"remote_log_server_port": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"metadata_upgrade_path": &schema.Schema{
+			"metadata_upgrade_path": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"flow_eviction_threshold": &schema.Schema{
+			"flow_eviction_threshold": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"controller_less_duration": &schema.Schema{
+			"controller_less_duration": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"controller_less_forwarding_mode": &schema.Schema{
+			"controller_less_forwarding_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"controller_less_remote_duration": &schema.Schema{
+			"controller_less_remote_duration": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"force_immediate_system_sync": &schema.Schema{
+			"force_immediate_system_sync": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"open_flow_audit_timer": &schema.Schema{
+			"open_flow_audit_timer": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"upgrade_action": &schema.Schema{
+			"upgrade_action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"proxy_dns_name": &schema.Schema{
+			"proxy_dns_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"use_two_factor": &schema.Schema{
+			"use_two_factor": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"stats_collector_port": &schema.Schema{
+			"stats_collector_port": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"system_sync_scheduler": &schema.Schema{
+			"system_sync_scheduler": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -165,9 +165,9 @@ func dataSourceInfrastructureGatewayProfileRead(d *schema.ResourceData, m interf
 	if len(filteredInfrastructureGatewayProfiles) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		InfrastructureGatewayProfile = filteredInfrastructureGatewayProfiles[0]
 	}
+
+	InfrastructureGatewayProfile = filteredInfrastructureGatewayProfiles[0]
 
 	d.Set("ntp_server_key", InfrastructureGatewayProfile.NTPServerKey)
 	d.Set("ntp_server_key_id", InfrastructureGatewayProfile.NTPServerKeyID)

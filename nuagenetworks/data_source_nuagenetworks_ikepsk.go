@@ -12,67 +12,67 @@ func dataSourceIKEPSK() *schema.Resource {
 		Read: dataSourceIKEPSKRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"signature": &schema.Schema{
+			"signature": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"signing_certificate_serial_number": &schema.Schema{
+			"signing_certificate_serial_number": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"encrypted_psk": &schema.Schema{
+			"encrypted_psk": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"encrypting_certificate_serial_number": &schema.Schema{
+			"encrypting_certificate_serial_number": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"unencrypted_psk": &schema.Schema{
+			"unencrypted_psk": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_enterprise_id": &schema.Schema{
+			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"auto_created": &schema.Schema{
+			"auto_created": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -113,9 +113,9 @@ func dataSourceIKEPSKRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredIKEPSKs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		IKEPSK = filteredIKEPSKs[0]
 	}
+
+	IKEPSK = filteredIKEPSKs[0]
 
 	d.Set("name", IKEPSK.Name)
 	d.Set("last_updated_by", IKEPSK.LastUpdatedBy)

@@ -59,7 +59,7 @@ type VLANTemplate struct {
 	ParentID                     string `json:"parentID,omitempty"`
 	ParentType                   string `json:"parentType,omitempty"`
 	Owner                        string `json:"owner,omitempty"`
-	Value                        int    `json:"value,omitempty"`
+	Value                        int    `json:"value"`
 	LastUpdatedBy                string `json:"lastUpdatedBy,omitempty"`
 	Description                  string `json:"description,omitempty"`
 	EntityScope                  string `json:"entityScope,omitempty"`

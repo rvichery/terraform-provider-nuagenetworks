@@ -12,76 +12,76 @@ func dataSourceFloatingIPACLTemplate() *schema.Resource {
 		Read: dataSourceFloatingIPACLTemplateRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"active": &schema.Schema{
+			"active": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"default_allow_ip": &schema.Schema{
+			"default_allow_ip": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"default_allow_non_ip": &schema.Schema{
+			"default_allow_non_ip": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"policy_state": &schema.Schema{
+			"policy_state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"priority_type": &schema.Schema{
+			"priority_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_live_entity_id": &schema.Schema{
+			"associated_live_entity_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"auto_generate_priority": &schema.Schema{
+			"auto_generate_priority": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain_template"},
 			},
-			"parent_domain_template": &schema.Schema{
+			"parent_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain"},
@@ -137,9 +137,9 @@ func dataSourceFloatingIPACLTemplateRead(d *schema.ResourceData, m interface{}) 
 	if len(filteredFloatingIPACLTemplates) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		FloatingIPACLTemplate = filteredFloatingIPACLTemplates[0]
 	}
+
+	FloatingIPACLTemplate = filteredFloatingIPACLTemplates[0]
 
 	d.Set("name", FloatingIPACLTemplate.Name)
 	d.Set("last_updated_by", FloatingIPACLTemplate.LastUpdatedBy)

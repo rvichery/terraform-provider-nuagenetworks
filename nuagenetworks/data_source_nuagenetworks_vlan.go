@@ -12,134 +12,134 @@ func dataSourceVLAN() *schema.Resource {
 		Read: dataSourceVLANRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"value": &schema.Schema{
+			"value": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway_id": &schema.Schema{
+			"gateway_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"readonly": &schema.Schema{
+			"readonly": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"restricted": &schema.Schema{
+			"restricted": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vport_id": &schema.Schema{
+			"vport_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"is_uplink": &schema.Schema{
+			"is_uplink": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"use_user_mnemonic": &schema.Schema{
+			"use_user_mnemonic": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"user_mnemonic": &schema.Schema{
+			"user_mnemonic": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_bgp_profile_id": &schema.Schema{
+			"associated_bgp_profile_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_connection_type": &schema.Schema{
+			"associated_connection_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_egress_qos_policy_id": &schema.Schema{
+			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_ingress_overlay_qo_s_policer_id": &schema.Schema{
+			"associated_ingress_overlay_qo_s_policer_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_ingress_qos_policy_id": &schema.Schema{
+			"associated_ingress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_ingress_underlay_qo_s_policer_id": &schema.Schema{
+			"associated_ingress_underlay_qo_s_policer_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_uplink_connection_id": &schema.Schema{
+			"associated_uplink_connection_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_vsc_profile_id": &schema.Schema{
+			"associated_vsc_profile_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"duc_vlan": &schema.Schema{
+			"duc_vlan": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vsg_redundant_port": &schema.Schema{
+			"parent_vsg_redundant_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundant_port", "parent_port", "parent_ns_port"},
 			},
-			"parent_redundant_port": &schema.Schema{
+			"parent_redundant_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vsg_redundant_port", "parent_port", "parent_ns_port"},
 			},
-			"parent_port": &schema.Schema{
+			"parent_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vsg_redundant_port", "parent_redundant_port", "parent_ns_port"},
 			},
-			"parent_ns_port": &schema.Schema{
+			"parent_ns_port": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vsg_redundant_port", "parent_redundant_port", "parent_port"},
@@ -201,9 +201,9 @@ func dataSourceVLANRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredVLANs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VLAN = filteredVLANs[0]
 	}
+
+	VLAN = filteredVLANs[0]
 
 	d.Set("value", VLAN.Value)
 	d.Set("last_updated_by", VLAN.LastUpdatedBy)

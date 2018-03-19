@@ -12,87 +12,87 @@ func dataSourceLDAPConfiguration() *schema.Resource {
 		Read: dataSourceLDAPConfigurationRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ssl_enabled": &schema.Schema{
+			"ssl_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"password": &schema.Schema{
+			"password": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"accept_all_certificates": &schema.Schema{
+			"accept_all_certificates": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"certificate": &schema.Schema{
+			"certificate": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"server": &schema.Schema{
+			"server": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"enabled": &schema.Schema{
+			"enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"port": &schema.Schema{
+			"port": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"group_dn": &schema.Schema{
+			"group_dn": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"group_name_prefix": &schema.Schema{
+			"group_name_prefix": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"group_name_suffix": &schema.Schema{
+			"group_name_suffix": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"user_dn_template": &schema.Schema{
+			"user_dn_template": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"user_name_attribute": &schema.Schema{
+			"user_name_attribute": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"authorization_enabled": &schema.Schema{
+			"authorization_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"authorizing_user_dn": &schema.Schema{
+			"authorizing_user_dn": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -133,9 +133,9 @@ func dataSourceLDAPConfigurationRead(d *schema.ResourceData, m interface{}) erro
 	if len(filteredLDAPConfigurations) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		LDAPConfiguration = filteredLDAPConfigurations[0]
 	}
+
+	LDAPConfiguration = filteredLDAPConfigurations[0]
 
 	d.Set("ssl_enabled", LDAPConfiguration.SSLEnabled)
 	d.Set("password", LDAPConfiguration.Password)

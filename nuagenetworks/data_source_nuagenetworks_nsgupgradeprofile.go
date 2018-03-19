@@ -12,43 +12,43 @@ func dataSourceNSGUpgradeProfile() *schema.Resource {
 		Read: dataSourceNSGUpgradeProfileRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"metadata_upgrade_path": &schema.Schema{
+			"metadata_upgrade_path": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"enterprise_id": &schema.Schema{
+			"enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -89,9 +89,9 @@ func dataSourceNSGUpgradeProfileRead(d *schema.ResourceData, m interface{}) erro
 	if len(filteredNSGUpgradeProfiles) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		NSGUpgradeProfile = filteredNSGUpgradeProfiles[0]
 	}
+
+	NSGUpgradeProfile = filteredNSGUpgradeProfiles[0]
 
 	d.Set("name", NSGUpgradeProfile.Name)
 	d.Set("last_updated_by", NSGUpgradeProfile.LastUpdatedBy)

@@ -12,121 +12,121 @@ func dataSourceUplinkConnection() *schema.Resource {
 		Read: dataSourceUplinkConnectionRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"pat_enabled": &schema.Schema{
+			"pat_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"dns_address": &schema.Schema{
+			"dns_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"password": &schema.Schema{
+			"password": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"gateway": &schema.Schema{
+			"gateway": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"advertisement_criteria": &schema.Schema{
+			"advertisement_criteria": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"secondary_address": &schema.Schema{
+			"secondary_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"netmask": &schema.Schema{
+			"netmask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vlan_id": &schema.Schema{
+			"vlan_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"underlay_enabled": &schema.Schema{
+			"underlay_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"installer_managed": &schema.Schema{
+			"installer_managed": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"interface_connection_type": &schema.Schema{
+			"interface_connection_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mode": &schema.Schema{
+			"mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"role": &schema.Schema{
+			"role": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"role_order": &schema.Schema{
+			"role_order": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"port_name": &schema.Schema{
+			"port_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"download_rate_limit": &schema.Schema{
+			"download_rate_limit": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"uplink_id": &schema.Schema{
+			"uplink_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"username": &schema.Schema{
+			"username": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"assoc_underlay_id": &schema.Schema{
+			"assoc_underlay_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_bgp_neighbor_id": &schema.Schema{
+			"associated_bgp_neighbor_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_underlay_name": &schema.Schema{
+			"associated_underlay_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"auxiliary_link": &schema.Schema{
+			"auxiliary_link": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"parent_vlan": &schema.Schema{
+			"parent_vlan": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ns_gateway", "parent_vlan_template"},
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vlan", "parent_vlan_template"},
 			},
-			"parent_vlan_template": &schema.Schema{
+			"parent_vlan_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_vlan", "parent_ns_gateway"},
@@ -182,9 +182,9 @@ func dataSourceUplinkConnectionRead(d *schema.ResourceData, m interface{}) error
 	if len(filteredUplinkConnections) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		UplinkConnection = filteredUplinkConnections[0]
 	}
+
+	UplinkConnection = filteredUplinkConnections[0]
 
 	d.Set("pat_enabled", UplinkConnection.PATEnabled)
 	d.Set("dns_address", UplinkConnection.DNSAddress)

@@ -12,39 +12,39 @@ func dataSourceDSCPForwardingClassMapping() *schema.Resource {
 		Read: dataSourceDSCPForwardingClassMappingRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dscp": &schema.Schema{
+			"dscp": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"forwarding_class": &schema.Schema{
+			"forwarding_class": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_dscp_forwarding_class_table": &schema.Schema{
+			"parent_dscp_forwarding_class_table": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -85,9 +85,9 @@ func dataSourceDSCPForwardingClassMappingRead(d *schema.ResourceData, m interfac
 	if len(filteredDSCPForwardingClassMappings) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		DSCPForwardingClassMapping = filteredDSCPForwardingClassMappings[0]
 	}
+
+	DSCPForwardingClassMapping = filteredDSCPForwardingClassMappings[0]
 
 	d.Set("dscp", DSCPForwardingClassMapping.DSCP)
 	d.Set("last_updated_by", DSCPForwardingClassMapping.LastUpdatedBy)

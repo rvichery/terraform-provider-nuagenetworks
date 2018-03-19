@@ -15,203 +15,203 @@ func resourceQOS() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"fip_committed_burst_size": &schema.Schema{
+			"fip_committed_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"fip_committed_information_rate": &schema.Schema{
+			"fip_committed_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"fip_peak_burst_size": &schema.Schema{
+			"fip_peak_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"fip_peak_information_rate": &schema.Schema{
+			"fip_peak_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"fip_rate_limiting_active": &schema.Schema{
+			"fip_rate_limiting_active": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"bum_committed_burst_size": &schema.Schema{
+			"bum_committed_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"bum_committed_information_rate": &schema.Schema{
+			"bum_committed_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"bum_peak_burst_size": &schema.Schema{
+			"bum_peak_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"bum_peak_information_rate": &schema.Schema{
+			"bum_peak_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"bum_rate_limiting_active": &schema.Schema{
+			"bum_rate_limiting_active": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"rate_limiting_active": &schema.Schema{
+			"rate_limiting_active": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"active": &schema.Schema{
+			"active": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"peak": &schema.Schema{
+			"peak": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"service_class": &schema.Schema{
+			"service_class": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"rewrite_forwarding_class": &schema.Schema{
+			"rewrite_forwarding_class": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"egress_fip_committed_burst_size": &schema.Schema{
+			"egress_fip_committed_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"egress_fip_committed_information_rate": &schema.Schema{
+			"egress_fip_committed_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"egress_fip_peak_burst_size": &schema.Schema{
+			"egress_fip_peak_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"egress_fip_peak_information_rate": &schema.Schema{
+			"egress_fip_peak_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"committed_burst_size": &schema.Schema{
+			"committed_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"committed_information_rate": &schema.Schema{
+			"committed_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"trusted_forwarding_class": &schema.Schema{
+			"trusted_forwarding_class": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"assoc_qos_id": &schema.Schema{
+			"assoc_qos_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_dscp_forwarding_class_table_id": &schema.Schema{
+			"associated_dscp_forwarding_class_table_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_dscp_forwarding_class_table_name": &schema.Schema{
+			"associated_dscp_forwarding_class_table_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"burst": &schema.Schema{
+			"burst": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_zone": &schema.Schema{
+			"parent_zone": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template"},
 			},
-			"parent_subnet_template": &schema.Schema{
+			"parent_subnet_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template"},
 			},
-			"parent_vport": &schema.Schema{
+			"parent_vport": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template"},
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template"},
 			},
-			"parent_zone_template": &schema.Schema{
+			"parent_zone_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template"},
 			},
-			"parent_l2_domain_template": &schema.Schema{
+			"parent_l2_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface", "parent_domain_template"},
 			},
-			"parent_bridge_interface": &schema.Schema{
+			"parent_bridge_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_l2_domain", "parent_host_interface", "parent_domain_template"},
 			},
-			"parent_l2_domain": &schema.Schema{
+			"parent_l2_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_host_interface", "parent_domain_template"},
 			},
-			"parent_host_interface": &schema.Schema{
+			"parent_host_interface": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_domain_template"},
 			},
-			"parent_domain_template": &schema.Schema{
+			"parent_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_zone", "parent_subnet_template", "parent_domain", "parent_vport", "parent_subnet", "parent_zone_template", "parent_l2_domain_template", "parent_bridge_interface", "parent_l2_domain", "parent_host_interface"},

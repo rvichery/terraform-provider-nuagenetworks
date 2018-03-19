@@ -15,180 +15,180 @@ func resourceFirewallRule() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"acl_template_name": &schema.Schema{
+			"acl_template_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"icmp_code": &schema.Schema{
+			"icmp_code": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"icmp_type": &schema.Schema{
+			"icmp_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"ipv6_address_override": &schema.Schema{
+			"ipv6_address_override": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dscp": &schema.Schema{
+			"dscp": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"action": &schema.Schema{
+			"action": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"address_override": &schema.Schema{
+			"address_override": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dest_network": &schema.Schema{
+			"dest_network": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dest_pg_id": &schema.Schema{
+			"dest_pg_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"dest_pg_type": &schema.Schema{
+			"dest_pg_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"destination_ipv6_value": &schema.Schema{
+			"destination_ipv6_value": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"destination_port": &schema.Schema{
+			"destination_port": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"destination_type": &schema.Schema{
+			"destination_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"destination_value": &schema.Schema{
+			"destination_value": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"network_id": &schema.Schema{
+			"network_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"network_type": &schema.Schema{
+			"network_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"mirror_destination_id": &schema.Schema{
+			"mirror_destination_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"flow_logging_enabled": &schema.Schema{
+			"flow_logging_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"enterprise_name": &schema.Schema{
+			"enterprise_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"location_id": &schema.Schema{
+			"location_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"location_type": &schema.Schema{
+			"location_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"domain_name": &schema.Schema{
+			"domain_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"source_ipv6_value": &schema.Schema{
+			"source_ipv6_value": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"source_network": &schema.Schema{
+			"source_network": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"source_pg_id": &schema.Schema{
+			"source_pg_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"source_pg_type": &schema.Schema{
+			"source_pg_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"source_port": &schema.Schema{
+			"source_port": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"source_type": &schema.Schema{
+			"source_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"source_value": &schema.Schema{
+			"source_value": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_application_id": &schema.Schema{
+			"associated_application_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_application_object_id": &schema.Schema{
+			"associated_application_object_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associatedfirewall_aclid": &schema.Schema{
+			"associatedfirewall_aclid": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"stateful": &schema.Schema{
+			"stateful": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  false,
 			},
-			"stats_id": &schema.Schema{
+			"stats_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"stats_logging_enabled": &schema.Schema{
+			"stats_logging_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
 			},
-			"ether_type": &schema.Schema{
+			"ether_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

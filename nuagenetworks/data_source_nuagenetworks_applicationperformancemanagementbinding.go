@@ -12,31 +12,31 @@ func dataSourceApplicationperformancemanagementbinding() *schema.Resource {
 		Read: dataSourceApplicationperformancemanagementbindingRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"read_only": &schema.Schema{
+			"read_only": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"associated_application_performance_management_id": &schema.Schema{
+			"associated_application_performance_management_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -77,9 +77,9 @@ func dataSourceApplicationperformancemanagementbindingRead(d *schema.ResourceDat
 	if len(filteredApplicationperformancemanagementbindings) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Applicationperformancemanagementbinding = filteredApplicationperformancemanagementbindings[0]
 	}
+
+	Applicationperformancemanagementbinding = filteredApplicationperformancemanagementbindings[0]
 
 	d.Set("read_only", Applicationperformancemanagementbinding.ReadOnly)
 	d.Set("priority", Applicationperformancemanagementbinding.Priority)

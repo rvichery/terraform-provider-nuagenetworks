@@ -12,23 +12,23 @@ func dataSourceLTEInformation() *schema.Resource {
 		Read: dataSourceLTEInformationRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"lte_connection_info": &schema.Schema{
+			"lte_connection_info": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_ns_port": &schema.Schema{
+			"parent_ns_port": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -69,9 +69,9 @@ func dataSourceLTEInformationRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredLTEInformations) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		LTEInformation = filteredLTEInformations[0]
 	}
+
+	LTEInformation = filteredLTEInformations[0]
 
 	d.Set("lte_connection_info", LTEInformation.LTEConnectionInfo)
 

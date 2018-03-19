@@ -12,95 +12,95 @@ func dataSourceEgressQOSPolicy() *schema.Resource {
 		Read: dataSourceEgressQOSPolicyRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_queue_associated_rate_limiter_id": &schema.Schema{
+			"parent_queue_associated_rate_limiter_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"default_service_class": &schema.Schema{
+			"default_service_class": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"assoc_egress_qos_id": &schema.Schema{
+			"assoc_egress_qos_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_cos_remarking_policy_table_id": &schema.Schema{
+			"associated_cos_remarking_policy_table_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_dscp_remarking_policy_table_id": &schema.Schema{
+			"associated_dscp_remarking_policy_table_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"queue1_associated_rate_limiter_id": &schema.Schema{
+			"queue1_associated_rate_limiter_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"queue1_forwarding_classes": &schema.Schema{
+			"queue1_forwarding_classes": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"queue2_associated_rate_limiter_id": &schema.Schema{
+			"queue2_associated_rate_limiter_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"queue2_forwarding_classes": &schema.Schema{
+			"queue2_forwarding_classes": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"queue3_associated_rate_limiter_id": &schema.Schema{
+			"queue3_associated_rate_limiter_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"queue3_forwarding_classes": &schema.Schema{
+			"queue3_forwarding_classes": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"queue4_associated_rate_limiter_id": &schema.Schema{
+			"queue4_associated_rate_limiter_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"queue4_forwarding_classes": &schema.Schema{
+			"queue4_forwarding_classes": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
@@ -149,9 +149,9 @@ func dataSourceEgressQOSPolicyRead(d *schema.ResourceData, m interface{}) error 
 	if len(filteredEgressQOSPolicies) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		EgressQOSPolicy = filteredEgressQOSPolicies[0]
 	}
+
+	EgressQOSPolicy = filteredEgressQOSPolicies[0]
 
 	d.Set("name", EgressQOSPolicy.Name)
 	d.Set("parent_queue_associated_rate_limiter_id", EgressQOSPolicy.ParentQueueAssociatedRateLimiterID)

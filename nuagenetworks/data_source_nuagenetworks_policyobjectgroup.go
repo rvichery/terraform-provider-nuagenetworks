@@ -12,31 +12,31 @@ func dataSourcePolicyObjectGroup() *schema.Resource {
 		Read: dataSourcePolicyObjectGroupRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -77,9 +77,9 @@ func dataSourcePolicyObjectGroupRead(d *schema.ResourceData, m interface{}) erro
 	if len(filteredPolicyObjectGroups) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		PolicyObjectGroup = filteredPolicyObjectGroups[0]
 	}
+
+	PolicyObjectGroup = filteredPolicyObjectGroups[0]
 
 	d.Set("name", PolicyObjectGroup.Name)
 	d.Set("description", PolicyObjectGroup.Description)

@@ -12,93 +12,93 @@ func dataSourcePort() *schema.Resource {
 		Read: dataSourcePortRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vlan_range": &schema.Schema{
+			"vlan_range": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"physical_name": &schema.Schema{
+			"physical_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"port_type": &schema.Schema{
+			"port_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"is_resilient": &schema.Schema{
+			"is_resilient": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"use_user_mnemonic": &schema.Schema{
+			"use_user_mnemonic": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"user_mnemonic": &schema.Schema{
+			"user_mnemonic": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_egress_qos_policy_id": &schema.Schema{
+			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_redundant_port_id": &schema.Schema{
+			"associated_redundant_port_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"status": &schema.Schema{
+			"status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_redundancy_group": &schema.Schema{
+			"parent_redundancy_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_auto_discovered_gateway", "parent_gateway"},
 			},
-			"parent_auto_discovered_gateway": &schema.Schema{
+			"parent_auto_discovered_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_gateway"},
 			},
-			"parent_gateway": &schema.Schema{
+			"parent_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_auto_discovered_gateway"},
@@ -154,9 +154,9 @@ func dataSourcePortRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredPorts) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Port = filteredPorts[0]
 	}
+
+	Port = filteredPorts[0]
 
 	d.Set("vlan_range", Port.VLANRange)
 	d.Set("name", Port.Name)

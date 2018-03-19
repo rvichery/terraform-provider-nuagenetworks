@@ -12,39 +12,39 @@ func dataSourceOverlayAddressPool() *schema.Resource {
 		Read: dataSourceOverlayAddressPoolRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"end_address_range": &schema.Schema{
+			"end_address_range": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_domain_id": &schema.Schema{
+			"associated_domain_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"start_address_range": &schema.Schema{
+			"start_address_range": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_link": &schema.Schema{
+			"parent_link": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -85,9 +85,9 @@ func dataSourceOverlayAddressPoolRead(d *schema.ResourceData, m interface{}) err
 	if len(filteredOverlayAddressPools) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		OverlayAddressPool = filteredOverlayAddressPools[0]
 	}
+
+	OverlayAddressPool = filteredOverlayAddressPools[0]
 
 	d.Set("name", OverlayAddressPool.Name)
 	d.Set("description", OverlayAddressPool.Description)

@@ -15,43 +15,43 @@ func resourcePolicyEntry() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"match_criteria": &schema.Schema{
+			"match_criteria": {
+				Type:     schema.TypeMap,
+				Optional: true,
+			},
+			"actions": {
+				Type:     schema.TypeMap,
+				Optional: true,
+			},
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"actions": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"description": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"parent_policy_statement": &schema.Schema{
+			"parent_policy_statement": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

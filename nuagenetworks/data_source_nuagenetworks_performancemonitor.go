@@ -12,81 +12,81 @@ func dataSourcePerformanceMonitor() *schema.Resource {
 		Read: dataSourcePerformanceMonitorRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"payload_size": &schema.Schema{
+			"payload_size": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"read_only": &schema.Schema{
+			"read_only": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"service_class": &schema.Schema{
+			"service_class": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"destination_target_list": &schema.Schema{
+			"destination_target_list": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"timeout": &schema.Schema{
+			"timeout": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"interval": &schema.Schema{
+			"interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"hold_down_timer": &schema.Schema{
+			"hold_down_timer": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"probe_type": &schema.Schema{
+			"probe_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"number_of_packets": &schema.Schema{
+			"number_of_packets": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_ike_gateway_connection": &schema.Schema{
+			"parent_ike_gateway_connection": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_ike_gateway_connection"},
@@ -142,9 +142,9 @@ func dataSourcePerformanceMonitorRead(d *schema.ResourceData, m interface{}) err
 	if len(filteredPerformanceMonitors) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		PerformanceMonitor = filteredPerformanceMonitors[0]
 	}
+
+	PerformanceMonitor = filteredPerformanceMonitors[0]
 
 	d.Set("name", PerformanceMonitor.Name)
 	d.Set("last_updated_by", PerformanceMonitor.LastUpdatedBy)

@@ -12,23 +12,23 @@ func dataSourceVNFCatalog() *schema.Resource {
 		Read: dataSourceVNFCatalogRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -69,9 +69,9 @@ func dataSourceVNFCatalogRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredVNFCatalogs) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VNFCatalog = filteredVNFCatalogs[0]
 	}
+
+	VNFCatalog = filteredVNFCatalogs[0]
 
 	d.Set("name", VNFCatalog.Name)
 	d.Set("description", VNFCatalog.Description)

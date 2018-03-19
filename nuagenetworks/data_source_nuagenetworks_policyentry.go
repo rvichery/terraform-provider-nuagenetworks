@@ -12,35 +12,35 @@ func dataSourcePolicyEntry() *schema.Resource {
 		Read: dataSourcePolicyEntryRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"match_criteria": &schema.Schema{
+			"match_criteria": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"actions": &schema.Schema{
+			"actions": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_policy_statement": &schema.Schema{
+			"parent_policy_statement": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -81,9 +81,9 @@ func dataSourcePolicyEntryRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredPolicyEntries) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		PolicyEntry = filteredPolicyEntries[0]
 	}
+
+	PolicyEntry = filteredPolicyEntries[0]
 
 	d.Set("name", PolicyEntry.Name)
 	d.Set("match_criteria", PolicyEntry.MatchCriteria)

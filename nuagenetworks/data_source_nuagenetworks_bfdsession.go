@@ -12,52 +12,52 @@ func dataSourceBFDSession() *schema.Resource {
 		Read: dataSourceBFDSessionRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bfd_destination_ip": &schema.Schema{
+			"bfd_destination_ip": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"bfd_multiplier": &schema.Schema{
+			"bfd_multiplier": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"bfd_timer": &schema.Schema{
+			"bfd_timer": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"multi_hop_enabled": &schema.Schema{
+			"multi_hop_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_uplink_connection": &schema.Schema{
+			"parent_uplink_connection": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_br_connection"},
 			},
-			"parent_br_connection": &schema.Schema{
+			"parent_br_connection": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_uplink_connection"},
@@ -107,9 +107,9 @@ func dataSourceBFDSessionRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredBFDSessions) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		BFDSession = filteredBFDSessions[0]
 	}
+
+	BFDSession = filteredBFDSessions[0]
 
 	d.Set("bfd_destination_ip", BFDSession.BFDDestinationIP)
 	d.Set("bfd_multiplier", BFDSession.BFDMultiplier)

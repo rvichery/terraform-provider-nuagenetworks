@@ -15,90 +15,90 @@ func resourceSSIDConnection() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"passphrase": &schema.Schema{
+			"passphrase": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"redirect_option": &schema.Schema{
+			"redirect_option": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "ORIGINAL_REQUEST",
 			},
-			"redirect_url": &schema.Schema{
+			"redirect_url": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"generic_config": &schema.Schema{
+			"generic_config": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"white_list": &schema.Schema{
+			"white_list": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"black_list": &schema.Schema{
+			"black_list": {
 				Type:     schema.TypeList,
 				Optional: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"interface_name": &schema.Schema{
+			"interface_name": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"vport_id": &schema.Schema{
+			"vport_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"broadcast_ssid": &schema.Schema{
+			"broadcast_ssid": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  true,
 			},
-			"associated_captive_portal_profile_id": &schema.Schema{
+			"associated_captive_portal_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"associated_egress_qos_policy_id": &schema.Schema{
+			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"authentication_mode": &schema.Schema{
+			"authentication_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Default:  "OPEN",
 			},
-			"parent_wireless_port": &schema.Schema{
+			"parent_wireless_port": {
 				Type:     schema.TypeString,
 				Required: true,
 			},

@@ -12,231 +12,231 @@ func dataSourceDomain() *schema.Resource {
 		Read: dataSourceDomainRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"pat_enabled": &schema.Schema{
+			"pat_enabled": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ecmp_count": &schema.Schema{
+			"ecmp_count": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"bgp_enabled": &schema.Schema{
+			"bgp_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"dhcp_behavior": &schema.Schema{
+			"dhcp_behavior": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dhcp_server_address": &schema.Schema{
+			"dhcp_server_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"fip_underlay": &schema.Schema{
+			"fip_underlay": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"dpi": &schema.Schema{
+			"dpi": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"label_id": &schema.Schema{
+			"label_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"back_haul_route_distinguisher": &schema.Schema{
+			"back_haul_route_distinguisher": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"back_haul_route_target": &schema.Schema{
+			"back_haul_route_target": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"back_haul_service_id": &schema.Schema{
+			"back_haul_service_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"back_haul_subnet_ip_address": &schema.Schema{
+			"back_haul_subnet_ip_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"back_haul_subnet_mask": &schema.Schema{
+			"back_haul_subnet_mask": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"back_haul_vnid": &schema.Schema{
+			"back_haul_vnid": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"maintenance_mode": &schema.Schema{
+			"maintenance_mode": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"advertise_criteria": &schema.Schema{
+			"advertise_criteria": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"leaking_enabled": &schema.Schema{
+			"leaking_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"secondary_dhcp_server_address": &schema.Schema{
+			"secondary_dhcp_server_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"template_id": &schema.Schema{
+			"template_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"service_id": &schema.Schema{
+			"service_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dhcp_server_addresses": &schema.Schema{
+			"dhcp_server_addresses": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"global_routing_enabled": &schema.Schema{
+			"global_routing_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"flow_collection_enabled": &schema.Schema{
+			"flow_collection_enabled": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"import_route_target": &schema.Schema{
+			"import_route_target": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"encryption": &schema.Schema{
+			"encryption": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"underlay_enabled": &schema.Schema{
+			"underlay_enabled": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"local_as": &schema.Schema{
+			"local_as": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"policy_change_status": &schema.Schema{
+			"policy_change_status": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"domain_id": &schema.Schema{
+			"domain_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"domain_vlanid": &schema.Schema{
+			"domain_vlanid": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"route_distinguisher": &schema.Schema{
+			"route_distinguisher": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"route_target": &schema.Schema{
+			"route_target": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"uplink_preference": &schema.Schema{
+			"uplink_preference": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_bgp_profile_id": &schema.Schema{
+			"associated_bgp_profile_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_multicast_channel_map_id": &schema.Schema{
+			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_pat_mapper_id": &schema.Schema{
+			"associated_pat_mapper_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_shared_pat_mapper_id": &schema.Schema{
+			"associated_shared_pat_mapper_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_underlay_id": &schema.Schema{
+			"associated_underlay_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"stretched": &schema.Schema{
+			"stretched": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"multicast": &schema.Schema{
+			"multicast": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"tunnel_type": &schema.Schema{
+			"tunnel_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"customer_id": &schema.Schema{
+			"customer_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"export_route_target": &schema.Schema{
+			"export_route_target": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_firewall_acl": &schema.Schema{
+			"parent_firewall_acl": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_domain", "parent_domain_template", "parent_enterprise"},
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_firewall_acl", "parent_domain_template", "parent_enterprise"},
 			},
-			"parent_domain_template": &schema.Schema{
+			"parent_domain_template": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_firewall_acl", "parent_domain", "parent_enterprise"},
 			},
-			"parent_enterprise": &schema.Schema{
+			"parent_enterprise": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_firewall_acl", "parent_domain", "parent_domain_template"},
@@ -304,9 +304,9 @@ func dataSourceDomainRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredDomains) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Domain = filteredDomains[0]
 	}
+
+	Domain = filteredDomains[0]
 
 	d.Set("pat_enabled", Domain.PATEnabled)
 	d.Set("ecmp_count", Domain.ECMPCount)

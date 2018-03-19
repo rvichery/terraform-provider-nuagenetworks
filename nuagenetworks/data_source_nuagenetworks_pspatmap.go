@@ -12,32 +12,32 @@ func dataSourcePSPATMap() *schema.Resource {
 		Read: dataSourcePSPATMapRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"reserved_spatips": &schema.Schema{
+			"reserved_spatips": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"associated_spat_sources_pool_id": &schema.Schema{
+			"associated_spat_sources_pool_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_psnat_pool": &schema.Schema{
+			"parent_psnat_pool": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -78,9 +78,9 @@ func dataSourcePSPATMapRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredPSPATMaps) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		PSPATMap = filteredPSPATMaps[0]
 	}
+
+	PSPATMap = filteredPSPATMaps[0]
 
 	d.Set("name", PSPATMap.Name)
 	d.Set("reserved_spatips", PSPATMap.ReservedSPATIPs)

@@ -12,27 +12,27 @@ func dataSourceCSNATPool() *schema.Resource {
 		Read: dataSourceCSNATPoolRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"end_address": &schema.Schema{
+			"end_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"start_address": &schema.Schema{
+			"start_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_link": &schema.Schema{
+			"parent_link": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -73,9 +73,9 @@ func dataSourceCSNATPoolRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredCSNATPools) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		CSNATPool = filteredCSNATPools[0]
 	}
+
+	CSNATPool = filteredCSNATPools[0]
 
 	d.Set("end_address", CSNATPool.EndAddress)
 	d.Set("start_address", CSNATPool.StartAddress)

@@ -12,27 +12,27 @@ func dataSourceDUCGroup() *schema.Resource {
 		Read: dataSourceDUCGroupRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_performance_monitor_id": &schema.Schema{
+			"associated_performance_monitor_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -73,9 +73,9 @@ func dataSourceDUCGroupRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredDUCGroups) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		DUCGroup = filteredDUCGroups[0]
 	}
+
+	DUCGroup = filteredDUCGroups[0]
 
 	d.Set("name", DUCGroup.Name)
 	d.Set("description", DUCGroup.Description)

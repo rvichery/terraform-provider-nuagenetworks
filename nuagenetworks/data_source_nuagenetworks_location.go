@@ -12,63 +12,63 @@ func dataSourceLocation() *schema.Resource {
 		Read: dataSourceLocationRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"latitude": &schema.Schema{
+			"latitude": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"address": &schema.Schema{
+			"address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ignore_geocode": &schema.Schema{
+			"ignore_geocode": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"time_zone_id": &schema.Schema{
+			"time_zone_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"locality": &schema.Schema{
+			"locality": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"longitude": &schema.Schema{
+			"longitude": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"country": &schema.Schema{
+			"country": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"state": &schema.Schema{
+			"state": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_ns_gateway": &schema.Schema{
+			"parent_ns_gateway": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -109,9 +109,9 @@ func dataSourceLocationRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredLocations) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Location = filteredLocations[0]
 	}
+
+	Location = filteredLocations[0]
 
 	d.Set("last_updated_by", Location.LastUpdatedBy)
 	d.Set("latitude", Location.Latitude)

@@ -12,56 +12,56 @@ func dataSourceZFBAutoAssignment() *schema.Resource {
 		Read: dataSourceZFBAutoAssignmentRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"zfb_match_attribute": &schema.Schema{
+			"zfb_match_attribute": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"zfb_match_attribute_values": &schema.Schema{
+			"zfb_match_attribute_values": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"priority": &schema.Schema{
+			"priority": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"associated_enterprise_id": &schema.Schema{
+			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_enterprise_name": &schema.Schema{
+			"associated_enterprise_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
@@ -102,9 +102,9 @@ func dataSourceZFBAutoAssignmentRead(d *schema.ResourceData, m interface{}) erro
 	if len(filteredZFBAutoAssignments) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		ZFBAutoAssignment = filteredZFBAutoAssignments[0]
 	}
+
+	ZFBAutoAssignment = filteredZFBAutoAssignments[0]
 
 	d.Set("zfb_match_attribute", ZFBAutoAssignment.ZFBMatchAttribute)
 	d.Set("zfb_match_attribute_values", ZFBAutoAssignment.ZFBMatchAttributeValues)

@@ -12,36 +12,36 @@ func dataSourceLtestatistics() *schema.Resource {
 		Read: dataSourceLtestatisticsRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"version": &schema.Schema{
+			"version": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"end_time": &schema.Schema{
+			"end_time": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"start_time": &schema.Schema{
+			"start_time": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"stats_data": &schema.Schema{
+			"stats_data": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
-			"parent_vlan": &schema.Schema{
+			"parent_vlan": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -82,9 +82,9 @@ func dataSourceLtestatisticsRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredLtestatistics) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		Ltestatistics = filteredLtestatistics[0]
 	}
+
+	Ltestatistics = filteredLtestatistics[0]
 
 	d.Set("version", Ltestatistics.Version)
 	d.Set("end_time", Ltestatistics.EndTime)

@@ -12,83 +12,83 @@ func dataSourceVRSMetrics() *schema.Resource {
 		Read: dataSourceVRSMetricsRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"al_ubr0_status": &schema.Schema{
+			"al_ubr0_status": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"cpu_utilization": &schema.Schema{
+			"cpu_utilization": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"vrs_process": &schema.Schema{
+			"vrs_process": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"vrsvsc_status": &schema.Schema{
+			"vrsvsc_status": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"re_deploy": &schema.Schema{
+			"re_deploy": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"receiving_metrics": &schema.Schema{
+			"receiving_metrics": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"memory_utilization": &schema.Schema{
+			"memory_utilization": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"jesxmon_process": &schema.Schema{
+			"jesxmon_process": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"log_disk_partition_utilization": &schema.Schema{
+			"log_disk_partition_utilization": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"root_disk_partition_utilization": &schema.Schema{
+			"root_disk_partition_utilization": {
 				Type:     schema.TypeFloat,
 				Computed: true,
 			},
-			"applied_metrics_push_interval": &schema.Schema{
+			"applied_metrics_push_interval": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"associated_vcenter_hypervisor_id": &schema.Schema{
+			"associated_vcenter_hypervisor_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"current_version": &schema.Schema{
+			"current_version": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_vcenter_hypervisor": &schema.Schema{
+			"parent_vcenter_hypervisor": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -129,9 +129,9 @@ func dataSourceVRSMetricsRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredVRSMetrics) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		VRSMetrics = filteredVRSMetrics[0]
 	}
+
+	VRSMetrics = filteredVRSMetrics[0]
 
 	d.Set("al_ubr0_status", VRSMetrics.ALUbr0Status)
 	d.Set("cpu_utilization", VRSMetrics.CPUUtilization)

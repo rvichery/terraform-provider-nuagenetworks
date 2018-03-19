@@ -12,55 +12,55 @@ func dataSourceNSGRoutingPolicyBinding() *schema.Resource {
 		Read: dataSourceNSGRoutingPolicyBindingRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_export_routing_policy_id": &schema.Schema{
+			"associated_export_routing_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_import_routing_policy_id": &schema.Schema{
+			"associated_import_routing_policy_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_policy_object_group_id": &schema.Schema{
+			"associated_policy_object_group_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"export_to_overlay": &schema.Schema{
+			"export_to_overlay": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_domain": &schema.Schema{
+			"parent_domain": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -101,9 +101,9 @@ func dataSourceNSGRoutingPolicyBindingRead(d *schema.ResourceData, m interface{}
 	if len(filteredNSGRoutingPolicyBindings) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		NSGRoutingPolicyBinding = filteredNSGRoutingPolicyBindings[0]
 	}
+
+	NSGRoutingPolicyBinding = filteredNSGRoutingPolicyBindings[0]
 
 	d.Set("name", NSGRoutingPolicyBinding.Name)
 	d.Set("last_updated_by", NSGRoutingPolicyBinding.LastUpdatedBy)

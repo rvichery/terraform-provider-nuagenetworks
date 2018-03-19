@@ -12,113 +12,113 @@ func dataSourceWANService() *schema.Resource {
 		Read: dataSourceWANServiceRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"wan_service_identifier": &schema.Schema{
+			"wan_service_identifier": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"irb_enabled": &schema.Schema{
+			"irb_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"name": &schema.Schema{
+			"name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"permitted_action": &schema.Schema{
+			"permitted_action": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"service_policy": &schema.Schema{
+			"service_policy": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"service_type": &schema.Schema{
+			"service_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"description": &schema.Schema{
+			"description": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"vn_id": &schema.Schema{
+			"vn_id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
-			"enterprise_name": &schema.Schema{
+			"enterprise_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"domain_name": &schema.Schema{
+			"domain_name": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"config_type": &schema.Schema{
+			"config_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"orphan": &schema.Schema{
+			"orphan": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"use_user_mnemonic": &schema.Schema{
+			"use_user_mnemonic": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"user_mnemonic": &schema.Schema{
+			"user_mnemonic": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_domain_id": &schema.Schema{
+			"associated_domain_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"associated_vpn_connect_id": &schema.Schema{
+			"associated_vpn_connect_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"tunnel_type": &schema.Schema{
+			"tunnel_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_route_target": &schema.Schema{
+			"external_route_target": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_redundancy_group": &schema.Schema{
+			"parent_redundancy_group": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_auto_discovered_gateway", "parent_gateway"},
 			},
-			"parent_auto_discovered_gateway": &schema.Schema{
+			"parent_auto_discovered_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_gateway"},
 			},
-			"parent_gateway": &schema.Schema{
+			"parent_gateway": {
 				Type:          schema.TypeString,
 				Optional:      true,
 				ConflictsWith: []string{"parent_redundancy_group", "parent_auto_discovered_gateway"},
@@ -174,9 +174,9 @@ func dataSourceWANServiceRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredWANServices) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		WANService = filteredWANServices[0]
 	}
+
+	WANService = filteredWANServices[0]
 
 	d.Set("wan_service_identifier", WANService.WANServiceIdentifier)
 	d.Set("irb_enabled", WANService.IRBEnabled)

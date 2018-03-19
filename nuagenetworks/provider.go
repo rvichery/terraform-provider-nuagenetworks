@@ -29,18 +29,18 @@ func Provider() terraform.ResourceProvider {
 			//     Required:    true,
 			//     DefaultFunc: schema.EnvDefaultFunc("VSD_ORGANIZATION", "csp"),
 			// },
-			"certificate_path": &schema.Schema{
+			"certificate_path": {
 				Type:        schema.TypeString,
 				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("VSD_CERTIFICATE_PATH", nil),
 			},
-			"key_path": &schema.Schema{
+			"key_path": {
 				Type:        schema.TypeString,
 				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("VSD_KEY_PATH", nil),
 			},
 
-			"vsd_endpoint": &schema.Schema{
+			"vsd_endpoint": {
 				Type:        schema.TypeString,
 				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("VSD_ENDPOINT", nil),

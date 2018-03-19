@@ -12,43 +12,43 @@ func dataSourceIPReservation() *schema.Resource {
 		Read: dataSourceIPReservationRead,
 		Schema: map[string]*schema.Schema{
 			"filter": dataSourceFiltersSchema(),
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"mac": &schema.Schema{
+			"mac": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"ip_address": &schema.Schema{
+			"ip_address": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Computed: true,
 			},
-			"dynamic_allocation_enabled": &schema.Schema{
+			"dynamic_allocation_enabled": {
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
-			"parent_subnet": &schema.Schema{
+			"parent_subnet": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -89,9 +89,9 @@ func dataSourceIPReservationRead(d *schema.ResourceData, m interface{}) error {
 	if len(filteredIPReservations) > 1 {
 		return fmt.Errorf("Your query returned more than one result. Please try a more " +
 			"specific search criteria.")
-	} else {
-		IPReservation = filteredIPReservations[0]
 	}
+
+	IPReservation = filteredIPReservations[0]
 
 	d.Set("mac", IPReservation.MAC)
 	d.Set("ip_address", IPReservation.IPAddress)

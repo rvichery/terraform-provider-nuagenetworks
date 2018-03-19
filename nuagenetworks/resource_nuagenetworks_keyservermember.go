@@ -15,61 +15,61 @@ func resourceKeyServerMember() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 		Schema: map[string]*schema.Schema{
-			"id": &schema.Schema{
+			"id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_id": &schema.Schema{
+			"parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"parent_type": &schema.Schema{
+			"parent_type": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"owner": &schema.Schema{
+			"owner": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"last_updated_by": &schema.Schema{
+			"last_updated_by": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"pem_encoded": &schema.Schema{
+			"pem_encoded": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"certificate_serial_number": &schema.Schema{
+			"certificate_serial_number": {
 				Type:     schema.TypeInt,
 				Optional: true,
 			},
-			"entity_scope": &schema.Schema{
+			"entity_scope": {
 				Type:     schema.TypeString,
 				Optional: true,
 				Computed: true,
 			},
-			"fqdn": &schema.Schema{
+			"fqdn": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"issuer_dn": &schema.Schema{
+			"issuer_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"subject_dn": &schema.Schema{
+			"subject_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"public_key": &schema.Schema{
+			"public_key": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"external_id": &schema.Schema{
+			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},

@@ -512,12 +512,10 @@
 			"revisionTime": "2017-03-31T19:46:55Z"
 		},
 		{
-			"checksumSHA1": "wQLJimwOO6PEyG2aRUq5/WQ1YpA=",
-			"path": "github.com/nuagenetworks/vspk-go/vspk",
-			"revision": "69d848a153b61faeaeb44e4c89922eec27c638dc",
-			"revisionTime": "2018-02-21T02:47:48Z",
-			"version": "r5.2.2",
-			"versionExact": "r5.2.2"
+			"checksumSHA1": "jhDHM4arxSFvIfMZxHpA2GTAJqo=",
+			"path": "github.com/rvichery/vspk-go/vspk",
+			"revision": "20e670be3267af943a438d77c5c4668a37d3d863",
+			"revisionTime": "2018-03-19T01:41:57Z"
 		},
 		{
 			"checksumSHA1": "zmC8/3V4ls53DJlNTKDZwPSC/dA=",

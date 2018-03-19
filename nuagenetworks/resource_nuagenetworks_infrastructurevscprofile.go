@@ -1,191 +1,193 @@
 package nuagenetworks
 
 import (
-	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/nuagenetworks/vspk-go/vspk"
+    "github.com/hashicorp/terraform/helper/schema"
+    "github.com/rvichery/vspk-go/vspk"
 )
 
 func resourceInfrastructureVscProfile() *schema.Resource {
-	return &schema.Resource{
-		Create: resourceInfrastructureVscProfileCreate,
-		Read:   resourceInfrastructureVscProfileRead,
-		Update: resourceInfrastructureVscProfileUpdate,
-		Delete: resourceInfrastructureVscProfileDelete,
-		Importer: &schema.ResourceImporter{
-			State: schema.ImportStatePassthrough,
-		},
-		Schema: map[string]*schema.Schema{
-			"id": {
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"parent_id": {
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"parent_type": {
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"owner": {
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"name": {
-				Type:     schema.TypeString,
-				Required: true,
-			},
-			"last_updated_by": {
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"second_controller": {
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"description": {
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"first_controller": {
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"enterprise_id": {
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"entity_scope": {
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
-			},
-			"probe_interval": {
-				Type:     schema.TypeInt,
-				Optional: true,
-				Default:  5000,
-			},
-			"external_id": {
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-		},
-	}
+    return &schema.Resource{
+        Create: resourceInfrastructureVscProfileCreate,
+        Read:   resourceInfrastructureVscProfileRead,
+        Update: resourceInfrastructureVscProfileUpdate,
+        Delete: resourceInfrastructureVscProfileDelete,
+        Importer: &schema.ResourceImporter{
+            State: schema.ImportStatePassthrough,
+        },
+        Schema: map[string]*schema.Schema{
+            "id": &schema.Schema{
+                Type:     schema.TypeString,
+                Optional: true,
+                Computed: true,
+            },
+            "parent_id": &schema.Schema{
+                Type:     schema.TypeString,
+                Optional: true,
+                Computed: true,
+            },
+            "parent_type": &schema.Schema{
+                Type:     schema.TypeString,
+                Optional: true,
+                Computed: true,
+            },
+            "owner": &schema.Schema{
+                Type:     schema.TypeString,
+                Optional: true,
+                Computed: true,
+            },
+            "name": &schema.Schema{
+                Type:     schema.TypeString,
+                Required: true,
+            },
+            "last_updated_by": &schema.Schema{
+                Type:     schema.TypeString,
+                Optional: true,
+                Computed: true,
+            },
+            "second_controller": &schema.Schema{
+                Type:     schema.TypeString,
+                Optional: true,
+            },
+            "description": &schema.Schema{
+                Type:     schema.TypeString,
+                Optional: true,
+            },
+            "first_controller": &schema.Schema{
+                Type:     schema.TypeString,
+                Optional: true,
+            },
+            "enterprise_id": &schema.Schema{
+                Type:     schema.TypeString,
+                Optional: true,
+            },
+            "entity_scope": &schema.Schema{
+                Type:     schema.TypeString,
+                Optional: true,
+                Computed: true,
+            },
+            "probe_interval": &schema.Schema{
+                Type:     schema.TypeInt,
+                Optional: true,
+                Default: 5000,
+            },
+            "external_id": &schema.Schema{
+                Type:     schema.TypeString,
+                Optional: true,
+            },
+        },
+    }
 }
 
 func resourceInfrastructureVscProfileCreate(d *schema.ResourceData, m interface{}) error {
 
-	// Initialize InfrastructureVscProfile object
-	o := &vspk.InfrastructureVscProfile{
-		Name: d.Get("name").(string),
-	}
-	if attr, ok := d.GetOk("second_controller"); ok {
-		o.SecondController = attr.(string)
-	}
-	if attr, ok := d.GetOk("description"); ok {
-		o.Description = attr.(string)
-	}
-	if attr, ok := d.GetOk("first_controller"); ok {
-		o.FirstController = attr.(string)
-	}
-	if attr, ok := d.GetOk("enterprise_id"); ok {
-		o.EnterpriseID = attr.(string)
-	}
-	if attr, ok := d.GetOk("probe_interval"); ok {
-		o.ProbeInterval = attr.(int)
-	}
-	if attr, ok := d.GetOk("external_id"); ok {
-		o.ExternalID = attr.(string)
-	}
-	parent := m.(*vspk.Me)
-	err := parent.CreateInfrastructureVscProfile(o)
-	if err != nil {
-		return err
-	}
+    // Initialize InfrastructureVscProfile object
+    o := &vspk.InfrastructureVscProfile{
+        Name: d.Get("name").(string),
+    }
+    if attr, ok := d.GetOk("second_controller"); ok {
+        o.SecondController = attr.(string)
+    }
+    if attr, ok := d.GetOk("description"); ok {
+        o.Description = attr.(string)
+    }
+    if attr, ok := d.GetOk("first_controller"); ok {
+        o.FirstController = attr.(string)
+    }
+    if attr, ok := d.GetOk("enterprise_id"); ok {
+        o.EnterpriseID = attr.(string)
+    }
+    if attr, ok := d.GetOk("probe_interval"); ok {
+        o.ProbeInterval = attr.(int)
+    }
+    if attr, ok := d.GetOk("external_id"); ok {
+        o.ExternalID = attr.(string)
+    }
+    parent := m.(*vspk.Me)
+    err := parent.CreateInfrastructureVscProfile(o)
+    if err != nil {
+        return err
+    }
+    
+    
 
-	d.SetId(o.Identifier())
-	return resourceInfrastructureVscProfileRead(d, m)
+    d.SetId(o.Identifier())
+    return resourceInfrastructureVscProfileRead(d, m)
 }
 
 func resourceInfrastructureVscProfileRead(d *schema.ResourceData, m interface{}) error {
-	o := &vspk.InfrastructureVscProfile{
-		ID: d.Id(),
-	}
+    o := &vspk.InfrastructureVscProfile{
+        ID: d.Id(),
+    }
 
-	err := o.Fetch()
-	if err != nil {
-		d.SetId("")
-		return nil
-	}
+    err := o.Fetch()
+    if err != nil {
+        d.SetId("")
+        return nil
+    }
 
-	d.Set("name", o.Name)
-	d.Set("last_updated_by", o.LastUpdatedBy)
-	d.Set("second_controller", o.SecondController)
-	d.Set("description", o.Description)
-	d.Set("first_controller", o.FirstController)
-	d.Set("enterprise_id", o.EnterpriseID)
-	d.Set("entity_scope", o.EntityScope)
-	d.Set("probe_interval", o.ProbeInterval)
-	d.Set("external_id", o.ExternalID)
+    d.Set("name", o.Name)
+    d.Set("last_updated_by", o.LastUpdatedBy)
+    d.Set("second_controller", o.SecondController)
+    d.Set("description", o.Description)
+    d.Set("first_controller", o.FirstController)
+    d.Set("enterprise_id", o.EnterpriseID)
+    d.Set("entity_scope", o.EntityScope)
+    d.Set("probe_interval", o.ProbeInterval)
+    d.Set("external_id", o.ExternalID)
+    
+    d.Set("id", o.Identifier())
+    d.Set("parent_id", o.ParentID)
+    d.Set("parent_type", o.ParentType)
+    d.Set("owner", o.Owner)
 
-	d.Set("id", o.Identifier())
-	d.Set("parent_id", o.ParentID)
-	d.Set("parent_type", o.ParentType)
-	d.Set("owner", o.Owner)
-
-	return nil
+    return nil
 }
 
 func resourceInfrastructureVscProfileUpdate(d *schema.ResourceData, m interface{}) error {
-	o := &vspk.InfrastructureVscProfile{
-		ID: d.Id(),
-	}
+    o := &vspk.InfrastructureVscProfile{
+        ID: d.Id(),
+    }
+    
+    err := o.Fetch()
+    if err != nil {
+        return err
+    }
+    
+    o.Name = d.Get("name").(string)
+    
+    if attr, ok := d.GetOk("second_controller"); ok {
+        o.SecondController = attr.(string)
+    }
+    if attr, ok := d.GetOk("description"); ok {
+        o.Description = attr.(string)
+    }
+    if attr, ok := d.GetOk("first_controller"); ok {
+        o.FirstController = attr.(string)
+    }
+    if attr, ok := d.GetOk("enterprise_id"); ok {
+        o.EnterpriseID = attr.(string)
+    }
+    if attr, ok := d.GetOk("probe_interval"); ok {
+        o.ProbeInterval = attr.(int)
+    }
+    if attr, ok := d.GetOk("external_id"); ok {
+        o.ExternalID = attr.(string)
+    }
 
-	err := o.Fetch()
-	if err != nil {
-		return err
-	}
+    o.Save()
 
-	o.Name = d.Get("name").(string)
-
-	if attr, ok := d.GetOk("second_controller"); ok {
-		o.SecondController = attr.(string)
-	}
-	if attr, ok := d.GetOk("description"); ok {
-		o.Description = attr.(string)
-	}
-	if attr, ok := d.GetOk("first_controller"); ok {
-		o.FirstController = attr.(string)
-	}
-	if attr, ok := d.GetOk("enterprise_id"); ok {
-		o.EnterpriseID = attr.(string)
-	}
-	if attr, ok := d.GetOk("probe_interval"); ok {
-		o.ProbeInterval = attr.(int)
-	}
-	if attr, ok := d.GetOk("external_id"); ok {
-		o.ExternalID = attr.(string)
-	}
-
-	o.Save()
-
-	return nil
+    return nil
 }
 
 func resourceInfrastructureVscProfileDelete(d *schema.ResourceData, m interface{}) error {
-	o := &vspk.InfrastructureVscProfile{
-		ID: d.Id(),
-	}
+    o := &vspk.InfrastructureVscProfile{
+        ID: d.Id(),
+    }
 
-	err := o.Delete()
-	if err != nil {
-		return err
-	}
+    err := o.Delete()
+    if err != nil {
+        return err
+    }
 
-	return nil
+    return nil
 }

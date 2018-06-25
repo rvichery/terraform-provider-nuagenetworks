@@ -41,7 +41,6 @@ func resourceQosPolicer() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"rate": {
@@ -52,10 +51,10 @@ func resourceQosPolicer() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"burst": {
@@ -66,6 +65,7 @@ func resourceQosPolicer() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 		},
 	}
@@ -78,13 +78,15 @@ func resourceQosPolicerCreate(d *schema.ResourceData, m interface{}) error {
 		Name: d.Get("name").(string),
 	}
 	if attr, ok := d.GetOk("rate"); ok {
-		o.Rate = attr.(int)
+		Rate := attr.(int)
+		o.Rate = &Rate
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("burst"); ok {
-		o.Burst = attr.(int)
+		Burst := attr.(int)
+		o.Burst = &Burst
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -139,13 +141,15 @@ func resourceQosPolicerUpdate(d *schema.ResourceData, m interface{}) error {
 	o.Name = d.Get("name").(string)
 
 	if attr, ok := d.GetOk("rate"); ok {
-		o.Rate = attr.(int)
+		Rate := attr.(int)
+		o.Rate = &Rate
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("burst"); ok {
-		o.Burst = attr.(int)
+		Burst := attr.(int)
+		o.Burst = &Burst
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

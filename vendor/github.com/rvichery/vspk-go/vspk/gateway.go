@@ -64,13 +64,13 @@ type Gateway struct {
 	RedundancyGroupID  string `json:"redundancyGroupID,omitempty"`
 	Peer               string `json:"peer,omitempty"`
 	TemplateID         string `json:"templateID,omitempty"`
-	Pending            bool   `json:"pending"`
+	Pending            *bool  `json:"pending,omitempty"`
 	PermittedAction    string `json:"permittedAction,omitempty"`
 	Personality        string `json:"personality,omitempty"`
 	Description        string `json:"description,omitempty"`
 	EnterpriseID       string `json:"enterpriseID,omitempty"`
 	EntityScope        string `json:"entityScope,omitempty"`
-	UseGatewayVLANVNID bool   `json:"useGatewayVLANVNID"`
+	UseGatewayVLANVNID *bool  `json:"useGatewayVLANVNID,omitempty"`
 	Vtep               string `json:"vtep,omitempty"`
 	AutoDiscGatewayID  string `json:"autoDiscGatewayID,omitempty"`
 	ExternalID         string `json:"externalID,omitempty"`
@@ -79,10 +79,7 @@ type Gateway struct {
 
 // NewGateway returns a new *Gateway
 func NewGateway() *Gateway {
-
-	return &Gateway{
-		Personality: "VRSG",
-	}
+	return &Gateway{}
 }
 
 // Identity returns the Identity of the object.

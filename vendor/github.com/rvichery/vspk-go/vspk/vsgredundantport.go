@@ -69,7 +69,7 @@ type VsgRedundantPort struct {
 	PortPeer1ID                 string `json:"portPeer1ID,omitempty"`
 	PortPeer2ID                 string `json:"portPeer2ID,omitempty"`
 	PortType                    string `json:"portType,omitempty"`
-	UseUserMnemonic             bool   `json:"useUserMnemonic"`
+	UseUserMnemonic             *bool  `json:"useUserMnemonic,omitempty"`
 	UserMnemonic                string `json:"userMnemonic,omitempty"`
 	AssociatedEgressQOSPolicyID string `json:"associatedEgressQOSPolicyID,omitempty"`
 	Status                      string `json:"status,omitempty"`
@@ -78,7 +78,6 @@ type VsgRedundantPort struct {
 
 // NewVsgRedundantPort returns a new *VsgRedundantPort
 func NewVsgRedundantPort() *VsgRedundantPort {
-
 	return &VsgRedundantPort{}
 }
 

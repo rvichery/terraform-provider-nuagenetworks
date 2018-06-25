@@ -59,8 +59,8 @@ type ContainerResync struct {
 	ParentID                string `json:"parentID,omitempty"`
 	ParentType              string `json:"parentType,omitempty"`
 	Owner                   string `json:"owner,omitempty"`
-	LastRequestTimestamp    int    `json:"lastRequestTimestamp"`
-	LastTimeResyncInitiated int    `json:"lastTimeResyncInitiated"`
+	LastRequestTimestamp    *int   `json:"lastRequestTimestamp,omitempty"`
+	LastTimeResyncInitiated *int   `json:"lastTimeResyncInitiated,omitempty"`
 	LastUpdatedBy           string `json:"lastUpdatedBy,omitempty"`
 	EntityScope             string `json:"entityScope,omitempty"`
 	Status                  string `json:"status,omitempty"`
@@ -69,7 +69,6 @@ type ContainerResync struct {
 
 // NewContainerResync returns a new *ContainerResync
 func NewContainerResync() *ContainerResync {
-
 	return &ContainerResync{}
 }
 

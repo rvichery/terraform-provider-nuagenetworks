@@ -59,21 +59,20 @@ type KeyServerMonitorEncryptedSeed struct {
 	ParentID                                   string `json:"parentID,omitempty"`
 	ParentType                                 string `json:"parentType,omitempty"`
 	Owner                                      string `json:"owner,omitempty"`
-	SEKCreationTime                            int    `json:"SEKCreationTime"`
+	SEKCreationTime                            *int   `json:"SEKCreationTime,omitempty"`
 	LastUpdatedBy                              string `json:"lastUpdatedBy,omitempty"`
-	KeyServerCertificateSerialNumber           int    `json:"keyServerCertificateSerialNumber"`
+	KeyServerCertificateSerialNumber           *int   `json:"keyServerCertificateSerialNumber,omitempty"`
 	EnterpriseSecuredDataID                    string `json:"enterpriseSecuredDataID,omitempty"`
 	EntityScope                                string `json:"entityScope,omitempty"`
-	AssociatedKeyServerMonitorSEKCreationTime  int    `json:"associatedKeyServerMonitorSEKCreationTime"`
+	AssociatedKeyServerMonitorSEKCreationTime  *int   `json:"associatedKeyServerMonitorSEKCreationTime,omitempty"`
 	AssociatedKeyServerMonitorSEKID            string `json:"associatedKeyServerMonitorSEKID,omitempty"`
-	AssociatedKeyServerMonitorSeedCreationTime int    `json:"associatedKeyServerMonitorSeedCreationTime"`
+	AssociatedKeyServerMonitorSeedCreationTime *int   `json:"associatedKeyServerMonitorSeedCreationTime,omitempty"`
 	AssociatedKeyServerMonitorSeedID           string `json:"associatedKeyServerMonitorSeedID,omitempty"`
 	ExternalID                                 string `json:"externalID,omitempty"`
 }
 
 // NewKeyServerMonitorEncryptedSeed returns a new *KeyServerMonitorEncryptedSeed
 func NewKeyServerMonitorEncryptedSeed() *KeyServerMonitorEncryptedSeed {
-
 	return &KeyServerMonitorEncryptedSeed{}
 }
 

@@ -66,15 +66,15 @@ type InfrastructureVscProfile struct {
 	FirstController  string `json:"firstController,omitempty"`
 	EnterpriseID     string `json:"enterpriseID,omitempty"`
 	EntityScope      string `json:"entityScope,omitempty"`
-	ProbeInterval    int    `json:"probeInterval"`
+	ProbeInterval    *int   `json:"probeInterval,omitempty"`
 	ExternalID       string `json:"externalID,omitempty"`
 }
 
 // NewInfrastructureVscProfile returns a new *InfrastructureVscProfile
 func NewInfrastructureVscProfile() *InfrastructureVscProfile {
-
+	ProbeInterval := 5000
 	return &InfrastructureVscProfile{
-		ProbeInterval: 5000,
+		ProbeInterval: &ProbeInterval,
 	}
 }
 

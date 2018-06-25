@@ -70,7 +70,6 @@ type NATMapEntry struct {
 
 // NewNATMapEntry returns a new *NATMapEntry
 func NewNATMapEntry() *NATMapEntry {
-
 	return &NATMapEntry{
 		Type: "ONE_TO_ONE_NAT",
 	}

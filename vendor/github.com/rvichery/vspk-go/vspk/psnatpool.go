@@ -65,7 +65,6 @@ type PSNATPool struct {
 
 // NewPSNATPool returns a new *PSNATPool
 func NewPSNATPool() *PSNATPool {
-
 	return &PSNATPool{}
 }
 

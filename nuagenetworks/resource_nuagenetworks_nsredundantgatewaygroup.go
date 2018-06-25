@@ -41,32 +41,37 @@ func resourceNSRedundantGatewayGroup() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"gateway_peer1_autodiscovered_gateway_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"gateway_peer1_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"gateway_peer1_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"gateway_peer2_autodiscovered_gateway_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"gateway_peer2_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"gateway_peer2_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"heartbeat_interval": {
 				Type:     schema.TypeInt,
@@ -81,32 +86,34 @@ func resourceNSRedundantGatewayGroup() *schema.Resource {
 			"redundancy_port_ids": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"redundant_gateway_status": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"personality": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"enterprise_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"consecutive_failures_count": {
@@ -117,6 +124,7 @@ func resourceNSRedundantGatewayGroup() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -151,10 +159,12 @@ func resourceNSRedundantGatewayGroupCreate(d *schema.ResourceData, m interface{}
 		o.GatewayPeer2Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("heartbeat_interval"); ok {
-		o.HeartbeatInterval = attr.(int)
+		HeartbeatInterval := attr.(int)
+		o.HeartbeatInterval = &HeartbeatInterval
 	}
 	if attr, ok := d.GetOk("heartbeat_vlanid"); ok {
-		o.HeartbeatVLANID = attr.(int)
+		HeartbeatVLANID := attr.(int)
+		o.HeartbeatVLANID = &HeartbeatVLANID
 	}
 	if attr, ok := d.GetOk("redundancy_port_ids"); ok {
 		o.RedundancyPortIDs = attr.([]interface{})
@@ -172,7 +182,8 @@ func resourceNSRedundantGatewayGroupCreate(d *schema.ResourceData, m interface{}
 		o.EnterpriseID = attr.(string)
 	}
 	if attr, ok := d.GetOk("consecutive_failures_count"); ok {
-		o.ConsecutiveFailuresCount = attr.(int)
+		ConsecutiveFailuresCount := attr.(int)
+		o.ConsecutiveFailuresCount = &ConsecutiveFailuresCount
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -257,10 +268,12 @@ func resourceNSRedundantGatewayGroupUpdate(d *schema.ResourceData, m interface{}
 		o.GatewayPeer2Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("heartbeat_interval"); ok {
-		o.HeartbeatInterval = attr.(int)
+		HeartbeatInterval := attr.(int)
+		o.HeartbeatInterval = &HeartbeatInterval
 	}
 	if attr, ok := d.GetOk("heartbeat_vlanid"); ok {
-		o.HeartbeatVLANID = attr.(int)
+		HeartbeatVLANID := attr.(int)
+		o.HeartbeatVLANID = &HeartbeatVLANID
 	}
 	if attr, ok := d.GetOk("redundancy_port_ids"); ok {
 		o.RedundancyPortIDs = attr.([]interface{})
@@ -278,7 +291,8 @@ func resourceNSRedundantGatewayGroupUpdate(d *schema.ResourceData, m interface{}
 		o.EnterpriseID = attr.(string)
 	}
 	if attr, ok := d.GetOk("consecutive_failures_count"); ok {
-		o.ConsecutiveFailuresCount = attr.(int)
+		ConsecutiveFailuresCount := attr.(int)
+		o.ConsecutiveFailuresCount = &ConsecutiveFailuresCount
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

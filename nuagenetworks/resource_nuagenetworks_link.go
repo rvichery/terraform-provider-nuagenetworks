@@ -37,7 +37,6 @@ func resourceLink() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"acceptance_criteria": {
@@ -48,43 +47,51 @@ func resourceLink() *schema.Resource {
 			"read_only": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_destination_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_destination_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_destination_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_source_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_source_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_source_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_domain": {
 				Type:     schema.TypeString,
@@ -102,7 +109,8 @@ func resourceLinkCreate(d *schema.ResourceData, m interface{}) error {
 		o.AcceptanceCriteria = attr.(string)
 	}
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 	if attr, ok := d.GetOk("associated_destination_id"); ok {
 		o.AssociatedDestinationID = attr.(string)
@@ -184,7 +192,8 @@ func resourceLinkUpdate(d *schema.ResourceData, m interface{}) error {
 		o.AcceptanceCriteria = attr.(string)
 	}
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 	if attr, ok := d.GetOk("associated_destination_id"); ok {
 		o.AssociatedDestinationID = attr.(string)

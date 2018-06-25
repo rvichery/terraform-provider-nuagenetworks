@@ -59,16 +59,16 @@ type NetworkPerformanceBinding struct {
 	ParentID                       string `json:"parentID,omitempty"`
 	ParentType                     string `json:"parentType,omitempty"`
 	Owner                          string `json:"owner,omitempty"`
-	ReadOnly                       bool   `json:"readOnly"`
-	Priority                       int    `json:"priority"`
+	ReadOnly                       *bool  `json:"readOnly,omitempty"`
+	Priority                       *int   `json:"priority,omitempty"`
 	AssociatedNetworkMeasurementID string `json:"associatedNetworkMeasurementID,omitempty"`
 }
 
 // NewNetworkPerformanceBinding returns a new *NetworkPerformanceBinding
 func NewNetworkPerformanceBinding() *NetworkPerformanceBinding {
-
+	ReadOnly := false
 	return &NetworkPerformanceBinding{
-		ReadOnly: false,
+		ReadOnly: &ReadOnly,
 	}
 }
 

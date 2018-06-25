@@ -42,6 +42,7 @@ func resourceSSHKey() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"key_type": {
 				Type:     schema.TypeString,
@@ -51,6 +52,7 @@ func resourceSSHKey() *schema.Resource {
 			"public_key": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_infrastructure_access_profile": {
 				Type:     schema.TypeString,

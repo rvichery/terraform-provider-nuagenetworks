@@ -38,24 +38,27 @@ func resourceGlobalMetadata() *schema.Resource {
 			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"metadata_tag_ids": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"network_notification_disabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"blob": {
 				Type:     schema.TypeString,
@@ -64,15 +67,16 @@ func resourceGlobalMetadata() *schema.Resource {
 			"global_metadata": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_container_interface": {
 				Type:          schema.TypeString,
@@ -934,10 +938,12 @@ func resourceGlobalMetadataCreate(d *schema.ResourceData, m interface{}) error {
 		o.MetadataTagIDs = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("network_notification_disabled"); ok {
-		o.NetworkNotificationDisabled = attr.(bool)
+		NetworkNotificationDisabled := attr.(bool)
+		o.NetworkNotificationDisabled = &NetworkNotificationDisabled
 	}
 	if attr, ok := d.GetOk("global_metadata"); ok {
-		o.GlobalMetadata = attr.(bool)
+		GlobalMetadata := attr.(bool)
+		o.GlobalMetadata = &GlobalMetadata
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -2181,10 +2187,12 @@ func resourceGlobalMetadataUpdate(d *schema.ResourceData, m interface{}) error {
 		o.MetadataTagIDs = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("network_notification_disabled"); ok {
-		o.NetworkNotificationDisabled = attr.(bool)
+		NetworkNotificationDisabled := attr.(bool)
+		o.NetworkNotificationDisabled = &NetworkNotificationDisabled
 	}
 	if attr, ok := d.GetOk("global_metadata"); ok {
-		o.GlobalMetadata = attr.(bool)
+		GlobalMetadata := attr.(bool)
+		o.GlobalMetadata = &GlobalMetadata
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

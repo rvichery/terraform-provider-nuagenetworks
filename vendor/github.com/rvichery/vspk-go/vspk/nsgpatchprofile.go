@@ -71,7 +71,6 @@ type NSGPatchProfile struct {
 
 // NewNSGPatchProfile returns a new *NSGPatchProfile
 func NewNSGPatchProfile() *NSGPatchProfile {
-
 	return &NSGPatchProfile{}
 }
 

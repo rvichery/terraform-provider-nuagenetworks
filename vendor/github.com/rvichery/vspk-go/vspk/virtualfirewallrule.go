@@ -70,7 +70,7 @@ type VirtualFirewallRule struct {
 	NetworkID                          string `json:"networkID,omitempty"`
 	NetworkType                        string `json:"networkType,omitempty"`
 	MirrorDestinationID                string `json:"mirrorDestinationID,omitempty"`
-	FlowLoggingEnabled                 bool   `json:"flowLoggingEnabled"`
+	FlowLoggingEnabled                 *bool  `json:"flowLoggingEnabled,omitempty"`
 	EnterpriseName                     string `json:"enterpriseName,omitempty"`
 	EntityScope                        string `json:"entityScope,omitempty"`
 	LocationID                         string `json:"locationID,omitempty"`
@@ -78,25 +78,26 @@ type VirtualFirewallRule struct {
 	PolicyState                        string `json:"policyState,omitempty"`
 	DomainName                         string `json:"domainName,omitempty"`
 	SourcePort                         string `json:"sourcePort,omitempty"`
-	Priority                           int    `json:"priority"`
+	Priority                           *int   `json:"priority,omitempty"`
 	Protocol                           string `json:"protocol,omitempty"`
 	AssociatedL7ApplicationSignatureID string `json:"associatedL7ApplicationSignatureID,omitempty"`
 	AssociatedLiveEntityID             string `json:"associatedLiveEntityID,omitempty"`
 	AssociatedTrafficType              string `json:"associatedTrafficType,omitempty"`
 	AssociatedTrafficTypeID            string `json:"associatedTrafficTypeID,omitempty"`
 	StatsID                            string `json:"statsID,omitempty"`
-	StatsLoggingEnabled                bool   `json:"statsLoggingEnabled"`
+	StatsLoggingEnabled                *bool  `json:"statsLoggingEnabled,omitempty"`
 	OverlayMirrorDestinationID         string `json:"overlayMirrorDestinationID,omitempty"`
 	ExternalID                         string `json:"externalID,omitempty"`
 }
 
 // NewVirtualFirewallRule returns a new *VirtualFirewallRule
 func NewVirtualFirewallRule() *VirtualFirewallRule {
-
+	FlowLoggingEnabled := false
+	StatsLoggingEnabled := false
 	return &VirtualFirewallRule{
 		NetworkType:         "ANY",
-		FlowLoggingEnabled:  false,
-		StatsLoggingEnabled: false,
+		FlowLoggingEnabled:  &FlowLoggingEnabled,
+		StatsLoggingEnabled: &StatsLoggingEnabled,
 	}
 }
 

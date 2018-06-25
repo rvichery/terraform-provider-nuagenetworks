@@ -73,7 +73,6 @@ type InfrastructureAccessProfile struct {
 
 // NewInfrastructureAccessProfile returns a new *InfrastructureAccessProfile
 func NewInfrastructureAccessProfile() *InfrastructureAccessProfile {
-
 	return &InfrastructureAccessProfile{
 		SSHAuthMode:    "PASSWORD_AND_KEY_BASED",
 		SourceIPFilter: "DISABLED",

@@ -62,17 +62,16 @@ type KeyServerMonitorSeed struct {
 	LastUpdatedBy                      string `json:"lastUpdatedBy,omitempty"`
 	SeedTrafficAuthenticationAlgorithm string `json:"seedTrafficAuthenticationAlgorithm,omitempty"`
 	SeedTrafficEncryptionAlgorithm     string `json:"seedTrafficEncryptionAlgorithm,omitempty"`
-	SeedTrafficEncryptionKeyLifetime   int    `json:"seedTrafficEncryptionKeyLifetime"`
-	Lifetime                           int    `json:"lifetime"`
+	SeedTrafficEncryptionKeyLifetime   *int   `json:"seedTrafficEncryptionKeyLifetime,omitempty"`
+	Lifetime                           *int   `json:"lifetime,omitempty"`
 	EntityScope                        string `json:"entityScope,omitempty"`
-	CreationTime                       int    `json:"creationTime"`
-	StartTime                          int    `json:"startTime"`
+	CreationTime                       *int   `json:"creationTime,omitempty"`
+	StartTime                          *int   `json:"startTime,omitempty"`
 	ExternalID                         string `json:"externalID,omitempty"`
 }
 
 // NewKeyServerMonitorSeed returns a new *KeyServerMonitorSeed
 func NewKeyServerMonitorSeed() *KeyServerMonitorSeed {
-
 	return &KeyServerMonitorSeed{}
 }
 

@@ -67,7 +67,6 @@ type SSHKey struct {
 
 // NewSSHKey returns a new *SSHKey
 func NewSSHKey() *SSHKey {
-
 	return &SSHKey{
 		KeyType: "RSA",
 	}

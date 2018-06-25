@@ -62,21 +62,20 @@ type Alarm struct {
 	Name               string `json:"name,omitempty"`
 	TargetObject       string `json:"targetObject,omitempty"`
 	LastUpdatedBy      string `json:"lastUpdatedBy,omitempty"`
-	Acknowledged       bool   `json:"acknowledged"`
+	Acknowledged       *bool  `json:"acknowledged,omitempty"`
 	Reason             string `json:"reason,omitempty"`
 	Description        string `json:"description,omitempty"`
 	Severity           string `json:"severity,omitempty"`
-	Timestamp          int    `json:"timestamp"`
+	Timestamp          *int   `json:"timestamp,omitempty"`
 	EnterpriseID       string `json:"enterpriseID,omitempty"`
 	EntityScope        string `json:"entityScope,omitempty"`
-	ErrorCondition     int    `json:"errorCondition"`
-	NumberOfOccurances int    `json:"numberOfOccurances"`
+	ErrorCondition     *int   `json:"errorCondition,omitempty"`
+	NumberOfOccurances *int   `json:"numberOfOccurances,omitempty"`
 	ExternalID         string `json:"externalID,omitempty"`
 }
 
 // NewAlarm returns a new *Alarm
 func NewAlarm() *Alarm {
-
 	return &Alarm{}
 }
 

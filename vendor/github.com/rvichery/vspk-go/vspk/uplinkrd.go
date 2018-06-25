@@ -68,7 +68,6 @@ type UplinkRD struct {
 
 // NewUplinkRD returns a new *UplinkRD
 func NewUplinkRD() *UplinkRD {
-
 	return &UplinkRD{
 		UplinkType: "RD_PRIMARY1",
 	}

@@ -59,23 +59,23 @@ type VNFDescriptor struct {
 	ParentID                       string `json:"parentID,omitempty"`
 	ParentType                     string `json:"parentType,omitempty"`
 	Owner                          string `json:"owner,omitempty"`
-	CPUCount                       int    `json:"CPUCount"`
+	CPUCount                       *int   `json:"CPUCount,omitempty"`
 	Name                           string `json:"name,omitempty"`
-	MemoryMB                       int    `json:"memoryMB"`
+	MemoryMB                       *int   `json:"memoryMB,omitempty"`
 	Vendor                         string `json:"vendor,omitempty"`
 	Description                    string `json:"description,omitempty"`
 	MetadataID                     string `json:"metadataID,omitempty"`
-	Visible                        bool   `json:"visible"`
+	Visible                        *bool  `json:"visible,omitempty"`
 	AssociatedVNFThresholdPolicyID string `json:"associatedVNFThresholdPolicyID,omitempty"`
-	StorageGB                      int    `json:"storageGB"`
+	StorageGB                      *int   `json:"storageGB,omitempty"`
 	Type                           string `json:"type,omitempty"`
 }
 
 // NewVNFDescriptor returns a new *VNFDescriptor
 func NewVNFDescriptor() *VNFDescriptor {
-
+	Visible := true
 	return &VNFDescriptor{
-		Visible: true,
+		Visible: &Visible,
 		Type:    "FIREWALL",
 	}
 }

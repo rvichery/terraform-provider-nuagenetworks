@@ -38,31 +38,36 @@ func resourceOverlayMirrorDestination() *schema.Resource {
 			"esi": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"redundancy_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"template_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"virtual_network_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"end_point_type": {
 				Type:     schema.TypeString,
@@ -70,16 +75,17 @@ func resourceOverlayMirrorDestination() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"trigger_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_l2_domain": {
 				Type:     schema.TypeString,
@@ -102,7 +108,8 @@ func resourceOverlayMirrorDestinationCreate(d *schema.ResourceData, m interface{
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("redundancy_enabled"); ok {
-		o.RedundancyEnabled = attr.(bool)
+		RedundancyEnabled := attr.(bool)
+		o.RedundancyEnabled = &RedundancyEnabled
 	}
 	if attr, ok := d.GetOk("template_id"); ok {
 		o.TemplateID = attr.(string)
@@ -182,7 +189,8 @@ func resourceOverlayMirrorDestinationUpdate(d *schema.ResourceData, m interface{
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("redundancy_enabled"); ok {
-		o.RedundancyEnabled = attr.(bool)
+		RedundancyEnabled := attr.(bool)
+		o.RedundancyEnabled = &RedundancyEnabled
 	}
 	if attr, ok := d.GetOk("template_id"); ok {
 		o.TemplateID = attr.(string)

@@ -63,13 +63,12 @@ type NetworkLayout struct {
 	ServiceType         string `json:"serviceType,omitempty"`
 	EntityScope         string `json:"entityScope,omitempty"`
 	RouteReflectorIP    string `json:"routeReflectorIP,omitempty"`
-	AutonomousSystemNum int    `json:"autonomousSystemNum"`
+	AutonomousSystemNum *int   `json:"autonomousSystemNum,omitempty"`
 	ExternalID          string `json:"externalID,omitempty"`
 }
 
 // NewNetworkLayout returns a new *NetworkLayout
 func NewNetworkLayout() *NetworkLayout {
-
 	return &NetworkLayout{}
 }
 

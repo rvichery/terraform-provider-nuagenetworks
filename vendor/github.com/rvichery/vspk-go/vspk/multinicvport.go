@@ -67,7 +67,6 @@ type MultiNICVPort struct {
 
 // NewMultiNICVPort returns a new *MultiNICVPort
 func NewMultiNICVPort() *MultiNICVPort {
-
 	return &MultiNICVPort{}
 }
 

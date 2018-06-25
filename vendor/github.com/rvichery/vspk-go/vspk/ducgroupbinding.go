@@ -59,16 +59,16 @@ type DUCGroupBinding struct {
 	ParentID             string `json:"parentID,omitempty"`
 	ParentType           string `json:"parentType,omitempty"`
 	Owner                string `json:"owner,omitempty"`
-	OneWayDelay          int    `json:"oneWayDelay"`
-	Priority             int    `json:"priority"`
+	OneWayDelay          *int   `json:"oneWayDelay,omitempty"`
+	Priority             *int   `json:"priority,omitempty"`
 	AssociatedDUCGroupID string `json:"associatedDUCGroupID,omitempty"`
 }
 
 // NewDUCGroupBinding returns a new *DUCGroupBinding
 func NewDUCGroupBinding() *DUCGroupBinding {
-
+	OneWayDelay := 50
 	return &DUCGroupBinding{
-		OneWayDelay: 50,
+		OneWayDelay: &OneWayDelay,
 	}
 }
 

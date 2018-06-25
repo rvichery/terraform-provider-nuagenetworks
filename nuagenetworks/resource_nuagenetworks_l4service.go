@@ -41,7 +41,6 @@ func resourceL4Service() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"default_service": {
@@ -52,10 +51,10 @@ func resourceL4Service() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"ports": {
@@ -69,6 +68,7 @@ func resourceL4Service() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -87,7 +87,8 @@ func resourceL4ServiceCreate(d *schema.ResourceData, m interface{}) error {
 		Protocol: d.Get("protocol").(string),
 	}
 	if attr, ok := d.GetOk("default_service"); ok {
-		o.DefaultService = attr.(bool)
+		DefaultService := attr.(bool)
+		o.DefaultService = &DefaultService
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -157,7 +158,8 @@ func resourceL4ServiceUpdate(d *schema.ResourceData, m interface{}) error {
 	o.Protocol = d.Get("protocol").(string)
 
 	if attr, ok := d.GetOk("default_service"); ok {
-		o.DefaultService = attr.(bool)
+		DefaultService := attr.(bool)
+		o.DefaultService = &DefaultService
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)

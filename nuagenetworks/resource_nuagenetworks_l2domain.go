@@ -38,6 +38,7 @@ func resourceL2Domain() *schema.Resource {
 			"dhcp_managed": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"dpi": {
 				Type:     schema.TypeString,
@@ -47,18 +48,22 @@ func resourceL2Domain() *schema.Resource {
 			"ip_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ipv6_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ipv6_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"maintenance_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -66,36 +71,42 @@ func resourceL2Domain() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"gateway_mac_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"template_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"service_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"flow_collection_enabled": {
 				Type:     schema.TypeString,
@@ -105,63 +116,76 @@ func resourceL2Domain() *schema.Resource {
 			"vn_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"encryption": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"entity_state": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"policy_change_status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"uplink_preference": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"use_global_mac": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_shared_network_resource_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_underlay_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"stretched": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dynamic_ipv6_address": {
 				Type:     schema.TypeBool,
@@ -183,7 +207,8 @@ func resourceL2DomainCreate(d *schema.ResourceData, m interface{}) error {
 		Name: d.Get("name").(string),
 	}
 	if attr, ok := d.GetOk("dhcp_managed"); ok {
-		o.DHCPManaged = attr.(bool)
+		DHCPManaged := attr.(bool)
+		o.DHCPManaged = &DHCPManaged
 	}
 	if attr, ok := d.GetOk("dpi"); ok {
 		o.DPI = attr.(string)
@@ -213,7 +238,8 @@ func resourceL2DomainCreate(d *schema.ResourceData, m interface{}) error {
 		o.TemplateID = attr.(string)
 	}
 	if attr, ok := d.GetOk("service_id"); ok {
-		o.ServiceID = attr.(int)
+		ServiceID := attr.(int)
+		o.ServiceID = &ServiceID
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -225,7 +251,8 @@ func resourceL2DomainCreate(d *schema.ResourceData, m interface{}) error {
 		o.FlowCollectionEnabled = attr.(string)
 	}
 	if attr, ok := d.GetOk("vn_id"); ok {
-		o.VnId = attr.(int)
+		VnId := attr.(int)
+		o.VnId = &VnId
 	}
 	if attr, ok := d.GetOk("encryption"); ok {
 		o.Encryption = attr.(string)
@@ -258,7 +285,8 @@ func resourceL2DomainCreate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedUnderlayID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stretched"); ok {
-		o.Stretched = attr.(bool)
+		Stretched := attr.(bool)
+		o.Stretched = &Stretched
 	}
 	if attr, ok := d.GetOk("multicast"); ok {
 		o.Multicast = attr.(string)
@@ -267,7 +295,8 @@ func resourceL2DomainCreate(d *schema.ResourceData, m interface{}) error {
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("dynamic_ipv6_address"); ok {
-		o.DynamicIpv6Address = attr.(bool)
+		DynamicIpv6Address := attr.(bool)
+		o.DynamicIpv6Address = &DynamicIpv6Address
 	}
 	parent := &vspk.Enterprise{ID: d.Get("parent_enterprise").(string)}
 	err := parent.CreateL2Domain(o)
@@ -344,7 +373,8 @@ func resourceL2DomainUpdate(d *schema.ResourceData, m interface{}) error {
 	o.Name = d.Get("name").(string)
 
 	if attr, ok := d.GetOk("dhcp_managed"); ok {
-		o.DHCPManaged = attr.(bool)
+		DHCPManaged := attr.(bool)
+		o.DHCPManaged = &DHCPManaged
 	}
 	if attr, ok := d.GetOk("dpi"); ok {
 		o.DPI = attr.(string)
@@ -374,7 +404,8 @@ func resourceL2DomainUpdate(d *schema.ResourceData, m interface{}) error {
 		o.TemplateID = attr.(string)
 	}
 	if attr, ok := d.GetOk("service_id"); ok {
-		o.ServiceID = attr.(int)
+		ServiceID := attr.(int)
+		o.ServiceID = &ServiceID
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -386,7 +417,8 @@ func resourceL2DomainUpdate(d *schema.ResourceData, m interface{}) error {
 		o.FlowCollectionEnabled = attr.(string)
 	}
 	if attr, ok := d.GetOk("vn_id"); ok {
-		o.VnId = attr.(int)
+		VnId := attr.(int)
+		o.VnId = &VnId
 	}
 	if attr, ok := d.GetOk("encryption"); ok {
 		o.Encryption = attr.(string)
@@ -419,7 +451,8 @@ func resourceL2DomainUpdate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedUnderlayID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stretched"); ok {
-		o.Stretched = attr.(bool)
+		Stretched := attr.(bool)
+		o.Stretched = &Stretched
 	}
 	if attr, ok := d.GetOk("multicast"); ok {
 		o.Multicast = attr.(string)
@@ -428,7 +461,8 @@ func resourceL2DomainUpdate(d *schema.ResourceData, m interface{}) error {
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("dynamic_ipv6_address"); ok {
-		o.DynamicIpv6Address = attr.(bool)
+		DynamicIpv6Address := attr.(bool)
+		o.DynamicIpv6Address = &DynamicIpv6Address
 	}
 
 	o.Save()

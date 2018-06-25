@@ -37,17 +37,16 @@ func resourceNetworkPerformanceBinding() *schema.Resource {
 			},
 			"read_only": {
 				Type:     schema.TypeBool,
-				Optional: true,
-				Default:  false,
+				Computed: true,
 			},
 			"priority": {
 				Type:     schema.TypeInt,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_network_measurement_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_domain": {
 				Type:          schema.TypeString,
@@ -68,7 +67,8 @@ func resourceNetworkPerformanceBindingCreate(d *schema.ResourceData, m interface
 	// Initialize NetworkPerformanceBinding object
 	o := &vspk.NetworkPerformanceBinding{}
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 	if attr, ok := d.GetOk("associated_network_measurement_id"); ok {
 		o.AssociatedNetworkMeasurementID = attr.(string)
@@ -126,7 +126,8 @@ func resourceNetworkPerformanceBindingUpdate(d *schema.ResourceData, m interface
 	}
 
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 	if attr, ok := d.GetOk("associated_network_measurement_id"); ok {
 		o.AssociatedNetworkMeasurementID = attr.(string)

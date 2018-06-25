@@ -47,6 +47,7 @@ func resourceBGPNeighbor() *schema.Resource {
 			"dampening_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"peer_as": {
 				Type:     schema.TypeInt,
@@ -55,31 +56,36 @@ func resourceBGPNeighbor() *schema.Resource {
 			"peer_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"session": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_export_routing_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_import_routing_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_vport": {
 				Type:          schema.TypeString,
@@ -103,15 +109,18 @@ func resourceBGPNeighbor() *schema.Resource {
 func resourceBGPNeighborCreate(d *schema.ResourceData, m interface{}) error {
 
 	// Initialize BGPNeighbor object
+	PeerAS := d.Get("peer_as").(int)
 	o := &vspk.BGPNeighbor{
 		Name:   d.Get("name").(string),
-		PeerAS: d.Get("peer_as").(int),
+		PeerAS: &PeerAS,
 	}
 	if attr, ok := d.GetOk("bfd_enabled"); ok {
-		o.BFDEnabled = attr.(bool)
+		BFDEnabled := attr.(bool)
+		o.BFDEnabled = &BFDEnabled
 	}
 	if attr, ok := d.GetOk("dampening_enabled"); ok {
-		o.DampeningEnabled = attr.(bool)
+		DampeningEnabled := attr.(bool)
+		o.DampeningEnabled = &DampeningEnabled
 	}
 	if attr, ok := d.GetOk("peer_ip"); ok {
 		o.PeerIP = attr.(string)
@@ -199,13 +208,16 @@ func resourceBGPNeighborUpdate(d *schema.ResourceData, m interface{}) error {
 	}
 
 	o.Name = d.Get("name").(string)
-	o.PeerAS = d.Get("peer_as").(int)
+	PeerAS := d.Get("peer_as").(int)
+	o.PeerAS = &PeerAS
 
 	if attr, ok := d.GetOk("bfd_enabled"); ok {
-		o.BFDEnabled = attr.(bool)
+		BFDEnabled := attr.(bool)
+		o.BFDEnabled = &BFDEnabled
 	}
 	if attr, ok := d.GetOk("dampening_enabled"); ok {
-		o.DampeningEnabled = attr.(bool)
+		DampeningEnabled := attr.(bool)
+		o.DampeningEnabled = &DampeningEnabled
 	}
 	if attr, ok := d.GetOk("peer_ip"); ok {
 		o.PeerIP = attr.(string)

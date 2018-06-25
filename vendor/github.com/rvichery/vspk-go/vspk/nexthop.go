@@ -68,7 +68,6 @@ type NextHop struct {
 
 // NewNextHop returns a new *NextHop
 func NewNextHop() *NextHop {
-
 	return &NextHop{}
 }
 

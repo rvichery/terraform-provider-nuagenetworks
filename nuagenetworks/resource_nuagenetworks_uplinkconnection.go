@@ -43,34 +43,40 @@ func resourceUplinkConnection() *schema.Resource {
 			"dns_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"password": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"advertisement_criteria": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"secondary_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"vlan_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"underlay_enabled": {
@@ -100,12 +106,10 @@ func resourceUplinkConnection() *schema.Resource {
 			},
 			"role_order": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"port_name": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"download_rate_limit": {
@@ -116,22 +120,27 @@ func resourceUplinkConnection() *schema.Resource {
 			"uplink_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"username": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"assoc_underlay_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_bgp_neighbor_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_underlay_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"auxiliary_link": {
 				Type:     schema.TypeBool,
@@ -157,7 +166,8 @@ func resourceUplinkConnectionCreate(d *schema.ResourceData, m interface{}) error
 	// Initialize UplinkConnection object
 	o := &vspk.UplinkConnection{}
 	if attr, ok := d.GetOk("pat_enabled"); ok {
-		o.PATEnabled = attr.(bool)
+		PATEnabled := attr.(bool)
+		o.PATEnabled = &PATEnabled
 	}
 	if attr, ok := d.GetOk("dns_address"); ok {
 		o.DNSAddress = attr.(string)
@@ -181,10 +191,12 @@ func resourceUplinkConnectionCreate(d *schema.ResourceData, m interface{}) error
 		o.Netmask = attr.(string)
 	}
 	if attr, ok := d.GetOk("underlay_enabled"); ok {
-		o.UnderlayEnabled = attr.(bool)
+		UnderlayEnabled := attr.(bool)
+		o.UnderlayEnabled = &UnderlayEnabled
 	}
 	if attr, ok := d.GetOk("installer_managed"); ok {
-		o.InstallerManaged = attr.(bool)
+		InstallerManaged := attr.(bool)
+		o.InstallerManaged = &InstallerManaged
 	}
 	if attr, ok := d.GetOk("interface_connection_type"); ok {
 		o.InterfaceConnectionType = attr.(string)
@@ -199,7 +211,8 @@ func resourceUplinkConnectionCreate(d *schema.ResourceData, m interface{}) error
 		o.DownloadRateLimit = attr.(float64)
 	}
 	if attr, ok := d.GetOk("uplink_id"); ok {
-		o.UplinkID = attr.(int)
+		UplinkID := attr.(int)
+		o.UplinkID = &UplinkID
 	}
 	if attr, ok := d.GetOk("username"); ok {
 		o.Username = attr.(string)
@@ -214,7 +227,8 @@ func resourceUplinkConnectionCreate(d *schema.ResourceData, m interface{}) error
 		o.AssociatedUnderlayName = attr.(string)
 	}
 	if attr, ok := d.GetOk("auxiliary_link"); ok {
-		o.AuxiliaryLink = attr.(bool)
+		AuxiliaryLink := attr.(bool)
+		o.AuxiliaryLink = &AuxiliaryLink
 	}
 	if attr, ok := d.GetOk("parent_vlan"); ok {
 		parent := &vspk.VLAN{ID: attr.(string)}
@@ -289,7 +303,8 @@ func resourceUplinkConnectionUpdate(d *schema.ResourceData, m interface{}) error
 	}
 
 	if attr, ok := d.GetOk("pat_enabled"); ok {
-		o.PATEnabled = attr.(bool)
+		PATEnabled := attr.(bool)
+		o.PATEnabled = &PATEnabled
 	}
 	if attr, ok := d.GetOk("dns_address"); ok {
 		o.DNSAddress = attr.(string)
@@ -313,10 +328,12 @@ func resourceUplinkConnectionUpdate(d *schema.ResourceData, m interface{}) error
 		o.Netmask = attr.(string)
 	}
 	if attr, ok := d.GetOk("underlay_enabled"); ok {
-		o.UnderlayEnabled = attr.(bool)
+		UnderlayEnabled := attr.(bool)
+		o.UnderlayEnabled = &UnderlayEnabled
 	}
 	if attr, ok := d.GetOk("installer_managed"); ok {
-		o.InstallerManaged = attr.(bool)
+		InstallerManaged := attr.(bool)
+		o.InstallerManaged = &InstallerManaged
 	}
 	if attr, ok := d.GetOk("interface_connection_type"); ok {
 		o.InterfaceConnectionType = attr.(string)
@@ -331,7 +348,8 @@ func resourceUplinkConnectionUpdate(d *schema.ResourceData, m interface{}) error
 		o.DownloadRateLimit = attr.(float64)
 	}
 	if attr, ok := d.GetOk("uplink_id"); ok {
-		o.UplinkID = attr.(int)
+		UplinkID := attr.(int)
+		o.UplinkID = &UplinkID
 	}
 	if attr, ok := d.GetOk("username"); ok {
 		o.Username = attr.(string)
@@ -346,7 +364,8 @@ func resourceUplinkConnectionUpdate(d *schema.ResourceData, m interface{}) error
 		o.AssociatedUnderlayName = attr.(string)
 	}
 	if attr, ok := d.GetOk("auxiliary_link"); ok {
-		o.AuxiliaryLink = attr.(bool)
+		AuxiliaryLink := attr.(bool)
+		o.AuxiliaryLink = &AuxiliaryLink
 	}
 
 	o.Save()

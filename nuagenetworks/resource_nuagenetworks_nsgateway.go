@@ -38,10 +38,12 @@ func resourceNSGateway() *schema.Resource {
 			"mac_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nat_traversal_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"tcpmss_enabled": {
 				Type:     schema.TypeBool,
@@ -56,14 +58,17 @@ func resourceNSGateway() *schema.Resource {
 			"bios_release_date": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"bios_version": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"sku": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"tpm_status": {
 				Type:     schema.TypeString,
@@ -72,16 +77,17 @@ func resourceNSGateway() *schema.Resource {
 			},
 			"tpm_version": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"cpu_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nsg_version": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ssh_service": {
 				Type:     schema.TypeString,
@@ -91,6 +97,7 @@ func resourceNSGateway() *schema.Resource {
 			"uuid": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -99,30 +106,27 @@ func resourceNSGateway() *schema.Resource {
 			"family": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_configuration_reload_timestamp": {
 				Type:     schema.TypeInt,
-				Optional: true,
 				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"datapath_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"patches": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"redundancy_group_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"template_id": {
 				Type:     schema.TypeString,
@@ -131,30 +135,37 @@ func resourceNSGateway() *schema.Resource {
 			"pending": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"serial_number": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"derived_ssh_service_state": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"personality": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"libraries": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"inherited_ssh_service_state": {
 				Type:     schema.TypeString,
@@ -163,16 +174,15 @@ func resourceNSGateway() *schema.Resource {
 			},
 			"enterprise_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"location_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"configuration_reload_state": {
 				Type:     schema.TypeString,
@@ -196,54 +206,57 @@ func resourceNSGateway() *schema.Resource {
 			},
 			"bootstrap_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"bootstrap_status": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"operation_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"operation_status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"product_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_gateway_security_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_gateway_security_profile_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_nsg_info_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"associated_nsg_upgrade_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"auto_disc_gateway_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"system_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -264,13 +277,16 @@ func resourceNSGatewayCreate(d *schema.ResourceData, m interface{}) error {
 		o.MACAddress = attr.(string)
 	}
 	if attr, ok := d.GetOk("nat_traversal_enabled"); ok {
-		o.NATTraversalEnabled = attr.(bool)
+		NATTraversalEnabled := attr.(bool)
+		o.NATTraversalEnabled = &NATTraversalEnabled
 	}
 	if attr, ok := d.GetOk("tcpmss_enabled"); ok {
-		o.TCPMSSEnabled = attr.(bool)
+		TCPMSSEnabled := attr.(bool)
+		o.TCPMSSEnabled = &TCPMSSEnabled
 	}
 	if attr, ok := d.GetOk("tcp_maximum_segment_size"); ok {
-		o.TCPMaximumSegmentSize = attr.(int)
+		TCPMaximumSegmentSize := attr.(int)
+		o.TCPMaximumSegmentSize = &TCPMaximumSegmentSize
 	}
 	if attr, ok := d.GetOk("bios_release_date"); ok {
 		o.BIOSReleaseDate = attr.(string)
@@ -303,7 +319,8 @@ func resourceNSGatewayCreate(d *schema.ResourceData, m interface{}) error {
 		o.RedundancyGroupID = attr.(string)
 	}
 	if attr, ok := d.GetOk("pending"); ok {
-		o.Pending = attr.(bool)
+		Pending := attr.(bool)
+		o.Pending = &Pending
 	}
 	if attr, ok := d.GetOk("serial_number"); ok {
 		o.SerialNumber = attr.(string)
@@ -339,10 +356,12 @@ func resourceNSGatewayCreate(d *schema.ResourceData, m interface{}) error {
 		o.ConfigurationStatus = attr.(string)
 	}
 	if attr, ok := d.GetOk("control_traffic_cos_value"); ok {
-		o.ControlTrafficCOSValue = attr.(int)
+		ControlTrafficCOSValue := attr.(int)
+		o.ControlTrafficCOSValue = &ControlTrafficCOSValue
 	}
 	if attr, ok := d.GetOk("control_traffic_dscp_value"); ok {
-		o.ControlTrafficDSCPValue = attr.(int)
+		ControlTrafficDSCPValue := attr.(int)
+		o.ControlTrafficDSCPValue = &ControlTrafficDSCPValue
 	}
 	if attr, ok := d.GetOk("bootstrap_id"); ok {
 		o.BootstrapID = attr.(string)
@@ -469,13 +488,16 @@ func resourceNSGatewayUpdate(d *schema.ResourceData, m interface{}) error {
 		o.MACAddress = attr.(string)
 	}
 	if attr, ok := d.GetOk("nat_traversal_enabled"); ok {
-		o.NATTraversalEnabled = attr.(bool)
+		NATTraversalEnabled := attr.(bool)
+		o.NATTraversalEnabled = &NATTraversalEnabled
 	}
 	if attr, ok := d.GetOk("tcpmss_enabled"); ok {
-		o.TCPMSSEnabled = attr.(bool)
+		TCPMSSEnabled := attr.(bool)
+		o.TCPMSSEnabled = &TCPMSSEnabled
 	}
 	if attr, ok := d.GetOk("tcp_maximum_segment_size"); ok {
-		o.TCPMaximumSegmentSize = attr.(int)
+		TCPMaximumSegmentSize := attr.(int)
+		o.TCPMaximumSegmentSize = &TCPMaximumSegmentSize
 	}
 	if attr, ok := d.GetOk("bios_release_date"); ok {
 		o.BIOSReleaseDate = attr.(string)
@@ -508,7 +530,8 @@ func resourceNSGatewayUpdate(d *schema.ResourceData, m interface{}) error {
 		o.RedundancyGroupID = attr.(string)
 	}
 	if attr, ok := d.GetOk("pending"); ok {
-		o.Pending = attr.(bool)
+		Pending := attr.(bool)
+		o.Pending = &Pending
 	}
 	if attr, ok := d.GetOk("serial_number"); ok {
 		o.SerialNumber = attr.(string)
@@ -544,10 +567,12 @@ func resourceNSGatewayUpdate(d *schema.ResourceData, m interface{}) error {
 		o.ConfigurationStatus = attr.(string)
 	}
 	if attr, ok := d.GetOk("control_traffic_cos_value"); ok {
-		o.ControlTrafficCOSValue = attr.(int)
+		ControlTrafficCOSValue := attr.(int)
+		o.ControlTrafficCOSValue = &ControlTrafficCOSValue
 	}
 	if attr, ok := d.GetOk("control_traffic_dscp_value"); ok {
-		o.ControlTrafficDSCPValue = attr.(int)
+		ControlTrafficDSCPValue := attr.(int)
+		o.ControlTrafficDSCPValue = &ControlTrafficDSCPValue
 	}
 	if attr, ok := d.GetOk("bootstrap_id"); ok {
 		o.BootstrapID = attr.(string)

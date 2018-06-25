@@ -70,7 +70,6 @@ type CaptivePortalProfile struct {
 
 // NewCaptivePortalProfile returns a new *CaptivePortalProfile
 func NewCaptivePortalProfile() *CaptivePortalProfile {
-
 	return &CaptivePortalProfile{
 		PortalType: "CLICK_THROUGH",
 	}

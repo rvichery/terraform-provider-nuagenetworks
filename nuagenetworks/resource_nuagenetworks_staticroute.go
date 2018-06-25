@@ -43,14 +43,15 @@ func resourceStaticRoute() *schema.Resource {
 			"ip_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ipv6_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"address": {
@@ -67,24 +68,27 @@ func resourceStaticRoute() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_subnet_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_shared_network_resource": {
 				Type:          schema.TypeString,
@@ -109,7 +113,8 @@ func resourceStaticRouteCreate(d *schema.ResourceData, m interface{}) error {
 		NextHopIp: d.Get("next_hop_ip").(string),
 	}
 	if attr, ok := d.GetOk("bfd_enabled"); ok {
-		o.BFDEnabled = attr.(bool)
+		BFDEnabled := attr.(bool)
+		o.BFDEnabled = &BFDEnabled
 	}
 	if attr, ok := d.GetOk("ip_type"); ok {
 		o.IPType = attr.(string)
@@ -195,7 +200,8 @@ func resourceStaticRouteUpdate(d *schema.ResourceData, m interface{}) error {
 	o.NextHopIp = d.Get("next_hop_ip").(string)
 
 	if attr, ok := d.GetOk("bfd_enabled"); ok {
-		o.BFDEnabled = attr.(bool)
+		BFDEnabled := attr.(bool)
+		o.BFDEnabled = &BFDEnabled
 	}
 	if attr, ok := d.GetOk("ip_type"); ok {
 		o.IPType = attr.(string)

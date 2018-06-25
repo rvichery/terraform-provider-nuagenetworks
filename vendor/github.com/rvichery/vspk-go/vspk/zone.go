@@ -72,23 +72,20 @@ type Zone struct {
 	FlowCollectionEnabled           string `json:"flowCollectionEnabled,omitempty"`
 	Encryption                      string `json:"encryption,omitempty"`
 	EntityScope                     string `json:"entityScope,omitempty"`
-	PolicyGroupID                   int    `json:"policyGroupID"`
+	PolicyGroupID                   *int   `json:"policyGroupID,omitempty"`
 	AssociatedMulticastChannelMapID string `json:"associatedMulticastChannelMapID,omitempty"`
-	PublicZone                      bool   `json:"publicZone"`
+	PublicZone                      *bool  `json:"publicZone,omitempty"`
 	Multicast                       string `json:"multicast,omitempty"`
-	NumberOfHostsInSubnets          int    `json:"numberOfHostsInSubnets"`
+	NumberOfHostsInSubnets          *int   `json:"numberOfHostsInSubnets,omitempty"`
 	ExternalID                      string `json:"externalID,omitempty"`
-	DynamicIpv6Address              bool   `json:"dynamicIpv6Address"`
+	DynamicIpv6Address              *bool  `json:"dynamicIpv6Address,omitempty"`
 }
 
 // NewZone returns a new *Zone
 func NewZone() *Zone {
-
 	return &Zone{
-		DPI:                   "INHERITED",
-		MaintenanceMode:       "DISABLED",
+		DPI: "INHERITED",
 		FlowCollectionEnabled: "INHERITED",
-		Multicast:             "INHERITED",
 	}
 }
 

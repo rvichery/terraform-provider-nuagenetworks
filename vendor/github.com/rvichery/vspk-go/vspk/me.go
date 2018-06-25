@@ -41,16 +41,16 @@ type Me struct {
 	ParentID              string `json:"parentID,omitempty"`
 	ParentType            string `json:"parentType,omitempty"`
 	Owner                 string `json:"owner,omitempty"`
-	AARFlowStatsInterval  int    `json:"AARFlowStatsInterval"`
-	AARProbeStatsInterval int    `json:"AARProbeStatsInterval"`
-	VSSStatsInterval      int    `json:"VSSStatsInterval"`
+	AARFlowStatsInterval  *int   `json:"AARFlowStatsInterval,omitempty"`
+	AARProbeStatsInterval *int   `json:"AARProbeStatsInterval,omitempty"`
+	VSSStatsInterval      *int   `json:"VSSStatsInterval,omitempty"`
 	Password              string `json:"password,omitempty"`
 	LastName              string `json:"lastName,omitempty"`
 	LastUpdatedBy         string `json:"lastUpdatedBy,omitempty"`
 	FirstName             string `json:"firstName,omitempty"`
-	Disabled              bool   `json:"disabled"`
+	Disabled              *bool  `json:"disabled,omitempty"`
 	ElasticSearchAddress  string `json:"elasticSearchAddress,omitempty"`
-	FlowCollectionEnabled bool   `json:"flowCollectionEnabled"`
+	FlowCollectionEnabled *bool  `json:"flowCollectionEnabled,omitempty"`
 	Email                 string `json:"email,omitempty"`
 	EnterpriseID          string `json:"enterpriseID,omitempty"`
 	EnterpriseName        string `json:"enterpriseName,omitempty"`
@@ -58,7 +58,7 @@ type Me struct {
 	MobileNumber          string `json:"mobileNumber,omitempty"`
 	Role                  string `json:"role,omitempty"`
 	UserName              string `json:"userName,omitempty"`
-	StatisticsEnabled     bool   `json:"statisticsEnabled"`
+	StatisticsEnabled     *bool  `json:"statisticsEnabled,omitempty"`
 	AvatarData            string `json:"avatarData,omitempty"`
 	AvatarType            string `json:"avatarType,omitempty"`
 	ExternalID            string `json:"externalID,omitempty"`
@@ -69,11 +69,13 @@ type Me struct {
 
 // NewMe returns a new *Me
 func NewMe() *Me {
-
+	AARFlowStatsInterval := 30
+	AARProbeStatsInterval := 30
+	VSSStatsInterval := 30
 	return &Me{
-		AARFlowStatsInterval:  30,
-		AARProbeStatsInterval: 30,
-		VSSStatsInterval:      30,
+		AARFlowStatsInterval:  &AARFlowStatsInterval,
+		AARProbeStatsInterval: &AARProbeStatsInterval,
+		VSSStatsInterval:      &VSSStatsInterval,
 	}
 }
 

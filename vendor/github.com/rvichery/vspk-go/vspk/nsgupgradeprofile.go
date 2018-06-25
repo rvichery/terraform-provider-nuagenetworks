@@ -70,7 +70,6 @@ type NSGUpgradeProfile struct {
 
 // NewNSGUpgradeProfile returns a new *NSGUpgradeProfile
 func NewNSGUpgradeProfile() *NSGUpgradeProfile {
-
 	return &NSGUpgradeProfile{}
 }
 

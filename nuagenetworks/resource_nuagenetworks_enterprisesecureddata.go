@@ -38,36 +38,40 @@ func resourceEnterpriseSecuredData() *schema.Resource {
 			"hash": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"data": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"sek_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"keyserver_cert_serial_number": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"signed_hash": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise_security": {
 				Type:     schema.TypeString,
@@ -88,7 +92,8 @@ func resourceEnterpriseSecuredDataCreate(d *schema.ResourceData, m interface{}) 
 		o.Data = attr.(string)
 	}
 	if attr, ok := d.GetOk("sek_id"); ok {
-		o.SekId = attr.(int)
+		SekId := attr.(int)
+		o.SekId = &SekId
 	}
 	if attr, ok := d.GetOk("keyserver_cert_serial_number"); ok {
 		o.KeyserverCertSerialNumber = attr.(string)
@@ -154,7 +159,8 @@ func resourceEnterpriseSecuredDataUpdate(d *schema.ResourceData, m interface{}) 
 		o.Data = attr.(string)
 	}
 	if attr, ok := d.GetOk("sek_id"); ok {
-		o.SekId = attr.(int)
+		SekId := attr.(int)
+		o.SekId = &SekId
 	}
 	if attr, ok := d.GetOk("keyserver_cert_serial_number"); ok {
 		o.KeyserverCertSerialNumber = attr.(string)

@@ -60,16 +60,15 @@ type FirewallAcl struct {
 	ParentType        string        `json:"parentType,omitempty"`
 	Owner             string        `json:"owner,omitempty"`
 	Name              string        `json:"name,omitempty"`
-	Active            bool          `json:"active"`
-	DefaultAllowIP    bool          `json:"defaultAllowIP"`
-	DefaultAllowNonIP bool          `json:"defaultAllowNonIP"`
+	Active            *bool         `json:"active,omitempty"`
+	DefaultAllowIP    *bool         `json:"defaultAllowIP,omitempty"`
+	DefaultAllowNonIP *bool         `json:"defaultAllowNonIP,omitempty"`
 	Description       string        `json:"description,omitempty"`
 	RuleIds           []interface{} `json:"ruleIds,omitempty"`
 }
 
 // NewFirewallAcl returns a new *FirewallAcl
 func NewFirewallAcl() *FirewallAcl {
-
 	return &FirewallAcl{}
 }
 

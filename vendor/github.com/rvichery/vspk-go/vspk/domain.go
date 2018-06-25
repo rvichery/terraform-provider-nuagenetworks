@@ -60,40 +60,40 @@ type Domain struct {
 	ParentType                      string        `json:"parentType,omitempty"`
 	Owner                           string        `json:"owner,omitempty"`
 	PATEnabled                      string        `json:"PATEnabled,omitempty"`
-	ECMPCount                       int           `json:"ECMPCount"`
-	BGPEnabled                      bool          `json:"BGPEnabled"`
+	ECMPCount                       *int          `json:"ECMPCount,omitempty"`
+	BGPEnabled                      *bool         `json:"BGPEnabled,omitempty"`
 	DHCPBehavior                    string        `json:"DHCPBehavior,omitempty"`
 	DHCPServerAddress               string        `json:"DHCPServerAddress,omitempty"`
-	FIPUnderlay                     bool          `json:"FIPUnderlay"`
+	FIPUnderlay                     *bool         `json:"FIPUnderlay,omitempty"`
 	DPI                             string        `json:"DPI,omitempty"`
-	LabelID                         int           `json:"labelID"`
+	LabelID                         *int          `json:"labelID,omitempty"`
 	BackHaulRouteDistinguisher      string        `json:"backHaulRouteDistinguisher,omitempty"`
 	BackHaulRouteTarget             string        `json:"backHaulRouteTarget,omitempty"`
-	BackHaulServiceID               int           `json:"backHaulServiceID"`
+	BackHaulServiceID               *int          `json:"backHaulServiceID,omitempty"`
 	BackHaulSubnetIPAddress         string        `json:"backHaulSubnetIPAddress,omitempty"`
 	BackHaulSubnetMask              string        `json:"backHaulSubnetMask,omitempty"`
-	BackHaulVNID                    int           `json:"backHaulVNID"`
+	BackHaulVNID                    *int          `json:"backHaulVNID,omitempty"`
 	MaintenanceMode                 string        `json:"maintenanceMode,omitempty"`
 	Name                            string        `json:"name,omitempty"`
 	LastUpdatedBy                   string        `json:"lastUpdatedBy,omitempty"`
 	AdvertiseCriteria               string        `json:"advertiseCriteria,omitempty"`
-	LeakingEnabled                  bool          `json:"leakingEnabled"`
+	LeakingEnabled                  *bool         `json:"leakingEnabled,omitempty"`
 	SecondaryDHCPServerAddress      string        `json:"secondaryDHCPServerAddress,omitempty"`
 	TemplateID                      string        `json:"templateID,omitempty"`
 	PermittedAction                 string        `json:"permittedAction,omitempty"`
-	ServiceID                       int           `json:"serviceID"`
+	ServiceID                       *int          `json:"serviceID,omitempty"`
 	Description                     string        `json:"description,omitempty"`
 	DhcpServerAddresses             []interface{} `json:"dhcpServerAddresses,omitempty"`
-	GlobalRoutingEnabled            bool          `json:"globalRoutingEnabled"`
+	GlobalRoutingEnabled            *bool         `json:"globalRoutingEnabled,omitempty"`
 	FlowCollectionEnabled           string        `json:"flowCollectionEnabled,omitempty"`
 	ImportRouteTarget               string        `json:"importRouteTarget,omitempty"`
 	Encryption                      string        `json:"encryption,omitempty"`
 	UnderlayEnabled                 string        `json:"underlayEnabled,omitempty"`
 	EntityScope                     string        `json:"entityScope,omitempty"`
-	LocalAS                         int           `json:"localAS"`
+	LocalAS                         *int          `json:"localAS,omitempty"`
 	PolicyChangeStatus              string        `json:"policyChangeStatus,omitempty"`
-	DomainID                        int           `json:"domainID"`
-	DomainVLANID                    int           `json:"domainVLANID"`
+	DomainID                        *int          `json:"domainID,omitempty"`
+	DomainVLANID                    *int          `json:"domainVLANID,omitempty"`
 	RouteDistinguisher              string        `json:"routeDistinguisher,omitempty"`
 	RouteTarget                     string        `json:"routeTarget,omitempty"`
 	UplinkPreference                string        `json:"uplinkPreference,omitempty"`
@@ -102,25 +102,21 @@ type Domain struct {
 	AssociatedPATMapperID           string        `json:"associatedPATMapperID,omitempty"`
 	AssociatedSharedPATMapperID     string        `json:"associatedSharedPATMapperID,omitempty"`
 	AssociatedUnderlayID            string        `json:"associatedUnderlayID,omitempty"`
-	Stretched                       bool          `json:"stretched"`
+	Stretched                       *bool         `json:"stretched,omitempty"`
 	Multicast                       string        `json:"multicast,omitempty"`
 	TunnelType                      string        `json:"tunnelType,omitempty"`
-	CustomerID                      int           `json:"customerID"`
+	CustomerID                      *int          `json:"customerID,omitempty"`
 	ExportRouteTarget               string        `json:"exportRouteTarget,omitempty"`
 	ExternalID                      string        `json:"externalID,omitempty"`
 }
 
 // NewDomain returns a new *Domain
 func NewDomain() *Domain {
-
+	FIPUnderlay := false
 	return &Domain{
-		PATEnabled:            "INHERITED",
-		DHCPBehavior:          "CONSUME",
-		FIPUnderlay:           false,
-		DPI:                   "DISABLED",
-		MaintenanceMode:       "DISABLED",
+		FIPUnderlay: &FIPUnderlay,
+		DPI:         "DISABLED",
 		FlowCollectionEnabled: "INHERITED",
-		TunnelType:            "DC_DEFAULT",
 	}
 }
 

@@ -68,7 +68,6 @@ type MultiCastChannelMap struct {
 
 // NewMultiCastChannelMap returns a new *MultiCastChannelMap
 func NewMultiCastChannelMap() *MultiCastChannelMap {
-
 	return &MultiCastChannelMap{}
 }
 

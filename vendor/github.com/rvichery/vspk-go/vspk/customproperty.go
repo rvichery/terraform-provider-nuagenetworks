@@ -65,7 +65,6 @@ type CustomProperty struct {
 
 // NewCustomProperty returns a new *CustomProperty
 func NewCustomProperty() *CustomProperty {
-
 	return &CustomProperty{}
 }
 

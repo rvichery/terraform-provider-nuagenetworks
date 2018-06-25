@@ -61,32 +61,32 @@ type VNF struct {
 	Owner                          string        `json:"owner,omitempty"`
 	VNFDescriptorID                string        `json:"VNFDescriptorID,omitempty"`
 	VNFDescriptorName              string        `json:"VNFDescriptorName,omitempty"`
-	CPUCount                       int           `json:"CPUCount"`
+	CPUCount                       *int          `json:"CPUCount,omitempty"`
 	NSGName                        string        `json:"NSGName,omitempty"`
 	NSGSystemID                    string        `json:"NSGSystemID,omitempty"`
 	NSGatewayID                    string        `json:"NSGatewayID,omitempty"`
 	Name                           string        `json:"name,omitempty"`
 	TaskState                      string        `json:"taskState,omitempty"`
 	LastKnownError                 string        `json:"lastKnownError,omitempty"`
-	MemoryMB                       int           `json:"memoryMB"`
+	MemoryMB                       *int          `json:"memoryMB,omitempty"`
 	Vendor                         string        `json:"vendor,omitempty"`
 	Description                    string        `json:"description,omitempty"`
 	MetadataID                     string        `json:"metadataID,omitempty"`
 	AllowedActions                 []interface{} `json:"allowedActions,omitempty"`
 	EnterpriseID                   string        `json:"enterpriseID,omitempty"`
-	IsAttachedToDescriptor         bool          `json:"isAttachedToDescriptor"`
+	IsAttachedToDescriptor         *bool         `json:"isAttachedToDescriptor,omitempty"`
 	AssociatedVNFMetadataID        string        `json:"associatedVNFMetadataID,omitempty"`
 	AssociatedVNFThresholdPolicyID string        `json:"associatedVNFThresholdPolicyID,omitempty"`
 	Status                         string        `json:"status,omitempty"`
-	StorageGB                      int           `json:"storageGB"`
+	StorageGB                      *int          `json:"storageGB,omitempty"`
 	Type                           string        `json:"type,omitempty"`
 }
 
 // NewVNF returns a new *VNF
 func NewVNF() *VNF {
-
+	IsAttachedToDescriptor := true
 	return &VNF{
-		IsAttachedToDescriptor: true,
+		IsAttachedToDescriptor: &IsAttachedToDescriptor,
 	}
 }
 

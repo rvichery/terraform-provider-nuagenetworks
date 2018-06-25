@@ -87,7 +87,6 @@ type ContainerInterface struct {
 
 // NewContainerInterface returns a new *ContainerInterface
 func NewContainerInterface() *ContainerInterface {
-
 	return &ContainerInterface{}
 }
 

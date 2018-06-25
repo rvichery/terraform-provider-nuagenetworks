@@ -37,101 +37,103 @@ func resourceVLAN() *schema.Resource {
 			},
 			"value": {
 				Type:     schema.TypeInt,
-				Optional: true,
-				Computed: true,
+				Required: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"gateway_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"readonly": {
 				Type:     schema.TypeBool,
-				Optional: true,
 				Computed: true,
 			},
 			"template_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"restricted": {
 				Type:     schema.TypeBool,
-				Optional: true,
 				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"vport_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"is_uplink": {
 				Type:     schema.TypeBool,
-				Optional: true,
 				Computed: true,
 			},
 			"use_user_mnemonic": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"user_mnemonic": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_bgp_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_connection_type": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ingress_overlay_qo_s_policer_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ingress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ingress_underlay_qo_s_policer_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_uplink_connection_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_vsc_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"duc_vlan": {
 				Type:     schema.TypeBool,
@@ -141,10 +143,10 @@ func resourceVLAN() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"type": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"parent_vsg_redundant_port": {
@@ -174,8 +176,9 @@ func resourceVLAN() *schema.Resource {
 func resourceVLANCreate(d *schema.ResourceData, m interface{}) error {
 
 	// Initialize VLAN object
+	Value := d.Get("value").(int)
 	o := &vspk.VLAN{
-		Value: d.Get("value").(int),
+		Value: &Value,
 	}
 	if attr, ok := d.GetOk("permitted_action"); ok {
 		o.PermittedAction = attr.(string)
@@ -184,7 +187,8 @@ func resourceVLANCreate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("use_user_mnemonic"); ok {
-		o.UseUserMnemonic = attr.(bool)
+		UseUserMnemonic := attr.(bool)
+		o.UseUserMnemonic = &UseUserMnemonic
 	}
 	if attr, ok := d.GetOk("user_mnemonic"); ok {
 		o.UserMnemonic = attr.(string)
@@ -214,7 +218,8 @@ func resourceVLANCreate(d *schema.ResourceData, m interface{}) error {
 		o.Status = attr.(string)
 	}
 	if attr, ok := d.GetOk("duc_vlan"); ok {
-		o.DucVlan = attr.(bool)
+		DucVlan := attr.(bool)
+		o.DucVlan = &DucVlan
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -310,7 +315,8 @@ func resourceVLANUpdate(d *schema.ResourceData, m interface{}) error {
 		return err
 	}
 
-	o.Value = d.Get("value").(int)
+	Value := d.Get("value").(int)
+	o.Value = &Value
 
 	if attr, ok := d.GetOk("permitted_action"); ok {
 		o.PermittedAction = attr.(string)
@@ -319,7 +325,8 @@ func resourceVLANUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("use_user_mnemonic"); ok {
-		o.UseUserMnemonic = attr.(bool)
+		UseUserMnemonic := attr.(bool)
+		o.UseUserMnemonic = &UseUserMnemonic
 	}
 	if attr, ok := d.GetOk("user_mnemonic"); ok {
 		o.UserMnemonic = attr.(string)
@@ -349,7 +356,8 @@ func resourceVLANUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Status = attr.(string)
 	}
 	if attr, ok := d.GetOk("duc_vlan"); ok {
-		o.DucVlan = attr.(bool)
+		DucVlan := attr.(bool)
+		o.DucVlan = &DucVlan
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

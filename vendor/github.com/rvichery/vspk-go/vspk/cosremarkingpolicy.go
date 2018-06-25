@@ -68,7 +68,6 @@ type COSRemarkingPolicy struct {
 
 // NewCOSRemarkingPolicy returns a new *COSRemarkingPolicy
 func NewCOSRemarkingPolicy() *COSRemarkingPolicy {
-
 	return &COSRemarkingPolicy{}
 }
 

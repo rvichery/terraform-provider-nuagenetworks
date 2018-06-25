@@ -70,7 +70,6 @@ type GatewaySecuredData struct {
 
 // NewGatewaySecuredData returns a new *GatewaySecuredData
 func NewGatewaySecuredData() *GatewaySecuredData {
-
 	return &GatewaySecuredData{}
 }
 

@@ -68,7 +68,6 @@ type DSCPRemarkingPolicyTable struct {
 
 // NewDSCPRemarkingPolicyTable returns a new *DSCPRemarkingPolicyTable
 func NewDSCPRemarkingPolicyTable() *DSCPRemarkingPolicyTable {
-
 	return &DSCPRemarkingPolicyTable{}
 }
 

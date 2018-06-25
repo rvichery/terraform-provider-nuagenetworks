@@ -67,7 +67,6 @@ type PolicyEntry struct {
 
 // NewPolicyEntry returns a new *PolicyEntry
 func NewPolicyEntry() *PolicyEntry {
-
 	return &PolicyEntry{}
 }
 

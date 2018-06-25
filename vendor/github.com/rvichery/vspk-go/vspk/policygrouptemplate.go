@@ -64,17 +64,14 @@ type PolicyGroupTemplate struct {
 	LastUpdatedBy    string `json:"lastUpdatedBy,omitempty"`
 	Description      string `json:"description,omitempty"`
 	EntityScope      string `json:"entityScope,omitempty"`
-	External         bool   `json:"external"`
+	External         *bool  `json:"external,omitempty"`
 	ExternalID       string `json:"externalID,omitempty"`
 	Type             string `json:"type,omitempty"`
 }
 
 // NewPolicyGroupTemplate returns a new *PolicyGroupTemplate
 func NewPolicyGroupTemplate() *PolicyGroupTemplate {
-
-	return &PolicyGroupTemplate{
-		Type: "SOFTWARE",
-	}
+	return &PolicyGroupTemplate{}
 }
 
 // Identity returns the Identity of the object.

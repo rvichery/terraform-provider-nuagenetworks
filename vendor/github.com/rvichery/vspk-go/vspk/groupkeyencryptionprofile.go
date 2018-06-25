@@ -59,37 +59,37 @@ type GroupKeyEncryptionProfile struct {
 	ParentID                             string `json:"parentID,omitempty"`
 	ParentType                           string `json:"parentType,omitempty"`
 	Owner                                string `json:"owner,omitempty"`
-	SEKGenerationInterval                int    `json:"SEKGenerationInterval"`
-	SEKLifetime                          int    `json:"SEKLifetime"`
+	SEKGenerationInterval                *int   `json:"SEKGenerationInterval,omitempty"`
+	SEKLifetime                          *int   `json:"SEKLifetime,omitempty"`
 	SEKPayloadEncryptionAlgorithm        string `json:"SEKPayloadEncryptionAlgorithm,omitempty"`
 	SEKPayloadEncryptionBCAlgorithm      string `json:"SEKPayloadEncryptionBCAlgorithm,omitempty"`
-	SEKPayloadEncryptionKeyLength        int    `json:"SEKPayloadEncryptionKeyLength"`
+	SEKPayloadEncryptionKeyLength        *int   `json:"SEKPayloadEncryptionKeyLength,omitempty"`
 	SEKPayloadSigningAlgorithm           string `json:"SEKPayloadSigningAlgorithm,omitempty"`
 	Name                                 string `json:"name,omitempty"`
 	LastUpdatedBy                        string `json:"lastUpdatedBy,omitempty"`
-	SeedGenerationInterval               int    `json:"seedGenerationInterval"`
-	SeedLifetime                         int    `json:"seedLifetime"`
+	SeedGenerationInterval               *int   `json:"seedGenerationInterval,omitempty"`
+	SeedLifetime                         *int   `json:"seedLifetime,omitempty"`
 	SeedPayloadAuthenticationAlgorithm   string `json:"seedPayloadAuthenticationAlgorithm,omitempty"`
 	SeedPayloadAuthenticationBCAlgorithm string `json:"seedPayloadAuthenticationBCAlgorithm,omitempty"`
-	SeedPayloadAuthenticationKeyLength   int    `json:"seedPayloadAuthenticationKeyLength"`
+	SeedPayloadAuthenticationKeyLength   *int   `json:"seedPayloadAuthenticationKeyLength,omitempty"`
 	SeedPayloadEncryptionAlgorithm       string `json:"seedPayloadEncryptionAlgorithm,omitempty"`
 	SeedPayloadEncryptionBCAlgorithm     string `json:"seedPayloadEncryptionBCAlgorithm,omitempty"`
-	SeedPayloadEncryptionKeyLength       int    `json:"seedPayloadEncryptionKeyLength"`
+	SeedPayloadEncryptionKeyLength       *int   `json:"seedPayloadEncryptionKeyLength,omitempty"`
 	SeedPayloadSigningAlgorithm          string `json:"seedPayloadSigningAlgorithm,omitempty"`
 	Description                          string `json:"description,omitempty"`
 	EntityScope                          string `json:"entityScope,omitempty"`
 	TrafficAuthenticationAlgorithm       string `json:"trafficAuthenticationAlgorithm,omitempty"`
 	TrafficEncryptionAlgorithm           string `json:"trafficEncryptionAlgorithm,omitempty"`
-	TrafficEncryptionKeyLifetime         int    `json:"trafficEncryptionKeyLifetime"`
+	TrafficEncryptionKeyLifetime         *int   `json:"trafficEncryptionKeyLifetime,omitempty"`
 	AssociatedEnterpriseID               string `json:"associatedEnterpriseID,omitempty"`
 	ExternalID                           string `json:"externalID,omitempty"`
 }
 
 // NewGroupKeyEncryptionProfile returns a new *GroupKeyEncryptionProfile
 func NewGroupKeyEncryptionProfile() *GroupKeyEncryptionProfile {
-
+	SeedGenerationInterval := 1200
 	return &GroupKeyEncryptionProfile{
-		SeedGenerationInterval: 1200,
+		SeedGenerationInterval: &SeedGenerationInterval,
 	}
 }
 

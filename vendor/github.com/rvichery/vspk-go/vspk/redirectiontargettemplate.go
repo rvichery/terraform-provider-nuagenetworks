@@ -61,7 +61,7 @@ type RedirectionTargetTemplate struct {
 	Owner             string `json:"owner,omitempty"`
 	Name              string `json:"name,omitempty"`
 	LastUpdatedBy     string `json:"lastUpdatedBy,omitempty"`
-	RedundancyEnabled bool   `json:"redundancyEnabled"`
+	RedundancyEnabled *bool  `json:"redundancyEnabled,omitempty"`
 	Description       string `json:"description,omitempty"`
 	EndPointType      string `json:"endPointType,omitempty"`
 	EntityScope       string `json:"entityScope,omitempty"`
@@ -71,10 +71,7 @@ type RedirectionTargetTemplate struct {
 
 // NewRedirectionTargetTemplate returns a new *RedirectionTargetTemplate
 func NewRedirectionTargetTemplate() *RedirectionTargetTemplate {
-
-	return &RedirectionTargetTemplate{
-		EndPointType: "L3",
-	}
+	return &RedirectionTargetTemplate{}
 }
 
 // Identity returns the Identity of the object.

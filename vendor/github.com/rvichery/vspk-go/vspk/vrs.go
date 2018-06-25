@@ -65,10 +65,10 @@ type VRS struct {
 	ParentIDs                 []interface{} `json:"parentIDs,omitempty"`
 	LastEventName             string        `json:"lastEventName,omitempty"`
 	LastEventObject           string        `json:"lastEventObject,omitempty"`
-	LastEventTimestamp        int           `json:"lastEventTimestamp"`
-	LastStateChange           int           `json:"lastStateChange"`
+	LastEventTimestamp        *int          `json:"lastEventTimestamp,omitempty"`
+	LastStateChange           *int          `json:"lastStateChange,omitempty"`
 	LastUpdatedBy             string        `json:"lastUpdatedBy,omitempty"`
-	DbSynced                  bool          `json:"dbSynced"`
+	DbSynced                  *bool         `json:"dbSynced,omitempty"`
 	Address                   string        `json:"address,omitempty"`
 	PeakCPUUsage              float64       `json:"peakCPUUsage,omitempty"`
 	PeakMemoryUsage           float64       `json:"peakMemoryUsage,omitempty"`
@@ -76,34 +76,34 @@ type VRS struct {
 	Personality               string        `json:"personality,omitempty"`
 	Description               string        `json:"description,omitempty"`
 	Messages                  []interface{} `json:"messages,omitempty"`
-	RevertBehaviorEnabled     bool          `json:"revertBehaviorEnabled"`
-	RevertCompleted           bool          `json:"revertCompleted"`
-	RevertCount               int           `json:"revertCount"`
-	RevertFailedCount         int           `json:"revertFailedCount"`
+	RevertBehaviorEnabled     *bool         `json:"revertBehaviorEnabled,omitempty"`
+	RevertCompleted           *bool         `json:"revertCompleted,omitempty"`
+	RevertCount               *int          `json:"revertCount,omitempty"`
+	RevertFailedCount         *int          `json:"revertFailedCount,omitempty"`
 	LicensedState             string        `json:"licensedState,omitempty"`
 	Disks                     []interface{} `json:"disks,omitempty"`
 	ClusterNodeRole           string        `json:"clusterNodeRole,omitempty"`
 	EntityScope               string        `json:"entityScope,omitempty"`
 	Location                  string        `json:"location,omitempty"`
 	Role                      string        `json:"role,omitempty"`
-	Uptime                    int           `json:"uptime"`
-	PrimaryVSCConnectionLost  bool          `json:"primaryVSCConnectionLost"`
+	Uptime                    *int          `json:"uptime,omitempty"`
+	PrimaryVSCConnectionLost  *bool         `json:"primaryVSCConnectionLost,omitempty"`
 	ProductVersion            string        `json:"productVersion,omitempty"`
-	IsResilient               bool          `json:"isResilient"`
+	IsResilient               *bool         `json:"isResilient,omitempty"`
 	VscConfigState            string        `json:"vscConfigState,omitempty"`
 	VscCurrentState           string        `json:"vscCurrentState,omitempty"`
 	Status                    string        `json:"status,omitempty"`
-	MultiNICVPortEnabled      bool          `json:"multiNICVPortEnabled"`
-	NumberOfBridgeInterfaces  int           `json:"numberOfBridgeInterfaces"`
-	NumberOfContainers        int           `json:"numberOfContainers"`
-	NumberOfHostInterfaces    int           `json:"numberOfHostInterfaces"`
-	NumberOfVirtualMachines   int           `json:"numberOfVirtualMachines"`
+	MultiNICVPortEnabled      *bool         `json:"multiNICVPortEnabled,omitempty"`
+	NumberOfBridgeInterfaces  *int          `json:"numberOfBridgeInterfaces,omitempty"`
+	NumberOfContainers        *int          `json:"numberOfContainers,omitempty"`
+	NumberOfHostInterfaces    *int          `json:"numberOfHostInterfaces,omitempty"`
+	NumberOfVirtualMachines   *int          `json:"numberOfVirtualMachines,omitempty"`
 	CurrentCPUUsage           float64       `json:"currentCPUUsage,omitempty"`
 	CurrentMemoryUsage        float64       `json:"currentMemoryUsage,omitempty"`
 	AverageCPUUsage           float64       `json:"averageCPUUsage,omitempty"`
 	AverageMemoryUsage        float64       `json:"averageMemoryUsage,omitempty"`
 	ExternalID                string        `json:"externalID,omitempty"`
-	Dynamic                   bool          `json:"dynamic"`
+	Dynamic                   *bool         `json:"dynamic,omitempty"`
 	HypervisorConnectionState string        `json:"hypervisorConnectionState,omitempty"`
 	HypervisorIdentifier      string        `json:"hypervisorIdentifier,omitempty"`
 	HypervisorName            string        `json:"hypervisorName,omitempty"`
@@ -112,7 +112,6 @@ type VRS struct {
 
 // NewVRS returns a new *VRS
 func NewVRS() *VRS {
-
 	return &VRS{}
 }
 

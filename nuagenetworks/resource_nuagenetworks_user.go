@@ -38,10 +38,12 @@ func resourceUser() *schema.Resource {
 			"ldapuser_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"management_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"password": {
 				Type:     schema.TypeString,
@@ -53,7 +55,6 @@ func resourceUser() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"first_name": {
@@ -63,6 +64,7 @@ func resourceUser() *schema.Resource {
 			"disabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"email": {
 				Type:     schema.TypeString,
@@ -70,12 +72,12 @@ func resourceUser() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"mobile_number": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"user_name": {
 				Type:     schema.TypeString,
@@ -84,14 +86,17 @@ func resourceUser() *schema.Resource {
 			"avatar_data": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"avatar_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -118,7 +123,8 @@ func resourceUserCreate(d *schema.ResourceData, m interface{}) error {
 		o.ManagementMode = attr.(string)
 	}
 	if attr, ok := d.GetOk("disabled"); ok {
-		o.Disabled = attr.(bool)
+		Disabled := attr.(bool)
+		o.Disabled = &Disabled
 	}
 	if attr, ok := d.GetOk("mobile_number"); ok {
 		o.MobileNumber = attr.(string)
@@ -199,7 +205,8 @@ func resourceUserUpdate(d *schema.ResourceData, m interface{}) error {
 		o.ManagementMode = attr.(string)
 	}
 	if attr, ok := d.GetOk("disabled"); ok {
-		o.Disabled = attr.(bool)
+		Disabled := attr.(bool)
+		o.Disabled = &Disabled
 	}
 	if attr, ok := d.GetOk("mobile_number"); ok {
 		o.MobileNumber = attr.(string)

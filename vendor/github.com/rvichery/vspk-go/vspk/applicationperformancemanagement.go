@@ -60,16 +60,16 @@ type Applicationperformancemanagement struct {
 	ParentType                     string `json:"parentType,omitempty"`
 	Owner                          string `json:"owner,omitempty"`
 	Name                           string `json:"name,omitempty"`
-	ReadOnly                       bool   `json:"readOnly"`
+	ReadOnly                       *bool  `json:"readOnly,omitempty"`
 	Description                    string `json:"description,omitempty"`
 	AssociatedPerformanceMonitorID string `json:"associatedPerformanceMonitorID,omitempty"`
 }
 
 // NewApplicationperformancemanagement returns a new *Applicationperformancemanagement
 func NewApplicationperformancemanagement() *Applicationperformancemanagement {
-
+	ReadOnly := false
 	return &Applicationperformancemanagement{
-		ReadOnly: false,
+		ReadOnly: &ReadOnly,
 	}
 }
 

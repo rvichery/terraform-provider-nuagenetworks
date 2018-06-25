@@ -79,7 +79,6 @@ type RedundancyGroup struct {
 
 // NewRedundancyGroup returns a new *RedundancyGroup
 func NewRedundancyGroup() *RedundancyGroup {
-
 	return &RedundancyGroup{}
 }
 

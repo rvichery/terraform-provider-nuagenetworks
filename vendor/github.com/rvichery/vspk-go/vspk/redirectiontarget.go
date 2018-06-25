@@ -62,7 +62,7 @@ type RedirectionTarget struct {
 	ESI               string `json:"ESI,omitempty"`
 	Name              string `json:"name,omitempty"`
 	LastUpdatedBy     string `json:"lastUpdatedBy,omitempty"`
-	RedundancyEnabled bool   `json:"redundancyEnabled"`
+	RedundancyEnabled *bool  `json:"redundancyEnabled,omitempty"`
 	TemplateID        string `json:"templateID,omitempty"`
 	Description       string `json:"description,omitempty"`
 	VirtualNetworkID  string `json:"virtualNetworkID,omitempty"`
@@ -74,10 +74,7 @@ type RedirectionTarget struct {
 
 // NewRedirectionTarget returns a new *RedirectionTarget
 func NewRedirectionTarget() *RedirectionTarget {
-
-	return &RedirectionTarget{
-		EndPointType: "L3",
-	}
+	return &RedirectionTarget{}
 }
 
 // Identity returns the Identity of the object.

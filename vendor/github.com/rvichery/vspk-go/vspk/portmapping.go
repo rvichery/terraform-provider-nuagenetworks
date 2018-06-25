@@ -68,7 +68,6 @@ type PortMapping struct {
 
 // NewPortMapping returns a new *PortMapping
 func NewPortMapping() *PortMapping {
-
 	return &PortMapping{}
 }
 

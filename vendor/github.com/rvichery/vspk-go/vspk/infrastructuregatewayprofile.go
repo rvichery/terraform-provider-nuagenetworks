@@ -60,51 +60,57 @@ type InfrastructureGatewayProfile struct {
 	ParentType                   string `json:"parentType,omitempty"`
 	Owner                        string `json:"owner,omitempty"`
 	NTPServerKey                 string `json:"NTPServerKey,omitempty"`
-	NTPServerKeyID               int    `json:"NTPServerKeyID"`
+	NTPServerKeyID               *int   `json:"NTPServerKeyID,omitempty"`
 	Name                         string `json:"name,omitempty"`
 	LastUpdatedBy                string `json:"lastUpdatedBy,omitempty"`
-	DatapathSyncTimeout          int    `json:"datapathSyncTimeout"`
+	DatapathSyncTimeout          *int   `json:"datapathSyncTimeout,omitempty"`
 	DeadTimer                    string `json:"deadTimer,omitempty"`
-	DeadTimerEnabled             bool   `json:"deadTimerEnabled"`
+	DeadTimerEnabled             *bool  `json:"deadTimerEnabled,omitempty"`
 	RemoteLogMode                string `json:"remoteLogMode,omitempty"`
 	RemoteLogServerAddress       string `json:"remoteLogServerAddress,omitempty"`
-	RemoteLogServerPort          int    `json:"remoteLogServerPort"`
+	RemoteLogServerPort          *int   `json:"remoteLogServerPort,omitempty"`
 	Description                  string `json:"description,omitempty"`
 	MetadataUpgradePath          string `json:"metadataUpgradePath,omitempty"`
-	FlowEvictionThreshold        int    `json:"flowEvictionThreshold"`
+	FlowEvictionThreshold        *int   `json:"flowEvictionThreshold,omitempty"`
 	EnterpriseID                 string `json:"enterpriseID,omitempty"`
 	EntityScope                  string `json:"entityScope,omitempty"`
 	ControllerLessDuration       string `json:"controllerLessDuration,omitempty"`
 	ControllerLessForwardingMode string `json:"controllerLessForwardingMode,omitempty"`
 	ControllerLessRemoteDuration string `json:"controllerLessRemoteDuration,omitempty"`
-	ForceImmediateSystemSync     bool   `json:"forceImmediateSystemSync"`
-	OpenFlowAuditTimer           int    `json:"openFlowAuditTimer"`
+	ForceImmediateSystemSync     *bool  `json:"forceImmediateSystemSync,omitempty"`
+	OpenFlowAuditTimer           *int   `json:"openFlowAuditTimer,omitempty"`
 	UpgradeAction                string `json:"upgradeAction,omitempty"`
 	ProxyDNSName                 string `json:"proxyDNSName,omitempty"`
-	UseTwoFactor                 bool   `json:"useTwoFactor"`
-	StatsCollectorPort           int    `json:"statsCollectorPort"`
+	UseTwoFactor                 *bool  `json:"useTwoFactor,omitempty"`
+	StatsCollectorPort           *int   `json:"statsCollectorPort,omitempty"`
 	ExternalID                   string `json:"externalID,omitempty"`
 	SystemSyncScheduler          string `json:"systemSyncScheduler,omitempty"`
 }
 
 // NewInfrastructureGatewayProfile returns a new *InfrastructureGatewayProfile
 func NewInfrastructureGatewayProfile() *InfrastructureGatewayProfile {
-
+	DatapathSyncTimeout := 1000
+	DeadTimerEnabled := false
+	RemoteLogServerPort := 514
+	FlowEvictionThreshold := 2500
+	ForceImmediateSystemSync := false
+	OpenFlowAuditTimer := 180
+	UseTwoFactor := true
+	StatsCollectorPort := 39090
 	return &InfrastructureGatewayProfile{
-		DatapathSyncTimeout:          1000,
-		DeadTimer:                    "ONE_HOUR",
-		DeadTimerEnabled:             false,
+		DatapathSyncTimeout:          &DatapathSyncTimeout,
+		DeadTimerEnabled:             &DeadTimerEnabled,
 		RemoteLogMode:                "DISABLED",
-		RemoteLogServerPort:          514,
-		FlowEvictionThreshold:        2500,
+		RemoteLogServerPort:          &RemoteLogServerPort,
+		FlowEvictionThreshold:        &FlowEvictionThreshold,
 		ControllerLessDuration:       "P7DT0H0M",
 		ControllerLessForwardingMode: "DISABLED",
 		ControllerLessRemoteDuration: "P3DT0H0M",
-		ForceImmediateSystemSync:     false,
-		OpenFlowAuditTimer:           180,
+		ForceImmediateSystemSync:     &ForceImmediateSystemSync,
+		OpenFlowAuditTimer:           &OpenFlowAuditTimer,
 		UpgradeAction:                "DOWNLOAD_AND_UPGRADE_AT_WINDOW",
-		UseTwoFactor:                 true,
-		StatsCollectorPort:           39090,
+		UseTwoFactor:                 &UseTwoFactor,
+		StatsCollectorPort:           &StatsCollectorPort,
 		SystemSyncScheduler:          "0 0 * * *",
 	}
 }

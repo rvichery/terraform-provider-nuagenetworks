@@ -45,21 +45,21 @@ func resourceIPReservation() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dynamic_allocation_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_subnet": {
 				Type:     schema.TypeString,
@@ -80,7 +80,8 @@ func resourceIPReservationCreate(d *schema.ResourceData, m interface{}) error {
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("dynamic_allocation_enabled"); ok {
-		o.DynamicAllocationEnabled = attr.(bool)
+		DynamicAllocationEnabled := attr.(bool)
+		o.DynamicAllocationEnabled = &DynamicAllocationEnabled
 	}
 	parent := &vspk.Subnet{ID: d.Get("parent_subnet").(string)}
 	err := parent.CreateIPReservation(o)
@@ -135,7 +136,8 @@ func resourceIPReservationUpdate(d *schema.ResourceData, m interface{}) error {
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("dynamic_allocation_enabled"); ok {
-		o.DynamicAllocationEnabled = attr.(bool)
+		DynamicAllocationEnabled := attr.(bool)
+		o.DynamicAllocationEnabled = &DynamicAllocationEnabled
 	}
 
 	o.Save()

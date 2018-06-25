@@ -38,22 +38,27 @@ func resourceOverlayPATNATEntry() *schema.Resource {
 			"nat_enabled": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"private_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_domain_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_link_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"public_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_overlay_address_pool": {
 				Type:     schema.TypeString,

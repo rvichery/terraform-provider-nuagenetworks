@@ -66,7 +66,6 @@ type VNFMetadata struct {
 
 // NewVNFMetadata returns a new *VNFMetadata
 func NewVNFMetadata() *VNFMetadata {
-
 	return &VNFMetadata{}
 }
 

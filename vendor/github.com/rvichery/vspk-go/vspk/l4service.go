@@ -61,7 +61,7 @@ type L4Service struct {
 	Owner          string `json:"owner,omitempty"`
 	Name           string `json:"name,omitempty"`
 	LastUpdatedBy  string `json:"lastUpdatedBy,omitempty"`
-	DefaultService bool   `json:"defaultService"`
+	DefaultService *bool  `json:"defaultService,omitempty"`
 	Description    string `json:"description,omitempty"`
 	EntityScope    string `json:"entityScope,omitempty"`
 	Ports          string `json:"ports,omitempty"`
@@ -71,9 +71,9 @@ type L4Service struct {
 
 // NewL4Service returns a new *L4Service
 func NewL4Service() *L4Service {
-
+	DefaultService := false
 	return &L4Service{
-		DefaultService: false,
+		DefaultService: &DefaultService,
 	}
 }
 

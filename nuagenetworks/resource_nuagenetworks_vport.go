@@ -38,6 +38,7 @@ func resourceVPort() *schema.Resource {
 			"vlanid": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dpi": {
 				Type:     schema.TypeString,
@@ -51,19 +52,21 @@ func resourceVPort() *schema.Resource {
 			"has_attached_interfaces": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"gateway_mac_move_role": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"active": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"address_spoofing": {
 				Type:     schema.TypeString,
@@ -72,14 +75,17 @@ func resourceVPort() *schema.Resource {
 			"segmentation_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"segmentation_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"flow_collection_enabled": {
 				Type:     schema.TypeString,
@@ -88,44 +94,52 @@ func resourceVPort() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"domain_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"zone_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"operational_state": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"trunk_role": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_floating_ip_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ssid": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_send_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_trunk_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"sub_type": {
 				Type:     schema.TypeString,
@@ -135,14 +149,17 @@ func resourceVPort() *schema.Resource {
 			"multi_nic_vport_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"type": {
 				Type:     schema.TypeString,
@@ -151,6 +168,7 @@ func resourceVPort() *schema.Resource {
 			"system_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_subnet": {
 				Type:          schema.TypeString,
@@ -181,16 +199,19 @@ func resourceVPortCreate(d *schema.ResourceData, m interface{}) error {
 		o.DPI = attr.(string)
 	}
 	if attr, ok := d.GetOk("has_attached_interfaces"); ok {
-		o.HasAttachedInterfaces = attr.(bool)
+		HasAttachedInterfaces := attr.(bool)
+		o.HasAttachedInterfaces = &HasAttachedInterfaces
 	}
 	if attr, ok := d.GetOk("gateway_mac_move_role"); ok {
 		o.GatewayMACMoveRole = attr.(string)
 	}
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("segmentation_id"); ok {
-		o.SegmentationID = attr.(int)
+		SegmentationID := attr.(int)
+		o.SegmentationID = &SegmentationID
 	}
 	if attr, ok := d.GetOk("segmentation_type"); ok {
 		o.SegmentationType = attr.(string)
@@ -340,16 +361,19 @@ func resourceVPortUpdate(d *schema.ResourceData, m interface{}) error {
 		o.DPI = attr.(string)
 	}
 	if attr, ok := d.GetOk("has_attached_interfaces"); ok {
-		o.HasAttachedInterfaces = attr.(bool)
+		HasAttachedInterfaces := attr.(bool)
+		o.HasAttachedInterfaces = &HasAttachedInterfaces
 	}
 	if attr, ok := d.GetOk("gateway_mac_move_role"); ok {
 		o.GatewayMACMoveRole = attr.(string)
 	}
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("segmentation_id"); ok {
-		o.SegmentationID = attr.(int)
+		SegmentationID := attr.(int)
+		o.SegmentationID = &SegmentationID
 	}
 	if attr, ok := d.GetOk("segmentation_type"); ok {
 		o.SegmentationType = attr.(string)

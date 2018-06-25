@@ -43,14 +43,17 @@ func resourceSubnetTemplate() *schema.Resource {
 			"ip_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ipv6_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ipv6_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -58,12 +61,12 @@ func resourceSubnetTemplate() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"address": {
 				Type:     schema.TypeString,
@@ -72,6 +75,7 @@ func resourceSubnetTemplate() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"netmask": {
 				Type:     schema.TypeString,
@@ -80,39 +84,46 @@ func resourceSubnetTemplate() *schema.Resource {
 			"encryption": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"split_subnet": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"proxy_arp": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"use_global_mac": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dynamic_ipv6_address": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_zone_template": {
 				Type:     schema.TypeString,
@@ -152,10 +163,12 @@ func resourceSubnetTemplateCreate(d *schema.ResourceData, m interface{}) error {
 		o.Encryption = attr.(string)
 	}
 	if attr, ok := d.GetOk("split_subnet"); ok {
-		o.SplitSubnet = attr.(bool)
+		SplitSubnet := attr.(bool)
+		o.SplitSubnet = &SplitSubnet
 	}
 	if attr, ok := d.GetOk("proxy_arp"); ok {
-		o.ProxyARP = attr.(bool)
+		ProxyARP := attr.(bool)
+		o.ProxyARP = &ProxyARP
 	}
 	if attr, ok := d.GetOk("use_global_mac"); ok {
 		o.UseGlobalMAC = attr.(string)
@@ -170,7 +183,8 @@ func resourceSubnetTemplateCreate(d *schema.ResourceData, m interface{}) error {
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("dynamic_ipv6_address"); ok {
-		o.DynamicIpv6Address = attr.(bool)
+		DynamicIpv6Address := attr.(bool)
+		o.DynamicIpv6Address = &DynamicIpv6Address
 	}
 	parent := &vspk.ZoneTemplate{ID: d.Get("parent_zone_template").(string)}
 	err := parent.CreateSubnetTemplate(o)
@@ -257,10 +271,12 @@ func resourceSubnetTemplateUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Encryption = attr.(string)
 	}
 	if attr, ok := d.GetOk("split_subnet"); ok {
-		o.SplitSubnet = attr.(bool)
+		SplitSubnet := attr.(bool)
+		o.SplitSubnet = &SplitSubnet
 	}
 	if attr, ok := d.GetOk("proxy_arp"); ok {
-		o.ProxyARP = attr.(bool)
+		ProxyARP := attr.(bool)
+		o.ProxyARP = &ProxyARP
 	}
 	if attr, ok := d.GetOk("use_global_mac"); ok {
 		o.UseGlobalMAC = attr.(string)
@@ -275,7 +291,8 @@ func resourceSubnetTemplateUpdate(d *schema.ResourceData, m interface{}) error {
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("dynamic_ipv6_address"); ok {
-		o.DynamicIpv6Address = attr.(bool)
+		DynamicIpv6Address := attr.(bool)
+		o.DynamicIpv6Address = &DynamicIpv6Address
 	}
 
 	o.Save()

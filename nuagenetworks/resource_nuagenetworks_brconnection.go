@@ -38,30 +38,37 @@ func resourceBRConnection() *schema.Resource {
 			"dns_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"advertisement_criteria": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"mode": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"uplink_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_vlan": {
 				Type:          schema.TypeString,
@@ -100,7 +107,8 @@ func resourceBRConnectionCreate(d *schema.ResourceData, m interface{}) error {
 		o.Mode = attr.(string)
 	}
 	if attr, ok := d.GetOk("uplink_id"); ok {
-		o.UplinkID = attr.(int)
+		UplinkID := attr.(int)
+		o.UplinkID = &UplinkID
 	}
 	if attr, ok := d.GetOk("parent_vlan"); ok {
 		parent := &vspk.VLAN{ID: attr.(string)}
@@ -177,7 +185,8 @@ func resourceBRConnectionUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Mode = attr.(string)
 	}
 	if attr, ok := d.GetOk("uplink_id"); ok {
-		o.UplinkID = attr.(int)
+		UplinkID := attr.(int)
+		o.UplinkID = &UplinkID
 	}
 
 	o.Save()

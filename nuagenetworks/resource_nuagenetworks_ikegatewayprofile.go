@@ -38,6 +38,7 @@ func resourceIKEGatewayProfile() *schema.Resource {
 			"ike_gateway_identifier": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ike_gateway_identifier_type": {
 				Type:     schema.TypeString,
@@ -47,52 +48,59 @@ func resourceIKEGatewayProfile() *schema.Resource {
 			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"service_class": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"anti_replay_check": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ike_authentication_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ike_authentication_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ike_encryption_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ike_gateway_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -122,7 +130,8 @@ func resourceIKEGatewayProfileCreate(d *schema.ResourceData, m interface{}) erro
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("anti_replay_check"); ok {
-		o.AntiReplayCheck = attr.(bool)
+		AntiReplayCheck := attr.(bool)
+		o.AntiReplayCheck = &AntiReplayCheck
 	}
 	if attr, ok := d.GetOk("associated_enterprise_id"); ok {
 		o.AssociatedEnterpriseID = attr.(string)
@@ -212,7 +221,8 @@ func resourceIKEGatewayProfileUpdate(d *schema.ResourceData, m interface{}) erro
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("anti_replay_check"); ok {
-		o.AntiReplayCheck = attr.(bool)
+		AntiReplayCheck := attr.(bool)
+		o.AntiReplayCheck = &AntiReplayCheck
 	}
 	if attr, ok := d.GetOk("associated_enterprise_id"); ok {
 		o.AssociatedEnterpriseID = attr.(string)

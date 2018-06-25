@@ -42,18 +42,22 @@ func resourceVNF() *schema.Resource {
 			"vnf_descriptor_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"cpu_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"nsg_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nsg_system_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ns_gateway_id": {
 				Type:     schema.TypeString,
@@ -66,36 +70,42 @@ func resourceVNF() *schema.Resource {
 			"task_state": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_known_error": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"memory_mb": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"vendor": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"metadata_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"allowed_actions": {
 				Type:     schema.TypeList,
-				Optional: true,
 				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"is_attached_to_descriptor": {
 				Type:     schema.TypeBool,
@@ -105,22 +115,25 @@ func resourceVNF() *schema.Resource {
 			"associated_vnf_metadata_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_vnf_threshold_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"storage_gb": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"type": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"parent_enterprise": {
@@ -143,7 +156,8 @@ func resourceVNFCreate(d *schema.ResourceData, m interface{}) error {
 		o.VNFDescriptorName = attr.(string)
 	}
 	if attr, ok := d.GetOk("cpu_count"); ok {
-		o.CPUCount = attr.(int)
+		CPUCount := attr.(int)
+		o.CPUCount = &CPUCount
 	}
 	if attr, ok := d.GetOk("nsg_name"); ok {
 		o.NSGName = attr.(string)
@@ -158,7 +172,8 @@ func resourceVNFCreate(d *schema.ResourceData, m interface{}) error {
 		o.LastKnownError = attr.(string)
 	}
 	if attr, ok := d.GetOk("memory_mb"); ok {
-		o.MemoryMB = attr.(int)
+		MemoryMB := attr.(int)
+		o.MemoryMB = &MemoryMB
 	}
 	if attr, ok := d.GetOk("vendor"); ok {
 		o.Vendor = attr.(string)
@@ -173,7 +188,8 @@ func resourceVNFCreate(d *schema.ResourceData, m interface{}) error {
 		o.EnterpriseID = attr.(string)
 	}
 	if attr, ok := d.GetOk("is_attached_to_descriptor"); ok {
-		o.IsAttachedToDescriptor = attr.(bool)
+		IsAttachedToDescriptor := attr.(bool)
+		o.IsAttachedToDescriptor = &IsAttachedToDescriptor
 	}
 	if attr, ok := d.GetOk("associated_vnf_metadata_id"); ok {
 		o.AssociatedVNFMetadataID = attr.(string)
@@ -185,7 +201,8 @@ func resourceVNFCreate(d *schema.ResourceData, m interface{}) error {
 		o.Status = attr.(string)
 	}
 	if attr, ok := d.GetOk("storage_gb"); ok {
-		o.StorageGB = attr.(int)
+		StorageGB := attr.(int)
+		o.StorageGB = &StorageGB
 	}
 	parent := &vspk.Enterprise{ID: d.Get("parent_enterprise").(string)}
 	err := parent.CreateVNF(o)
@@ -256,7 +273,8 @@ func resourceVNFUpdate(d *schema.ResourceData, m interface{}) error {
 		o.VNFDescriptorName = attr.(string)
 	}
 	if attr, ok := d.GetOk("cpu_count"); ok {
-		o.CPUCount = attr.(int)
+		CPUCount := attr.(int)
+		o.CPUCount = &CPUCount
 	}
 	if attr, ok := d.GetOk("nsg_name"); ok {
 		o.NSGName = attr.(string)
@@ -271,7 +289,8 @@ func resourceVNFUpdate(d *schema.ResourceData, m interface{}) error {
 		o.LastKnownError = attr.(string)
 	}
 	if attr, ok := d.GetOk("memory_mb"); ok {
-		o.MemoryMB = attr.(int)
+		MemoryMB := attr.(int)
+		o.MemoryMB = &MemoryMB
 	}
 	if attr, ok := d.GetOk("vendor"); ok {
 		o.Vendor = attr.(string)
@@ -286,7 +305,8 @@ func resourceVNFUpdate(d *schema.ResourceData, m interface{}) error {
 		o.EnterpriseID = attr.(string)
 	}
 	if attr, ok := d.GetOk("is_attached_to_descriptor"); ok {
-		o.IsAttachedToDescriptor = attr.(bool)
+		IsAttachedToDescriptor := attr.(bool)
+		o.IsAttachedToDescriptor = &IsAttachedToDescriptor
 	}
 	if attr, ok := d.GetOk("associated_vnf_metadata_id"); ok {
 		o.AssociatedVNFMetadataID = attr.(string)
@@ -298,7 +318,8 @@ func resourceVNFUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Status = attr.(string)
 	}
 	if attr, ok := d.GetOk("storage_gb"); ok {
-		o.StorageGB = attr.(int)
+		StorageGB := attr.(int)
+		o.StorageGB = &StorageGB
 	}
 
 	o.Save()

@@ -42,14 +42,17 @@ func resourceIngressExternalServiceTemplateEntry() *schema.Resource {
 			"icmp_code": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"icmp_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ipv6_address_override": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dscp": {
 				Type:     schema.TypeString,
@@ -61,7 +64,6 @@ func resourceIngressExternalServiceTemplateEntry() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"action": {
@@ -71,48 +73,55 @@ func resourceIngressExternalServiceTemplateEntry() *schema.Resource {
 			"address_override": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"redirect_external_service_end_point_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"destination_port": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"network_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"network_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"mirror_destination_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"flow_logging_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"enterprise_name": {
 				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
+				Required: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"location_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"location_type": {
 				Type:     schema.TypeString,
@@ -121,36 +130,40 @@ func resourceIngressExternalServiceTemplateEntry() *schema.Resource {
 			"policy_state": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"domain_name": {
 				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
+				Required: true,
 			},
 			"source_port": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"protocol": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_live_entity_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"stats_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"stats_logging_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"ether_type": {
 				Type:     schema.TypeString,
@@ -159,6 +172,7 @@ func resourceIngressExternalServiceTemplateEntry() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_ingress_external_service_template": {
 				Type:     schema.TypeString,
@@ -212,7 +226,8 @@ func resourceIngressExternalServiceTemplateEntryCreate(d *schema.ResourceData, m
 		o.MirrorDestinationID = attr.(string)
 	}
 	if attr, ok := d.GetOk("flow_logging_enabled"); ok {
-		o.FlowLoggingEnabled = attr.(bool)
+		FlowLoggingEnabled := attr.(bool)
+		o.FlowLoggingEnabled = &FlowLoggingEnabled
 	}
 	if attr, ok := d.GetOk("location_id"); ok {
 		o.LocationID = attr.(string)
@@ -224,7 +239,8 @@ func resourceIngressExternalServiceTemplateEntryCreate(d *schema.ResourceData, m
 		o.SourcePort = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("protocol"); ok {
 		o.Protocol = attr.(string)
@@ -233,7 +249,8 @@ func resourceIngressExternalServiceTemplateEntryCreate(d *schema.ResourceData, m
 		o.AssociatedLiveEntityID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stats_logging_enabled"); ok {
-		o.StatsLoggingEnabled = attr.(bool)
+		StatsLoggingEnabled := attr.(bool)
+		o.StatsLoggingEnabled = &StatsLoggingEnabled
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -348,7 +365,8 @@ func resourceIngressExternalServiceTemplateEntryUpdate(d *schema.ResourceData, m
 		o.MirrorDestinationID = attr.(string)
 	}
 	if attr, ok := d.GetOk("flow_logging_enabled"); ok {
-		o.FlowLoggingEnabled = attr.(bool)
+		FlowLoggingEnabled := attr.(bool)
+		o.FlowLoggingEnabled = &FlowLoggingEnabled
 	}
 	if attr, ok := d.GetOk("location_id"); ok {
 		o.LocationID = attr.(string)
@@ -360,7 +378,8 @@ func resourceIngressExternalServiceTemplateEntryUpdate(d *schema.ResourceData, m
 		o.SourcePort = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("protocol"); ok {
 		o.Protocol = attr.(string)
@@ -369,7 +388,8 @@ func resourceIngressExternalServiceTemplateEntryUpdate(d *schema.ResourceData, m
 		o.AssociatedLiveEntityID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stats_logging_enabled"); ok {
-		o.StatsLoggingEnabled = attr.(bool)
+		StatsLoggingEnabled := attr.(bool)
+		o.StatsLoggingEnabled = &StatsLoggingEnabled
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

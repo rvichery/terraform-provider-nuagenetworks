@@ -37,41 +37,46 @@ func resourceKeyServerMember() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"pem_encoded": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"certificate_serial_number": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"fqdn": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"issuer_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"subject_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"public_key": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 		},
 	}
@@ -85,7 +90,8 @@ func resourceKeyServerMemberCreate(d *schema.ResourceData, m interface{}) error 
 		o.PemEncoded = attr.(string)
 	}
 	if attr, ok := d.GetOk("certificate_serial_number"); ok {
-		o.CertificateSerialNumber = attr.(int)
+		CertificateSerialNumber := attr.(int)
+		o.CertificateSerialNumber = &CertificateSerialNumber
 	}
 	if attr, ok := d.GetOk("fqdn"); ok {
 		o.Fqdn = attr.(string)
@@ -155,7 +161,8 @@ func resourceKeyServerMemberUpdate(d *schema.ResourceData, m interface{}) error 
 		o.PemEncoded = attr.(string)
 	}
 	if attr, ok := d.GetOk("certificate_serial_number"); ok {
-		o.CertificateSerialNumber = attr.(int)
+		CertificateSerialNumber := attr.(int)
+		o.CertificateSerialNumber = &CertificateSerialNumber
 	}
 	if attr, ok := d.GetOk("fqdn"); ok {
 		o.Fqdn = attr.(string)

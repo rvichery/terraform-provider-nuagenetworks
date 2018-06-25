@@ -74,7 +74,6 @@ type PolicyDecision struct {
 
 // NewPolicyDecision returns a new *PolicyDecision
 func NewPolicyDecision() *PolicyDecision {
-
 	return &PolicyDecision{}
 }
 

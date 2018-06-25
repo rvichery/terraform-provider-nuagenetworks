@@ -57,6 +57,7 @@ func resourceVNFThresholdPolicy() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"min_occurrence": {
 				Type:     schema.TypeInt,
@@ -88,25 +89,30 @@ func resourceVNFThresholdPolicyCreate(d *schema.ResourceData, m interface{}) err
 		Name: d.Get("name").(string),
 	}
 	if attr, ok := d.GetOk("cpu_threshold"); ok {
-		o.CPUThreshold = attr.(int)
+		CPUThreshold := attr.(int)
+		o.CPUThreshold = &CPUThreshold
 	}
 	if attr, ok := d.GetOk("action"); ok {
 		o.Action = attr.(string)
 	}
 	if attr, ok := d.GetOk("memory_threshold"); ok {
-		o.MemoryThreshold = attr.(int)
+		MemoryThreshold := attr.(int)
+		o.MemoryThreshold = &MemoryThreshold
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("min_occurrence"); ok {
-		o.MinOccurrence = attr.(int)
+		MinOccurrence := attr.(int)
+		o.MinOccurrence = &MinOccurrence
 	}
 	if attr, ok := d.GetOk("monit_interval"); ok {
-		o.MonitInterval = attr.(int)
+		MonitInterval := attr.(int)
+		o.MonitInterval = &MonitInterval
 	}
 	if attr, ok := d.GetOk("storage_threshold"); ok {
-		o.StorageThreshold = attr.(int)
+		StorageThreshold := attr.(int)
+		o.StorageThreshold = &StorageThreshold
 	}
 	if attr, ok := d.GetOk("parent_me"); ok {
 		parent := &vspk.Me{ID: attr.(string)}
@@ -168,25 +174,30 @@ func resourceVNFThresholdPolicyUpdate(d *schema.ResourceData, m interface{}) err
 	o.Name = d.Get("name").(string)
 
 	if attr, ok := d.GetOk("cpu_threshold"); ok {
-		o.CPUThreshold = attr.(int)
+		CPUThreshold := attr.(int)
+		o.CPUThreshold = &CPUThreshold
 	}
 	if attr, ok := d.GetOk("action"); ok {
 		o.Action = attr.(string)
 	}
 	if attr, ok := d.GetOk("memory_threshold"); ok {
-		o.MemoryThreshold = attr.(int)
+		MemoryThreshold := attr.(int)
+		o.MemoryThreshold = &MemoryThreshold
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("min_occurrence"); ok {
-		o.MinOccurrence = attr.(int)
+		MinOccurrence := attr.(int)
+		o.MinOccurrence = &MinOccurrence
 	}
 	if attr, ok := d.GetOk("monit_interval"); ok {
-		o.MonitInterval = attr.(int)
+		MonitInterval := attr.(int)
+		o.MonitInterval = &MonitInterval
 	}
 	if attr, ok := d.GetOk("storage_threshold"); ok {
-		o.StorageThreshold = attr.(int)
+		StorageThreshold := attr.(int)
+		o.StorageThreshold = &StorageThreshold
 	}
 
 	o.Save()

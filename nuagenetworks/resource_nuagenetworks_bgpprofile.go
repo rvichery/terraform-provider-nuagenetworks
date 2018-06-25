@@ -52,6 +52,7 @@ func resourceBGPProfile() *schema.Resource {
 			"dampening_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dampening_reuse": {
 				Type:     schema.TypeInt,
@@ -66,23 +67,26 @@ func resourceBGPProfile() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_export_routing_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_import_routing_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -99,19 +103,23 @@ func resourceBGPProfileCreate(d *schema.ResourceData, m interface{}) error {
 		Name: d.Get("name").(string),
 	}
 	if attr, ok := d.GetOk("dampening_half_life"); ok {
-		o.DampeningHalfLife = attr.(int)
+		DampeningHalfLife := attr.(int)
+		o.DampeningHalfLife = &DampeningHalfLife
 	}
 	if attr, ok := d.GetOk("dampening_max_suppress"); ok {
-		o.DampeningMaxSuppress = attr.(int)
+		DampeningMaxSuppress := attr.(int)
+		o.DampeningMaxSuppress = &DampeningMaxSuppress
 	}
 	if attr, ok := d.GetOk("dampening_name"); ok {
 		o.DampeningName = attr.(string)
 	}
 	if attr, ok := d.GetOk("dampening_reuse"); ok {
-		o.DampeningReuse = attr.(int)
+		DampeningReuse := attr.(int)
+		o.DampeningReuse = &DampeningReuse
 	}
 	if attr, ok := d.GetOk("dampening_suppress"); ok {
-		o.DampeningSuppress = attr.(int)
+		DampeningSuppress := attr.(int)
+		o.DampeningSuppress = &DampeningSuppress
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -179,19 +187,23 @@ func resourceBGPProfileUpdate(d *schema.ResourceData, m interface{}) error {
 	o.Name = d.Get("name").(string)
 
 	if attr, ok := d.GetOk("dampening_half_life"); ok {
-		o.DampeningHalfLife = attr.(int)
+		DampeningHalfLife := attr.(int)
+		o.DampeningHalfLife = &DampeningHalfLife
 	}
 	if attr, ok := d.GetOk("dampening_max_suppress"); ok {
-		o.DampeningMaxSuppress = attr.(int)
+		DampeningMaxSuppress := attr.(int)
+		o.DampeningMaxSuppress = &DampeningMaxSuppress
 	}
 	if attr, ok := d.GetOk("dampening_name"); ok {
 		o.DampeningName = attr.(string)
 	}
 	if attr, ok := d.GetOk("dampening_reuse"); ok {
-		o.DampeningReuse = attr.(int)
+		DampeningReuse := attr.(int)
+		o.DampeningReuse = &DampeningReuse
 	}
 	if attr, ok := d.GetOk("dampening_suppress"); ok {
-		o.DampeningSuppress = attr.(int)
+		DampeningSuppress := attr.(int)
+		o.DampeningSuppress = &DampeningSuppress
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)

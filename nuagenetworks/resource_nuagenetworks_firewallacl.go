@@ -38,26 +38,32 @@ func resourceFirewallAcl() *schema.Resource {
 			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"active": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"default_allow_ip": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"default_allow_non_ip": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"rule_ids": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"parent_enterprise": {
@@ -76,13 +82,16 @@ func resourceFirewallAclCreate(d *schema.ResourceData, m interface{}) error {
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("default_allow_ip"); ok {
-		o.DefaultAllowIP = attr.(bool)
+		DefaultAllowIP := attr.(bool)
+		o.DefaultAllowIP = &DefaultAllowIP
 	}
 	if attr, ok := d.GetOk("default_allow_non_ip"); ok {
-		o.DefaultAllowNonIP = attr.(bool)
+		DefaultAllowNonIP := attr.(bool)
+		o.DefaultAllowNonIP = &DefaultAllowNonIP
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -140,13 +149,16 @@ func resourceFirewallAclUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("default_allow_ip"); ok {
-		o.DefaultAllowIP = attr.(bool)
+		DefaultAllowIP := attr.(bool)
+		o.DefaultAllowIP = &DefaultAllowIP
 	}
 	if attr, ok := d.GetOk("default_allow_non_ip"); ok {
-		o.DefaultAllowNonIP = attr.(bool)
+		DefaultAllowNonIP := attr.(bool)
+		o.DefaultAllowNonIP = &DefaultAllowNonIP
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)

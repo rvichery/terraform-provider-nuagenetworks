@@ -66,7 +66,6 @@ type DUCGroup struct {
 
 // NewDUCGroup returns a new *DUCGroup
 func NewDUCGroup() *DUCGroup {
-
 	return &DUCGroup{}
 }
 

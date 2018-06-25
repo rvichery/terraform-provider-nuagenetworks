@@ -83,7 +83,6 @@ type HostInterface struct {
 
 // NewHostInterface returns a new *HostInterface
 func NewHostInterface() *HostInterface {
-
 	return &HostInterface{}
 }
 

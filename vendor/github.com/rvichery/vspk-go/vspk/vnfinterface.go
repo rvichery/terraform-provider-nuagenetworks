@@ -80,7 +80,6 @@ type VNFInterface struct {
 
 // NewVNFInterface returns a new *VNFInterface
 func NewVNFInterface() *VNFInterface {
-
 	return &VNFInterface{}
 }
 

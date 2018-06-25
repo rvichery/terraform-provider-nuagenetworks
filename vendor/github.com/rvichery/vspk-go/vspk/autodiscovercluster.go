@@ -69,7 +69,6 @@ type AutoDiscoverCluster struct {
 
 // NewAutoDiscoverCluster returns a new *AutoDiscoverCluster
 func NewAutoDiscoverCluster() *AutoDiscoverCluster {
-
 	return &AutoDiscoverCluster{}
 }
 

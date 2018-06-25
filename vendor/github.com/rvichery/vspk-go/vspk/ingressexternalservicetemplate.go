@@ -60,11 +60,11 @@ type IngressExternalServiceTemplate struct {
 	ParentType             string `json:"parentType,omitempty"`
 	Owner                  string `json:"owner,omitempty"`
 	Name                   string `json:"name,omitempty"`
-	Active                 bool   `json:"active"`
+	Active                 *bool  `json:"active,omitempty"`
 	Description            string `json:"description,omitempty"`
 	EntityScope            string `json:"entityScope,omitempty"`
 	PolicyState            string `json:"policyState,omitempty"`
-	Priority               int    `json:"priority"`
+	Priority               *int   `json:"priority,omitempty"`
 	PriorityType           string `json:"priorityType,omitempty"`
 	AssociatedLiveEntityID string `json:"associatedLiveEntityID,omitempty"`
 	ExternalID             string `json:"externalID,omitempty"`
@@ -72,7 +72,6 @@ type IngressExternalServiceTemplate struct {
 
 // NewIngressExternalServiceTemplate returns a new *IngressExternalServiceTemplate
 func NewIngressExternalServiceTemplate() *IngressExternalServiceTemplate {
-
 	return &IngressExternalServiceTemplate{}
 }
 

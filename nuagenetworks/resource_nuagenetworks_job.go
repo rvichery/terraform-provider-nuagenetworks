@@ -38,6 +38,7 @@ func resourceJob() *schema.Resource {
 			"parameters": {
 				Type:     schema.TypeMap,
 				Optional: true,
+				Computed: true,
 			},
 			"parameters_raw": {
 				Type:     schema.TypeString,
@@ -46,12 +47,12 @@ func resourceJob() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"result": {
 				Type:     schema.TypeMap,
 				Optional: true,
+				Computed: true,
 			},
 			"result_raw": {
 				Type:     schema.TypeString,
@@ -60,7 +61,6 @@ func resourceJob() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"command": {
@@ -70,18 +70,22 @@ func resourceJob() *schema.Resource {
 			"progress": {
 				Type:     schema.TypeFloat,
 				Optional: true,
+				Computed: true,
 			},
 			"assoc_entity_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_ingress_adv_fwd_entry_template": {
 				Type:          schema.TypeString,

@@ -70,52 +70,51 @@ type Subnet struct {
 	LastUpdatedBy                     string `json:"lastUpdatedBy,omitempty"`
 	Gateway                           string `json:"gateway,omitempty"`
 	GatewayMACAddress                 string `json:"gatewayMACAddress,omitempty"`
-	AccessRestrictionEnabled          bool   `json:"accessRestrictionEnabled"`
+	AccessRestrictionEnabled          *bool  `json:"accessRestrictionEnabled,omitempty"`
 	Address                           string `json:"address,omitempty"`
-	Advertise                         bool   `json:"advertise"`
+	Advertise                         *bool  `json:"advertise,omitempty"`
 	DefaultAction                     string `json:"defaultAction,omitempty"`
 	TemplateID                        string `json:"templateID,omitempty"`
-	ServiceID                         int    `json:"serviceID"`
+	ServiceID                         *int   `json:"serviceID,omitempty"`
 	Description                       string `json:"description,omitempty"`
 	ResourceType                      string `json:"resourceType,omitempty"`
 	Netmask                           string `json:"netmask,omitempty"`
 	FlowCollectionEnabled             string `json:"flowCollectionEnabled,omitempty"`
-	VnId                              int    `json:"vnId"`
+	VnId                              *int   `json:"vnId,omitempty"`
 	Encryption                        string `json:"encryption,omitempty"`
-	Underlay                          bool   `json:"underlay"`
+	Underlay                          *bool  `json:"underlay,omitempty"`
 	UnderlayEnabled                   string `json:"underlayEnabled,omitempty"`
 	EntityScope                       string `json:"entityScope,omitempty"`
 	EntityState                       string `json:"entityState,omitempty"`
-	PolicyGroupID                     int    `json:"policyGroupID"`
+	PolicyGroupID                     *int   `json:"policyGroupID,omitempty"`
 	RouteDistinguisher                string `json:"routeDistinguisher,omitempty"`
 	RouteTarget                       string `json:"routeTarget,omitempty"`
-	SplitSubnet                       bool   `json:"splitSubnet"`
-	ProxyARP                          bool   `json:"proxyARP"`
+	SplitSubnet                       *bool  `json:"splitSubnet,omitempty"`
+	ProxyARP                          *bool  `json:"proxyARP,omitempty"`
 	UseGlobalMAC                      string `json:"useGlobalMAC,omitempty"`
 	AssociatedMulticastChannelMapID   string `json:"associatedMulticastChannelMapID,omitempty"`
 	AssociatedSharedNetworkResourceID string `json:"associatedSharedNetworkResourceID,omitempty"`
-	Public                            bool   `json:"public"`
-	MultiHomeEnabled                  bool   `json:"multiHomeEnabled"`
+	Public                            *bool  `json:"public,omitempty"`
+	MultiHomeEnabled                  *bool  `json:"multiHomeEnabled,omitempty"`
 	Multicast                         string `json:"multicast,omitempty"`
 	ExternalID                        string `json:"externalID,omitempty"`
-	DynamicIpv6Address                bool   `json:"dynamicIpv6Address"`
+	DynamicIpv6Address                *bool  `json:"dynamicIpv6Address,omitempty"`
 }
 
 // NewSubnet returns a new *Subnet
 func NewSubnet() *Subnet {
-
+	AccessRestrictionEnabled := false
+	Advertise := true
+	MultiHomeEnabled := false
+	DynamicIpv6Address := false
 	return &Subnet{
-		PATEnabled:               "INHERITED",
-		DPI:                      "INHERITED",
-		IPType:                   "IPV4",
-		MaintenanceMode:          "DISABLED",
-		AccessRestrictionEnabled: false,
-		Advertise:                true,
+		DPI: "INHERITED",
+		AccessRestrictionEnabled: &AccessRestrictionEnabled,
+		Advertise:                &Advertise,
 		ResourceType:             "STANDARD",
 		FlowCollectionEnabled:    "INHERITED",
-		MultiHomeEnabled:         false,
-		Multicast:                "INHERITED",
-		DynamicIpv6Address:       false,
+		MultiHomeEnabled:         &MultiHomeEnabled,
+		DynamicIpv6Address:       &DynamicIpv6Address,
 	}
 }
 

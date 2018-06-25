@@ -67,7 +67,7 @@ type AutoDiscoveredGateway struct {
 	Description        string        `json:"description,omitempty"`
 	EntityScope        string        `json:"entityScope,omitempty"`
 	Controllers        []interface{} `json:"controllers,omitempty"`
-	UseGatewayVLANVNID bool          `json:"useGatewayVLANVNID"`
+	UseGatewayVLANVNID *bool         `json:"useGatewayVLANVNID,omitempty"`
 	Vtep               string        `json:"vtep,omitempty"`
 	ExternalID         string        `json:"externalID,omitempty"`
 	SystemID           string        `json:"systemID,omitempty"`
@@ -75,7 +75,6 @@ type AutoDiscoveredGateway struct {
 
 // NewAutoDiscoveredGateway returns a new *AutoDiscoveredGateway
 func NewAutoDiscoveredGateway() *AutoDiscoveredGateway {
-
 	return &AutoDiscoveredGateway{}
 }
 

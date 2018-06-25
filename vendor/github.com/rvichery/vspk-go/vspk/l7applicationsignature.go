@@ -61,26 +61,27 @@ type L7applicationsignature struct {
 	Owner             string `json:"owner,omitempty"`
 	Name              string `json:"name,omitempty"`
 	Category          string `json:"category,omitempty"`
-	Readonly          bool   `json:"readonly"`
+	Readonly          *bool  `json:"readonly,omitempty"`
 	Reference         string `json:"reference,omitempty"`
-	Deprecated        bool   `json:"deprecated"`
+	Deprecated        *bool  `json:"deprecated,omitempty"`
 	DeprecatedVersion string `json:"deprecatedVersion,omitempty"`
 	Description       string `json:"description,omitempty"`
-	DictionaryVersion int    `json:"dictionaryVersion"`
-	SignatureIndex    int    `json:"signatureIndex"`
-	Risk              int    `json:"risk"`
+	DictionaryVersion *int   `json:"dictionaryVersion,omitempty"`
+	SignatureIndex    *int   `json:"signatureIndex,omitempty"`
+	Risk              *int   `json:"risk,omitempty"`
 	PluginName        string `json:"pluginName,omitempty"`
 	SoftwareFlags     string `json:"softwareFlags,omitempty"`
-	Productivity      int    `json:"productivity"`
+	Productivity      *int   `json:"productivity,omitempty"`
 	Guidstring        string `json:"guidstring,omitempty"`
 }
 
 // NewL7applicationsignature returns a new *L7applicationsignature
 func NewL7applicationsignature() *L7applicationsignature {
-
+	Readonly := false
+	Deprecated := false
 	return &L7applicationsignature{
-		Readonly:   false,
-		Deprecated: false,
+		Readonly:   &Readonly,
+		Deprecated: &Deprecated,
 	}
 }
 

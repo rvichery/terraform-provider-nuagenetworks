@@ -68,7 +68,6 @@ type PATMapper struct {
 
 // NewPATMapper returns a new *PATMapper
 func NewPATMapper() *PATMapper {
-
 	return &PATMapper{}
 }
 

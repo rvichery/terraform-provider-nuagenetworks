@@ -68,7 +68,6 @@ type VRSAddressRange struct {
 
 // NewVRSAddressRange returns a new *VRSAddressRange
 func NewVRSAddressRange() *VRSAddressRange {
-
 	return &VRSAddressRange{}
 }
 

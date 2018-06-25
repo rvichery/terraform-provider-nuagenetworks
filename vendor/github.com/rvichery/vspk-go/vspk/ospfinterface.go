@@ -60,19 +60,19 @@ type OSPFInterface struct {
 	ParentType         string        `json:"parentType,omitempty"`
 	Owner              string        `json:"owner,omitempty"`
 	Name               string        `json:"name,omitempty"`
-	PassiveEnabled     bool          `json:"passiveEnabled"`
+	PassiveEnabled     *bool         `json:"passiveEnabled,omitempty"`
 	LastUpdatedBy      string        `json:"lastUpdatedBy,omitempty"`
 	AdminState         string        `json:"adminState,omitempty"`
-	DeadInterval       int           `json:"deadInterval"`
-	HelloInterval      int           `json:"helloInterval"`
+	DeadInterval       *int          `json:"deadInterval,omitempty"`
+	HelloInterval      *int          `json:"helloInterval,omitempty"`
 	Description        string        `json:"description,omitempty"`
 	MessageDigestKeys  []interface{} `json:"messageDigestKeys,omitempty"`
-	Metric             int           `json:"metric"`
+	Metric             *int          `json:"metric,omitempty"`
 	InterfaceType      string        `json:"interfaceType,omitempty"`
 	EntityScope        string        `json:"entityScope,omitempty"`
-	Priority           int           `json:"priority"`
+	Priority           *int          `json:"priority,omitempty"`
 	AssociatedSubnetID string        `json:"associatedSubnetID,omitempty"`
-	Mtu                int           `json:"mtu"`
+	Mtu                *int          `json:"mtu,omitempty"`
 	AuthenticationKey  string        `json:"authenticationKey,omitempty"`
 	AuthenticationType string        `json:"authenticationType,omitempty"`
 	ExternalID         string        `json:"externalID,omitempty"`
@@ -80,14 +80,17 @@ type OSPFInterface struct {
 
 // NewOSPFInterface returns a new *OSPFInterface
 func NewOSPFInterface() *OSPFInterface {
-
+	PassiveEnabled := false
+	DeadInterval := 40
+	HelloInterval := 10
+	Priority := 1
 	return &OSPFInterface{
-		PassiveEnabled:     false,
+		PassiveEnabled:     &PassiveEnabled,
 		AdminState:         "UP",
-		DeadInterval:       40,
-		HelloInterval:      10,
+		DeadInterval:       &DeadInterval,
+		HelloInterval:      &HelloInterval,
 		InterfaceType:      "BROADCAST",
-		Priority:           1,
+		Priority:           &Priority,
 		AuthenticationType: "NONE",
 	}
 }

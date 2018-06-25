@@ -41,65 +41,72 @@ func resourceGateway() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"redundancy_group_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"peer": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"template_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"pending": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"personality": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"enterprise_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"use_gateway_vlanvnid": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"vtep": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"auto_disc_gateway_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"system_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"parent_enterprise": {
@@ -126,7 +133,8 @@ func resourceGatewayCreate(d *schema.ResourceData, m interface{}) error {
 		o.TemplateID = attr.(string)
 	}
 	if attr, ok := d.GetOk("pending"); ok {
-		o.Pending = attr.(bool)
+		Pending := attr.(bool)
+		o.Pending = &Pending
 	}
 	if attr, ok := d.GetOk("permitted_action"); ok {
 		o.PermittedAction = attr.(string)
@@ -141,7 +149,8 @@ func resourceGatewayCreate(d *schema.ResourceData, m interface{}) error {
 		o.EnterpriseID = attr.(string)
 	}
 	if attr, ok := d.GetOk("use_gateway_vlanvnid"); ok {
-		o.UseGatewayVLANVNID = attr.(bool)
+		UseGatewayVLANVNID := attr.(bool)
+		o.UseGatewayVLANVNID = &UseGatewayVLANVNID
 	}
 	if attr, ok := d.GetOk("vtep"); ok {
 		o.Vtep = attr.(string)
@@ -229,7 +238,8 @@ func resourceGatewayUpdate(d *schema.ResourceData, m interface{}) error {
 		o.TemplateID = attr.(string)
 	}
 	if attr, ok := d.GetOk("pending"); ok {
-		o.Pending = attr.(bool)
+		Pending := attr.(bool)
+		o.Pending = &Pending
 	}
 	if attr, ok := d.GetOk("permitted_action"); ok {
 		o.PermittedAction = attr.(string)
@@ -244,7 +254,8 @@ func resourceGatewayUpdate(d *schema.ResourceData, m interface{}) error {
 		o.EnterpriseID = attr.(string)
 	}
 	if attr, ok := d.GetOk("use_gateway_vlanvnid"); ok {
-		o.UseGatewayVLANVNID = attr.(bool)
+		UseGatewayVLANVNID := attr.(bool)
+		o.UseGatewayVLANVNID = &UseGatewayVLANVNID
 	}
 	if attr, ok := d.GetOk("vtep"); ok {
 		o.Vtep = attr.(string)

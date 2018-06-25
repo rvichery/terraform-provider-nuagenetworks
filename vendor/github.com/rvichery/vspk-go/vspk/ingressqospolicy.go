@@ -78,7 +78,6 @@ type IngressQOSPolicy struct {
 
 // NewIngressQOSPolicy returns a new *IngressQOSPolicy
 func NewIngressQOSPolicy() *IngressQOSPolicy {
-
 	return &IngressQOSPolicy{}
 }
 

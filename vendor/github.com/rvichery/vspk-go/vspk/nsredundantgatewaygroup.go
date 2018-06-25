@@ -67,8 +67,8 @@ type NSRedundantGatewayGroup struct {
 	GatewayPeer2AutodiscoveredGatewayID string        `json:"gatewayPeer2AutodiscoveredGatewayID,omitempty"`
 	GatewayPeer2ID                      string        `json:"gatewayPeer2ID,omitempty"`
 	GatewayPeer2Name                    string        `json:"gatewayPeer2Name,omitempty"`
-	HeartbeatInterval                   int           `json:"heartbeatInterval"`
-	HeartbeatVLANID                     int           `json:"heartbeatVLANID"`
+	HeartbeatInterval                   *int          `json:"heartbeatInterval,omitempty"`
+	HeartbeatVLANID                     *int          `json:"heartbeatVLANID,omitempty"`
 	RedundancyPortIDs                   []interface{} `json:"redundancyPortIDs,omitempty"`
 	RedundantGatewayStatus              string        `json:"redundantGatewayStatus,omitempty"`
 	PermittedAction                     string        `json:"permittedAction,omitempty"`
@@ -76,17 +76,19 @@ type NSRedundantGatewayGroup struct {
 	Description                         string        `json:"description,omitempty"`
 	EnterpriseID                        string        `json:"enterpriseID,omitempty"`
 	EntityScope                         string        `json:"entityScope,omitempty"`
-	ConsecutiveFailuresCount            int           `json:"consecutiveFailuresCount"`
+	ConsecutiveFailuresCount            *int          `json:"consecutiveFailuresCount,omitempty"`
 	ExternalID                          string        `json:"externalID,omitempty"`
 }
 
 // NewNSRedundantGatewayGroup returns a new *NSRedundantGatewayGroup
 func NewNSRedundantGatewayGroup() *NSRedundantGatewayGroup {
-
+	HeartbeatInterval := 500
+	HeartbeatVLANID := 4094
+	ConsecutiveFailuresCount := 3
 	return &NSRedundantGatewayGroup{
-		HeartbeatInterval:        500,
-		HeartbeatVLANID:          4094,
-		ConsecutiveFailuresCount: 3,
+		HeartbeatInterval:        &HeartbeatInterval,
+		HeartbeatVLANID:          &HeartbeatVLANID,
+		ConsecutiveFailuresCount: &ConsecutiveFailuresCount,
 	}
 }
 

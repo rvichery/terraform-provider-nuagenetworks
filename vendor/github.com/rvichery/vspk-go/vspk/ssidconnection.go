@@ -69,7 +69,7 @@ type SSIDConnection struct {
 	BlackList                        []interface{} `json:"blackList,omitempty"`
 	InterfaceName                    string        `json:"interfaceName,omitempty"`
 	VportID                          string        `json:"vportID,omitempty"`
-	BroadcastSSID                    bool          `json:"broadcastSSID"`
+	BroadcastSSID                    *bool         `json:"broadcastSSID,omitempty"`
 	AssociatedCaptivePortalProfileID string        `json:"associatedCaptivePortalProfileID,omitempty"`
 	AssociatedEgressQOSPolicyID      string        `json:"associatedEgressQOSPolicyID,omitempty"`
 	AuthenticationMode               string        `json:"authenticationMode,omitempty"`
@@ -77,10 +77,10 @@ type SSIDConnection struct {
 
 // NewSSIDConnection returns a new *SSIDConnection
 func NewSSIDConnection() *SSIDConnection {
-
+	BroadcastSSID := true
 	return &SSIDConnection{
 		RedirectOption:     "ORIGINAL_REQUEST",
-		BroadcastSSID:      true,
+		BroadcastSSID:      &BroadcastSSID,
 		AuthenticationMode: "OPEN",
 	}
 }

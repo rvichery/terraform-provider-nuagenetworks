@@ -65,7 +65,6 @@ type PolicyStatement struct {
 
 // NewPolicyStatement returns a new *PolicyStatement
 func NewPolicyStatement() *PolicyStatement {
-
 	return &PolicyStatement{}
 }
 

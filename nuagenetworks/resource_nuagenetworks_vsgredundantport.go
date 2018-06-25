@@ -38,6 +38,7 @@ func resourceVsgRedundantPort() *schema.Resource {
 			"vlan_range": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -45,16 +46,17 @@ func resourceVsgRedundantPort() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"physical_name": {
 				Type:     schema.TypeString,
@@ -62,16 +64,17 @@ func resourceVsgRedundantPort() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"port_peer1_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"port_peer2_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"port_type": {
 				Type:     schema.TypeString,
@@ -80,22 +83,27 @@ func resourceVsgRedundantPort() *schema.Resource {
 			"use_user_mnemonic": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"user_mnemonic": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_redundancy_group": {
 				Type:     schema.TypeString,
@@ -129,7 +137,8 @@ func resourceVsgRedundantPortCreate(d *schema.ResourceData, m interface{}) error
 		o.PortPeer2ID = attr.(string)
 	}
 	if attr, ok := d.GetOk("use_user_mnemonic"); ok {
-		o.UseUserMnemonic = attr.(bool)
+		UseUserMnemonic := attr.(bool)
+		o.UseUserMnemonic = &UseUserMnemonic
 	}
 	if attr, ok := d.GetOk("user_mnemonic"); ok {
 		o.UserMnemonic = attr.(string)
@@ -218,7 +227,8 @@ func resourceVsgRedundantPortUpdate(d *schema.ResourceData, m interface{}) error
 		o.PortPeer2ID = attr.(string)
 	}
 	if attr, ok := d.GetOk("use_user_mnemonic"); ok {
-		o.UseUserMnemonic = attr.(bool)
+		UseUserMnemonic := attr.(bool)
+		o.UseUserMnemonic = &UseUserMnemonic
 	}
 	if attr, ok := d.GetOk("user_mnemonic"); ok {
 		o.UserMnemonic = attr.(string)

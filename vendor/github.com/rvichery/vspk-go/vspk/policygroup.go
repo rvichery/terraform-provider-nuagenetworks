@@ -65,18 +65,15 @@ type PolicyGroup struct {
 	TemplateID       string `json:"templateID,omitempty"`
 	Description      string `json:"description,omitempty"`
 	EntityScope      string `json:"entityScope,omitempty"`
-	PolicyGroupID    int    `json:"policyGroupID"`
-	External         bool   `json:"external"`
+	PolicyGroupID    *int   `json:"policyGroupID,omitempty"`
+	External         *bool  `json:"external,omitempty"`
 	ExternalID       string `json:"externalID,omitempty"`
 	Type             string `json:"type,omitempty"`
 }
 
 // NewPolicyGroup returns a new *PolicyGroup
 func NewPolicyGroup() *PolicyGroup {
-
-	return &PolicyGroup{
-		Type: "SOFTWARE",
-	}
+	return &PolicyGroup{}
 }
 
 // Identity returns the Identity of the object.

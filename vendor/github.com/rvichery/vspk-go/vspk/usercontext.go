@@ -59,21 +59,23 @@ type UserContext struct {
 	ParentID               string `json:"parentID,omitempty"`
 	ParentType             string `json:"parentType,omitempty"`
 	Owner                  string `json:"owner,omitempty"`
-	AARFlowStatsInterval   int    `json:"AARFlowStatsInterval"`
-	AARProbeStatsInterval  int    `json:"AARProbeStatsInterval"`
-	VSSStatsInterval       int    `json:"VSSStatsInterval"`
-	FlowCollectionEnabled  bool   `json:"flowCollectionEnabled"`
-	StatisticsEnabled      bool   `json:"statisticsEnabled"`
+	AARFlowStatsInterval   *int   `json:"AARFlowStatsInterval,omitempty"`
+	AARProbeStatsInterval  *int   `json:"AARProbeStatsInterval,omitempty"`
+	VSSStatsInterval       *int   `json:"VSSStatsInterval,omitempty"`
+	FlowCollectionEnabled  *bool  `json:"flowCollectionEnabled,omitempty"`
+	StatisticsEnabled      *bool  `json:"statisticsEnabled,omitempty"`
 	StatsTSDBServerAddress string `json:"statsTSDBServerAddress,omitempty"`
 }
 
 // NewUserContext returns a new *UserContext
 func NewUserContext() *UserContext {
-
+	AARFlowStatsInterval := 30
+	AARProbeStatsInterval := 30
+	VSSStatsInterval := 30
 	return &UserContext{
-		AARFlowStatsInterval:  30,
-		AARProbeStatsInterval: 30,
-		VSSStatsInterval:      30,
+		AARFlowStatsInterval:  &AARFlowStatsInterval,
+		AARProbeStatsInterval: &AARProbeStatsInterval,
+		VSSStatsInterval:      &VSSStatsInterval,
 	}
 }
 

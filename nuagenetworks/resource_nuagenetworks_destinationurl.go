@@ -38,6 +38,7 @@ func resourceDestinationurl() *schema.Resource {
 			"url": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"http_method": {
 				Type:     schema.TypeString,
@@ -51,12 +52,12 @@ func resourceDestinationurl() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"percentage_weight": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"timeout": {
 				Type:     schema.TypeInt,
@@ -65,7 +66,6 @@ func resourceDestinationurl() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"down_threshold_count": {
@@ -81,6 +81,7 @@ func resourceDestinationurl() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_tier": {
 				Type:     schema.TypeString,
@@ -101,19 +102,24 @@ func resourceDestinationurlCreate(d *schema.ResourceData, m interface{}) error {
 		o.HTTPMethod = attr.(string)
 	}
 	if attr, ok := d.GetOk("packet_count"); ok {
-		o.PacketCount = attr.(int)
+		PacketCount := attr.(int)
+		o.PacketCount = &PacketCount
 	}
 	if attr, ok := d.GetOk("percentage_weight"); ok {
-		o.PercentageWeight = attr.(int)
+		PercentageWeight := attr.(int)
+		o.PercentageWeight = &PercentageWeight
 	}
 	if attr, ok := d.GetOk("timeout"); ok {
-		o.Timeout = attr.(int)
+		Timeout := attr.(int)
+		o.Timeout = &Timeout
 	}
 	if attr, ok := d.GetOk("down_threshold_count"); ok {
-		o.DownThresholdCount = attr.(int)
+		DownThresholdCount := attr.(int)
+		o.DownThresholdCount = &DownThresholdCount
 	}
 	if attr, ok := d.GetOk("probe_interval"); ok {
-		o.ProbeInterval = attr.(int)
+		ProbeInterval := attr.(int)
+		o.ProbeInterval = &ProbeInterval
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -175,19 +181,24 @@ func resourceDestinationurlUpdate(d *schema.ResourceData, m interface{}) error {
 		o.HTTPMethod = attr.(string)
 	}
 	if attr, ok := d.GetOk("packet_count"); ok {
-		o.PacketCount = attr.(int)
+		PacketCount := attr.(int)
+		o.PacketCount = &PacketCount
 	}
 	if attr, ok := d.GetOk("percentage_weight"); ok {
-		o.PercentageWeight = attr.(int)
+		PercentageWeight := attr.(int)
+		o.PercentageWeight = &PercentageWeight
 	}
 	if attr, ok := d.GetOk("timeout"); ok {
-		o.Timeout = attr.(int)
+		Timeout := attr.(int)
+		o.Timeout = &Timeout
 	}
 	if attr, ok := d.GetOk("down_threshold_count"); ok {
-		o.DownThresholdCount = attr.(int)
+		DownThresholdCount := attr.(int)
+		o.DownThresholdCount = &DownThresholdCount
 	}
 	if attr, ok := d.GetOk("probe_interval"); ok {
-		o.ProbeInterval = attr.(int)
+		ProbeInterval := attr.(int)
+		o.ProbeInterval = &ProbeInterval
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

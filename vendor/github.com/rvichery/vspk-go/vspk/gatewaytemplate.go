@@ -70,10 +70,7 @@ type GatewayTemplate struct {
 
 // NewGatewayTemplate returns a new *GatewayTemplate
 func NewGatewayTemplate() *GatewayTemplate {
-
-	return &GatewayTemplate{
-		Personality: "VRSG",
-	}
+	return &GatewayTemplate{}
 }
 
 // Identity returns the Identity of the object.

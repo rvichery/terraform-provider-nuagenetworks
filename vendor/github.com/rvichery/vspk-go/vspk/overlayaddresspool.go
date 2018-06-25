@@ -68,7 +68,6 @@ type OverlayAddressPool struct {
 
 // NewOverlayAddressPool returns a new *OverlayAddressPool
 func NewOverlayAddressPool() *OverlayAddressPool {
-
 	return &OverlayAddressPool{}
 }
 

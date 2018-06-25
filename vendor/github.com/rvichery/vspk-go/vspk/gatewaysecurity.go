@@ -61,14 +61,13 @@ type GatewaySecurity struct {
 	Owner         string `json:"owner,omitempty"`
 	LastUpdatedBy string `json:"lastUpdatedBy,omitempty"`
 	GatewayID     string `json:"gatewayID,omitempty"`
-	Revision      int    `json:"revision"`
+	Revision      *int   `json:"revision,omitempty"`
 	EntityScope   string `json:"entityScope,omitempty"`
 	ExternalID    string `json:"externalID,omitempty"`
 }
 
 // NewGatewaySecurity returns a new *GatewaySecurity
 func NewGatewaySecurity() *GatewaySecurity {
-
 	return &GatewaySecurity{}
 }
 

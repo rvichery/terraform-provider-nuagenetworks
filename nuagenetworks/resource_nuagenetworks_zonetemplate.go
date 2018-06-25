@@ -43,10 +43,12 @@ func resourceZoneTemplate() *schema.Resource {
 			"ip_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ipv6_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -54,53 +56,61 @@ func resourceZoneTemplate() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"encryption": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"public_zone": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"number_of_hosts_in_subnets": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dynamic_ipv6_address": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_domain_template": {
 				Type:     schema.TypeString,
@@ -141,19 +151,22 @@ func resourceZoneTemplateCreate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedMulticastChannelMapID = attr.(string)
 	}
 	if attr, ok := d.GetOk("public_zone"); ok {
-		o.PublicZone = attr.(bool)
+		PublicZone := attr.(bool)
+		o.PublicZone = &PublicZone
 	}
 	if attr, ok := d.GetOk("multicast"); ok {
 		o.Multicast = attr.(string)
 	}
 	if attr, ok := d.GetOk("number_of_hosts_in_subnets"); ok {
-		o.NumberOfHostsInSubnets = attr.(int)
+		NumberOfHostsInSubnets := attr.(int)
+		o.NumberOfHostsInSubnets = &NumberOfHostsInSubnets
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("dynamic_ipv6_address"); ok {
-		o.DynamicIpv6Address = attr.(bool)
+		DynamicIpv6Address := attr.(bool)
+		o.DynamicIpv6Address = &DynamicIpv6Address
 	}
 	parent := &vspk.DomainTemplate{ID: d.Get("parent_domain_template").(string)}
 	err := parent.CreateZoneTemplate(o)
@@ -238,19 +251,22 @@ func resourceZoneTemplateUpdate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedMulticastChannelMapID = attr.(string)
 	}
 	if attr, ok := d.GetOk("public_zone"); ok {
-		o.PublicZone = attr.(bool)
+		PublicZone := attr.(bool)
+		o.PublicZone = &PublicZone
 	}
 	if attr, ok := d.GetOk("multicast"); ok {
 		o.Multicast = attr.(string)
 	}
 	if attr, ok := d.GetOk("number_of_hosts_in_subnets"); ok {
-		o.NumberOfHostsInSubnets = attr.(int)
+		NumberOfHostsInSubnets := attr.(int)
+		o.NumberOfHostsInSubnets = &NumberOfHostsInSubnets
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("dynamic_ipv6_address"); ok {
-		o.DynamicIpv6Address = attr.(bool)
+		DynamicIpv6Address := attr.(bool)
+		o.DynamicIpv6Address = &DynamicIpv6Address
 	}
 
 	o.Save()

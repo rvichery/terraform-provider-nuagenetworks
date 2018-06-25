@@ -65,7 +65,6 @@ type CSNATPool struct {
 
 // NewCSNATPool returns a new *CSNATPool
 func NewCSNATPool() *CSNATPool {
-
 	return &CSNATPool{}
 }
 

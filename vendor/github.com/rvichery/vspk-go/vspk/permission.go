@@ -72,7 +72,6 @@ type Permission struct {
 
 // NewPermission returns a new *Permission
 func NewPermission() *Permission {
-
 	return &Permission{}
 }
 

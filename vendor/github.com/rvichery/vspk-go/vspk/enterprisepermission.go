@@ -72,10 +72,7 @@ type EnterprisePermission struct {
 
 // NewEnterprisePermission returns a new *EnterprisePermission
 func NewEnterprisePermission() *EnterprisePermission {
-
-	return &EnterprisePermission{
-		PermittedAction: "USE",
-	}
+	return &EnterprisePermission{}
 }
 
 // Identity returns the Identity of the object.

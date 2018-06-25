@@ -65,7 +65,6 @@ type Trunk struct {
 
 // NewTrunk returns a new *Trunk
 func NewTrunk() *Trunk {
-
 	return &Trunk{}
 }
 

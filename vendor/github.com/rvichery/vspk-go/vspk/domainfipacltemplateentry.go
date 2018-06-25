@@ -77,7 +77,7 @@ type DomainFIPAclTemplateEntry struct {
 	NetworkID              string      `json:"networkID,omitempty"`
 	NetworkType            string      `json:"networkType,omitempty"`
 	MirrorDestinationID    string      `json:"mirrorDestinationID,omitempty"`
-	FlowLoggingEnabled     bool        `json:"flowLoggingEnabled"`
+	FlowLoggingEnabled     *bool       `json:"flowLoggingEnabled,omitempty"`
 	EnterpriseName         string      `json:"enterpriseName,omitempty"`
 	EntityScope            string      `json:"entityScope,omitempty"`
 	LocationID             string      `json:"locationID,omitempty"`
@@ -89,19 +89,18 @@ type DomainFIPAclTemplateEntry struct {
 	SourcePort             string      `json:"sourcePort,omitempty"`
 	SourceType             string      `json:"sourceType,omitempty"`
 	SourceValue            string      `json:"sourceValue,omitempty"`
-	Priority               int         `json:"priority"`
+	Priority               *int        `json:"priority,omitempty"`
 	Protocol               string      `json:"protocol,omitempty"`
 	AssociatedLiveEntityID string      `json:"associatedLiveEntityID,omitempty"`
-	Stateful               bool        `json:"stateful"`
+	Stateful               *bool       `json:"stateful,omitempty"`
 	StatsID                string      `json:"statsID,omitempty"`
-	StatsLoggingEnabled    bool        `json:"statsLoggingEnabled"`
+	StatsLoggingEnabled    *bool       `json:"statsLoggingEnabled,omitempty"`
 	EtherType              string      `json:"etherType,omitempty"`
 	ExternalID             string      `json:"externalID,omitempty"`
 }
 
 // NewDomainFIPAclTemplateEntry returns a new *DomainFIPAclTemplateEntry
 func NewDomainFIPAclTemplateEntry() *DomainFIPAclTemplateEntry {
-
 	return &DomainFIPAclTemplateEntry{}
 }
 

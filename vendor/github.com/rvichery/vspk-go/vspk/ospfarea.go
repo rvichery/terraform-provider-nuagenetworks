@@ -60,16 +60,16 @@ type OSPFArea struct {
 	ParentType                  string        `json:"parentType,omitempty"`
 	Owner                       string        `json:"owner,omitempty"`
 	LastUpdatedBy               string        `json:"lastUpdatedBy,omitempty"`
-	RedistributeExternalEnabled bool          `json:"redistributeExternalEnabled"`
-	DefaultMetric               int           `json:"defaultMetric"`
+	RedistributeExternalEnabled *bool         `json:"redistributeExternalEnabled,omitempty"`
+	DefaultMetric               *int          `json:"defaultMetric,omitempty"`
 	DefaultOriginateOption      string        `json:"defaultOriginateOption,omitempty"`
 	Description                 string        `json:"description,omitempty"`
 	AggregateAreaRange          []interface{} `json:"aggregateAreaRange,omitempty"`
 	AggregateAreaRangeNSSA      []interface{} `json:"aggregateAreaRangeNSSA,omitempty"`
 	EntityScope                 string        `json:"entityScope,omitempty"`
-	AreaID                      int           `json:"areaID"`
+	AreaID                      *int          `json:"areaID,omitempty"`
 	AreaType                    string        `json:"areaType,omitempty"`
-	SummariesEnabled            bool          `json:"summariesEnabled"`
+	SummariesEnabled            *bool         `json:"summariesEnabled,omitempty"`
 	SuppressAreaRange           []interface{} `json:"suppressAreaRange,omitempty"`
 	SuppressAreaRangeNSSA       []interface{} `json:"suppressAreaRangeNSSA,omitempty"`
 	ExternalID                  string        `json:"externalID,omitempty"`
@@ -77,11 +77,12 @@ type OSPFArea struct {
 
 // NewOSPFArea returns a new *OSPFArea
 func NewOSPFArea() *OSPFArea {
-
+	RedistributeExternalEnabled := true
+	SummariesEnabled := true
 	return &OSPFArea{
-		RedistributeExternalEnabled: true,
+		RedistributeExternalEnabled: &RedistributeExternalEnabled,
 		AreaType:                    "NORMAL",
-		SummariesEnabled:            true,
+		SummariesEnabled:            &SummariesEnabled,
 	}
 }
 

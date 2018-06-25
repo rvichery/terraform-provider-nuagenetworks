@@ -38,6 +38,7 @@ func resourceBFDSession() *schema.Resource {
 			"bfd_destination_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"bfd_multiplier": {
 				Type:     schema.TypeInt,
@@ -51,12 +52,10 @@ func resourceBFDSession() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"multi_hop_enabled": {
@@ -67,6 +66,7 @@ func resourceBFDSession() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_uplink_connection": {
 				Type:          schema.TypeString,
@@ -90,13 +90,16 @@ func resourceBFDSessionCreate(d *schema.ResourceData, m interface{}) error {
 		o.BFDDestinationIP = attr.(string)
 	}
 	if attr, ok := d.GetOk("bfd_multiplier"); ok {
-		o.BFDMultiplier = attr.(int)
+		BFDMultiplier := attr.(int)
+		o.BFDMultiplier = &BFDMultiplier
 	}
 	if attr, ok := d.GetOk("bfd_timer"); ok {
-		o.BFDTimer = attr.(int)
+		BFDTimer := attr.(int)
+		o.BFDTimer = &BFDTimer
 	}
 	if attr, ok := d.GetOk("multi_hop_enabled"); ok {
-		o.MultiHopEnabled = attr.(bool)
+		MultiHopEnabled := attr.(bool)
+		o.MultiHopEnabled = &MultiHopEnabled
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -161,13 +164,16 @@ func resourceBFDSessionUpdate(d *schema.ResourceData, m interface{}) error {
 		o.BFDDestinationIP = attr.(string)
 	}
 	if attr, ok := d.GetOk("bfd_multiplier"); ok {
-		o.BFDMultiplier = attr.(int)
+		BFDMultiplier := attr.(int)
+		o.BFDMultiplier = &BFDMultiplier
 	}
 	if attr, ok := d.GetOk("bfd_timer"); ok {
-		o.BFDTimer = attr.(int)
+		BFDTimer := attr.(int)
+		o.BFDTimer = &BFDTimer
 	}
 	if attr, ok := d.GetOk("multi_hop_enabled"); ok {
-		o.MultiHopEnabled = attr.(bool)
+		MultiHopEnabled := attr.(bool)
+		o.MultiHopEnabled = &MultiHopEnabled
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

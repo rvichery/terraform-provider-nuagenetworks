@@ -37,7 +37,6 @@ func resourceMultiCastRange() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"max_address": {
@@ -50,12 +49,12 @@ func resourceMultiCastRange() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_multi_cast_channel_map": {
 				Type:     schema.TypeString,

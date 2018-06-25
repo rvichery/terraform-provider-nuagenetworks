@@ -65,7 +65,6 @@ type VNFInterfaceDescriptor struct {
 
 // NewVNFInterfaceDescriptor returns a new *VNFInterfaceDescriptor
 func NewVNFInterfaceDescriptor() *VNFInterfaceDescriptor {
-
 	return &VNFInterfaceDescriptor{
 		Type: "MANAGEMENT",
 	}

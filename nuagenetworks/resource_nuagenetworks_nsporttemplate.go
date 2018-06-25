@@ -46,12 +46,12 @@ func resourceNSPortTemplate() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"physical_name": {
 				Type:     schema.TypeString,
@@ -60,10 +60,10 @@ func resourceNSPortTemplate() *schema.Resource {
 			"infrastructure_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"port_type": {
@@ -78,6 +78,7 @@ func resourceNSPortTemplate() *schema.Resource {
 			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"mtu": {
 				Type:     schema.TypeInt,
@@ -87,6 +88,7 @@ func resourceNSPortTemplate() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_ns_gateway_template": {
 				Type:     schema.TypeString,
@@ -120,7 +122,8 @@ func resourceNSPortTemplateCreate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedEgressQOSPolicyID = attr.(string)
 	}
 	if attr, ok := d.GetOk("mtu"); ok {
-		o.Mtu = attr.(int)
+		Mtu := attr.(int)
+		o.Mtu = &Mtu
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -197,7 +200,8 @@ func resourceNSPortTemplateUpdate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedEgressQOSPolicyID = attr.(string)
 	}
 	if attr, ok := d.GetOk("mtu"); ok {
-		o.Mtu = attr.(int)
+		Mtu := attr.(int)
+		o.Mtu = &Mtu
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

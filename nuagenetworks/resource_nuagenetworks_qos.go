@@ -38,42 +38,52 @@ func resourceQOS() *schema.Resource {
 			"fip_committed_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"fip_committed_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"fip_peak_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"fip_peak_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"fip_rate_limiting_active": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"bum_committed_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"bum_committed_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"bum_peak_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"bum_peak_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"bum_rate_limiting_active": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -81,85 +91,101 @@ func resourceQOS() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"rate_limiting_active": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"active": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"peak": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"service_class": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"rewrite_forwarding_class": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"egress_fip_committed_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"egress_fip_committed_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"egress_fip_peak_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"egress_fip_peak_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"committed_burst_size": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"committed_information_rate": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"trusted_forwarding_class": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"assoc_qos_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_dscp_forwarding_class_table_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_dscp_forwarding_class_table_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"burst": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_zone": {
 				Type:          schema.TypeString,
@@ -239,7 +265,8 @@ func resourceQOSCreate(d *schema.ResourceData, m interface{}) error {
 		o.FIPPeakInformationRate = attr.(string)
 	}
 	if attr, ok := d.GetOk("fip_rate_limiting_active"); ok {
-		o.FIPRateLimitingActive = attr.(bool)
+		FIPRateLimitingActive := attr.(bool)
+		o.FIPRateLimitingActive = &FIPRateLimitingActive
 	}
 	if attr, ok := d.GetOk("bum_committed_burst_size"); ok {
 		o.BUMCommittedBurstSize = attr.(string)
@@ -254,13 +281,16 @@ func resourceQOSCreate(d *schema.ResourceData, m interface{}) error {
 		o.BUMPeakInformationRate = attr.(string)
 	}
 	if attr, ok := d.GetOk("bum_rate_limiting_active"); ok {
-		o.BUMRateLimitingActive = attr.(bool)
+		BUMRateLimitingActive := attr.(bool)
+		o.BUMRateLimitingActive = &BUMRateLimitingActive
 	}
 	if attr, ok := d.GetOk("rate_limiting_active"); ok {
-		o.RateLimitingActive = attr.(bool)
+		RateLimitingActive := attr.(bool)
+		o.RateLimitingActive = &RateLimitingActive
 	}
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("peak"); ok {
 		o.Peak = attr.(string)
@@ -272,7 +302,8 @@ func resourceQOSCreate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("rewrite_forwarding_class"); ok {
-		o.RewriteForwardingClass = attr.(bool)
+		RewriteForwardingClass := attr.(bool)
+		o.RewriteForwardingClass = &RewriteForwardingClass
 	}
 	if attr, ok := d.GetOk("egress_fip_committed_burst_size"); ok {
 		o.EgressFIPCommittedBurstSize = attr.(string)
@@ -293,7 +324,8 @@ func resourceQOSCreate(d *schema.ResourceData, m interface{}) error {
 		o.CommittedInformationRate = attr.(string)
 	}
 	if attr, ok := d.GetOk("trusted_forwarding_class"); ok {
-		o.TrustedForwardingClass = attr.(bool)
+		TrustedForwardingClass := attr.(bool)
+		o.TrustedForwardingClass = &TrustedForwardingClass
 	}
 	if attr, ok := d.GetOk("assoc_qos_id"); ok {
 		o.AssocQosId = attr.(string)
@@ -468,7 +500,8 @@ func resourceQOSUpdate(d *schema.ResourceData, m interface{}) error {
 		o.FIPPeakInformationRate = attr.(string)
 	}
 	if attr, ok := d.GetOk("fip_rate_limiting_active"); ok {
-		o.FIPRateLimitingActive = attr.(bool)
+		FIPRateLimitingActive := attr.(bool)
+		o.FIPRateLimitingActive = &FIPRateLimitingActive
 	}
 	if attr, ok := d.GetOk("bum_committed_burst_size"); ok {
 		o.BUMCommittedBurstSize = attr.(string)
@@ -483,13 +516,16 @@ func resourceQOSUpdate(d *schema.ResourceData, m interface{}) error {
 		o.BUMPeakInformationRate = attr.(string)
 	}
 	if attr, ok := d.GetOk("bum_rate_limiting_active"); ok {
-		o.BUMRateLimitingActive = attr.(bool)
+		BUMRateLimitingActive := attr.(bool)
+		o.BUMRateLimitingActive = &BUMRateLimitingActive
 	}
 	if attr, ok := d.GetOk("rate_limiting_active"); ok {
-		o.RateLimitingActive = attr.(bool)
+		RateLimitingActive := attr.(bool)
+		o.RateLimitingActive = &RateLimitingActive
 	}
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("peak"); ok {
 		o.Peak = attr.(string)
@@ -501,7 +537,8 @@ func resourceQOSUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("rewrite_forwarding_class"); ok {
-		o.RewriteForwardingClass = attr.(bool)
+		RewriteForwardingClass := attr.(bool)
+		o.RewriteForwardingClass = &RewriteForwardingClass
 	}
 	if attr, ok := d.GetOk("egress_fip_committed_burst_size"); ok {
 		o.EgressFIPCommittedBurstSize = attr.(string)
@@ -522,7 +559,8 @@ func resourceQOSUpdate(d *schema.ResourceData, m interface{}) error {
 		o.CommittedInformationRate = attr.(string)
 	}
 	if attr, ok := d.GetOk("trusted_forwarding_class"); ok {
-		o.TrustedForwardingClass = attr.(bool)
+		TrustedForwardingClass := attr.(bool)
+		o.TrustedForwardingClass = &TrustedForwardingClass
 	}
 	if attr, ok := d.GetOk("assoc_qos_id"); ok {
 		o.AssocQosId = attr.(string)

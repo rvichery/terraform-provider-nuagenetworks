@@ -38,10 +38,10 @@ func resourceEnterprisePermission() *schema.Resource {
 			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"permitted_action": {
@@ -51,27 +51,31 @@ func resourceEnterprisePermission() *schema.Resource {
 			"permitted_entity_description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"permitted_entity_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"permitted_entity_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"permitted_entity_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_shared_network_resource": {
 				Type:          schema.TypeString,

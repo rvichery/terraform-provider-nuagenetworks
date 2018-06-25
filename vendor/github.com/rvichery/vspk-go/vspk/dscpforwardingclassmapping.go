@@ -68,7 +68,6 @@ type DSCPForwardingClassMapping struct {
 
 // NewDSCPForwardingClassMapping returns a new *DSCPForwardingClassMapping
 func NewDSCPForwardingClassMapping() *DSCPForwardingClassMapping {
-
 	return &DSCPForwardingClassMapping{}
 }
 

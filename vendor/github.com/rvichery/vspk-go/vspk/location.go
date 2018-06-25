@@ -62,7 +62,7 @@ type Location struct {
 	LastUpdatedBy string  `json:"lastUpdatedBy,omitempty"`
 	Latitude      float64 `json:"latitude,omitempty"`
 	Address       string  `json:"address,omitempty"`
-	IgnoreGeocode bool    `json:"ignoreGeocode"`
+	IgnoreGeocode *bool   `json:"ignoreGeocode,omitempty"`
 	TimeZoneID    string  `json:"timeZoneID,omitempty"`
 	EntityScope   string  `json:"entityScope,omitempty"`
 	Locality      string  `json:"locality,omitempty"`
@@ -74,10 +74,7 @@ type Location struct {
 
 // NewLocation returns a new *Location
 func NewLocation() *Location {
-
-	return &Location{
-		TimeZoneID: "UTC",
-	}
+	return &Location{}
 }
 
 // Identity returns the Identity of the object.

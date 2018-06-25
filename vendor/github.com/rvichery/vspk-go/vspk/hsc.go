@@ -61,7 +61,7 @@ type HSC struct {
 	Owner                       string        `json:"owner,omitempty"`
 	Name                        string        `json:"name,omitempty"`
 	ManagementIP                string        `json:"managementIP,omitempty"`
-	LastStateChange             int           `json:"lastStateChange"`
+	LastStateChange             *int          `json:"lastStateChange,omitempty"`
 	LastUpdatedBy               string        `json:"lastUpdatedBy,omitempty"`
 	Address                     string        `json:"address,omitempty"`
 	PeakCPUUsage                float64       `json:"peakCPUUsage,omitempty"`
@@ -69,8 +69,8 @@ type HSC struct {
 	Description                 string        `json:"description,omitempty"`
 	Messages                    []interface{} `json:"messages,omitempty"`
 	Disks                       []interface{} `json:"disks,omitempty"`
-	AlreadyMarkedForUnavailable bool          `json:"alreadyMarkedForUnavailable"`
-	UnavailableTimestamp        int           `json:"unavailableTimestamp"`
+	AlreadyMarkedForUnavailable *bool         `json:"alreadyMarkedForUnavailable,omitempty"`
+	UnavailableTimestamp        *int          `json:"unavailableTimestamp,omitempty"`
 	EntityScope                 string        `json:"entityScope,omitempty"`
 	Location                    string        `json:"location,omitempty"`
 	Model                       string        `json:"model,omitempty"`
@@ -87,7 +87,6 @@ type HSC struct {
 
 // NewHSC returns a new *HSC
 func NewHSC() *HSC {
-
 	return &HSC{}
 }
 

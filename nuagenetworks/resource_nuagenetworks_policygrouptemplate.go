@@ -38,6 +38,7 @@ func resourcePolicyGroupTemplate() *schema.Resource {
 			"evpn_community_tag": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -45,25 +46,26 @@ func resourcePolicyGroupTemplate() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"external": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"type": {
 				Type:     schema.TypeString,
@@ -97,7 +99,8 @@ func resourcePolicyGroupTemplateCreate(d *schema.ResourceData, m interface{}) er
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("external"); ok {
-		o.External = attr.(bool)
+		External := attr.(bool)
+		o.External = &External
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -169,7 +172,8 @@ func resourcePolicyGroupTemplateUpdate(d *schema.ResourceData, m interface{}) er
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("external"); ok {
-		o.External = attr.(bool)
+		External := attr.(bool)
+		o.External = &External
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

@@ -60,7 +60,7 @@ type RedundantPort struct {
 	ParentType                  string `json:"parentType,omitempty"`
 	Owner                       string `json:"owner,omitempty"`
 	VLANRange                   string `json:"VLANRange,omitempty"`
-	MTU                         int    `json:"MTU"`
+	MTU                         *int   `json:"MTU,omitempty"`
 	Name                        string `json:"name,omitempty"`
 	LastUpdatedBy               string `json:"lastUpdatedBy,omitempty"`
 	PermittedAction             string `json:"permittedAction,omitempty"`
@@ -72,8 +72,8 @@ type RedundantPort struct {
 	PortPeer2ID                 string `json:"portPeer2ID,omitempty"`
 	PortType                    string `json:"portType,omitempty"`
 	Speed                       string `json:"speed,omitempty"`
-	UseUntaggedHeartbeatVlan    bool   `json:"useUntaggedHeartbeatVlan"`
-	UseUserMnemonic             bool   `json:"useUserMnemonic"`
+	UseUntaggedHeartbeatVlan    *bool  `json:"useUntaggedHeartbeatVlan,omitempty"`
+	UseUserMnemonic             *bool  `json:"useUserMnemonic,omitempty"`
 	UserMnemonic                string `json:"userMnemonic,omitempty"`
 	AssociatedEgressQOSPolicyID string `json:"associatedEgressQOSPolicyID,omitempty"`
 	Status                      string `json:"status,omitempty"`
@@ -82,10 +82,10 @@ type RedundantPort struct {
 
 // NewRedundantPort returns a new *RedundantPort
 func NewRedundantPort() *RedundantPort {
-
+	MTU := 1500
 	return &RedundantPort{
 		VLANRange: "0-4094",
-		MTU:       1500,
+		MTU:       &MTU,
 	}
 }
 

@@ -41,7 +41,6 @@ func resourceVirtualFirewallPolicy() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"active": {
@@ -67,6 +66,7 @@ func resourceVirtualFirewallPolicy() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"allow_address_spoof": {
 				Type:     schema.TypeBool,
@@ -75,35 +75,32 @@ func resourceVirtualFirewallPolicy() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"policy_state": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"priority_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_egress_template_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_ingress_template_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_live_entity_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"auto_generate_priority": {
@@ -114,6 +111,7 @@ func resourceVirtualFirewallPolicy() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_domain": {
 				Type:          schema.TypeString,
@@ -146,31 +144,38 @@ func resourceVirtualFirewallPolicyCreate(d *schema.ResourceData, m interface{}) 
 		Name: d.Get("name").(string),
 	}
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("default_allow_ip"); ok {
-		o.DefaultAllowIP = attr.(bool)
+		DefaultAllowIP := attr.(bool)
+		o.DefaultAllowIP = &DefaultAllowIP
 	}
 	if attr, ok := d.GetOk("default_allow_non_ip"); ok {
-		o.DefaultAllowNonIP = attr.(bool)
+		DefaultAllowNonIP := attr.(bool)
+		o.DefaultAllowNonIP = &DefaultAllowNonIP
 	}
 	if attr, ok := d.GetOk("default_install_acl_implicit_rules"); ok {
-		o.DefaultInstallACLImplicitRules = attr.(bool)
+		DefaultInstallACLImplicitRules := attr.(bool)
+		o.DefaultInstallACLImplicitRules = &DefaultInstallACLImplicitRules
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("allow_address_spoof"); ok {
-		o.AllowAddressSpoof = attr.(bool)
+		AllowAddressSpoof := attr.(bool)
+		o.AllowAddressSpoof = &AllowAddressSpoof
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("priority_type"); ok {
 		o.PriorityType = attr.(string)
 	}
 	if attr, ok := d.GetOk("auto_generate_priority"); ok {
-		o.AutoGeneratePriority = attr.(bool)
+		AutoGeneratePriority := attr.(bool)
+		o.AutoGeneratePriority = &AutoGeneratePriority
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -265,31 +270,38 @@ func resourceVirtualFirewallPolicyUpdate(d *schema.ResourceData, m interface{}) 
 	o.Name = d.Get("name").(string)
 
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("default_allow_ip"); ok {
-		o.DefaultAllowIP = attr.(bool)
+		DefaultAllowIP := attr.(bool)
+		o.DefaultAllowIP = &DefaultAllowIP
 	}
 	if attr, ok := d.GetOk("default_allow_non_ip"); ok {
-		o.DefaultAllowNonIP = attr.(bool)
+		DefaultAllowNonIP := attr.(bool)
+		o.DefaultAllowNonIP = &DefaultAllowNonIP
 	}
 	if attr, ok := d.GetOk("default_install_acl_implicit_rules"); ok {
-		o.DefaultInstallACLImplicitRules = attr.(bool)
+		DefaultInstallACLImplicitRules := attr.(bool)
+		o.DefaultInstallACLImplicitRules = &DefaultInstallACLImplicitRules
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("allow_address_spoof"); ok {
-		o.AllowAddressSpoof = attr.(bool)
+		AllowAddressSpoof := attr.(bool)
+		o.AllowAddressSpoof = &AllowAddressSpoof
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("priority_type"); ok {
 		o.PriorityType = attr.(string)
 	}
 	if attr, ok := d.GetOk("auto_generate_priority"); ok {
-		o.AutoGeneratePriority = attr.(bool)
+		AutoGeneratePriority := attr.(bool)
+		o.AutoGeneratePriority = &AutoGeneratePriority
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

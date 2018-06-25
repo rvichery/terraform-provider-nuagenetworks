@@ -66,7 +66,6 @@ type CTranslationMap struct {
 
 // NewCTranslationMap returns a new *CTranslationMap
 func NewCTranslationMap() *CTranslationMap {
-
 	return &CTranslationMap{}
 }
 

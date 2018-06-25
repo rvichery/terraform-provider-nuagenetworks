@@ -37,7 +37,6 @@ func resourceOSPFArea() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"redistribute_external_enabled": {
@@ -48,28 +47,32 @@ func resourceOSPFArea() *schema.Resource {
 			"default_metric": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"default_originate_option": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"aggregate_area_range": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"aggregate_area_range_nssa": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"area_id": {
@@ -89,16 +92,19 @@ func resourceOSPFArea() *schema.Resource {
 			"suppress_area_range": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"suppress_area_range_nssa": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_ospf_instance": {
 				Type:     schema.TypeString,
@@ -111,14 +117,17 @@ func resourceOSPFArea() *schema.Resource {
 func resourceOSPFAreaCreate(d *schema.ResourceData, m interface{}) error {
 
 	// Initialize OSPFArea object
+	AreaID := d.Get("area_id").(int)
 	o := &vspk.OSPFArea{
-		AreaID: d.Get("area_id").(int),
+		AreaID: &AreaID,
 	}
 	if attr, ok := d.GetOk("redistribute_external_enabled"); ok {
-		o.RedistributeExternalEnabled = attr.(bool)
+		RedistributeExternalEnabled := attr.(bool)
+		o.RedistributeExternalEnabled = &RedistributeExternalEnabled
 	}
 	if attr, ok := d.GetOk("default_metric"); ok {
-		o.DefaultMetric = attr.(int)
+		DefaultMetric := attr.(int)
+		o.DefaultMetric = &DefaultMetric
 	}
 	if attr, ok := d.GetOk("default_originate_option"); ok {
 		o.DefaultOriginateOption = attr.(string)
@@ -136,7 +145,8 @@ func resourceOSPFAreaCreate(d *schema.ResourceData, m interface{}) error {
 		o.AreaType = attr.(string)
 	}
 	if attr, ok := d.GetOk("summaries_enabled"); ok {
-		o.SummariesEnabled = attr.(bool)
+		SummariesEnabled := attr.(bool)
+		o.SummariesEnabled = &SummariesEnabled
 	}
 	if attr, ok := d.GetOk("suppress_area_range"); ok {
 		o.SuppressAreaRange = attr.([]interface{})
@@ -201,13 +211,16 @@ func resourceOSPFAreaUpdate(d *schema.ResourceData, m interface{}) error {
 		return err
 	}
 
-	o.AreaID = d.Get("area_id").(int)
+	AreaID := d.Get("area_id").(int)
+	o.AreaID = &AreaID
 
 	if attr, ok := d.GetOk("redistribute_external_enabled"); ok {
-		o.RedistributeExternalEnabled = attr.(bool)
+		RedistributeExternalEnabled := attr.(bool)
+		o.RedistributeExternalEnabled = &RedistributeExternalEnabled
 	}
 	if attr, ok := d.GetOk("default_metric"); ok {
-		o.DefaultMetric = attr.(int)
+		DefaultMetric := attr.(int)
+		o.DefaultMetric = &DefaultMetric
 	}
 	if attr, ok := d.GetOk("default_originate_option"); ok {
 		o.DefaultOriginateOption = attr.(string)
@@ -225,7 +238,8 @@ func resourceOSPFAreaUpdate(d *schema.ResourceData, m interface{}) error {
 		o.AreaType = attr.(string)
 	}
 	if attr, ok := d.GetOk("summaries_enabled"); ok {
-		o.SummariesEnabled = attr.(bool)
+		SummariesEnabled := attr.(bool)
+		o.SummariesEnabled = &SummariesEnabled
 	}
 	if attr, ok := d.GetOk("suppress_area_range"); ok {
 		o.SuppressAreaRange = attr.([]interface{})

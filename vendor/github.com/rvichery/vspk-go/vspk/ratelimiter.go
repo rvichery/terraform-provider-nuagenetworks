@@ -71,7 +71,6 @@ type RateLimiter struct {
 
 // NewRateLimiter returns a new *RateLimiter
 func NewRateLimiter() *RateLimiter {
-
 	return &RateLimiter{}
 }
 

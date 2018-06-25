@@ -65,7 +65,6 @@ type NSGGroup struct {
 
 // NewNSGGroup returns a new *NSGGroup
 func NewNSGGroup() *NSGGroup {
-
 	return &NSGGroup{}
 }
 

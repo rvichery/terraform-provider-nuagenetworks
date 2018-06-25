@@ -51,20 +51,22 @@ func resourceNSPort() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"template_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"physical_name": {
 				Type:     schema.TypeString,
@@ -77,7 +79,6 @@ func resourceNSPort() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"port_type": {
@@ -97,22 +98,27 @@ func resourceNSPort() *schema.Resource {
 			"use_user_mnemonic": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"user_mnemonic": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_redundant_port_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"mtu": {
 				Type:     schema.TypeInt,
@@ -122,6 +128,7 @@ func resourceNSPort() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_ns_gateway": {
 				Type:     schema.TypeString,
@@ -155,16 +162,19 @@ func resourceNSPortCreate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("enable_nat_probes"); ok {
-		o.EnableNATProbes = attr.(bool)
+		EnableNATProbes := attr.(bool)
+		o.EnableNATProbes = &EnableNATProbes
 	}
 	if attr, ok := d.GetOk("speed"); ok {
 		o.Speed = attr.(string)
 	}
 	if attr, ok := d.GetOk("traffic_through_ubr_only"); ok {
-		o.TrafficThroughUBROnly = attr.(bool)
+		TrafficThroughUBROnly := attr.(bool)
+		o.TrafficThroughUBROnly = &TrafficThroughUBROnly
 	}
 	if attr, ok := d.GetOk("use_user_mnemonic"); ok {
-		o.UseUserMnemonic = attr.(bool)
+		UseUserMnemonic := attr.(bool)
+		o.UseUserMnemonic = &UseUserMnemonic
 	}
 	if attr, ok := d.GetOk("user_mnemonic"); ok {
 		o.UserMnemonic = attr.(string)
@@ -179,7 +189,8 @@ func resourceNSPortCreate(d *schema.ResourceData, m interface{}) error {
 		o.Status = attr.(string)
 	}
 	if attr, ok := d.GetOk("mtu"); ok {
-		o.Mtu = attr.(int)
+		Mtu := attr.(int)
+		o.Mtu = &Mtu
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -264,16 +275,19 @@ func resourceNSPortUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("enable_nat_probes"); ok {
-		o.EnableNATProbes = attr.(bool)
+		EnableNATProbes := attr.(bool)
+		o.EnableNATProbes = &EnableNATProbes
 	}
 	if attr, ok := d.GetOk("speed"); ok {
 		o.Speed = attr.(string)
 	}
 	if attr, ok := d.GetOk("traffic_through_ubr_only"); ok {
-		o.TrafficThroughUBROnly = attr.(bool)
+		TrafficThroughUBROnly := attr.(bool)
+		o.TrafficThroughUBROnly = &TrafficThroughUBROnly
 	}
 	if attr, ok := d.GetOk("use_user_mnemonic"); ok {
-		o.UseUserMnemonic = attr.(bool)
+		UseUserMnemonic := attr.(bool)
+		o.UseUserMnemonic = &UseUserMnemonic
 	}
 	if attr, ok := d.GetOk("user_mnemonic"); ok {
 		o.UserMnemonic = attr.(string)
@@ -288,7 +302,8 @@ func resourceNSPortUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Status = attr.(string)
 	}
 	if attr, ok := d.GetOk("mtu"); ok {
-		o.Mtu = attr.(int)
+		Mtu := attr.(int)
+		o.Mtu = &Mtu
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

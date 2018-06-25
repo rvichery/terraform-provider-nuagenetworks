@@ -38,6 +38,7 @@ func resourcePTranslationMap() *schema.Resource {
 			"spat_source_list": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"mapping_type": {

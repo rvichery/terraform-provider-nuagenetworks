@@ -38,52 +38,60 @@ func resourceIKEPSK() *schema.Resource {
 			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"signature": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"signing_certificate_serial_number": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"encrypted_psk": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"encrypting_certificate_serial_number": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"unencrypted_psk": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"auto_created": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -107,13 +115,15 @@ func resourceIKEPSKCreate(d *schema.ResourceData, m interface{}) error {
 		o.Signature = attr.(string)
 	}
 	if attr, ok := d.GetOk("signing_certificate_serial_number"); ok {
-		o.SigningCertificateSerialNumber = attr.(int)
+		SigningCertificateSerialNumber := attr.(int)
+		o.SigningCertificateSerialNumber = &SigningCertificateSerialNumber
 	}
 	if attr, ok := d.GetOk("encrypted_psk"); ok {
 		o.EncryptedPSK = attr.(string)
 	}
 	if attr, ok := d.GetOk("encrypting_certificate_serial_number"); ok {
-		o.EncryptingCertificateSerialNumber = attr.(int)
+		EncryptingCertificateSerialNumber := attr.(int)
+		o.EncryptingCertificateSerialNumber = &EncryptingCertificateSerialNumber
 	}
 	if attr, ok := d.GetOk("unencrypted_psk"); ok {
 		o.UnencryptedPSK = attr.(string)
@@ -122,7 +132,8 @@ func resourceIKEPSKCreate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedEnterpriseID = attr.(string)
 	}
 	if attr, ok := d.GetOk("auto_created"); ok {
-		o.AutoCreated = attr.(bool)
+		AutoCreated := attr.(bool)
+		o.AutoCreated = &AutoCreated
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -189,13 +200,15 @@ func resourceIKEPSKUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Signature = attr.(string)
 	}
 	if attr, ok := d.GetOk("signing_certificate_serial_number"); ok {
-		o.SigningCertificateSerialNumber = attr.(int)
+		SigningCertificateSerialNumber := attr.(int)
+		o.SigningCertificateSerialNumber = &SigningCertificateSerialNumber
 	}
 	if attr, ok := d.GetOk("encrypted_psk"); ok {
 		o.EncryptedPSK = attr.(string)
 	}
 	if attr, ok := d.GetOk("encrypting_certificate_serial_number"); ok {
-		o.EncryptingCertificateSerialNumber = attr.(int)
+		EncryptingCertificateSerialNumber := attr.(int)
+		o.EncryptingCertificateSerialNumber = &EncryptingCertificateSerialNumber
 	}
 	if attr, ok := d.GetOk("unencrypted_psk"); ok {
 		o.UnencryptedPSK = attr.(string)
@@ -204,7 +217,8 @@ func resourceIKEPSKUpdate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedEnterpriseID = attr.(string)
 	}
 	if attr, ok := d.GetOk("auto_created"); ok {
-		o.AutoCreated = attr.(bool)
+		AutoCreated := attr.(bool)
+		o.AutoCreated = &AutoCreated
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

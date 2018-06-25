@@ -67,7 +67,6 @@ type CloudMgmtSystem struct {
 
 // NewCloudMgmtSystem returns a new *CloudMgmtSystem
 func NewCloudMgmtSystem() *CloudMgmtSystem {
-
 	return &CloudMgmtSystem{}
 }
 

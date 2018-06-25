@@ -38,18 +38,22 @@ func resourceLtestatistics() *schema.Resource {
 			"version": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"end_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"start_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"stats_data": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"parent_vlan": {
@@ -65,13 +69,16 @@ func resourceLtestatisticsCreate(d *schema.ResourceData, m interface{}) error {
 	// Initialize Ltestatistics object
 	o := &vspk.Ltestatistics{}
 	if attr, ok := d.GetOk("version"); ok {
-		o.Version = attr.(int)
+		Version := attr.(int)
+		o.Version = &Version
 	}
 	if attr, ok := d.GetOk("end_time"); ok {
-		o.EndTime = attr.(int)
+		EndTime := attr.(int)
+		o.EndTime = &EndTime
 	}
 	if attr, ok := d.GetOk("start_time"); ok {
-		o.StartTime = attr.(int)
+		StartTime := attr.(int)
+		o.StartTime = &StartTime
 	}
 	if attr, ok := d.GetOk("stats_data"); ok {
 		o.StatsData = attr.([]interface{})
@@ -121,13 +128,16 @@ func resourceLtestatisticsUpdate(d *schema.ResourceData, m interface{}) error {
 	}
 
 	if attr, ok := d.GetOk("version"); ok {
-		o.Version = attr.(int)
+		Version := attr.(int)
+		o.Version = &Version
 	}
 	if attr, ok := d.GetOk("end_time"); ok {
-		o.EndTime = attr.(int)
+		EndTime := attr.(int)
+		o.EndTime = &EndTime
 	}
 	if attr, ok := d.GetOk("start_time"); ok {
-		o.StartTime = attr.(int)
+		StartTime := attr.(int)
+		o.StartTime = &StartTime
 	}
 	if attr, ok := d.GetOk("stats_data"); ok {
 		o.StatsData = attr.([]interface{})

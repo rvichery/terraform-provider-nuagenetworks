@@ -68,20 +68,20 @@ type BootstrapActivation struct {
 	EntityScope      string `json:"entityScope,omitempty"`
 	ConfigURL        string `json:"configURL,omitempty"`
 	TpmOwnerPassword string `json:"tpmOwnerPassword,omitempty"`
-	TpmState         int    `json:"tpmState"`
+	TpmState         *int   `json:"tpmState,omitempty"`
 	SrkPassword      string `json:"srkPassword,omitempty"`
-	VsdTime          int    `json:"vsdTime"`
+	VsdTime          *int   `json:"vsdTime,omitempty"`
 	Csr              string `json:"csr,omitempty"`
 	Status           string `json:"status,omitempty"`
-	AutoBootstrap    bool   `json:"autoBootstrap"`
+	AutoBootstrap    *bool  `json:"autoBootstrap,omitempty"`
 	ExternalID       string `json:"externalID,omitempty"`
 }
 
 // NewBootstrapActivation returns a new *BootstrapActivation
 func NewBootstrapActivation() *BootstrapActivation {
-
+	TpmState := 0
 	return &BootstrapActivation{
-		TpmState: 0,
+		TpmState: &TpmState,
 	}
 }
 

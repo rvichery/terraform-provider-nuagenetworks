@@ -42,7 +42,6 @@ func resourceProxyARPFilter() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"max_address": {
@@ -55,12 +54,12 @@ func resourceProxyARPFilter() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_subnet": {
 				Type:     schema.TypeString,

@@ -38,6 +38,7 @@ func resourceApplication() *schema.Resource {
 			"dscp": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -46,16 +47,15 @@ func resourceApplication() *schema.Resource {
 			"bandwidth": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"read_only": {
 				Type:     schema.TypeBool,
-				Optional: true,
-				Default:  false,
+				Computed: true,
 			},
 			"performance_monitor_type": {
 				Type:     schema.TypeString,
@@ -65,14 +65,17 @@ func resourceApplication() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"destination_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"destination_port": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"enable_pps": {
 				Type:     schema.TypeBool,
@@ -82,18 +85,20 @@ func resourceApplication() *schema.Resource {
 			"one_way_delay": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"one_way_jitter": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"one_way_loss": {
 				Type:     schema.TypeFloat,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"post_classification_path": {
@@ -104,19 +109,21 @@ func resourceApplication() *schema.Resource {
 			"source_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"source_port": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"app_id": {
 				Type:     schema.TypeInt,
-				Optional: true,
 				Computed: true,
 			},
 			"optimize_path_selection": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"pre_classification_path": {
 				Type:     schema.TypeString,
@@ -131,14 +138,17 @@ func resourceApplication() *schema.Resource {
 			"associated_l7_application_signature_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ether_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"symmetry": {
 				Type:     schema.TypeBool,
@@ -163,10 +173,12 @@ func resourceApplicationCreate(d *schema.ResourceData, m interface{}) error {
 		o.DSCP = attr.(string)
 	}
 	if attr, ok := d.GetOk("bandwidth"); ok {
-		o.Bandwidth = attr.(int)
+		Bandwidth := attr.(int)
+		o.Bandwidth = &Bandwidth
 	}
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 	if attr, ok := d.GetOk("performance_monitor_type"); ok {
 		o.PerformanceMonitorType = attr.(string)
@@ -181,13 +193,16 @@ func resourceApplicationCreate(d *schema.ResourceData, m interface{}) error {
 		o.DestinationPort = attr.(string)
 	}
 	if attr, ok := d.GetOk("enable_pps"); ok {
-		o.EnablePPS = attr.(bool)
+		EnablePPS := attr.(bool)
+		o.EnablePPS = &EnablePPS
 	}
 	if attr, ok := d.GetOk("one_way_delay"); ok {
-		o.OneWayDelay = attr.(int)
+		OneWayDelay := attr.(int)
+		o.OneWayDelay = &OneWayDelay
 	}
 	if attr, ok := d.GetOk("one_way_jitter"); ok {
-		o.OneWayJitter = attr.(int)
+		OneWayJitter := attr.(int)
+		o.OneWayJitter = &OneWayJitter
 	}
 	if attr, ok := d.GetOk("one_way_loss"); ok {
 		o.OneWayLoss = attr.(float64)
@@ -220,7 +235,8 @@ func resourceApplicationCreate(d *schema.ResourceData, m interface{}) error {
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("symmetry"); ok {
-		o.Symmetry = attr.(bool)
+		Symmetry := attr.(bool)
+		o.Symmetry = &Symmetry
 	}
 	parent := &vspk.Enterprise{ID: d.Get("parent_enterprise").(string)}
 	err := parent.CreateApplication(o)
@@ -293,10 +309,12 @@ func resourceApplicationUpdate(d *schema.ResourceData, m interface{}) error {
 		o.DSCP = attr.(string)
 	}
 	if attr, ok := d.GetOk("bandwidth"); ok {
-		o.Bandwidth = attr.(int)
+		Bandwidth := attr.(int)
+		o.Bandwidth = &Bandwidth
 	}
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 	if attr, ok := d.GetOk("performance_monitor_type"); ok {
 		o.PerformanceMonitorType = attr.(string)
@@ -311,13 +329,16 @@ func resourceApplicationUpdate(d *schema.ResourceData, m interface{}) error {
 		o.DestinationPort = attr.(string)
 	}
 	if attr, ok := d.GetOk("enable_pps"); ok {
-		o.EnablePPS = attr.(bool)
+		EnablePPS := attr.(bool)
+		o.EnablePPS = &EnablePPS
 	}
 	if attr, ok := d.GetOk("one_way_delay"); ok {
-		o.OneWayDelay = attr.(int)
+		OneWayDelay := attr.(int)
+		o.OneWayDelay = &OneWayDelay
 	}
 	if attr, ok := d.GetOk("one_way_jitter"); ok {
-		o.OneWayJitter = attr.(int)
+		OneWayJitter := attr.(int)
+		o.OneWayJitter = &OneWayJitter
 	}
 	if attr, ok := d.GetOk("one_way_loss"); ok {
 		o.OneWayLoss = attr.(float64)
@@ -350,7 +371,8 @@ func resourceApplicationUpdate(d *schema.ResourceData, m interface{}) error {
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("symmetry"); ok {
-		o.Symmetry = attr.(bool)
+		Symmetry := attr.(bool)
+		o.Symmetry = &Symmetry
 	}
 
 	o.Save()

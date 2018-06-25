@@ -69,17 +69,17 @@ type NSPortTemplate struct {
 	PortType                    string `json:"portType,omitempty"`
 	Speed                       string `json:"speed,omitempty"`
 	AssociatedEgressQOSPolicyID string `json:"associatedEgressQOSPolicyID,omitempty"`
-	Mtu                         int    `json:"mtu"`
+	Mtu                         *int   `json:"mtu,omitempty"`
 	ExternalID                  string `json:"externalID,omitempty"`
 }
 
 // NewNSPortTemplate returns a new *NSPortTemplate
 func NewNSPortTemplate() *NSPortTemplate {
-
+	Mtu := 1500
 	return &NSPortTemplate{
 		VLANRange: "0-4094",
 		Speed:     "AUTONEGOTIATE",
-		Mtu:       1500,
+		Mtu:       &Mtu,
 	}
 }
 

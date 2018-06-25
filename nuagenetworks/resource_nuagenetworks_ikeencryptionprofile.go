@@ -58,10 +58,12 @@ func resourceIKEEncryptionprofile() *schema.Resource {
 			"ipsec_dont_fragment": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"ipsec_enable_pfs": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"ipsec_encryption_algorithm": {
 				Type:     schema.TypeString,
@@ -71,6 +73,7 @@ func resourceIKEEncryptionprofile() *schema.Resource {
 			"ipsec_pre_fragment": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"ipsec_sa_lifetime": {
 				Type:     schema.TypeInt,
@@ -110,32 +113,35 @@ func resourceIKEEncryptionprofile() *schema.Resource {
 			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"sequence": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -150,31 +156,37 @@ func resourceIKEEncryptionprofileCreate(d *schema.ResourceData, m interface{}) e
 	// Initialize IKEEncryptionprofile object
 	o := &vspk.IKEEncryptionprofile{}
 	if attr, ok := d.GetOk("dpd_interval"); ok {
-		o.DPDInterval = attr.(int)
+		DPDInterval := attr.(int)
+		o.DPDInterval = &DPDInterval
 	}
 	if attr, ok := d.GetOk("dpd_mode"); ok {
 		o.DPDMode = attr.(string)
 	}
 	if attr, ok := d.GetOk("dpd_timeout"); ok {
-		o.DPDTimeout = attr.(int)
+		DPDTimeout := attr.(int)
+		o.DPDTimeout = &DPDTimeout
 	}
 	if attr, ok := d.GetOk("ipsec_authentication_algorithm"); ok {
 		o.IPsecAuthenticationAlgorithm = attr.(string)
 	}
 	if attr, ok := d.GetOk("ipsec_dont_fragment"); ok {
-		o.IPsecDontFragment = attr.(bool)
+		IPsecDontFragment := attr.(bool)
+		o.IPsecDontFragment = &IPsecDontFragment
 	}
 	if attr, ok := d.GetOk("ipsec_enable_pfs"); ok {
-		o.IPsecEnablePFS = attr.(bool)
+		IPsecEnablePFS := attr.(bool)
+		o.IPsecEnablePFS = &IPsecEnablePFS
 	}
 	if attr, ok := d.GetOk("ipsec_encryption_algorithm"); ok {
 		o.IPsecEncryptionAlgorithm = attr.(string)
 	}
 	if attr, ok := d.GetOk("ipsec_pre_fragment"); ok {
-		o.IPsecPreFragment = attr.(bool)
+		IPsecPreFragment := attr.(bool)
+		o.IPsecPreFragment = &IPsecPreFragment
 	}
 	if attr, ok := d.GetOk("ipsec_sa_lifetime"); ok {
-		o.IPsecSALifetime = attr.(int)
+		IPsecSALifetime := attr.(int)
+		o.IPsecSALifetime = &IPsecSALifetime
 	}
 	if attr, ok := d.GetOk("ipsec_sa_replay_window_size"); ok {
 		o.IPsecSAReplayWindowSize = attr.(string)
@@ -189,7 +201,8 @@ func resourceIKEEncryptionprofileCreate(d *schema.ResourceData, m interface{}) e
 		o.ISAKMPEncryptionAlgorithm = attr.(string)
 	}
 	if attr, ok := d.GetOk("isakmp_encryption_key_lifetime"); ok {
-		o.ISAKMPEncryptionKeyLifetime = attr.(int)
+		ISAKMPEncryptionKeyLifetime := attr.(int)
+		o.ISAKMPEncryptionKeyLifetime = &ISAKMPEncryptionKeyLifetime
 	}
 	if attr, ok := d.GetOk("isakmp_hash_algorithm"); ok {
 		o.ISAKMPHashAlgorithm = attr.(string)
@@ -198,7 +211,8 @@ func resourceIKEEncryptionprofileCreate(d *schema.ResourceData, m interface{}) e
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("sequence"); ok {
-		o.Sequence = attr.(int)
+		Sequence := attr.(int)
+		o.Sequence = &Sequence
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -272,31 +286,37 @@ func resourceIKEEncryptionprofileUpdate(d *schema.ResourceData, m interface{}) e
 	}
 
 	if attr, ok := d.GetOk("dpd_interval"); ok {
-		o.DPDInterval = attr.(int)
+		DPDInterval := attr.(int)
+		o.DPDInterval = &DPDInterval
 	}
 	if attr, ok := d.GetOk("dpd_mode"); ok {
 		o.DPDMode = attr.(string)
 	}
 	if attr, ok := d.GetOk("dpd_timeout"); ok {
-		o.DPDTimeout = attr.(int)
+		DPDTimeout := attr.(int)
+		o.DPDTimeout = &DPDTimeout
 	}
 	if attr, ok := d.GetOk("ipsec_authentication_algorithm"); ok {
 		o.IPsecAuthenticationAlgorithm = attr.(string)
 	}
 	if attr, ok := d.GetOk("ipsec_dont_fragment"); ok {
-		o.IPsecDontFragment = attr.(bool)
+		IPsecDontFragment := attr.(bool)
+		o.IPsecDontFragment = &IPsecDontFragment
 	}
 	if attr, ok := d.GetOk("ipsec_enable_pfs"); ok {
-		o.IPsecEnablePFS = attr.(bool)
+		IPsecEnablePFS := attr.(bool)
+		o.IPsecEnablePFS = &IPsecEnablePFS
 	}
 	if attr, ok := d.GetOk("ipsec_encryption_algorithm"); ok {
 		o.IPsecEncryptionAlgorithm = attr.(string)
 	}
 	if attr, ok := d.GetOk("ipsec_pre_fragment"); ok {
-		o.IPsecPreFragment = attr.(bool)
+		IPsecPreFragment := attr.(bool)
+		o.IPsecPreFragment = &IPsecPreFragment
 	}
 	if attr, ok := d.GetOk("ipsec_sa_lifetime"); ok {
-		o.IPsecSALifetime = attr.(int)
+		IPsecSALifetime := attr.(int)
+		o.IPsecSALifetime = &IPsecSALifetime
 	}
 	if attr, ok := d.GetOk("ipsec_sa_replay_window_size"); ok {
 		o.IPsecSAReplayWindowSize = attr.(string)
@@ -311,7 +331,8 @@ func resourceIKEEncryptionprofileUpdate(d *schema.ResourceData, m interface{}) e
 		o.ISAKMPEncryptionAlgorithm = attr.(string)
 	}
 	if attr, ok := d.GetOk("isakmp_encryption_key_lifetime"); ok {
-		o.ISAKMPEncryptionKeyLifetime = attr.(int)
+		ISAKMPEncryptionKeyLifetime := attr.(int)
+		o.ISAKMPEncryptionKeyLifetime = &ISAKMPEncryptionKeyLifetime
 	}
 	if attr, ok := d.GetOk("isakmp_hash_algorithm"); ok {
 		o.ISAKMPHashAlgorithm = attr.(string)
@@ -320,7 +341,8 @@ func resourceIKEEncryptionprofileUpdate(d *schema.ResourceData, m interface{}) e
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("sequence"); ok {
-		o.Sequence = attr.(int)
+		Sequence := attr.(int)
+		o.Sequence = &Sequence
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)

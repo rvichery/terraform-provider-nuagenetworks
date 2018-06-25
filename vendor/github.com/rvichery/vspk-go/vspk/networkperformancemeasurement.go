@@ -61,17 +61,17 @@ type NetworkPerformanceMeasurement struct {
 	Owner                          string `json:"owner,omitempty"`
 	NPMType                        string `json:"NPMType,omitempty"`
 	Name                           string `json:"name,omitempty"`
-	ReadOnly                       bool   `json:"readOnly"`
+	ReadOnly                       *bool  `json:"readOnly,omitempty"`
 	Description                    string `json:"description,omitempty"`
 	AssociatedPerformanceMonitorID string `json:"associatedPerformanceMonitorID,omitempty"`
 }
 
 // NewNetworkPerformanceMeasurement returns a new *NetworkPerformanceMeasurement
 func NewNetworkPerformanceMeasurement() *NetworkPerformanceMeasurement {
-
+	ReadOnly := false
 	return &NetworkPerformanceMeasurement{
 		NPMType:  "NONE",
-		ReadOnly: false,
+		ReadOnly: &ReadOnly,
 	}
 }
 

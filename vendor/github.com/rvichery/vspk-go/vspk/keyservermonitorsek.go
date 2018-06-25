@@ -62,16 +62,15 @@ type KeyServerMonitorSEK struct {
 	LastUpdatedBy                      string `json:"lastUpdatedBy,omitempty"`
 	SeedPayloadAuthenticationAlgorithm string `json:"seedPayloadAuthenticationAlgorithm,omitempty"`
 	SeedPayloadEncryptionAlgorithm     string `json:"seedPayloadEncryptionAlgorithm,omitempty"`
-	Lifetime                           int    `json:"lifetime"`
+	Lifetime                           *int   `json:"lifetime,omitempty"`
 	EntityScope                        string `json:"entityScope,omitempty"`
-	CreationTime                       int    `json:"creationTime"`
-	StartTime                          int    `json:"startTime"`
+	CreationTime                       *int   `json:"creationTime,omitempty"`
+	StartTime                          *int   `json:"startTime,omitempty"`
 	ExternalID                         string `json:"externalID,omitempty"`
 }
 
 // NewKeyServerMonitorSEK returns a new *KeyServerMonitorSEK
 func NewKeyServerMonitorSEK() *KeyServerMonitorSEK {
-
 	return &KeyServerMonitorSEK{}
 }
 

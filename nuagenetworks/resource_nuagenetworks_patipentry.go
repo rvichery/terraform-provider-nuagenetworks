@@ -38,10 +38,12 @@ func resourcePATIPEntry() *schema.Resource {
 			"pat_centralized": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"ip_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ip_type": {
 				Type:     schema.TypeString,
@@ -50,25 +52,26 @@ func resourcePATIPEntry() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_domain_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"hypervisor_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_shared_network_resource": {
 				Type:     schema.TypeString,
@@ -83,7 +86,8 @@ func resourcePATIPEntryCreate(d *schema.ResourceData, m interface{}) error {
 	// Initialize PATIPEntry object
 	o := &vspk.PATIPEntry{}
 	if attr, ok := d.GetOk("pat_centralized"); ok {
-		o.PATCentralized = attr.(bool)
+		PATCentralized := attr.(bool)
+		o.PATCentralized = &PATCentralized
 	}
 	if attr, ok := d.GetOk("ip_address"); ok {
 		o.IPAddress = attr.(string)
@@ -149,7 +153,8 @@ func resourcePATIPEntryUpdate(d *schema.ResourceData, m interface{}) error {
 	}
 
 	if attr, ok := d.GetOk("pat_centralized"); ok {
-		o.PATCentralized = attr.(bool)
+		PATCentralized := attr.(bool)
+		o.PATCentralized = &PATCentralized
 	}
 	if attr, ok := d.GetOk("ip_address"); ok {
 		o.IPAddress = attr.(string)

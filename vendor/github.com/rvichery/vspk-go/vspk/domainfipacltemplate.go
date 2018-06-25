@@ -61,14 +61,14 @@ type DomainFIPAclTemplate struct {
 	Owner                  string        `json:"owner,omitempty"`
 	Name                   string        `json:"name,omitempty"`
 	LastUpdatedBy          string        `json:"lastUpdatedBy,omitempty"`
-	Active                 bool          `json:"active"`
-	DefaultAllowIP         bool          `json:"defaultAllowIP"`
-	DefaultAllowNonIP      bool          `json:"defaultAllowNonIP"`
+	Active                 *bool         `json:"active,omitempty"`
+	DefaultAllowIP         *bool         `json:"defaultAllowIP,omitempty"`
+	DefaultAllowNonIP      *bool         `json:"defaultAllowNonIP,omitempty"`
 	Description            string        `json:"description,omitempty"`
 	EntityScope            string        `json:"entityScope,omitempty"`
 	Entries                []interface{} `json:"entries,omitempty"`
 	PolicyState            string        `json:"policyState,omitempty"`
-	Priority               int           `json:"priority"`
+	Priority               *int          `json:"priority,omitempty"`
 	PriorityType           string        `json:"priorityType,omitempty"`
 	AssociatedLiveEntityID string        `json:"associatedLiveEntityID,omitempty"`
 	ExternalID             string        `json:"externalID,omitempty"`
@@ -76,7 +76,6 @@ type DomainFIPAclTemplate struct {
 
 // NewDomainFIPAclTemplate returns a new *DomainFIPAclTemplate
 func NewDomainFIPAclTemplate() *DomainFIPAclTemplate {
-
 	return &DomainFIPAclTemplate{}
 }
 

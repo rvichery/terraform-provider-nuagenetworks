@@ -66,7 +66,6 @@ type DefaultGateway struct {
 
 // NewDefaultGateway returns a new *DefaultGateway
 func NewDefaultGateway() *DefaultGateway {
-
 	return &DefaultGateway{}
 }
 

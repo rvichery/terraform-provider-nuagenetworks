@@ -38,6 +38,7 @@ func resourceGroup() *schema.Resource {
 			"ldap_group_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -46,40 +47,45 @@ func resourceGroup() *schema.Resource {
 			"management_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"account_restrictions": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"restriction_date": {
 				Type:     schema.TypeFloat,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"role": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"private": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -102,7 +108,8 @@ func resourceGroupCreate(d *schema.ResourceData, m interface{}) error {
 		o.ManagementMode = attr.(string)
 	}
 	if attr, ok := d.GetOk("account_restrictions"); ok {
-		o.AccountRestrictions = attr.(bool)
+		AccountRestrictions := attr.(bool)
+		o.AccountRestrictions = &AccountRestrictions
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -114,7 +121,8 @@ func resourceGroupCreate(d *schema.ResourceData, m interface{}) error {
 		o.Role = attr.(string)
 	}
 	if attr, ok := d.GetOk("private"); ok {
-		o.Private = attr.(bool)
+		Private := attr.(bool)
+		o.Private = &Private
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -182,7 +190,8 @@ func resourceGroupUpdate(d *schema.ResourceData, m interface{}) error {
 		o.ManagementMode = attr.(string)
 	}
 	if attr, ok := d.GetOk("account_restrictions"); ok {
-		o.AccountRestrictions = attr.(bool)
+		AccountRestrictions := attr.(bool)
+		o.AccountRestrictions = &AccountRestrictions
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -194,7 +203,8 @@ func resourceGroupUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Role = attr.(string)
 	}
 	if attr, ok := d.GetOk("private"); ok {
-		o.Private = attr.(bool)
+		Private := attr.(bool)
+		o.Private = &Private
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

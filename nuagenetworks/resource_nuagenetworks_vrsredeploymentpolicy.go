@@ -38,76 +38,90 @@ func resourceVRSRedeploymentpolicy() *schema.Resource {
 			"al_ubr0_status_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"cpu_utilization_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"cpu_utilization_threshold": {
 				Type:     schema.TypeFloat,
 				Optional: true,
+				Computed: true,
 			},
 			"vrs_corrective_action_delay": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"vrs_process_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"vrsvsc_status_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"redeployment_delay": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"memory_utilization_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"memory_utilization_threshold": {
 				Type:     schema.TypeFloat,
 				Optional: true,
+				Computed: true,
 			},
 			"deployment_count_threshold": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"jesxmon_process_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"log_disk_utilization_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"log_disk_utilization_threshold": {
 				Type:     schema.TypeFloat,
 				Optional: true,
+				Computed: true,
 			},
 			"root_disk_utilization_redeployment_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"root_disk_utilization_threshold": {
 				Type:     schema.TypeFloat,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_vcenter_cluster": {
 				Type:          schema.TypeString,
@@ -143,46 +157,57 @@ func resourceVRSRedeploymentpolicyCreate(d *schema.ResourceData, m interface{}) 
 	// Initialize VRSRedeploymentpolicy object
 	o := &vspk.VRSRedeploymentpolicy{}
 	if attr, ok := d.GetOk("al_ubr0_status_redeployment_enabled"); ok {
-		o.ALUbr0StatusRedeploymentEnabled = attr.(bool)
+		ALUbr0StatusRedeploymentEnabled := attr.(bool)
+		o.ALUbr0StatusRedeploymentEnabled = &ALUbr0StatusRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("cpu_utilization_redeployment_enabled"); ok {
-		o.CPUUtilizationRedeploymentEnabled = attr.(bool)
+		CPUUtilizationRedeploymentEnabled := attr.(bool)
+		o.CPUUtilizationRedeploymentEnabled = &CPUUtilizationRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("cpu_utilization_threshold"); ok {
 		o.CPUUtilizationThreshold = attr.(float64)
 	}
 	if attr, ok := d.GetOk("vrs_corrective_action_delay"); ok {
-		o.VRSCorrectiveActionDelay = attr.(int)
+		VRSCorrectiveActionDelay := attr.(int)
+		o.VRSCorrectiveActionDelay = &VRSCorrectiveActionDelay
 	}
 	if attr, ok := d.GetOk("vrs_process_redeployment_enabled"); ok {
-		o.VRSProcessRedeploymentEnabled = attr.(bool)
+		VRSProcessRedeploymentEnabled := attr.(bool)
+		o.VRSProcessRedeploymentEnabled = &VRSProcessRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("vrsvsc_status_redeployment_enabled"); ok {
-		o.VRSVSCStatusRedeploymentEnabled = attr.(bool)
+		VRSVSCStatusRedeploymentEnabled := attr.(bool)
+		o.VRSVSCStatusRedeploymentEnabled = &VRSVSCStatusRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("redeployment_delay"); ok {
-		o.RedeploymentDelay = attr.(int)
+		RedeploymentDelay := attr.(int)
+		o.RedeploymentDelay = &RedeploymentDelay
 	}
 	if attr, ok := d.GetOk("memory_utilization_redeployment_enabled"); ok {
-		o.MemoryUtilizationRedeploymentEnabled = attr.(bool)
+		MemoryUtilizationRedeploymentEnabled := attr.(bool)
+		o.MemoryUtilizationRedeploymentEnabled = &MemoryUtilizationRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("memory_utilization_threshold"); ok {
 		o.MemoryUtilizationThreshold = attr.(float64)
 	}
 	if attr, ok := d.GetOk("deployment_count_threshold"); ok {
-		o.DeploymentCountThreshold = attr.(int)
+		DeploymentCountThreshold := attr.(int)
+		o.DeploymentCountThreshold = &DeploymentCountThreshold
 	}
 	if attr, ok := d.GetOk("jesxmon_process_redeployment_enabled"); ok {
-		o.JesxmonProcessRedeploymentEnabled = attr.(bool)
+		JesxmonProcessRedeploymentEnabled := attr.(bool)
+		o.JesxmonProcessRedeploymentEnabled = &JesxmonProcessRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("log_disk_utilization_redeployment_enabled"); ok {
-		o.LogDiskUtilizationRedeploymentEnabled = attr.(bool)
+		LogDiskUtilizationRedeploymentEnabled := attr.(bool)
+		o.LogDiskUtilizationRedeploymentEnabled = &LogDiskUtilizationRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("log_disk_utilization_threshold"); ok {
 		o.LogDiskUtilizationThreshold = attr.(float64)
 	}
 	if attr, ok := d.GetOk("root_disk_utilization_redeployment_enabled"); ok {
-		o.RootDiskUtilizationRedeploymentEnabled = attr.(bool)
+		RootDiskUtilizationRedeploymentEnabled := attr.(bool)
+		o.RootDiskUtilizationRedeploymentEnabled = &RootDiskUtilizationRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("root_disk_utilization_threshold"); ok {
 		o.RootDiskUtilizationThreshold = attr.(float64)
@@ -279,46 +304,57 @@ func resourceVRSRedeploymentpolicyUpdate(d *schema.ResourceData, m interface{}) 
 	}
 
 	if attr, ok := d.GetOk("al_ubr0_status_redeployment_enabled"); ok {
-		o.ALUbr0StatusRedeploymentEnabled = attr.(bool)
+		ALUbr0StatusRedeploymentEnabled := attr.(bool)
+		o.ALUbr0StatusRedeploymentEnabled = &ALUbr0StatusRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("cpu_utilization_redeployment_enabled"); ok {
-		o.CPUUtilizationRedeploymentEnabled = attr.(bool)
+		CPUUtilizationRedeploymentEnabled := attr.(bool)
+		o.CPUUtilizationRedeploymentEnabled = &CPUUtilizationRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("cpu_utilization_threshold"); ok {
 		o.CPUUtilizationThreshold = attr.(float64)
 	}
 	if attr, ok := d.GetOk("vrs_corrective_action_delay"); ok {
-		o.VRSCorrectiveActionDelay = attr.(int)
+		VRSCorrectiveActionDelay := attr.(int)
+		o.VRSCorrectiveActionDelay = &VRSCorrectiveActionDelay
 	}
 	if attr, ok := d.GetOk("vrs_process_redeployment_enabled"); ok {
-		o.VRSProcessRedeploymentEnabled = attr.(bool)
+		VRSProcessRedeploymentEnabled := attr.(bool)
+		o.VRSProcessRedeploymentEnabled = &VRSProcessRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("vrsvsc_status_redeployment_enabled"); ok {
-		o.VRSVSCStatusRedeploymentEnabled = attr.(bool)
+		VRSVSCStatusRedeploymentEnabled := attr.(bool)
+		o.VRSVSCStatusRedeploymentEnabled = &VRSVSCStatusRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("redeployment_delay"); ok {
-		o.RedeploymentDelay = attr.(int)
+		RedeploymentDelay := attr.(int)
+		o.RedeploymentDelay = &RedeploymentDelay
 	}
 	if attr, ok := d.GetOk("memory_utilization_redeployment_enabled"); ok {
-		o.MemoryUtilizationRedeploymentEnabled = attr.(bool)
+		MemoryUtilizationRedeploymentEnabled := attr.(bool)
+		o.MemoryUtilizationRedeploymentEnabled = &MemoryUtilizationRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("memory_utilization_threshold"); ok {
 		o.MemoryUtilizationThreshold = attr.(float64)
 	}
 	if attr, ok := d.GetOk("deployment_count_threshold"); ok {
-		o.DeploymentCountThreshold = attr.(int)
+		DeploymentCountThreshold := attr.(int)
+		o.DeploymentCountThreshold = &DeploymentCountThreshold
 	}
 	if attr, ok := d.GetOk("jesxmon_process_redeployment_enabled"); ok {
-		o.JesxmonProcessRedeploymentEnabled = attr.(bool)
+		JesxmonProcessRedeploymentEnabled := attr.(bool)
+		o.JesxmonProcessRedeploymentEnabled = &JesxmonProcessRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("log_disk_utilization_redeployment_enabled"); ok {
-		o.LogDiskUtilizationRedeploymentEnabled = attr.(bool)
+		LogDiskUtilizationRedeploymentEnabled := attr.(bool)
+		o.LogDiskUtilizationRedeploymentEnabled = &LogDiskUtilizationRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("log_disk_utilization_threshold"); ok {
 		o.LogDiskUtilizationThreshold = attr.(float64)
 	}
 	if attr, ok := d.GetOk("root_disk_utilization_redeployment_enabled"); ok {
-		o.RootDiskUtilizationRedeploymentEnabled = attr.(bool)
+		RootDiskUtilizationRedeploymentEnabled := attr.(bool)
+		o.RootDiskUtilizationRedeploymentEnabled = &RootDiskUtilizationRedeploymentEnabled
 	}
 	if attr, ok := d.GetOk("root_disk_utilization_threshold"); ok {
 		o.RootDiskUtilizationThreshold = attr.(float64)

@@ -65,7 +65,7 @@ type Container struct {
 	Name            string        `json:"name,omitempty"`
 	LastUpdatedBy   string        `json:"lastUpdatedBy,omitempty"`
 	ReasonType      string        `json:"reasonType,omitempty"`
-	DeleteExpiry    int           `json:"deleteExpiry"`
+	DeleteExpiry    *int          `json:"deleteExpiry,omitempty"`
 	DeleteMode      string        `json:"deleteMode,omitempty"`
 	ResyncInfo      interface{}   `json:"resyncInfo,omitempty"`
 	SiteIdentifier  string        `json:"siteIdentifier,omitempty"`
@@ -88,7 +88,6 @@ type Container struct {
 
 // NewContainer returns a new *Container
 func NewContainer() *Container {
-
 	return &Container{}
 }
 

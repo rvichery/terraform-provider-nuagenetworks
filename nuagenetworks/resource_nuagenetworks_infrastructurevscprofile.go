@@ -41,28 +41,30 @@ func resourceInfrastructureVscProfile() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"second_controller": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"first_controller": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"probe_interval": {
@@ -73,6 +75,7 @@ func resourceInfrastructureVscProfile() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 		},
 	}
@@ -97,7 +100,8 @@ func resourceInfrastructureVscProfileCreate(d *schema.ResourceData, m interface{
 		o.EnterpriseID = attr.(string)
 	}
 	if attr, ok := d.GetOk("probe_interval"); ok {
-		o.ProbeInterval = attr.(int)
+		ProbeInterval := attr.(int)
+		o.ProbeInterval = &ProbeInterval
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -166,7 +170,8 @@ func resourceInfrastructureVscProfileUpdate(d *schema.ResourceData, m interface{
 		o.EnterpriseID = attr.(string)
 	}
 	if attr, ok := d.GetOk("probe_interval"); ok {
-		o.ProbeInterval = attr.(int)
+		ProbeInterval := attr.(int)
+		o.ProbeInterval = &ProbeInterval
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

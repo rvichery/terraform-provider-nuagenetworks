@@ -64,30 +64,31 @@ type TCA struct {
 	TargetPolicyGroupID string `json:"targetPolicyGroupID,omitempty"`
 	LastUpdatedBy       string `json:"lastUpdatedBy,omitempty"`
 	Action              string `json:"action,omitempty"`
-	Period              int    `json:"period"`
+	Period              *int   `json:"period,omitempty"`
 	Description         string `json:"description,omitempty"`
 	Metric              string `json:"metric,omitempty"`
-	Threshold           int    `json:"threshold"`
-	ThrottleTime        int    `json:"throttleTime"`
-	Disable             bool   `json:"disable"`
+	Threshold           *int   `json:"threshold,omitempty"`
+	ThrottleTime        *int   `json:"throttleTime,omitempty"`
+	Disable             *bool  `json:"disable,omitempty"`
 	DisplayStatus       string `json:"displayStatus,omitempty"`
 	EntityScope         string `json:"entityScope,omitempty"`
-	Count               int    `json:"count"`
-	Status              bool   `json:"status"`
+	Count               *int   `json:"count,omitempty"`
+	Status              *bool  `json:"status,omitempty"`
 	ExternalID          string `json:"externalID,omitempty"`
 	Type                string `json:"type,omitempty"`
 }
 
 // NewTCA returns a new *TCA
 func NewTCA() *TCA {
-
+	ThrottleTime := 0
+	Disable := false
+	Count := 0
+	Status := false
 	return &TCA{
-		Metric:       "BYTES_IN",
-		ThrottleTime: 0,
-		Disable:      false,
-		Count:        0,
-		Status:       false,
-		Type:         "ROLLING_AVERAGE",
+		ThrottleTime: &ThrottleTime,
+		Disable:      &Disable,
+		Count:        &Count,
+		Status:       &Status,
 	}
 }
 

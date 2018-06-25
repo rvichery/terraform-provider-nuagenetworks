@@ -65,7 +65,7 @@ type VM struct {
 	Name            string        `json:"name,omitempty"`
 	LastUpdatedBy   string        `json:"lastUpdatedBy,omitempty"`
 	ReasonType      string        `json:"reasonType,omitempty"`
-	DeleteExpiry    int           `json:"deleteExpiry"`
+	DeleteExpiry    *int          `json:"deleteExpiry,omitempty"`
 	DeleteMode      string        `json:"deleteMode,omitempty"`
 	ResyncInfo      interface{}   `json:"resyncInfo,omitempty"`
 	SiteIdentifier  string        `json:"siteIdentifier,omitempty"`
@@ -86,7 +86,6 @@ type VM struct {
 
 // NewVM returns a new *VM
 func NewVM() *VM {
-
 	return &VM{}
 }
 

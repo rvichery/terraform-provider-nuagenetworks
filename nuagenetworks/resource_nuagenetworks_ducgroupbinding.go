@@ -43,10 +43,12 @@ func resourceDUCGroupBinding() *schema.Resource {
 			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_duc_group_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_nsg_group": {
 				Type:     schema.TypeString,
@@ -61,10 +63,12 @@ func resourceDUCGroupBindingCreate(d *schema.ResourceData, m interface{}) error 
 	// Initialize DUCGroupBinding object
 	o := &vspk.DUCGroupBinding{}
 	if attr, ok := d.GetOk("one_way_delay"); ok {
-		o.OneWayDelay = attr.(int)
+		OneWayDelay := attr.(int)
+		o.OneWayDelay = &OneWayDelay
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("associated_duc_group_id"); ok {
 		o.AssociatedDUCGroupID = attr.(string)
@@ -113,10 +117,12 @@ func resourceDUCGroupBindingUpdate(d *schema.ResourceData, m interface{}) error 
 	}
 
 	if attr, ok := d.GetOk("one_way_delay"); ok {
-		o.OneWayDelay = attr.(int)
+		OneWayDelay := attr.(int)
+		o.OneWayDelay = &OneWayDelay
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("associated_duc_group_id"); ok {
 		o.AssociatedDUCGroupID = attr.(string)

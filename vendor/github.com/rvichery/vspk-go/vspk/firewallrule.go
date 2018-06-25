@@ -77,7 +77,7 @@ type FirewallRule struct {
 	NetworkID                     string `json:"networkID,omitempty"`
 	NetworkType                   string `json:"networkType,omitempty"`
 	MirrorDestinationID           string `json:"mirrorDestinationID,omitempty"`
-	FlowLoggingEnabled            bool   `json:"flowLoggingEnabled"`
+	FlowLoggingEnabled            *bool  `json:"flowLoggingEnabled,omitempty"`
 	EnterpriseName                string `json:"enterpriseName,omitempty"`
 	LocationID                    string `json:"locationID,omitempty"`
 	LocationType                  string `json:"locationType,omitempty"`
@@ -93,17 +93,17 @@ type FirewallRule struct {
 	AssociatedApplicationID       string `json:"associatedApplicationID,omitempty"`
 	AssociatedApplicationObjectID string `json:"associatedApplicationObjectID,omitempty"`
 	AssociatedfirewallACLID       string `json:"associatedfirewallACLID,omitempty"`
-	Stateful                      bool   `json:"stateful"`
+	Stateful                      *bool  `json:"stateful,omitempty"`
 	StatsID                       string `json:"statsID,omitempty"`
-	StatsLoggingEnabled           bool   `json:"statsLoggingEnabled"`
+	StatsLoggingEnabled           *bool  `json:"statsLoggingEnabled,omitempty"`
 	EtherType                     string `json:"etherType,omitempty"`
 }
 
 // NewFirewallRule returns a new *FirewallRule
 func NewFirewallRule() *FirewallRule {
-
+	Stateful := false
 	return &FirewallRule{
-		Stateful: false,
+		Stateful: &Stateful,
 	}
 }
 

@@ -61,7 +61,7 @@ type Command struct {
 	Owner               string `json:"owner,omitempty"`
 	LastUpdatedBy       string `json:"lastUpdatedBy,omitempty"`
 	DetailedStatus      string `json:"detailedStatus,omitempty"`
-	DetailedStatusCode  int    `json:"detailedStatusCode"`
+	DetailedStatusCode  *int   `json:"detailedStatusCode,omitempty"`
 	EntityScope         string `json:"entityScope,omitempty"`
 	Command             string `json:"command,omitempty"`
 	CommandInformation  string `json:"commandInformation,omitempty"`
@@ -76,9 +76,9 @@ type Command struct {
 
 // NewCommand returns a new *Command
 func NewCommand() *Command {
-
+	DetailedStatusCode := 0
 	return &Command{
-		DetailedStatusCode: 0,
+		DetailedStatusCode: &DetailedStatusCode,
 		Command:            "UNKNOWN",
 		Status:             "UNKNOWN",
 		Override:           "UNSPECIFIED",

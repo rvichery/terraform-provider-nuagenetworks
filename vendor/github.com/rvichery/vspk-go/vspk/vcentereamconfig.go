@@ -60,7 +60,7 @@ type VCenterEAMConfig struct {
 	ParentType          string `json:"parentType,omitempty"`
 	Owner               string `json:"owner,omitempty"`
 	EamServerIP         string `json:"eamServerIP,omitempty"`
-	EamServerPortNumber int    `json:"eamServerPortNumber"`
+	EamServerPortNumber *int   `json:"eamServerPortNumber,omitempty"`
 	EamServerPortType   string `json:"eamServerPortType,omitempty"`
 	LastUpdatedBy       string `json:"lastUpdatedBy,omitempty"`
 	VibURL              string `json:"vibURL,omitempty"`
@@ -72,7 +72,6 @@ type VCenterEAMConfig struct {
 
 // NewVCenterEAMConfig returns a new *VCenterEAMConfig
 func NewVCenterEAMConfig() *VCenterEAMConfig {
-
 	return &VCenterEAMConfig{}
 }
 

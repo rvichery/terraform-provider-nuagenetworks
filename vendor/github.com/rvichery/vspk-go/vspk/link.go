@@ -61,7 +61,7 @@ type Link struct {
 	Owner                     string `json:"owner,omitempty"`
 	LastUpdatedBy             string `json:"lastUpdatedBy,omitempty"`
 	AcceptanceCriteria        string `json:"acceptanceCriteria,omitempty"`
-	ReadOnly                  bool   `json:"readOnly"`
+	ReadOnly                  *bool  `json:"readOnly,omitempty"`
 	EntityScope               string `json:"entityScope,omitempty"`
 	AssociatedDestinationID   string `json:"associatedDestinationID,omitempty"`
 	AssociatedDestinationName string `json:"associatedDestinationName,omitempty"`
@@ -75,7 +75,6 @@ type Link struct {
 
 // NewLink returns a new *Link
 func NewLink() *Link {
-
 	return &Link{
 		AcceptanceCriteria: "ALL",
 	}

@@ -69,7 +69,6 @@ type PGExpressionTemplate struct {
 
 // NewPGExpressionTemplate returns a new *PGExpressionTemplate
 func NewPGExpressionTemplate() *PGExpressionTemplate {
-
 	return &PGExpressionTemplate{}
 }
 

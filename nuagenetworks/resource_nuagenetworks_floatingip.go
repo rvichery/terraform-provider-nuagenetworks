@@ -37,29 +37,31 @@ func resourceFloatingIp() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"access_control": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"assigned": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"assigned_to_object_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_shared_network_resource_id": {
 				Type:     schema.TypeString,
@@ -68,6 +70,7 @@ func resourceFloatingIp() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_domain": {
 				Type:     schema.TypeString,
@@ -84,13 +87,15 @@ func resourceFloatingIpCreate(d *schema.ResourceData, m interface{}) error {
 		AssociatedSharedNetworkResourceID: d.Get("associated_shared_network_resource_id").(string),
 	}
 	if attr, ok := d.GetOk("access_control"); ok {
-		o.AccessControl = attr.(bool)
+		AccessControl := attr.(bool)
+		o.AccessControl = &AccessControl
 	}
 	if attr, ok := d.GetOk("address"); ok {
 		o.Address = attr.(string)
 	}
 	if attr, ok := d.GetOk("assigned"); ok {
-		o.Assigned = attr.(bool)
+		Assigned := attr.(bool)
+		o.Assigned = &Assigned
 	}
 	if attr, ok := d.GetOk("assigned_to_object_type"); ok {
 		o.AssignedToObjectType = attr.(string)
@@ -149,13 +154,15 @@ func resourceFloatingIpUpdate(d *schema.ResourceData, m interface{}) error {
 	o.AssociatedSharedNetworkResourceID = d.Get("associated_shared_network_resource_id").(string)
 
 	if attr, ok := d.GetOk("access_control"); ok {
-		o.AccessControl = attr.(bool)
+		AccessControl := attr.(bool)
+		o.AccessControl = &AccessControl
 	}
 	if attr, ok := d.GetOk("address"); ok {
 		o.Address = attr.(string)
 	}
 	if attr, ok := d.GetOk("assigned"); ok {
-		o.Assigned = attr.(bool)
+		Assigned := attr.(bool)
+		o.Assigned = &Assigned
 	}
 	if attr, ok := d.GetOk("assigned_to_object_type"); ok {
 		o.AssignedToObjectType = attr.(string)

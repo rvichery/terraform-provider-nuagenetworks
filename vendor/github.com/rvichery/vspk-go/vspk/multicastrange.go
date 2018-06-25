@@ -68,7 +68,6 @@ type MultiCastRange struct {
 
 // NewMultiCastRange returns a new *MultiCastRange
 func NewMultiCastRange() *MultiCastRange {
-
 	return &MultiCastRange{}
 }
 

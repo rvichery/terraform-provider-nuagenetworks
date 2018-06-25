@@ -74,7 +74,7 @@ type IngressExternalServiceTemplateEntry struct {
 	NetworkID                         string `json:"networkID,omitempty"`
 	NetworkType                       string `json:"networkType,omitempty"`
 	MirrorDestinationID               string `json:"mirrorDestinationID,omitempty"`
-	FlowLoggingEnabled                bool   `json:"flowLoggingEnabled"`
+	FlowLoggingEnabled                *bool  `json:"flowLoggingEnabled,omitempty"`
 	EnterpriseName                    string `json:"enterpriseName,omitempty"`
 	EntityScope                       string `json:"entityScope,omitempty"`
 	LocationID                        string `json:"locationID,omitempty"`
@@ -82,18 +82,17 @@ type IngressExternalServiceTemplateEntry struct {
 	PolicyState                       string `json:"policyState,omitempty"`
 	DomainName                        string `json:"domainName,omitempty"`
 	SourcePort                        string `json:"sourcePort,omitempty"`
-	Priority                          int    `json:"priority"`
+	Priority                          *int   `json:"priority,omitempty"`
 	Protocol                          string `json:"protocol,omitempty"`
 	AssociatedLiveEntityID            string `json:"associatedLiveEntityID,omitempty"`
 	StatsID                           string `json:"statsID,omitempty"`
-	StatsLoggingEnabled               bool   `json:"statsLoggingEnabled"`
+	StatsLoggingEnabled               *bool  `json:"statsLoggingEnabled,omitempty"`
 	EtherType                         string `json:"etherType,omitempty"`
 	ExternalID                        string `json:"externalID,omitempty"`
 }
 
 // NewIngressExternalServiceTemplateEntry returns a new *IngressExternalServiceTemplateEntry
 func NewIngressExternalServiceTemplateEntry() *IngressExternalServiceTemplateEntry {
-
 	return &IngressExternalServiceTemplateEntry{}
 }
 

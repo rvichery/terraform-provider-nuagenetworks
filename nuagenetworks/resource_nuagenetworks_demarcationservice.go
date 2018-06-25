@@ -37,23 +37,27 @@ func resourceDemarcationService() *schema.Resource {
 			},
 			"route_distinguisher": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_gateway_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_vlanid": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_link": {
 				Type:     schema.TypeString,
@@ -71,7 +75,8 @@ func resourceDemarcationServiceCreate(d *schema.ResourceData, m interface{}) err
 		o.RouteDistinguisher = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("associated_gateway_id"); ok {
 		o.AssociatedGatewayID = attr.(string)
@@ -131,7 +136,8 @@ func resourceDemarcationServiceUpdate(d *schema.ResourceData, m interface{}) err
 		o.RouteDistinguisher = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("associated_gateway_id"); ok {
 		o.AssociatedGatewayID = attr.(string)

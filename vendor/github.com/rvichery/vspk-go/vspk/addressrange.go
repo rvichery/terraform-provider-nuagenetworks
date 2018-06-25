@@ -70,10 +70,7 @@ type AddressRange struct {
 
 // NewAddressRange returns a new *AddressRange
 func NewAddressRange() *AddressRange {
-
-	return &AddressRange{
-		DHCPPoolType: "BRIDGE",
-	}
+	return &AddressRange{}
 }
 
 // Identity returns the Identity of the object.

@@ -70,7 +70,6 @@ type StatsCollectorInfo struct {
 
 // NewStatsCollectorInfo returns a new *StatsCollectorInfo
 func NewStatsCollectorInfo() *StatsCollectorInfo {
-
 	return &StatsCollectorInfo{}
 }
 

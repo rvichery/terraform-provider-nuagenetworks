@@ -72,7 +72,6 @@ type NSGRoutingPolicyBinding struct {
 
 // NewNSGRoutingPolicyBinding returns a new *NSGRoutingPolicyBinding
 func NewNSGRoutingPolicyBinding() *NSGRoutingPolicyBinding {
-
 	return &NSGRoutingPolicyBinding{
 		ExportToOverlay: "INHERITED",
 	}

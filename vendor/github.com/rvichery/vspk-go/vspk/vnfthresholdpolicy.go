@@ -59,26 +59,30 @@ type VNFThresholdPolicy struct {
 	ParentID         string `json:"parentID,omitempty"`
 	ParentType       string `json:"parentType,omitempty"`
 	Owner            string `json:"owner,omitempty"`
-	CPUThreshold     int    `json:"CPUThreshold"`
+	CPUThreshold     *int   `json:"CPUThreshold,omitempty"`
 	Name             string `json:"name,omitempty"`
 	Action           string `json:"action,omitempty"`
-	MemoryThreshold  int    `json:"memoryThreshold"`
+	MemoryThreshold  *int   `json:"memoryThreshold,omitempty"`
 	Description      string `json:"description,omitempty"`
-	MinOccurrence    int    `json:"minOccurrence"`
-	MonitInterval    int    `json:"monitInterval"`
-	StorageThreshold int    `json:"storageThreshold"`
+	MinOccurrence    *int   `json:"minOccurrence,omitempty"`
+	MonitInterval    *int   `json:"monitInterval,omitempty"`
+	StorageThreshold *int   `json:"storageThreshold,omitempty"`
 }
 
 // NewVNFThresholdPolicy returns a new *VNFThresholdPolicy
 func NewVNFThresholdPolicy() *VNFThresholdPolicy {
-
+	CPUThreshold := 80
+	MemoryThreshold := 80
+	MinOccurrence := 5
+	MonitInterval := 10
+	StorageThreshold := 80
 	return &VNFThresholdPolicy{
-		CPUThreshold:     80,
+		CPUThreshold:     &CPUThreshold,
 		Action:           "NONE",
-		MemoryThreshold:  80,
-		MinOccurrence:    5,
-		MonitInterval:    10,
-		StorageThreshold: 80,
+		MemoryThreshold:  &MemoryThreshold,
+		MinOccurrence:    &MinOccurrence,
+		MonitInterval:    &MonitInterval,
+		StorageThreshold: &StorageThreshold,
 	}
 }
 

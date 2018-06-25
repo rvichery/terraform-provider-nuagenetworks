@@ -71,7 +71,6 @@ type SiteInfo struct {
 
 // NewSiteInfo returns a new *SiteInfo
 func NewSiteInfo() *SiteInfo {
-
 	return &SiteInfo{}
 }
 

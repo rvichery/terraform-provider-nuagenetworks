@@ -67,7 +67,6 @@ type PTranslationMap struct {
 
 // NewPTranslationMap returns a new *PTranslationMap
 func NewPTranslationMap() *PTranslationMap {
-
 	return &PTranslationMap{}
 }
 

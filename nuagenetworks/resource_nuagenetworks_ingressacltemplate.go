@@ -41,66 +41,75 @@ func resourceIngressACLTemplate() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"active": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"default_allow_ip": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"default_allow_non_ip": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"allow_address_spoof": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"policy_state": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"priority_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"assoc_acl_template_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_live_entity_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_virtual_firewall_policy_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"auto_generate_priority": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_domain": {
 				Type:          schema.TypeString,
@@ -133,25 +142,30 @@ func resourceIngressACLTemplateCreate(d *schema.ResourceData, m interface{}) err
 		Name: d.Get("name").(string),
 	}
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("default_allow_ip"); ok {
-		o.DefaultAllowIP = attr.(bool)
+		DefaultAllowIP := attr.(bool)
+		o.DefaultAllowIP = &DefaultAllowIP
 	}
 	if attr, ok := d.GetOk("default_allow_non_ip"); ok {
-		o.DefaultAllowNonIP = attr.(bool)
+		DefaultAllowNonIP := attr.(bool)
+		o.DefaultAllowNonIP = &DefaultAllowNonIP
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("allow_address_spoof"); ok {
-		o.AllowAddressSpoof = attr.(bool)
+		AllowAddressSpoof := attr.(bool)
+		o.AllowAddressSpoof = &AllowAddressSpoof
 	}
 	if attr, ok := d.GetOk("policy_state"); ok {
 		o.PolicyState = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("priority_type"); ok {
 		o.PriorityType = attr.(string)
@@ -163,7 +177,8 @@ func resourceIngressACLTemplateCreate(d *schema.ResourceData, m interface{}) err
 		o.AssociatedLiveEntityID = attr.(string)
 	}
 	if attr, ok := d.GetOk("auto_generate_priority"); ok {
-		o.AutoGeneratePriority = attr.(bool)
+		AutoGeneratePriority := attr.(bool)
+		o.AutoGeneratePriority = &AutoGeneratePriority
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -250,25 +265,30 @@ func resourceIngressACLTemplateUpdate(d *schema.ResourceData, m interface{}) err
 	o.Name = d.Get("name").(string)
 
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("default_allow_ip"); ok {
-		o.DefaultAllowIP = attr.(bool)
+		DefaultAllowIP := attr.(bool)
+		o.DefaultAllowIP = &DefaultAllowIP
 	}
 	if attr, ok := d.GetOk("default_allow_non_ip"); ok {
-		o.DefaultAllowNonIP = attr.(bool)
+		DefaultAllowNonIP := attr.(bool)
+		o.DefaultAllowNonIP = &DefaultAllowNonIP
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("allow_address_spoof"); ok {
-		o.AllowAddressSpoof = attr.(bool)
+		AllowAddressSpoof := attr.(bool)
+		o.AllowAddressSpoof = &AllowAddressSpoof
 	}
 	if attr, ok := d.GetOk("policy_state"); ok {
 		o.PolicyState = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("priority_type"); ok {
 		o.PriorityType = attr.(string)
@@ -280,7 +300,8 @@ func resourceIngressACLTemplateUpdate(d *schema.ResourceData, m interface{}) err
 		o.AssociatedLiveEntityID = attr.(string)
 	}
 	if attr, ok := d.GetOk("auto_generate_priority"); ok {
-		o.AutoGeneratePriority = attr.(bool)
+		AutoGeneratePriority := attr.(bool)
+		o.AutoGeneratePriority = &AutoGeneratePriority
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

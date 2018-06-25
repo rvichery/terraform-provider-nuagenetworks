@@ -38,19 +38,21 @@ func resourceLicense() *schema.Resource {
 			"major_release": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"additional_supported_versions": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"phone": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"license": {
 				Type:     schema.TypeString,
@@ -59,119 +61,146 @@ func resourceLicense() *schema.Resource {
 			"license_encryption": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"license_entities": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"license_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"license_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"minor_release": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"zip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"city": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"allowed_avrsgs_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"allowed_avrss_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"allowed_cpes_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"allowed_nics_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"allowed_vms_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"allowed_vrsgs_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"allowed_vrss_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"email": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"encryption_mode": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"unique_license_identifier": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"company": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"country": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"product_version": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"is_cluster_license": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"user_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"state": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"street": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"customer_key": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"expiration_date": {
 				Type:     schema.TypeFloat,
 				Optional: true,
+				Computed: true,
 			},
 			"expiry_timestamp": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 		},
 	}
@@ -184,7 +213,8 @@ func resourceLicenseCreate(d *schema.ResourceData, m interface{}) error {
 		License: d.Get("license").(string),
 	}
 	if attr, ok := d.GetOk("major_release"); ok {
-		o.MajorRelease = attr.(int)
+		MajorRelease := attr.(int)
+		o.MajorRelease = &MajorRelease
 	}
 	if attr, ok := d.GetOk("additional_supported_versions"); ok {
 		o.AdditionalSupportedVersions = attr.(string)
@@ -199,13 +229,15 @@ func resourceLicenseCreate(d *schema.ResourceData, m interface{}) error {
 		o.LicenseEntities = attr.(string)
 	}
 	if attr, ok := d.GetOk("license_id"); ok {
-		o.LicenseID = attr.(int)
+		LicenseID := attr.(int)
+		o.LicenseID = &LicenseID
 	}
 	if attr, ok := d.GetOk("license_type"); ok {
 		o.LicenseType = attr.(string)
 	}
 	if attr, ok := d.GetOk("minor_release"); ok {
-		o.MinorRelease = attr.(int)
+		MinorRelease := attr.(int)
+		o.MinorRelease = &MinorRelease
 	}
 	if attr, ok := d.GetOk("zip"); ok {
 		o.Zip = attr.(string)
@@ -214,31 +246,39 @@ func resourceLicenseCreate(d *schema.ResourceData, m interface{}) error {
 		o.City = attr.(string)
 	}
 	if attr, ok := d.GetOk("allowed_avrsgs_count"); ok {
-		o.AllowedAVRSGsCount = attr.(int)
+		AllowedAVRSGsCount := attr.(int)
+		o.AllowedAVRSGsCount = &AllowedAVRSGsCount
 	}
 	if attr, ok := d.GetOk("allowed_avrss_count"); ok {
-		o.AllowedAVRSsCount = attr.(int)
+		AllowedAVRSsCount := attr.(int)
+		o.AllowedAVRSsCount = &AllowedAVRSsCount
 	}
 	if attr, ok := d.GetOk("allowed_cpes_count"); ok {
-		o.AllowedCPEsCount = attr.(int)
+		AllowedCPEsCount := attr.(int)
+		o.AllowedCPEsCount = &AllowedCPEsCount
 	}
 	if attr, ok := d.GetOk("allowed_nics_count"); ok {
-		o.AllowedNICsCount = attr.(int)
+		AllowedNICsCount := attr.(int)
+		o.AllowedNICsCount = &AllowedNICsCount
 	}
 	if attr, ok := d.GetOk("allowed_vms_count"); ok {
-		o.AllowedVMsCount = attr.(int)
+		AllowedVMsCount := attr.(int)
+		o.AllowedVMsCount = &AllowedVMsCount
 	}
 	if attr, ok := d.GetOk("allowed_vrsgs_count"); ok {
-		o.AllowedVRSGsCount = attr.(int)
+		AllowedVRSGsCount := attr.(int)
+		o.AllowedVRSGsCount = &AllowedVRSGsCount
 	}
 	if attr, ok := d.GetOk("allowed_vrss_count"); ok {
-		o.AllowedVRSsCount = attr.(int)
+		AllowedVRSsCount := attr.(int)
+		o.AllowedVRSsCount = &AllowedVRSsCount
 	}
 	if attr, ok := d.GetOk("email"); ok {
 		o.Email = attr.(string)
 	}
 	if attr, ok := d.GetOk("encryption_mode"); ok {
-		o.EncryptionMode = attr.(bool)
+		EncryptionMode := attr.(bool)
+		o.EncryptionMode = &EncryptionMode
 	}
 	if attr, ok := d.GetOk("unique_license_identifier"); ok {
 		o.UniqueLicenseIdentifier = attr.(string)
@@ -253,7 +293,8 @@ func resourceLicenseCreate(d *schema.ResourceData, m interface{}) error {
 		o.ProductVersion = attr.(string)
 	}
 	if attr, ok := d.GetOk("is_cluster_license"); ok {
-		o.IsClusterLicense = attr.(bool)
+		IsClusterLicense := attr.(bool)
+		o.IsClusterLicense = &IsClusterLicense
 	}
 	if attr, ok := d.GetOk("user_name"); ok {
 		o.UserName = attr.(string)
@@ -271,7 +312,8 @@ func resourceLicenseCreate(d *schema.ResourceData, m interface{}) error {
 		o.ExpirationDate = attr.(float64)
 	}
 	if attr, ok := d.GetOk("expiry_timestamp"); ok {
-		o.ExpiryTimestamp = attr.(int)
+		ExpiryTimestamp := attr.(int)
+		o.ExpiryTimestamp = &ExpiryTimestamp
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -354,7 +396,8 @@ func resourceLicenseUpdate(d *schema.ResourceData, m interface{}) error {
 	o.License = d.Get("license").(string)
 
 	if attr, ok := d.GetOk("major_release"); ok {
-		o.MajorRelease = attr.(int)
+		MajorRelease := attr.(int)
+		o.MajorRelease = &MajorRelease
 	}
 	if attr, ok := d.GetOk("additional_supported_versions"); ok {
 		o.AdditionalSupportedVersions = attr.(string)
@@ -369,13 +412,15 @@ func resourceLicenseUpdate(d *schema.ResourceData, m interface{}) error {
 		o.LicenseEntities = attr.(string)
 	}
 	if attr, ok := d.GetOk("license_id"); ok {
-		o.LicenseID = attr.(int)
+		LicenseID := attr.(int)
+		o.LicenseID = &LicenseID
 	}
 	if attr, ok := d.GetOk("license_type"); ok {
 		o.LicenseType = attr.(string)
 	}
 	if attr, ok := d.GetOk("minor_release"); ok {
-		o.MinorRelease = attr.(int)
+		MinorRelease := attr.(int)
+		o.MinorRelease = &MinorRelease
 	}
 	if attr, ok := d.GetOk("zip"); ok {
 		o.Zip = attr.(string)
@@ -384,31 +429,39 @@ func resourceLicenseUpdate(d *schema.ResourceData, m interface{}) error {
 		o.City = attr.(string)
 	}
 	if attr, ok := d.GetOk("allowed_avrsgs_count"); ok {
-		o.AllowedAVRSGsCount = attr.(int)
+		AllowedAVRSGsCount := attr.(int)
+		o.AllowedAVRSGsCount = &AllowedAVRSGsCount
 	}
 	if attr, ok := d.GetOk("allowed_avrss_count"); ok {
-		o.AllowedAVRSsCount = attr.(int)
+		AllowedAVRSsCount := attr.(int)
+		o.AllowedAVRSsCount = &AllowedAVRSsCount
 	}
 	if attr, ok := d.GetOk("allowed_cpes_count"); ok {
-		o.AllowedCPEsCount = attr.(int)
+		AllowedCPEsCount := attr.(int)
+		o.AllowedCPEsCount = &AllowedCPEsCount
 	}
 	if attr, ok := d.GetOk("allowed_nics_count"); ok {
-		o.AllowedNICsCount = attr.(int)
+		AllowedNICsCount := attr.(int)
+		o.AllowedNICsCount = &AllowedNICsCount
 	}
 	if attr, ok := d.GetOk("allowed_vms_count"); ok {
-		o.AllowedVMsCount = attr.(int)
+		AllowedVMsCount := attr.(int)
+		o.AllowedVMsCount = &AllowedVMsCount
 	}
 	if attr, ok := d.GetOk("allowed_vrsgs_count"); ok {
-		o.AllowedVRSGsCount = attr.(int)
+		AllowedVRSGsCount := attr.(int)
+		o.AllowedVRSGsCount = &AllowedVRSGsCount
 	}
 	if attr, ok := d.GetOk("allowed_vrss_count"); ok {
-		o.AllowedVRSsCount = attr.(int)
+		AllowedVRSsCount := attr.(int)
+		o.AllowedVRSsCount = &AllowedVRSsCount
 	}
 	if attr, ok := d.GetOk("email"); ok {
 		o.Email = attr.(string)
 	}
 	if attr, ok := d.GetOk("encryption_mode"); ok {
-		o.EncryptionMode = attr.(bool)
+		EncryptionMode := attr.(bool)
+		o.EncryptionMode = &EncryptionMode
 	}
 	if attr, ok := d.GetOk("unique_license_identifier"); ok {
 		o.UniqueLicenseIdentifier = attr.(string)
@@ -423,7 +476,8 @@ func resourceLicenseUpdate(d *schema.ResourceData, m interface{}) error {
 		o.ProductVersion = attr.(string)
 	}
 	if attr, ok := d.GetOk("is_cluster_license"); ok {
-		o.IsClusterLicense = attr.(bool)
+		IsClusterLicense := attr.(bool)
+		o.IsClusterLicense = &IsClusterLicense
 	}
 	if attr, ok := d.GetOk("user_name"); ok {
 		o.UserName = attr.(string)
@@ -441,7 +495,8 @@ func resourceLicenseUpdate(d *schema.ResourceData, m interface{}) error {
 		o.ExpirationDate = attr.(float64)
 	}
 	if attr, ok := d.GetOk("expiry_timestamp"); ok {
-		o.ExpiryTimestamp = attr.(int)
+		ExpiryTimestamp := attr.(int)
+		o.ExpiryTimestamp = &ExpiryTimestamp
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

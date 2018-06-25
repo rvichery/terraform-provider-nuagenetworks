@@ -80,7 +80,7 @@ type IngressAdvFwdEntryTemplate struct {
 	NetworkType             string `json:"networkType,omitempty"`
 	MirrorDestinationID     string `json:"mirrorDestinationID,omitempty"`
 	VlanRange               string `json:"vlanRange,omitempty"`
-	FlowLoggingEnabled      bool   `json:"flowLoggingEnabled"`
+	FlowLoggingEnabled      *bool  `json:"flowLoggingEnabled,omitempty"`
 	EnterpriseName          string `json:"enterpriseName,omitempty"`
 	EntityScope             string `json:"entityScope,omitempty"`
 	LocationID              string `json:"locationID,omitempty"`
@@ -90,33 +90,27 @@ type IngressAdvFwdEntryTemplate struct {
 	SourcePort              string `json:"sourcePort,omitempty"`
 	UplinkPreference        string `json:"uplinkPreference,omitempty"`
 	AppType                 string `json:"appType,omitempty"`
-	Priority                int    `json:"priority"`
+	Priority                *int   `json:"priority,omitempty"`
 	Protocol                string `json:"protocol,omitempty"`
-	IsSLAAware              bool   `json:"isSLAAware"`
+	IsSLAAware              *bool  `json:"isSLAAware,omitempty"`
 	AssociatedApplicationID string `json:"associatedApplicationID,omitempty"`
 	AssociatedLiveEntityID  string `json:"associatedLiveEntityID,omitempty"`
 	AssociatedTrafficType   string `json:"associatedTrafficType,omitempty"`
 	AssociatedTrafficTypeID string `json:"associatedTrafficTypeID,omitempty"`
 	StatsID                 string `json:"statsID,omitempty"`
-	StatsLoggingEnabled     bool   `json:"statsLoggingEnabled"`
+	StatsLoggingEnabled     *bool  `json:"statsLoggingEnabled,omitempty"`
 	EtherType               string `json:"etherType,omitempty"`
 	ExternalID              string `json:"externalID,omitempty"`
 }
 
 // NewIngressAdvFwdEntryTemplate returns a new *IngressAdvFwdEntryTemplate
 func NewIngressAdvFwdEntryTemplate() *IngressAdvFwdEntryTemplate {
-
+	IsSLAAware := false
 	return &IngressAdvFwdEntryTemplate{
-		DSCP:                   "*",
 		FailsafeDatapath:       "FAIL_TO_BLOCK",
-		Action:                 "FORWARD",
 		RemoteUplinkPreference: "DEFAULT",
-		NetworkType:            "ANY",
-		LocationType:           "ANY",
 		AppType:                "NONE",
-		Protocol:               "6",
-		IsSLAAware:             false,
-		EtherType:              "0x0800",
+		IsSLAAware:             &IsSLAAware,
 	}
 }
 

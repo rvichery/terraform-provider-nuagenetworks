@@ -38,28 +38,30 @@ func resourceContainerResync() *schema.Resource {
 			"last_request_timestamp": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"last_time_resync_initiated": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_subnet": {
 				Type:          schema.TypeString,
@@ -80,10 +82,12 @@ func resourceContainerResyncCreate(d *schema.ResourceData, m interface{}) error 
 	// Initialize ContainerResync object
 	o := &vspk.ContainerResync{}
 	if attr, ok := d.GetOk("last_request_timestamp"); ok {
-		o.LastRequestTimestamp = attr.(int)
+		LastRequestTimestamp := attr.(int)
+		o.LastRequestTimestamp = &LastRequestTimestamp
 	}
 	if attr, ok := d.GetOk("last_time_resync_initiated"); ok {
-		o.LastTimeResyncInitiated = attr.(int)
+		LastTimeResyncInitiated := attr.(int)
+		o.LastTimeResyncInitiated = &LastTimeResyncInitiated
 	}
 	if attr, ok := d.GetOk("status"); ok {
 		o.Status = attr.(string)
@@ -147,10 +151,12 @@ func resourceContainerResyncUpdate(d *schema.ResourceData, m interface{}) error 
 	}
 
 	if attr, ok := d.GetOk("last_request_timestamp"); ok {
-		o.LastRequestTimestamp = attr.(int)
+		LastRequestTimestamp := attr.(int)
+		o.LastRequestTimestamp = &LastRequestTimestamp
 	}
 	if attr, ok := d.GetOk("last_time_resync_initiated"); ok {
-		o.LastTimeResyncInitiated = attr.(int)
+		LastTimeResyncInitiated := attr.(int)
+		o.LastTimeResyncInitiated = &LastTimeResyncInitiated
 	}
 	if attr, ok := d.GetOk("status"); ok {
 		o.Status = attr.(string)

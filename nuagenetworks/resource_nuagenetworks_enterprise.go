@@ -37,24 +37,24 @@ func resourceEnterprise() *schema.Resource {
 			},
 			"ldap_authorization_enabled": {
 				Type:     schema.TypeBool,
-				Optional: true,
+				Computed: true,
 			},
 			"ldap_enabled": {
 				Type:     schema.TypeBool,
-				Optional: true,
+				Computed: true,
 			},
 			"bgp_enabled": {
 				Type:     schema.TypeBool,
-				Optional: true,
+				Computed: true,
 			},
 			"dhcp_lease_interval": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"vnf_management_enabled": {
 				Type:     schema.TypeBool,
-				Optional: true,
-				Default:  false,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -62,24 +62,23 @@ func resourceEnterprise() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"receive_multi_cast_list_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"send_multi_cast_list_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"shared_enterprise": {
 				Type:     schema.TypeBool,
-				Optional: true,
 				Computed: true,
 			},
 			"dictionary_version": {
@@ -90,27 +89,33 @@ func resourceEnterprise() *schema.Resource {
 			"allow_advanced_qos_configuration": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"allow_gateway_management": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"allow_trusted_forwarding_class": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"allowed_forwarding_classes": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"floating_ips_quota": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"floating_ips_used": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"flow_collection_enabled": {
 				Type:     schema.TypeString,
@@ -124,48 +129,53 @@ func resourceEnterprise() *schema.Resource {
 			},
 			"encryption_management_mode": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"enterprise_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"local_as": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_enterprise_security_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"associated_group_key_encryption_profile_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"associated_key_server_monitor_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"customer_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"avatar_data": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"avatar_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 		},
 	}
@@ -178,19 +188,24 @@ func resourceEnterpriseCreate(d *schema.ResourceData, m interface{}) error {
 		Name: d.Get("name").(string),
 	}
 	if attr, ok := d.GetOk("ldap_authorization_enabled"); ok {
-		o.LDAPAuthorizationEnabled = attr.(bool)
+		LDAPAuthorizationEnabled := attr.(bool)
+		o.LDAPAuthorizationEnabled = &LDAPAuthorizationEnabled
 	}
 	if attr, ok := d.GetOk("ldap_enabled"); ok {
-		o.LDAPEnabled = attr.(bool)
+		LDAPEnabled := attr.(bool)
+		o.LDAPEnabled = &LDAPEnabled
 	}
 	if attr, ok := d.GetOk("bgp_enabled"); ok {
-		o.BGPEnabled = attr.(bool)
+		BGPEnabled := attr.(bool)
+		o.BGPEnabled = &BGPEnabled
 	}
 	if attr, ok := d.GetOk("dhcp_lease_interval"); ok {
-		o.DHCPLeaseInterval = attr.(int)
+		DHCPLeaseInterval := attr.(int)
+		o.DHCPLeaseInterval = &DHCPLeaseInterval
 	}
 	if attr, ok := d.GetOk("vnf_management_enabled"); ok {
-		o.VNFManagementEnabled = attr.(bool)
+		VNFManagementEnabled := attr.(bool)
+		o.VNFManagementEnabled = &VNFManagementEnabled
 	}
 	if attr, ok := d.GetOk("receive_multi_cast_list_id"); ok {
 		o.ReceiveMultiCastListID = attr.(string)
@@ -202,31 +217,38 @@ func resourceEnterpriseCreate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("dictionary_version"); ok {
-		o.DictionaryVersion = attr.(int)
+		DictionaryVersion := attr.(int)
+		o.DictionaryVersion = &DictionaryVersion
 	}
 	if attr, ok := d.GetOk("allow_advanced_qos_configuration"); ok {
-		o.AllowAdvancedQOSConfiguration = attr.(bool)
+		AllowAdvancedQOSConfiguration := attr.(bool)
+		o.AllowAdvancedQOSConfiguration = &AllowAdvancedQOSConfiguration
 	}
 	if attr, ok := d.GetOk("allow_gateway_management"); ok {
-		o.AllowGatewayManagement = attr.(bool)
+		AllowGatewayManagement := attr.(bool)
+		o.AllowGatewayManagement = &AllowGatewayManagement
 	}
 	if attr, ok := d.GetOk("allow_trusted_forwarding_class"); ok {
-		o.AllowTrustedForwardingClass = attr.(bool)
+		AllowTrustedForwardingClass := attr.(bool)
+		o.AllowTrustedForwardingClass = &AllowTrustedForwardingClass
 	}
 	if attr, ok := d.GetOk("allowed_forwarding_classes"); ok {
 		o.AllowedForwardingClasses = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("floating_ips_quota"); ok {
-		o.FloatingIPsQuota = attr.(int)
+		FloatingIPsQuota := attr.(int)
+		o.FloatingIPsQuota = &FloatingIPsQuota
 	}
 	if attr, ok := d.GetOk("floating_ips_used"); ok {
-		o.FloatingIPsUsed = attr.(int)
+		FloatingIPsUsed := attr.(int)
+		o.FloatingIPsUsed = &FloatingIPsUsed
 	}
 	if attr, ok := d.GetOk("flow_collection_enabled"); ok {
 		o.FlowCollectionEnabled = attr.(string)
 	}
 	if attr, ok := d.GetOk("enable_application_performance_management"); ok {
-		o.EnableApplicationPerformanceManagement = attr.(bool)
+		EnableApplicationPerformanceManagement := attr.(bool)
+		o.EnableApplicationPerformanceManagement = &EnableApplicationPerformanceManagement
 	}
 	if attr, ok := d.GetOk("encryption_management_mode"); ok {
 		o.EncryptionManagementMode = attr.(string)
@@ -235,7 +257,8 @@ func resourceEnterpriseCreate(d *schema.ResourceData, m interface{}) error {
 		o.EnterpriseProfileID = attr.(string)
 	}
 	if attr, ok := d.GetOk("local_as"); ok {
-		o.LocalAS = attr.(int)
+		LocalAS := attr.(int)
+		o.LocalAS = &LocalAS
 	}
 	if attr, ok := d.GetOk("associated_enterprise_security_id"); ok {
 		o.AssociatedEnterpriseSecurityID = attr.(string)
@@ -247,7 +270,8 @@ func resourceEnterpriseCreate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedKeyServerMonitorID = attr.(string)
 	}
 	if attr, ok := d.GetOk("customer_id"); ok {
-		o.CustomerID = attr.(int)
+		CustomerID := attr.(int)
+		o.CustomerID = &CustomerID
 	}
 	if attr, ok := d.GetOk("avatar_data"); ok {
 		o.AvatarData = attr.(string)
@@ -332,19 +356,24 @@ func resourceEnterpriseUpdate(d *schema.ResourceData, m interface{}) error {
 	o.Name = d.Get("name").(string)
 
 	if attr, ok := d.GetOk("ldap_authorization_enabled"); ok {
-		o.LDAPAuthorizationEnabled = attr.(bool)
+		LDAPAuthorizationEnabled := attr.(bool)
+		o.LDAPAuthorizationEnabled = &LDAPAuthorizationEnabled
 	}
 	if attr, ok := d.GetOk("ldap_enabled"); ok {
-		o.LDAPEnabled = attr.(bool)
+		LDAPEnabled := attr.(bool)
+		o.LDAPEnabled = &LDAPEnabled
 	}
 	if attr, ok := d.GetOk("bgp_enabled"); ok {
-		o.BGPEnabled = attr.(bool)
+		BGPEnabled := attr.(bool)
+		o.BGPEnabled = &BGPEnabled
 	}
 	if attr, ok := d.GetOk("dhcp_lease_interval"); ok {
-		o.DHCPLeaseInterval = attr.(int)
+		DHCPLeaseInterval := attr.(int)
+		o.DHCPLeaseInterval = &DHCPLeaseInterval
 	}
 	if attr, ok := d.GetOk("vnf_management_enabled"); ok {
-		o.VNFManagementEnabled = attr.(bool)
+		VNFManagementEnabled := attr.(bool)
+		o.VNFManagementEnabled = &VNFManagementEnabled
 	}
 	if attr, ok := d.GetOk("receive_multi_cast_list_id"); ok {
 		o.ReceiveMultiCastListID = attr.(string)
@@ -356,31 +385,38 @@ func resourceEnterpriseUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("dictionary_version"); ok {
-		o.DictionaryVersion = attr.(int)
+		DictionaryVersion := attr.(int)
+		o.DictionaryVersion = &DictionaryVersion
 	}
 	if attr, ok := d.GetOk("allow_advanced_qos_configuration"); ok {
-		o.AllowAdvancedQOSConfiguration = attr.(bool)
+		AllowAdvancedQOSConfiguration := attr.(bool)
+		o.AllowAdvancedQOSConfiguration = &AllowAdvancedQOSConfiguration
 	}
 	if attr, ok := d.GetOk("allow_gateway_management"); ok {
-		o.AllowGatewayManagement = attr.(bool)
+		AllowGatewayManagement := attr.(bool)
+		o.AllowGatewayManagement = &AllowGatewayManagement
 	}
 	if attr, ok := d.GetOk("allow_trusted_forwarding_class"); ok {
-		o.AllowTrustedForwardingClass = attr.(bool)
+		AllowTrustedForwardingClass := attr.(bool)
+		o.AllowTrustedForwardingClass = &AllowTrustedForwardingClass
 	}
 	if attr, ok := d.GetOk("allowed_forwarding_classes"); ok {
 		o.AllowedForwardingClasses = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("floating_ips_quota"); ok {
-		o.FloatingIPsQuota = attr.(int)
+		FloatingIPsQuota := attr.(int)
+		o.FloatingIPsQuota = &FloatingIPsQuota
 	}
 	if attr, ok := d.GetOk("floating_ips_used"); ok {
-		o.FloatingIPsUsed = attr.(int)
+		FloatingIPsUsed := attr.(int)
+		o.FloatingIPsUsed = &FloatingIPsUsed
 	}
 	if attr, ok := d.GetOk("flow_collection_enabled"); ok {
 		o.FlowCollectionEnabled = attr.(string)
 	}
 	if attr, ok := d.GetOk("enable_application_performance_management"); ok {
-		o.EnableApplicationPerformanceManagement = attr.(bool)
+		EnableApplicationPerformanceManagement := attr.(bool)
+		o.EnableApplicationPerformanceManagement = &EnableApplicationPerformanceManagement
 	}
 	if attr, ok := d.GetOk("encryption_management_mode"); ok {
 		o.EncryptionManagementMode = attr.(string)
@@ -389,7 +425,8 @@ func resourceEnterpriseUpdate(d *schema.ResourceData, m interface{}) error {
 		o.EnterpriseProfileID = attr.(string)
 	}
 	if attr, ok := d.GetOk("local_as"); ok {
-		o.LocalAS = attr.(int)
+		LocalAS := attr.(int)
+		o.LocalAS = &LocalAS
 	}
 	if attr, ok := d.GetOk("associated_enterprise_security_id"); ok {
 		o.AssociatedEnterpriseSecurityID = attr.(string)
@@ -401,7 +438,8 @@ func resourceEnterpriseUpdate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedKeyServerMonitorID = attr.(string)
 	}
 	if attr, ok := d.GetOk("customer_id"); ok {
-		o.CustomerID = attr.(int)
+		CustomerID := attr.(int)
+		o.CustomerID = &CustomerID
 	}
 	if attr, ok := d.GetOk("avatar_data"); ok {
 		o.AvatarData = attr.(string)

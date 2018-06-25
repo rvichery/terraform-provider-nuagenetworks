@@ -65,7 +65,7 @@ type IKEGatewayProfile struct {
 	LastUpdatedBy                    string `json:"lastUpdatedBy,omitempty"`
 	ServiceClass                     string `json:"serviceClass,omitempty"`
 	Description                      string `json:"description,omitempty"`
-	AntiReplayCheck                  bool   `json:"antiReplayCheck"`
+	AntiReplayCheck                  *bool  `json:"antiReplayCheck,omitempty"`
 	EntityScope                      string `json:"entityScope,omitempty"`
 	AssociatedEnterpriseID           string `json:"associatedEnterpriseID,omitempty"`
 	AssociatedIKEAuthenticationID    string `json:"associatedIKEAuthenticationID,omitempty"`
@@ -77,7 +77,6 @@ type IKEGatewayProfile struct {
 
 // NewIKEGatewayProfile returns a new *IKEGatewayProfile
 func NewIKEGatewayProfile() *IKEGatewayProfile {
-
 	return &IKEGatewayProfile{
 		IKEGatewayIdentifierType: "ID_IPV4_ADDR",
 	}

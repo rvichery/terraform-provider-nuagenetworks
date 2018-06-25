@@ -66,7 +66,6 @@ type SPATSourcesPool struct {
 
 // NewSPATSourcesPool returns a new *SPATSourcesPool
 func NewSPATSourcesPool() *SPATSourcesPool {
-
 	return &SPATSourcesPool{
 		Name: "IPV4",
 	}

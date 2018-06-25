@@ -38,6 +38,7 @@ func resourceVNFDescriptor() *schema.Resource {
 			"cpu_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -50,10 +51,12 @@ func resourceVNFDescriptor() *schema.Resource {
 			"vendor": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"metadata_id": {
 				Type:     schema.TypeString,
@@ -67,6 +70,7 @@ func resourceVNFDescriptor() *schema.Resource {
 			"associated_vnf_threshold_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"storage_gb": {
 				Type:     schema.TypeInt,
@@ -88,14 +92,17 @@ func resourceVNFDescriptor() *schema.Resource {
 func resourceVNFDescriptorCreate(d *schema.ResourceData, m interface{}) error {
 
 	// Initialize VNFDescriptor object
+	MemoryMB := d.Get("memory_mb").(int)
+	StorageGB := d.Get("storage_gb").(int)
 	o := &vspk.VNFDescriptor{
 		Name:       d.Get("name").(string),
-		MemoryMB:   d.Get("memory_mb").(int),
+		MemoryMB:   &MemoryMB,
 		MetadataID: d.Get("metadata_id").(string),
-		StorageGB:  d.Get("storage_gb").(int),
+		StorageGB:  &StorageGB,
 	}
 	if attr, ok := d.GetOk("cpu_count"); ok {
-		o.CPUCount = attr.(int)
+		CPUCount := attr.(int)
+		o.CPUCount = &CPUCount
 	}
 	if attr, ok := d.GetOk("vendor"); ok {
 		o.Vendor = attr.(string)
@@ -104,7 +111,8 @@ func resourceVNFDescriptorCreate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("visible"); ok {
-		o.Visible = attr.(bool)
+		Visible := attr.(bool)
+		o.Visible = &Visible
 	}
 	if attr, ok := d.GetOk("associated_vnf_threshold_policy_id"); ok {
 		o.AssociatedVNFThresholdPolicyID = attr.(string)
@@ -163,12 +171,15 @@ func resourceVNFDescriptorUpdate(d *schema.ResourceData, m interface{}) error {
 	}
 
 	o.Name = d.Get("name").(string)
-	o.MemoryMB = d.Get("memory_mb").(int)
+	MemoryMB := d.Get("memory_mb").(int)
+	o.MemoryMB = &MemoryMB
 	o.MetadataID = d.Get("metadata_id").(string)
-	o.StorageGB = d.Get("storage_gb").(int)
+	StorageGB := d.Get("storage_gb").(int)
+	o.StorageGB = &StorageGB
 
 	if attr, ok := d.GetOk("cpu_count"); ok {
-		o.CPUCount = attr.(int)
+		CPUCount := attr.(int)
+		o.CPUCount = &CPUCount
 	}
 	if attr, ok := d.GetOk("vendor"); ok {
 		o.Vendor = attr.(string)
@@ -177,7 +188,8 @@ func resourceVNFDescriptorUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("visible"); ok {
-		o.Visible = attr.(bool)
+		Visible := attr.(bool)
+		o.Visible = &Visible
 	}
 	if attr, ok := d.GetOk("associated_vnf_threshold_policy_id"); ok {
 		o.AssociatedVNFThresholdPolicyID = attr.(string)

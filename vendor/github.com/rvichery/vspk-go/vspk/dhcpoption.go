@@ -61,7 +61,7 @@ type DHCPOption struct {
 	Owner         string        `json:"owner,omitempty"`
 	Value         string        `json:"value,omitempty"`
 	LastUpdatedBy string        `json:"lastUpdatedBy,omitempty"`
-	ActualType    int           `json:"actualType"`
+	ActualType    *int          `json:"actualType,omitempty"`
 	ActualValues  []interface{} `json:"actualValues,omitempty"`
 	Length        string        `json:"length,omitempty"`
 	EntityScope   string        `json:"entityScope,omitempty"`
@@ -71,7 +71,6 @@ type DHCPOption struct {
 
 // NewDHCPOption returns a new *DHCPOption
 func NewDHCPOption() *DHCPOption {
-
 	return &DHCPOption{}
 }
 

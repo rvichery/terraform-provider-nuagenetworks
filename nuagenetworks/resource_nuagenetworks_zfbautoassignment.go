@@ -38,10 +38,12 @@ func resourceZFBAutoAssignment() *schema.Resource {
 			"zfb_match_attribute": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"zfb_match_attribute_values": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"name": {
@@ -50,16 +52,15 @@ func resourceZFBAutoAssignment() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"priority": {
@@ -69,14 +70,17 @@ func resourceZFBAutoAssignment() *schema.Resource {
 			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_enterprise_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 		},
 	}
@@ -85,9 +89,10 @@ func resourceZFBAutoAssignment() *schema.Resource {
 func resourceZFBAutoAssignmentCreate(d *schema.ResourceData, m interface{}) error {
 
 	// Initialize ZFBAutoAssignment object
+	Priority := d.Get("priority").(int)
 	o := &vspk.ZFBAutoAssignment{
 		Name:     d.Get("name").(string),
-		Priority: d.Get("priority").(int),
+		Priority: &Priority,
 	}
 	if attr, ok := d.GetOk("zfb_match_attribute"); ok {
 		o.ZFBMatchAttribute = attr.(string)
@@ -158,7 +163,8 @@ func resourceZFBAutoAssignmentUpdate(d *schema.ResourceData, m interface{}) erro
 	}
 
 	o.Name = d.Get("name").(string)
-	o.Priority = d.Get("priority").(int)
+	Priority := d.Get("priority").(int)
+	o.Priority = &Priority
 
 	if attr, ok := d.GetOk("zfb_match_attribute"); ok {
 		o.ZFBMatchAttribute = attr.(string)

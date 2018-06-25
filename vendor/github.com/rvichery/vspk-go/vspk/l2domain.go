@@ -59,7 +59,7 @@ type L2Domain struct {
 	ParentID                          string `json:"parentID,omitempty"`
 	ParentType                        string `json:"parentType,omitempty"`
 	Owner                             string `json:"owner,omitempty"`
-	DHCPManaged                       bool   `json:"DHCPManaged"`
+	DHCPManaged                       *bool  `json:"DHCPManaged,omitempty"`
 	DPI                               string `json:"DPI,omitempty"`
 	IPType                            string `json:"IPType,omitempty"`
 	IPv6Address                       string `json:"IPv6Address,omitempty"`
@@ -71,11 +71,11 @@ type L2Domain struct {
 	GatewayMACAddress                 string `json:"gatewayMACAddress,omitempty"`
 	Address                           string `json:"address,omitempty"`
 	TemplateID                        string `json:"templateID,omitempty"`
-	ServiceID                         int    `json:"serviceID"`
+	ServiceID                         *int   `json:"serviceID,omitempty"`
 	Description                       string `json:"description,omitempty"`
 	Netmask                           string `json:"netmask,omitempty"`
 	FlowCollectionEnabled             string `json:"flowCollectionEnabled,omitempty"`
-	VnId                              int    `json:"vnId"`
+	VnId                              *int   `json:"vnId,omitempty"`
 	Encryption                        string `json:"encryption,omitempty"`
 	EntityScope                       string `json:"entityScope,omitempty"`
 	EntityState                       string `json:"entityState,omitempty"`
@@ -87,20 +87,19 @@ type L2Domain struct {
 	AssociatedMulticastChannelMapID   string `json:"associatedMulticastChannelMapID,omitempty"`
 	AssociatedSharedNetworkResourceID string `json:"associatedSharedNetworkResourceID,omitempty"`
 	AssociatedUnderlayID              string `json:"associatedUnderlayID,omitempty"`
-	Stretched                         bool   `json:"stretched"`
+	Stretched                         *bool  `json:"stretched,omitempty"`
 	Multicast                         string `json:"multicast,omitempty"`
 	ExternalID                        string `json:"externalID,omitempty"`
-	DynamicIpv6Address                bool   `json:"dynamicIpv6Address"`
+	DynamicIpv6Address                *bool  `json:"dynamicIpv6Address,omitempty"`
 }
 
 // NewL2Domain returns a new *L2Domain
 func NewL2Domain() *L2Domain {
-
+	DynamicIpv6Address := false
 	return &L2Domain{
-		DPI:                   "DISABLED",
-		MaintenanceMode:       "DISABLED",
+		DPI: "DISABLED",
 		FlowCollectionEnabled: "INHERITED",
-		DynamicIpv6Address:    false,
+		DynamicIpv6Address:    &DynamicIpv6Address,
 	}
 }
 

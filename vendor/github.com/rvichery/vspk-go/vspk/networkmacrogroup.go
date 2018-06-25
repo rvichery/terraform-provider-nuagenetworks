@@ -69,7 +69,6 @@ type NetworkMacroGroup struct {
 
 // NewNetworkMacroGroup returns a new *NetworkMacroGroup
 func NewNetworkMacroGroup() *NetworkMacroGroup {
-
 	return &NetworkMacroGroup{}
 }
 

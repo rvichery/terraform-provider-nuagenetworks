@@ -37,12 +37,10 @@ func resourceApplicationperformancemanagementbinding() *schema.Resource {
 			},
 			"read_only": {
 				Type:     schema.TypeBool,
-				Optional: true,
-				Default:  false,
+				Computed: true,
 			},
 			"priority": {
 				Type:     schema.TypeInt,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_application_performance_management_id": {
@@ -64,7 +62,8 @@ func resourceApplicationperformancemanagementbindingCreate(d *schema.ResourceDat
 		AssociatedApplicationPerformanceManagementID: d.Get("associated_application_performance_management_id").(string),
 	}
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 	parent := &vspk.Domain{ID: d.Get("parent_domain").(string)}
 	err := parent.CreateApplicationperformancemanagementbinding(o)
@@ -112,7 +111,8 @@ func resourceApplicationperformancemanagementbindingUpdate(d *schema.ResourceDat
 	o.AssociatedApplicationPerformanceManagementID = d.Get("associated_application_performance_management_id").(string)
 
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 
 	o.Save()

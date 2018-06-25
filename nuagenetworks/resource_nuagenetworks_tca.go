@@ -38,6 +38,7 @@ func resourceTCA() *schema.Resource {
 			"url_end_point": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -46,10 +47,10 @@ func resourceTCA() *schema.Resource {
 			"target_policy_group_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"action": {
@@ -63,6 +64,7 @@ func resourceTCA() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"metric": {
 				Type:     schema.TypeString,
@@ -85,10 +87,10 @@ func resourceTCA() *schema.Resource {
 			"display_status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"status": {
@@ -99,6 +101,7 @@ func resourceTCA() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"type": {
 				Type:     schema.TypeString,
@@ -136,12 +139,14 @@ func resourceTCA() *schema.Resource {
 func resourceTCACreate(d *schema.ResourceData, m interface{}) error {
 
 	// Initialize TCA object
+	Period := d.Get("period").(int)
+	Threshold := d.Get("threshold").(int)
 	o := &vspk.TCA{
 		Name:      d.Get("name").(string),
 		Action:    d.Get("action").(string),
-		Period:    d.Get("period").(int),
+		Period:    &Period,
 		Metric:    d.Get("metric").(string),
-		Threshold: d.Get("threshold").(int),
+		Threshold: &Threshold,
 		Type:      d.Get("type").(string),
 	}
 	if attr, ok := d.GetOk("url_end_point"); ok {
@@ -154,16 +159,19 @@ func resourceTCACreate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("throttle_time"); ok {
-		o.ThrottleTime = attr.(int)
+		ThrottleTime := attr.(int)
+		o.ThrottleTime = &ThrottleTime
 	}
 	if attr, ok := d.GetOk("disable"); ok {
-		o.Disable = attr.(bool)
+		Disable := attr.(bool)
+		o.Disable = &Disable
 	}
 	if attr, ok := d.GetOk("display_status"); ok {
 		o.DisplayStatus = attr.(string)
 	}
 	if attr, ok := d.GetOk("status"); ok {
-		o.Status = attr.(bool)
+		Status := attr.(bool)
+		o.Status = &Status
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -257,9 +265,11 @@ func resourceTCAUpdate(d *schema.ResourceData, m interface{}) error {
 
 	o.Name = d.Get("name").(string)
 	o.Action = d.Get("action").(string)
-	o.Period = d.Get("period").(int)
+	Period := d.Get("period").(int)
+	o.Period = &Period
 	o.Metric = d.Get("metric").(string)
-	o.Threshold = d.Get("threshold").(int)
+	Threshold := d.Get("threshold").(int)
+	o.Threshold = &Threshold
 	o.Type = d.Get("type").(string)
 
 	if attr, ok := d.GetOk("url_end_point"); ok {
@@ -272,16 +282,19 @@ func resourceTCAUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("throttle_time"); ok {
-		o.ThrottleTime = attr.(int)
+		ThrottleTime := attr.(int)
+		o.ThrottleTime = &ThrottleTime
 	}
 	if attr, ok := d.GetOk("disable"); ok {
-		o.Disable = attr.(bool)
+		Disable := attr.(bool)
+		o.Disable = &Disable
 	}
 	if attr, ok := d.GetOk("display_status"); ok {
 		o.DisplayStatus = attr.(string)
 	}
 	if attr, ok := d.GetOk("status"); ok {
-		o.Status = attr.(bool)
+		Status := attr.(bool)
+		o.Status = &Status
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

@@ -76,7 +76,7 @@ type EgressAdvFwdEntryTemplate struct {
 	NetworkID              string `json:"networkID,omitempty"`
 	NetworkType            string `json:"networkType,omitempty"`
 	MirrorDestinationID    string `json:"mirrorDestinationID,omitempty"`
-	FlowLoggingEnabled     bool   `json:"flowLoggingEnabled"`
+	FlowLoggingEnabled     *bool  `json:"flowLoggingEnabled,omitempty"`
 	EnterpriseName         string `json:"enterpriseName,omitempty"`
 	EntityScope            string `json:"entityScope,omitempty"`
 	LocationID             string `json:"locationID,omitempty"`
@@ -85,18 +85,17 @@ type EgressAdvFwdEntryTemplate struct {
 	DomainName             string `json:"domainName,omitempty"`
 	SourcePort             string `json:"sourcePort,omitempty"`
 	UplinkPreference       string `json:"uplinkPreference,omitempty"`
-	Priority               int    `json:"priority"`
+	Priority               *int   `json:"priority,omitempty"`
 	Protocol               string `json:"protocol,omitempty"`
 	AssociatedLiveEntityID string `json:"associatedLiveEntityID,omitempty"`
 	StatsID                string `json:"statsID,omitempty"`
-	StatsLoggingEnabled    bool   `json:"statsLoggingEnabled"`
+	StatsLoggingEnabled    *bool  `json:"statsLoggingEnabled,omitempty"`
 	EtherType              string `json:"etherType,omitempty"`
 	ExternalID             string `json:"externalID,omitempty"`
 }
 
 // NewEgressAdvFwdEntryTemplate returns a new *EgressAdvFwdEntryTemplate
 func NewEgressAdvFwdEntryTemplate() *EgressAdvFwdEntryTemplate {
-
 	return &EgressAdvFwdEntryTemplate{
 		FailsafeDatapath: "FAIL_TO_BLOCK",
 	}

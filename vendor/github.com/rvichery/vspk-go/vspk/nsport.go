@@ -67,30 +67,32 @@ type NSPort struct {
 	PermittedAction             string `json:"permittedAction,omitempty"`
 	Description                 string `json:"description,omitempty"`
 	PhysicalName                string `json:"physicalName,omitempty"`
-	EnableNATProbes             bool   `json:"enableNATProbes"`
+	EnableNATProbes             *bool  `json:"enableNATProbes,omitempty"`
 	EntityScope                 string `json:"entityScope,omitempty"`
 	PortType                    string `json:"portType,omitempty"`
 	Speed                       string `json:"speed,omitempty"`
-	TrafficThroughUBROnly       bool   `json:"TrafficThroughUBROnly"`
-	UseUserMnemonic             bool   `json:"useUserMnemonic"`
+	TrafficThroughUBROnly       *bool  `json:"TrafficThroughUBROnly,omitempty"`
+	UseUserMnemonic             *bool  `json:"useUserMnemonic,omitempty"`
 	UserMnemonic                string `json:"userMnemonic,omitempty"`
 	AssociatedEgressQOSPolicyID string `json:"associatedEgressQOSPolicyID,omitempty"`
 	AssociatedRedundantPortID   string `json:"associatedRedundantPortID,omitempty"`
 	Status                      string `json:"status,omitempty"`
-	Mtu                         int    `json:"mtu"`
+	Mtu                         *int   `json:"mtu,omitempty"`
 	ExternalID                  string `json:"externalID,omitempty"`
 }
 
 // NewNSPort returns a new *NSPort
 func NewNSPort() *NSPort {
-
+	EnableNATProbes := true
+	TrafficThroughUBROnly := false
+	Mtu := 1500
 	return &NSPort{
 		NATTraversal:    "NONE",
 		VLANRange:       "0-4094",
-		EnableNATProbes: true,
+		EnableNATProbes: &EnableNATProbes,
 		Speed:           "AUTONEGOTIATE",
-		TrafficThroughUBROnly: false,
-		Mtu: 1500,
+		TrafficThroughUBROnly: &TrafficThroughUBROnly,
+		Mtu: &Mtu,
 	}
 }
 

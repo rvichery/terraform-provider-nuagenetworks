@@ -68,7 +68,6 @@ type OverlayPATNATEntry struct {
 
 // NewOverlayPATNATEntry returns a new *OverlayPATNATEntry
 func NewOverlayPATNATEntry() *OverlayPATNATEntry {
-
 	return &OverlayPATNATEntry{}
 }
 

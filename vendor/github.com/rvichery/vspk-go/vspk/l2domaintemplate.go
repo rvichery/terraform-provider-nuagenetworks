@@ -59,7 +59,7 @@ type L2DomainTemplate struct {
 	ParentID                        string `json:"parentID,omitempty"`
 	ParentType                      string `json:"parentType,omitempty"`
 	Owner                           string `json:"owner,omitempty"`
-	DHCPManaged                     bool   `json:"DHCPManaged"`
+	DHCPManaged                     *bool  `json:"DHCPManaged,omitempty"`
 	DPI                             string `json:"DPI,omitempty"`
 	IPType                          string `json:"IPType,omitempty"`
 	IPv6Address                     string `json:"IPv6Address,omitempty"`
@@ -78,16 +78,16 @@ type L2DomainTemplate struct {
 	AssociatedMulticastChannelMapID string `json:"associatedMulticastChannelMapID,omitempty"`
 	Multicast                       string `json:"multicast,omitempty"`
 	ExternalID                      string `json:"externalID,omitempty"`
-	DynamicIpv6Address              bool   `json:"dynamicIpv6Address"`
+	DynamicIpv6Address              *bool  `json:"dynamicIpv6Address,omitempty"`
 }
 
 // NewL2DomainTemplate returns a new *L2DomainTemplate
 func NewL2DomainTemplate() *L2DomainTemplate {
-
+	DynamicIpv6Address := false
 	return &L2DomainTemplate{
 		DPI:                "DISABLED",
 		UseGlobalMAC:       "DISABLED",
-		DynamicIpv6Address: false,
+		DynamicIpv6Address: &DynamicIpv6Address,
 	}
 }
 

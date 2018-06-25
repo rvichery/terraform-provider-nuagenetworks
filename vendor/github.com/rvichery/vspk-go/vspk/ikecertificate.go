@@ -62,7 +62,7 @@ type IKECertificate struct {
 	PEMEncoded             string  `json:"PEMEncoded,omitempty"`
 	Name                   string  `json:"name,omitempty"`
 	LastUpdatedBy          string  `json:"lastUpdatedBy,omitempty"`
-	SerialNumber           int     `json:"serialNumber"`
+	SerialNumber           *int    `json:"serialNumber,omitempty"`
 	Description            string  `json:"description,omitempty"`
 	EntityScope            string  `json:"entityScope,omitempty"`
 	NotAfter               float64 `json:"notAfter,omitempty"`
@@ -75,7 +75,6 @@ type IKECertificate struct {
 
 // NewIKECertificate returns a new *IKECertificate
 func NewIKECertificate() *IKECertificate {
-
 	return &IKECertificate{}
 }
 

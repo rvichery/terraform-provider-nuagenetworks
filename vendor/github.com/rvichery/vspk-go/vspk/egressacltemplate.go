@@ -61,24 +61,23 @@ type EgressACLTemplate struct {
 	Owner                             string `json:"owner,omitempty"`
 	Name                              string `json:"name,omitempty"`
 	LastUpdatedBy                     string `json:"lastUpdatedBy,omitempty"`
-	Active                            bool   `json:"active"`
-	DefaultAllowIP                    bool   `json:"defaultAllowIP"`
-	DefaultAllowNonIP                 bool   `json:"defaultAllowNonIP"`
-	DefaultInstallACLImplicitRules    bool   `json:"defaultInstallACLImplicitRules"`
+	Active                            *bool  `json:"active,omitempty"`
+	DefaultAllowIP                    *bool  `json:"defaultAllowIP,omitempty"`
+	DefaultAllowNonIP                 *bool  `json:"defaultAllowNonIP,omitempty"`
+	DefaultInstallACLImplicitRules    *bool  `json:"defaultInstallACLImplicitRules,omitempty"`
 	Description                       string `json:"description,omitempty"`
 	EntityScope                       string `json:"entityScope,omitempty"`
 	PolicyState                       string `json:"policyState,omitempty"`
-	Priority                          int    `json:"priority"`
+	Priority                          *int   `json:"priority,omitempty"`
 	PriorityType                      string `json:"priorityType,omitempty"`
 	AssociatedLiveEntityID            string `json:"associatedLiveEntityID,omitempty"`
 	AssociatedVirtualFirewallPolicyID string `json:"associatedVirtualFirewallPolicyID,omitempty"`
-	AutoGeneratePriority              bool   `json:"autoGeneratePriority"`
+	AutoGeneratePriority              *bool  `json:"autoGeneratePriority,omitempty"`
 	ExternalID                        string `json:"externalID,omitempty"`
 }
 
 // NewEgressACLTemplate returns a new *EgressACLTemplate
 func NewEgressACLTemplate() *EgressACLTemplate {
-
 	return &EgressACLTemplate{}
 }
 

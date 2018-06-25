@@ -59,13 +59,13 @@ type LDAPConfiguration struct {
 	ParentID              string `json:"parentID,omitempty"`
 	ParentType            string `json:"parentType,omitempty"`
 	Owner                 string `json:"owner,omitempty"`
-	SSLEnabled            bool   `json:"SSLEnabled"`
+	SSLEnabled            *bool  `json:"SSLEnabled,omitempty"`
 	Password              string `json:"password,omitempty"`
 	LastUpdatedBy         string `json:"lastUpdatedBy,omitempty"`
-	AcceptAllCertificates bool   `json:"acceptAllCertificates"`
+	AcceptAllCertificates *bool  `json:"acceptAllCertificates,omitempty"`
 	Certificate           string `json:"certificate,omitempty"`
 	Server                string `json:"server,omitempty"`
-	Enabled               bool   `json:"enabled"`
+	Enabled               *bool  `json:"enabled,omitempty"`
 	EntityScope           string `json:"entityScope,omitempty"`
 	Port                  string `json:"port,omitempty"`
 	GroupDN               string `json:"groupDN,omitempty"`
@@ -73,14 +73,13 @@ type LDAPConfiguration struct {
 	GroupNameSuffix       string `json:"groupNameSuffix,omitempty"`
 	UserDNTemplate        string `json:"userDNTemplate,omitempty"`
 	UserNameAttribute     string `json:"userNameAttribute,omitempty"`
-	AuthorizationEnabled  bool   `json:"authorizationEnabled"`
+	AuthorizationEnabled  *bool  `json:"authorizationEnabled,omitempty"`
 	AuthorizingUserDN     string `json:"authorizingUserDN,omitempty"`
 	ExternalID            string `json:"externalID,omitempty"`
 }
 
 // NewLDAPConfiguration returns a new *LDAPConfiguration
 func NewLDAPConfiguration() *LDAPConfiguration {
-
 	return &LDAPConfiguration{}
 }
 

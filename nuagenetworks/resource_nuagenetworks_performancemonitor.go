@@ -41,7 +41,6 @@ func resourcePerformanceMonitor() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"payload_size": {
@@ -51,8 +50,7 @@ func resourcePerformanceMonitor() *schema.Resource {
 			},
 			"read_only": {
 				Type:     schema.TypeBool,
-				Optional: true,
-				Default:  false,
+				Computed: true,
 			},
 			"service_class": {
 				Type:     schema.TypeString,
@@ -62,10 +60,12 @@ func resourcePerformanceMonitor() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"destination_target_list": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"timeout": {
@@ -79,7 +79,6 @@ func resourcePerformanceMonitor() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"hold_down_timer": {
@@ -99,6 +98,7 @@ func resourcePerformanceMonitor() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -111,16 +111,20 @@ func resourcePerformanceMonitor() *schema.Resource {
 func resourcePerformanceMonitorCreate(d *schema.ResourceData, m interface{}) error {
 
 	// Initialize PerformanceMonitor object
+	Interval := d.Get("interval").(int)
+	NumberOfPackets := d.Get("number_of_packets").(int)
 	o := &vspk.PerformanceMonitor{
 		Name:            d.Get("name").(string),
-		Interval:        d.Get("interval").(int),
-		NumberOfPackets: d.Get("number_of_packets").(int),
+		Interval:        &Interval,
+		NumberOfPackets: &NumberOfPackets,
 	}
 	if attr, ok := d.GetOk("payload_size"); ok {
-		o.PayloadSize = attr.(int)
+		PayloadSize := attr.(int)
+		o.PayloadSize = &PayloadSize
 	}
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 	if attr, ok := d.GetOk("service_class"); ok {
 		o.ServiceClass = attr.(string)
@@ -132,10 +136,12 @@ func resourcePerformanceMonitorCreate(d *schema.ResourceData, m interface{}) err
 		o.DestinationTargetList = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("timeout"); ok {
-		o.Timeout = attr.(int)
+		Timeout := attr.(int)
+		o.Timeout = &Timeout
 	}
 	if attr, ok := d.GetOk("hold_down_timer"); ok {
-		o.HoldDownTimer = attr.(int)
+		HoldDownTimer := attr.(int)
+		o.HoldDownTimer = &HoldDownTimer
 	}
 	if attr, ok := d.GetOk("probe_type"); ok {
 		o.ProbeType = attr.(string)
@@ -210,14 +216,18 @@ func resourcePerformanceMonitorUpdate(d *schema.ResourceData, m interface{}) err
 	}
 
 	o.Name = d.Get("name").(string)
-	o.Interval = d.Get("interval").(int)
-	o.NumberOfPackets = d.Get("number_of_packets").(int)
+	Interval := d.Get("interval").(int)
+	o.Interval = &Interval
+	NumberOfPackets := d.Get("number_of_packets").(int)
+	o.NumberOfPackets = &NumberOfPackets
 
 	if attr, ok := d.GetOk("payload_size"); ok {
-		o.PayloadSize = attr.(int)
+		PayloadSize := attr.(int)
+		o.PayloadSize = &PayloadSize
 	}
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 	if attr, ok := d.GetOk("service_class"); ok {
 		o.ServiceClass = attr.(string)
@@ -229,10 +239,12 @@ func resourcePerformanceMonitorUpdate(d *schema.ResourceData, m interface{}) err
 		o.DestinationTargetList = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("timeout"); ok {
-		o.Timeout = attr.(int)
+		Timeout := attr.(int)
+		o.Timeout = &Timeout
 	}
 	if attr, ok := d.GetOk("hold_down_timer"); ok {
-		o.HoldDownTimer = attr.(int)
+		HoldDownTimer := attr.(int)
+		o.HoldDownTimer = &HoldDownTimer
 	}
 	if attr, ok := d.GetOk("probe_type"); ok {
 		o.ProbeType = attr.(string)

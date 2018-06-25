@@ -67,7 +67,6 @@ type Avatar struct {
 
 // NewAvatar returns a new *Avatar
 func NewAvatar() *Avatar {
-
 	return &Avatar{}
 }
 

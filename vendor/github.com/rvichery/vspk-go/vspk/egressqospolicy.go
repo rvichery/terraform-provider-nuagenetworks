@@ -81,7 +81,6 @@ type EgressQOSPolicy struct {
 
 // NewEgressQOSPolicy returns a new *EgressQOSPolicy
 func NewEgressQOSPolicy() *EgressQOSPolicy {
-
 	return &EgressQOSPolicy{}
 }
 

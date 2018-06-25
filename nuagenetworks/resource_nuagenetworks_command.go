@@ -37,22 +37,18 @@ func resourceCommand() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"detailed_status": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"detailed_status_code": {
 				Type:     schema.TypeInt,
-				Optional: true,
 				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"command": {
@@ -61,31 +57,29 @@ func resourceCommand() *schema.Resource {
 			},
 			"command_information": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_param": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_param_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"status": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"full_command": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"summary": {
 				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
+				Required: true,
 			},
 			"override": {
 				Type:     schema.TypeString,
@@ -95,6 +89,7 @@ func resourceCommand() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_ns_gateway": {
 				Type:     schema.TypeString,

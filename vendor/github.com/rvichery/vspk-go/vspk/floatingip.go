@@ -60,10 +60,10 @@ type FloatingIp struct {
 	ParentType                        string `json:"parentType,omitempty"`
 	Owner                             string `json:"owner,omitempty"`
 	LastUpdatedBy                     string `json:"lastUpdatedBy,omitempty"`
-	AccessControl                     bool   `json:"accessControl"`
+	AccessControl                     *bool  `json:"accessControl,omitempty"`
 	Address                           string `json:"address,omitempty"`
 	EntityScope                       string `json:"entityScope,omitempty"`
-	Assigned                          bool   `json:"assigned"`
+	Assigned                          *bool  `json:"assigned,omitempty"`
 	AssignedToObjectType              string `json:"assignedToObjectType,omitempty"`
 	AssociatedSharedNetworkResourceID string `json:"associatedSharedNetworkResourceID,omitempty"`
 	ExternalID                        string `json:"externalID,omitempty"`
@@ -71,7 +71,6 @@ type FloatingIp struct {
 
 // NewFloatingIp returns a new *FloatingIp
 func NewFloatingIp() *FloatingIp {
-
 	return &FloatingIp{}
 }
 

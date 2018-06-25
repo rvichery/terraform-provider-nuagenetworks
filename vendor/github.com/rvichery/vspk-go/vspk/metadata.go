@@ -62,16 +62,15 @@ type Metadata struct {
 	Name                        string        `json:"name,omitempty"`
 	Description                 string        `json:"description,omitempty"`
 	MetadataTagIDs              []interface{} `json:"metadataTagIDs,omitempty"`
-	NetworkNotificationDisabled bool          `json:"networkNotificationDisabled"`
+	NetworkNotificationDisabled *bool         `json:"networkNotificationDisabled,omitempty"`
 	Blob                        string        `json:"blob,omitempty"`
-	GlobalMetadata              bool          `json:"globalMetadata"`
+	GlobalMetadata              *bool         `json:"globalMetadata,omitempty"`
 	EntityScope                 string        `json:"entityScope,omitempty"`
 	ExternalID                  string        `json:"externalID,omitempty"`
 }
 
 // NewMetadata returns a new *Metadata
 func NewMetadata() *Metadata {
-
 	return &Metadata{}
 }
 

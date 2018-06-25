@@ -68,7 +68,6 @@ type Connectionendpoint struct {
 
 // NewConnectionendpoint returns a new *Connectionendpoint
 func NewConnectionendpoint() *Connectionendpoint {
-
 	return &Connectionendpoint{
 		IPType:       "IPV4",
 		EndPointType: "SOURCE",

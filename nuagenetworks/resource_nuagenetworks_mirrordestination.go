@@ -38,28 +38,30 @@ func resourceMirrorDestination() *schema.Resource {
 			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"service_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"destination_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 		},
 	}
@@ -73,7 +75,8 @@ func resourceMirrorDestinationCreate(d *schema.ResourceData, m interface{}) erro
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("service_id"); ok {
-		o.ServiceId = attr.(int)
+		ServiceId := attr.(int)
+		o.ServiceId = &ServiceId
 	}
 	if attr, ok := d.GetOk("destination_ip"); ok {
 		o.DestinationIp = attr.(string)
@@ -131,7 +134,8 @@ func resourceMirrorDestinationUpdate(d *schema.ResourceData, m interface{}) erro
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("service_id"); ok {
-		o.ServiceId = attr.(int)
+		ServiceId := attr.(int)
+		o.ServiceId = &ServiceId
 	}
 	if attr, ok := d.GetOk("destination_ip"); ok {
 		o.DestinationIp = attr.(string)

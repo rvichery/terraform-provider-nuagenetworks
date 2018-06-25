@@ -59,19 +59,19 @@ type VRSMetrics struct {
 	ParentID                      string  `json:"parentID,omitempty"`
 	ParentType                    string  `json:"parentType,omitempty"`
 	Owner                         string  `json:"owner,omitempty"`
-	ALUbr0Status                  bool    `json:"ALUbr0Status"`
+	ALUbr0Status                  *bool   `json:"ALUbr0Status,omitempty"`
 	CPUUtilization                float64 `json:"CPUUtilization,omitempty"`
-	VRSProcess                    bool    `json:"VRSProcess"`
-	VRSVSCStatus                  bool    `json:"VRSVSCStatus"`
+	VRSProcess                    *bool   `json:"VRSProcess,omitempty"`
+	VRSVSCStatus                  *bool   `json:"VRSVSCStatus,omitempty"`
 	LastUpdatedBy                 string  `json:"lastUpdatedBy,omitempty"`
-	ReDeploy                      bool    `json:"reDeploy"`
-	ReceivingMetrics              bool    `json:"receivingMetrics"`
+	ReDeploy                      *bool   `json:"reDeploy,omitempty"`
+	ReceivingMetrics              *bool   `json:"receivingMetrics,omitempty"`
 	MemoryUtilization             float64 `json:"memoryUtilization,omitempty"`
-	JesxmonProcess                bool    `json:"jesxmonProcess"`
+	JesxmonProcess                *bool   `json:"jesxmonProcess,omitempty"`
 	EntityScope                   string  `json:"entityScope,omitempty"`
 	LogDiskPartitionUtilization   float64 `json:"logDiskPartitionUtilization,omitempty"`
 	RootDiskPartitionUtilization  float64 `json:"rootDiskPartitionUtilization,omitempty"`
-	AppliedMetricsPushInterval    int     `json:"appliedMetricsPushInterval"`
+	AppliedMetricsPushInterval    *int    `json:"appliedMetricsPushInterval,omitempty"`
 	AssociatedVCenterHypervisorID string  `json:"associatedVCenterHypervisorID,omitempty"`
 	CurrentVersion                string  `json:"currentVersion,omitempty"`
 	ExternalID                    string  `json:"externalID,omitempty"`
@@ -79,9 +79,9 @@ type VRSMetrics struct {
 
 // NewVRSMetrics returns a new *VRSMetrics
 func NewVRSMetrics() *VRSMetrics {
-
+	AppliedMetricsPushInterval := 60
 	return &VRSMetrics{
-		AppliedMetricsPushInterval: 60,
+		AppliedMetricsPushInterval: &AppliedMetricsPushInterval,
 	}
 }
 

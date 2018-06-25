@@ -64,7 +64,6 @@ type LTEInformation struct {
 
 // NewLTEInformation returns a new *LTEInformation
 func NewLTEInformation() *LTEInformation {
-
 	return &LTEInformation{}
 }
 

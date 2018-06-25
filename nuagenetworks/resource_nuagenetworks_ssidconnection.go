@@ -42,6 +42,7 @@ func resourceSSIDConnection() *schema.Resource {
 			"passphrase": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"redirect_option": {
 				Type:     schema.TypeString,
@@ -51,33 +52,36 @@ func resourceSSIDConnection() *schema.Resource {
 			"redirect_url": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"generic_config": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"white_list": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"black_list": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"interface_name": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"vport_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"broadcast_ssid": {
@@ -88,10 +92,12 @@ func resourceSSIDConnection() *schema.Resource {
 			"associated_captive_portal_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"authentication_mode": {
 				Type:     schema.TypeString,
@@ -134,7 +140,8 @@ func resourceSSIDConnectionCreate(d *schema.ResourceData, m interface{}) error {
 		o.BlackList = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("broadcast_ssid"); ok {
-		o.BroadcastSSID = attr.(bool)
+		BroadcastSSID := attr.(bool)
+		o.BroadcastSSID = &BroadcastSSID
 	}
 	if attr, ok := d.GetOk("associated_captive_portal_profile_id"); ok {
 		o.AssociatedCaptivePortalProfileID = attr.(string)
@@ -226,7 +233,8 @@ func resourceSSIDConnectionUpdate(d *schema.ResourceData, m interface{}) error {
 		o.BlackList = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("broadcast_ssid"); ok {
-		o.BroadcastSSID = attr.(bool)
+		BroadcastSSID := attr.(bool)
+		o.BroadcastSSID = &BroadcastSSID
 	}
 	if attr, ok := d.GetOk("associated_captive_portal_profile_id"); ok {
 		o.AssociatedCaptivePortalProfileID = attr.(string)

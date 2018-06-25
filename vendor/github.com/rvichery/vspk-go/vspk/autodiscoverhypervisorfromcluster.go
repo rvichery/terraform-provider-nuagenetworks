@@ -69,7 +69,6 @@ type AutoDiscoverHypervisorFromCluster struct {
 
 // NewAutoDiscoverHypervisorFromCluster returns a new *AutoDiscoverHypervisorFromCluster
 func NewAutoDiscoverHypervisorFromCluster() *AutoDiscoverHypervisorFromCluster {
-
 	return &AutoDiscoverHypervisorFromCluster{}
 }
 

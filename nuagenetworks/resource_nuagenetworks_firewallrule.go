@@ -38,138 +38,172 @@ func resourceFirewallRule() *schema.Resource {
 			"acl_template_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"icmp_code": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"icmp_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ipv6_address_override": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dscp": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"action": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"address_override": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dest_network": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dest_pg_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dest_pg_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"destination_ipv6_value": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"destination_port": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"destination_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"destination_value": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"network_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"network_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"mirror_destination_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"flow_logging_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"enterprise_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"location_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"location_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"domain_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"source_ipv6_value": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"source_network": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"source_pg_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"source_pg_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"source_port": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"source_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"source_value": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"priority": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_application_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_application_object_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associatedfirewall_aclid": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"stateful": {
 				Type:     schema.TypeBool,
@@ -179,14 +213,17 @@ func resourceFirewallRule() *schema.Resource {
 			"stats_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"stats_logging_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"ether_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -255,7 +292,8 @@ func resourceFirewallRuleCreate(d *schema.ResourceData, m interface{}) error {
 		o.MirrorDestinationID = attr.(string)
 	}
 	if attr, ok := d.GetOk("flow_logging_enabled"); ok {
-		o.FlowLoggingEnabled = attr.(bool)
+		FlowLoggingEnabled := attr.(bool)
+		o.FlowLoggingEnabled = &FlowLoggingEnabled
 	}
 	if attr, ok := d.GetOk("enterprise_name"); ok {
 		o.EnterpriseName = attr.(string)
@@ -303,13 +341,15 @@ func resourceFirewallRuleCreate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedfirewallACLID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stateful"); ok {
-		o.Stateful = attr.(bool)
+		Stateful := attr.(bool)
+		o.Stateful = &Stateful
 	}
 	if attr, ok := d.GetOk("stats_id"); ok {
 		o.StatsID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stats_logging_enabled"); ok {
-		o.StatsLoggingEnabled = attr.(bool)
+		StatsLoggingEnabled := attr.(bool)
+		o.StatsLoggingEnabled = &StatsLoggingEnabled
 	}
 	if attr, ok := d.GetOk("ether_type"); ok {
 		o.EtherType = attr.(string)
@@ -447,7 +487,8 @@ func resourceFirewallRuleUpdate(d *schema.ResourceData, m interface{}) error {
 		o.MirrorDestinationID = attr.(string)
 	}
 	if attr, ok := d.GetOk("flow_logging_enabled"); ok {
-		o.FlowLoggingEnabled = attr.(bool)
+		FlowLoggingEnabled := attr.(bool)
+		o.FlowLoggingEnabled = &FlowLoggingEnabled
 	}
 	if attr, ok := d.GetOk("enterprise_name"); ok {
 		o.EnterpriseName = attr.(string)
@@ -495,13 +536,15 @@ func resourceFirewallRuleUpdate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedfirewallACLID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stateful"); ok {
-		o.Stateful = attr.(bool)
+		Stateful := attr.(bool)
+		o.Stateful = &Stateful
 	}
 	if attr, ok := d.GetOk("stats_id"); ok {
 		o.StatsID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stats_logging_enabled"); ok {
-		o.StatsLoggingEnabled = attr.(bool)
+		StatsLoggingEnabled := attr.(bool)
+		o.StatsLoggingEnabled = &StatsLoggingEnabled
 	}
 	if attr, ok := d.GetOk("ether_type"); ok {
 		o.EtherType = attr.(string)

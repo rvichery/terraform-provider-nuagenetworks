@@ -81,7 +81,6 @@ type BridgeInterface struct {
 
 // NewBridgeInterface returns a new *BridgeInterface
 func NewBridgeInterface() *BridgeInterface {
-
 	return &BridgeInterface{}
 }
 

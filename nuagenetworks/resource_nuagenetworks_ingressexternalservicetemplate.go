@@ -38,39 +38,46 @@ func resourceIngressExternalServiceTemplate() *schema.Resource {
 			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"active": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"policy_state": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"priority_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_live_entity_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_domain": {
 				Type:          schema.TypeString,
@@ -104,7 +111,8 @@ func resourceIngressExternalServiceTemplateCreate(d *schema.ResourceData, m inte
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -113,7 +121,8 @@ func resourceIngressExternalServiceTemplateCreate(d *schema.ResourceData, m inte
 		o.PolicyState = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("priority_type"); ok {
 		o.PriorityType = attr.(string)
@@ -200,7 +209,8 @@ func resourceIngressExternalServiceTemplateUpdate(d *schema.ResourceData, m inte
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -209,7 +219,8 @@ func resourceIngressExternalServiceTemplateUpdate(d *schema.ResourceData, m inte
 		o.PolicyState = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("priority_type"); ok {
 		o.PriorityType = attr.(string)

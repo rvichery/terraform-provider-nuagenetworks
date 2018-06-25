@@ -59,18 +59,18 @@ type VLAN struct {
 	ParentID                              string `json:"parentID,omitempty"`
 	ParentType                            string `json:"parentType,omitempty"`
 	Owner                                 string `json:"owner,omitempty"`
-	Value                                 int    `json:"value"`
+	Value                                 *int   `json:"value,omitempty"`
 	LastUpdatedBy                         string `json:"lastUpdatedBy,omitempty"`
 	GatewayID                             string `json:"gatewayID,omitempty"`
-	Readonly                              bool   `json:"readonly"`
+	Readonly                              *bool  `json:"readonly,omitempty"`
 	TemplateID                            string `json:"templateID,omitempty"`
 	PermittedAction                       string `json:"permittedAction,omitempty"`
 	Description                           string `json:"description,omitempty"`
-	Restricted                            bool   `json:"restricted"`
+	Restricted                            *bool  `json:"restricted,omitempty"`
 	EntityScope                           string `json:"entityScope,omitempty"`
 	VportID                               string `json:"vportID,omitempty"`
-	IsUplink                              bool   `json:"isUplink"`
-	UseUserMnemonic                       bool   `json:"useUserMnemonic"`
+	IsUplink                              *bool  `json:"isUplink,omitempty"`
+	UseUserMnemonic                       *bool  `json:"useUserMnemonic,omitempty"`
 	UserMnemonic                          string `json:"userMnemonic,omitempty"`
 	AssociatedBGPProfileID                string `json:"associatedBGPProfileID,omitempty"`
 	AssociatedConnectionType              string `json:"associatedConnectionType,omitempty"`
@@ -81,17 +81,18 @@ type VLAN struct {
 	AssociatedUplinkConnectionID          string `json:"associatedUplinkConnectionID,omitempty"`
 	AssociatedVSCProfileID                string `json:"associatedVSCProfileID,omitempty"`
 	Status                                string `json:"status,omitempty"`
-	DucVlan                               bool   `json:"ducVlan"`
+	DucVlan                               *bool  `json:"ducVlan,omitempty"`
 	ExternalID                            string `json:"externalID,omitempty"`
 	Type                                  string `json:"type,omitempty"`
 }
 
 // NewVLAN returns a new *VLAN
 func NewVLAN() *VLAN {
-
+	IsUplink := false
+	DucVlan := false
 	return &VLAN{
-		IsUplink: false,
-		DucVlan:  false,
+		IsUplink: &IsUplink,
+		DucVlan:  &DucVlan,
 	}
 }
 

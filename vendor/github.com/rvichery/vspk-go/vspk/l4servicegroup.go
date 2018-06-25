@@ -68,7 +68,6 @@ type L4ServiceGroup struct {
 
 // NewL4ServiceGroup returns a new *L4ServiceGroup
 func NewL4ServiceGroup() *L4ServiceGroup {
-
 	return &L4ServiceGroup{}
 }
 

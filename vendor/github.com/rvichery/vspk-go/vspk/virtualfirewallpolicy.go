@@ -61,33 +61,38 @@ type VirtualFirewallPolicy struct {
 	Owner                          string `json:"owner,omitempty"`
 	Name                           string `json:"name,omitempty"`
 	LastUpdatedBy                  string `json:"lastUpdatedBy,omitempty"`
-	Active                         bool   `json:"active"`
-	DefaultAllowIP                 bool   `json:"defaultAllowIP"`
-	DefaultAllowNonIP              bool   `json:"defaultAllowNonIP"`
-	DefaultInstallACLImplicitRules bool   `json:"defaultInstallACLImplicitRules"`
+	Active                         *bool  `json:"active,omitempty"`
+	DefaultAllowIP                 *bool  `json:"defaultAllowIP,omitempty"`
+	DefaultAllowNonIP              *bool  `json:"defaultAllowNonIP,omitempty"`
+	DefaultInstallACLImplicitRules *bool  `json:"defaultInstallACLImplicitRules,omitempty"`
 	Description                    string `json:"description,omitempty"`
-	AllowAddressSpoof              bool   `json:"allowAddressSpoof"`
+	AllowAddressSpoof              *bool  `json:"allowAddressSpoof,omitempty"`
 	EntityScope                    string `json:"entityScope,omitempty"`
 	PolicyState                    string `json:"policyState,omitempty"`
-	Priority                       int    `json:"priority"`
+	Priority                       *int   `json:"priority,omitempty"`
 	PriorityType                   string `json:"priorityType,omitempty"`
 	AssociatedEgressTemplateID     string `json:"associatedEgressTemplateID,omitempty"`
 	AssociatedIngressTemplateID    string `json:"associatedIngressTemplateID,omitempty"`
 	AssociatedLiveEntityID         string `json:"associatedLiveEntityID,omitempty"`
-	AutoGeneratePriority           bool   `json:"autoGeneratePriority"`
+	AutoGeneratePriority           *bool  `json:"autoGeneratePriority,omitempty"`
 	ExternalID                     string `json:"externalID,omitempty"`
 }
 
 // NewVirtualFirewallPolicy returns a new *VirtualFirewallPolicy
 func NewVirtualFirewallPolicy() *VirtualFirewallPolicy {
-
+	Active := false
+	DefaultAllowIP := false
+	DefaultAllowNonIP := false
+	DefaultInstallACLImplicitRules := false
+	AllowAddressSpoof := false
+	AutoGeneratePriority := false
 	return &VirtualFirewallPolicy{
-		Active:                         false,
-		DefaultAllowIP:                 false,
-		DefaultAllowNonIP:              false,
-		DefaultInstallACLImplicitRules: false,
-		AllowAddressSpoof:              false,
-		AutoGeneratePriority:           false,
+		Active:                         &Active,
+		DefaultAllowIP:                 &DefaultAllowIP,
+		DefaultAllowNonIP:              &DefaultAllowNonIP,
+		DefaultInstallACLImplicitRules: &DefaultInstallACLImplicitRules,
+		AllowAddressSpoof:              &AllowAddressSpoof,
+		AutoGeneratePriority:           &AutoGeneratePriority,
 	}
 }
 

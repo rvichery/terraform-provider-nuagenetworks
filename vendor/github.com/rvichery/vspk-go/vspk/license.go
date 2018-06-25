@@ -59,46 +59,45 @@ type License struct {
 	ParentID                    string  `json:"parentID,omitempty"`
 	ParentType                  string  `json:"parentType,omitempty"`
 	Owner                       string  `json:"owner,omitempty"`
-	MajorRelease                int     `json:"majorRelease"`
+	MajorRelease                *int    `json:"majorRelease,omitempty"`
 	LastUpdatedBy               string  `json:"lastUpdatedBy,omitempty"`
 	AdditionalSupportedVersions string  `json:"additionalSupportedVersions,omitempty"`
 	Phone                       string  `json:"phone,omitempty"`
 	License                     string  `json:"license,omitempty"`
 	LicenseEncryption           string  `json:"licenseEncryption,omitempty"`
 	LicenseEntities             string  `json:"licenseEntities,omitempty"`
-	LicenseID                   int     `json:"licenseID"`
+	LicenseID                   *int    `json:"licenseID,omitempty"`
 	LicenseType                 string  `json:"licenseType,omitempty"`
-	MinorRelease                int     `json:"minorRelease"`
+	MinorRelease                *int    `json:"minorRelease,omitempty"`
 	Zip                         string  `json:"zip,omitempty"`
 	City                        string  `json:"city,omitempty"`
-	AllowedAVRSGsCount          int     `json:"allowedAVRSGsCount"`
-	AllowedAVRSsCount           int     `json:"allowedAVRSsCount"`
-	AllowedCPEsCount            int     `json:"allowedCPEsCount"`
-	AllowedNICsCount            int     `json:"allowedNICsCount"`
-	AllowedVMsCount             int     `json:"allowedVMsCount"`
-	AllowedVRSGsCount           int     `json:"allowedVRSGsCount"`
-	AllowedVRSsCount            int     `json:"allowedVRSsCount"`
+	AllowedAVRSGsCount          *int    `json:"allowedAVRSGsCount,omitempty"`
+	AllowedAVRSsCount           *int    `json:"allowedAVRSsCount,omitempty"`
+	AllowedCPEsCount            *int    `json:"allowedCPEsCount,omitempty"`
+	AllowedNICsCount            *int    `json:"allowedNICsCount,omitempty"`
+	AllowedVMsCount             *int    `json:"allowedVMsCount,omitempty"`
+	AllowedVRSGsCount           *int    `json:"allowedVRSGsCount,omitempty"`
+	AllowedVRSsCount            *int    `json:"allowedVRSsCount,omitempty"`
 	Email                       string  `json:"email,omitempty"`
-	EncryptionMode              bool    `json:"encryptionMode"`
+	EncryptionMode              *bool   `json:"encryptionMode,omitempty"`
 	UniqueLicenseIdentifier     string  `json:"uniqueLicenseIdentifier,omitempty"`
 	EntityScope                 string  `json:"entityScope,omitempty"`
 	Company                     string  `json:"company,omitempty"`
 	Country                     string  `json:"country,omitempty"`
 	ProductVersion              string  `json:"productVersion,omitempty"`
 	Provider                    string  `json:"provider,omitempty"`
-	IsClusterLicense            bool    `json:"isClusterLicense"`
+	IsClusterLicense            *bool   `json:"isClusterLicense,omitempty"`
 	UserName                    string  `json:"userName,omitempty"`
 	State                       string  `json:"state,omitempty"`
 	Street                      string  `json:"street,omitempty"`
 	CustomerKey                 string  `json:"customerKey,omitempty"`
 	ExpirationDate              float64 `json:"expirationDate,omitempty"`
-	ExpiryTimestamp             int     `json:"expiryTimestamp"`
+	ExpiryTimestamp             *int    `json:"expiryTimestamp,omitempty"`
 	ExternalID                  string  `json:"externalID,omitempty"`
 }
 
 // NewLicense returns a new *License
 func NewLicense() *License {
-
 	return &License{}
 }
 

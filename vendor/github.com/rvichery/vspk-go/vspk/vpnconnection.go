@@ -69,7 +69,6 @@ type VPNConnection struct {
 
 // NewVPNConnection returns a new *VPNConnection
 func NewVPNConnection() *VPNConnection {
-
 	return &VPNConnection{}
 }
 

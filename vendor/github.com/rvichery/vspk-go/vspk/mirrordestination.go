@@ -61,7 +61,7 @@ type MirrorDestination struct {
 	Owner         string `json:"owner,omitempty"`
 	Name          string `json:"name,omitempty"`
 	LastUpdatedBy string `json:"lastUpdatedBy,omitempty"`
-	ServiceId     int    `json:"serviceId"`
+	ServiceId     *int   `json:"serviceId,omitempty"`
 	DestinationIp string `json:"destinationIp,omitempty"`
 	EntityScope   string `json:"entityScope,omitempty"`
 	ExternalID    string `json:"externalID,omitempty"`
@@ -69,7 +69,6 @@ type MirrorDestination struct {
 
 // NewMirrorDestination returns a new *MirrorDestination
 func NewMirrorDestination() *MirrorDestination {
-
 	return &MirrorDestination{}
 }
 

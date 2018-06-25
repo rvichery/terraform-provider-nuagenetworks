@@ -38,52 +38,60 @@ func resourceIKECertificate() *schema.Resource {
 			"pem_encoded": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"serial_number": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"not_after": {
 				Type:     schema.TypeFloat,
 				Optional: true,
+				Computed: true,
 			},
 			"not_before": {
 				Type:     schema.TypeFloat,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"issuer_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"subject_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -104,7 +112,8 @@ func resourceIKECertificateCreate(d *schema.ResourceData, m interface{}) error {
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("serial_number"); ok {
-		o.SerialNumber = attr.(int)
+		SerialNumber := attr.(int)
+		o.SerialNumber = &SerialNumber
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -186,7 +195,8 @@ func resourceIKECertificateUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("serial_number"); ok {
-		o.SerialNumber = attr.(int)
+		SerialNumber := attr.(int)
+		o.SerialNumber = &SerialNumber
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)

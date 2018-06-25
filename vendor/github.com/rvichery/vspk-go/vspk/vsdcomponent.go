@@ -73,7 +73,6 @@ type VSDComponent struct {
 
 // NewVSDComponent returns a new *VSDComponent
 func NewVSDComponent() *VSDComponent {
-
 	return &VSDComponent{}
 }
 

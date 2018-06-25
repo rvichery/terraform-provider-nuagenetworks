@@ -46,16 +46,17 @@ func resourceNetworkPerformanceMeasurement() *schema.Resource {
 			},
 			"read_only": {
 				Type:     schema.TypeBool,
-				Optional: true,
-				Default:  false,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_performance_monitor_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -75,7 +76,8 @@ func resourceNetworkPerformanceMeasurementCreate(d *schema.ResourceData, m inter
 		o.NPMType = attr.(string)
 	}
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -137,7 +139,8 @@ func resourceNetworkPerformanceMeasurementUpdate(d *schema.ResourceData, m inter
 		o.NPMType = attr.(string)
 	}
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)

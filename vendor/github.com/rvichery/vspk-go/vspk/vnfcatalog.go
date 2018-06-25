@@ -65,7 +65,6 @@ type VNFCatalog struct {
 
 // NewVNFCatalog returns a new *VNFCatalog
 func NewVNFCatalog() *VNFCatalog {
-
 	return &VNFCatalog{}
 }
 

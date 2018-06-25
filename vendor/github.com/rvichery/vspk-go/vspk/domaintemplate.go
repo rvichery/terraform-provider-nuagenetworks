@@ -75,7 +75,6 @@ type DomainTemplate struct {
 
 // NewDomainTemplate returns a new *DomainTemplate
 func NewDomainTemplate() *DomainTemplate {
-
 	return &DomainTemplate{
 		DPI: "DISABLED",
 	}

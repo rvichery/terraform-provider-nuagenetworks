@@ -70,19 +70,17 @@ type ZoneTemplate struct {
 	Encryption                      string `json:"encryption,omitempty"`
 	EntityScope                     string `json:"entityScope,omitempty"`
 	AssociatedMulticastChannelMapID string `json:"associatedMulticastChannelMapID,omitempty"`
-	PublicZone                      bool   `json:"publicZone"`
+	PublicZone                      *bool  `json:"publicZone,omitempty"`
 	Multicast                       string `json:"multicast,omitempty"`
-	NumberOfHostsInSubnets          int    `json:"numberOfHostsInSubnets"`
+	NumberOfHostsInSubnets          *int   `json:"numberOfHostsInSubnets,omitempty"`
 	ExternalID                      string `json:"externalID,omitempty"`
-	DynamicIpv6Address              bool   `json:"dynamicIpv6Address"`
+	DynamicIpv6Address              *bool  `json:"dynamicIpv6Address,omitempty"`
 }
 
 // NewZoneTemplate returns a new *ZoneTemplate
 func NewZoneTemplate() *ZoneTemplate {
-
 	return &ZoneTemplate{
-		DPI:       "INHERITED",
-		Multicast: "INHERITED",
+		DPI: "INHERITED",
 	}
 }
 

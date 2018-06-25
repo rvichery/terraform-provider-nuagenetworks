@@ -59,10 +59,10 @@ type BGPNeighbor struct {
 	ParentID                        string `json:"parentID,omitempty"`
 	ParentType                      string `json:"parentType,omitempty"`
 	Owner                           string `json:"owner,omitempty"`
-	BFDEnabled                      bool   `json:"BFDEnabled"`
+	BFDEnabled                      *bool  `json:"BFDEnabled,omitempty"`
 	Name                            string `json:"name,omitempty"`
-	DampeningEnabled                bool   `json:"dampeningEnabled"`
-	PeerAS                          int    `json:"peerAS"`
+	DampeningEnabled                *bool  `json:"dampeningEnabled,omitempty"`
+	PeerAS                          *int   `json:"peerAS,omitempty"`
 	PeerIP                          string `json:"peerIP,omitempty"`
 	Description                     string `json:"description,omitempty"`
 	Session                         string `json:"session,omitempty"`
@@ -74,9 +74,9 @@ type BGPNeighbor struct {
 
 // NewBGPNeighbor returns a new *BGPNeighbor
 func NewBGPNeighbor() *BGPNeighbor {
-
+	BFDEnabled := false
 	return &BGPNeighbor{
-		BFDEnabled: false,
+		BFDEnabled: &BFDEnabled,
 	}
 }
 

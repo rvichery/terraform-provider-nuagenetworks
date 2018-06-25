@@ -68,8 +68,8 @@ type Port struct {
 	PhysicalName                string `json:"physicalName,omitempty"`
 	EntityScope                 string `json:"entityScope,omitempty"`
 	PortType                    string `json:"portType,omitempty"`
-	IsResilient                 bool   `json:"isResilient"`
-	UseUserMnemonic             bool   `json:"useUserMnemonic"`
+	IsResilient                 *bool  `json:"isResilient,omitempty"`
+	UseUserMnemonic             *bool  `json:"useUserMnemonic,omitempty"`
 	UserMnemonic                string `json:"userMnemonic,omitempty"`
 	AssociatedEgressQOSPolicyID string `json:"associatedEgressQOSPolicyID,omitempty"`
 	AssociatedRedundantPortID   string `json:"associatedRedundantPortID,omitempty"`
@@ -79,7 +79,6 @@ type Port struct {
 
 // NewPort returns a new *Port
 func NewPort() *Port {
-
 	return &Port{}
 }
 

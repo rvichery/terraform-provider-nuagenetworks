@@ -60,20 +60,20 @@ type WANService struct {
 	ParentType             string `json:"parentType,omitempty"`
 	Owner                  string `json:"owner,omitempty"`
 	WANServiceIdentifier   string `json:"WANServiceIdentifier,omitempty"`
-	IRBEnabled             bool   `json:"IRBEnabled"`
+	IRBEnabled             *bool  `json:"IRBEnabled,omitempty"`
 	Name                   string `json:"name,omitempty"`
 	LastUpdatedBy          string `json:"lastUpdatedBy,omitempty"`
 	PermittedAction        string `json:"permittedAction,omitempty"`
 	ServicePolicy          string `json:"servicePolicy,omitempty"`
 	ServiceType            string `json:"serviceType,omitempty"`
 	Description            string `json:"description,omitempty"`
-	VnId                   int    `json:"vnId"`
+	VnId                   *int   `json:"vnId,omitempty"`
 	EnterpriseName         string `json:"enterpriseName,omitempty"`
 	EntityScope            string `json:"entityScope,omitempty"`
 	DomainName             string `json:"domainName,omitempty"`
 	ConfigType             string `json:"configType,omitempty"`
-	Orphan                 bool   `json:"orphan"`
-	UseUserMnemonic        bool   `json:"useUserMnemonic"`
+	Orphan                 *bool  `json:"orphan,omitempty"`
+	UseUserMnemonic        *bool  `json:"useUserMnemonic,omitempty"`
 	UserMnemonic           string `json:"userMnemonic,omitempty"`
 	AssociatedDomainID     string `json:"associatedDomainID,omitempty"`
 	AssociatedVPNConnectID string `json:"associatedVPNConnectID,omitempty"`
@@ -84,11 +84,7 @@ type WANService struct {
 
 // NewWANService returns a new *WANService
 func NewWANService() *WANService {
-
-	return &WANService{
-		ServiceType: "L3",
-		ConfigType:  "STATIC",
-	}
+	return &WANService{}
 }
 
 // Identity returns the Identity of the object.

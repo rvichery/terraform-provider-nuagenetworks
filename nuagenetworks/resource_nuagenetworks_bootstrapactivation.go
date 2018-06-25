@@ -38,40 +38,45 @@ func resourceBootstrapActivation() *schema.Resource {
 			"cacert": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"hash": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"action": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"seed": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"cert": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"config_url": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"tpm_owner_password": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"tpm_state": {
 				Type:     schema.TypeInt,
@@ -81,26 +86,32 @@ func resourceBootstrapActivation() *schema.Resource {
 			"srk_password": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"vsd_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"csr": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"auto_bootstrap": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_ns_gateway": {
 				Type:     schema.TypeString,
@@ -136,13 +147,15 @@ func resourceBootstrapActivationCreate(d *schema.ResourceData, m interface{}) er
 		o.TpmOwnerPassword = attr.(string)
 	}
 	if attr, ok := d.GetOk("tpm_state"); ok {
-		o.TpmState = attr.(int)
+		TpmState := attr.(int)
+		o.TpmState = &TpmState
 	}
 	if attr, ok := d.GetOk("srk_password"); ok {
 		o.SrkPassword = attr.(string)
 	}
 	if attr, ok := d.GetOk("vsd_time"); ok {
-		o.VsdTime = attr.(int)
+		VsdTime := attr.(int)
+		o.VsdTime = &VsdTime
 	}
 	if attr, ok := d.GetOk("csr"); ok {
 		o.Csr = attr.(string)
@@ -151,7 +164,8 @@ func resourceBootstrapActivationCreate(d *schema.ResourceData, m interface{}) er
 		o.Status = attr.(string)
 	}
 	if attr, ok := d.GetOk("auto_bootstrap"); ok {
-		o.AutoBootstrap = attr.(bool)
+		AutoBootstrap := attr.(bool)
+		o.AutoBootstrap = &AutoBootstrap
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -234,13 +248,15 @@ func resourceBootstrapActivationUpdate(d *schema.ResourceData, m interface{}) er
 		o.TpmOwnerPassword = attr.(string)
 	}
 	if attr, ok := d.GetOk("tpm_state"); ok {
-		o.TpmState = attr.(int)
+		TpmState := attr.(int)
+		o.TpmState = &TpmState
 	}
 	if attr, ok := d.GetOk("srk_password"); ok {
 		o.SrkPassword = attr.(string)
 	}
 	if attr, ok := d.GetOk("vsd_time"); ok {
-		o.VsdTime = attr.(int)
+		VsdTime := attr.(int)
+		o.VsdTime = &VsdTime
 	}
 	if attr, ok := d.GetOk("csr"); ok {
 		o.Csr = attr.(string)
@@ -249,7 +265,8 @@ func resourceBootstrapActivationUpdate(d *schema.ResourceData, m interface{}) er
 		o.Status = attr.(string)
 	}
 	if attr, ok := d.GetOk("auto_bootstrap"); ok {
-		o.AutoBootstrap = attr.(bool)
+		AutoBootstrap := attr.(bool)
+		o.AutoBootstrap = &AutoBootstrap
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

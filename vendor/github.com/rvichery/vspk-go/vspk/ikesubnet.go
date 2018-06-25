@@ -68,7 +68,6 @@ type IKESubnet struct {
 
 // NewIKESubnet returns a new *IKESubnet
 func NewIKESubnet() *IKESubnet {
-
 	return &IKESubnet{}
 }
 

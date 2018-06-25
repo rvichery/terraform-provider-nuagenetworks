@@ -66,7 +66,6 @@ type PolicyObjectGroup struct {
 
 // NewPolicyObjectGroup returns a new *PolicyObjectGroup
 func NewPolicyObjectGroup() *PolicyObjectGroup {
-
 	return &PolicyObjectGroup{}
 }
 

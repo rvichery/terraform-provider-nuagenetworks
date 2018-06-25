@@ -41,16 +41,15 @@ func resourceOSPFInstance() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"preference": {
@@ -61,10 +60,12 @@ func resourceOSPFInstance() *schema.Resource {
 			"associated_export_routing_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_import_routing_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"super_backbone_enabled": {
 				Type:     schema.TypeBool,
@@ -83,6 +84,7 @@ func resourceOSPFInstance() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_preference": {
 				Type:     schema.TypeInt,
@@ -100,15 +102,17 @@ func resourceOSPFInstance() *schema.Resource {
 func resourceOSPFInstanceCreate(d *schema.ResourceData, m interface{}) error {
 
 	// Initialize OSPFInstance object
+	ExportLimit := d.Get("export_limit").(int)
 	o := &vspk.OSPFInstance{
 		Name:        d.Get("name").(string),
-		ExportLimit: d.Get("export_limit").(int),
+		ExportLimit: &ExportLimit,
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("preference"); ok {
-		o.Preference = attr.(int)
+		Preference := attr.(int)
+		o.Preference = &Preference
 	}
 	if attr, ok := d.GetOk("associated_export_routing_policy_id"); ok {
 		o.AssociatedExportRoutingPolicyID = attr.(string)
@@ -117,16 +121,19 @@ func resourceOSPFInstanceCreate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedImportRoutingPolicyID = attr.(string)
 	}
 	if attr, ok := d.GetOk("super_backbone_enabled"); ok {
-		o.SuperBackboneEnabled = attr.(bool)
+		SuperBackboneEnabled := attr.(bool)
+		o.SuperBackboneEnabled = &SuperBackboneEnabled
 	}
 	if attr, ok := d.GetOk("export_to_overlay"); ok {
-		o.ExportToOverlay = attr.(bool)
+		ExportToOverlay := attr.(bool)
+		o.ExportToOverlay = &ExportToOverlay
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("external_preference"); ok {
-		o.ExternalPreference = attr.(int)
+		ExternalPreference := attr.(int)
+		o.ExternalPreference = &ExternalPreference
 	}
 	parent := &vspk.Domain{ID: d.Get("parent_domain").(string)}
 	err := parent.CreateOSPFInstance(o)
@@ -181,13 +188,15 @@ func resourceOSPFInstanceUpdate(d *schema.ResourceData, m interface{}) error {
 	}
 
 	o.Name = d.Get("name").(string)
-	o.ExportLimit = d.Get("export_limit").(int)
+	ExportLimit := d.Get("export_limit").(int)
+	o.ExportLimit = &ExportLimit
 
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("preference"); ok {
-		o.Preference = attr.(int)
+		Preference := attr.(int)
+		o.Preference = &Preference
 	}
 	if attr, ok := d.GetOk("associated_export_routing_policy_id"); ok {
 		o.AssociatedExportRoutingPolicyID = attr.(string)
@@ -196,16 +205,19 @@ func resourceOSPFInstanceUpdate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedImportRoutingPolicyID = attr.(string)
 	}
 	if attr, ok := d.GetOk("super_backbone_enabled"); ok {
-		o.SuperBackboneEnabled = attr.(bool)
+		SuperBackboneEnabled := attr.(bool)
+		o.SuperBackboneEnabled = &SuperBackboneEnabled
 	}
 	if attr, ok := d.GetOk("export_to_overlay"); ok {
-		o.ExportToOverlay = attr.(bool)
+		ExportToOverlay := attr.(bool)
+		o.ExportToOverlay = &ExportToOverlay
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("external_preference"); ok {
-		o.ExternalPreference = attr.(int)
+		ExternalPreference := attr.(int)
+		o.ExternalPreference = &ExternalPreference
 	}
 
 	o.Save()

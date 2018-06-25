@@ -41,62 +41,70 @@ func resourceEgressACLTemplate() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"active": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"default_allow_ip": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"default_allow_non_ip": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"default_install_acl_implicit_rules": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"policy_state": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"priority_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_live_entity_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_virtual_firewall_policy_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"auto_generate_priority": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_domain": {
 				Type:          schema.TypeString,
@@ -129,16 +137,20 @@ func resourceEgressACLTemplateCreate(d *schema.ResourceData, m interface{}) erro
 		Name: d.Get("name").(string),
 	}
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("default_allow_ip"); ok {
-		o.DefaultAllowIP = attr.(bool)
+		DefaultAllowIP := attr.(bool)
+		o.DefaultAllowIP = &DefaultAllowIP
 	}
 	if attr, ok := d.GetOk("default_allow_non_ip"); ok {
-		o.DefaultAllowNonIP = attr.(bool)
+		DefaultAllowNonIP := attr.(bool)
+		o.DefaultAllowNonIP = &DefaultAllowNonIP
 	}
 	if attr, ok := d.GetOk("default_install_acl_implicit_rules"); ok {
-		o.DefaultInstallACLImplicitRules = attr.(bool)
+		DefaultInstallACLImplicitRules := attr.(bool)
+		o.DefaultInstallACLImplicitRules = &DefaultInstallACLImplicitRules
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -147,7 +159,8 @@ func resourceEgressACLTemplateCreate(d *schema.ResourceData, m interface{}) erro
 		o.PolicyState = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("priority_type"); ok {
 		o.PriorityType = attr.(string)
@@ -156,7 +169,8 @@ func resourceEgressACLTemplateCreate(d *schema.ResourceData, m interface{}) erro
 		o.AssociatedLiveEntityID = attr.(string)
 	}
 	if attr, ok := d.GetOk("auto_generate_priority"); ok {
-		o.AutoGeneratePriority = attr.(bool)
+		AutoGeneratePriority := attr.(bool)
+		o.AutoGeneratePriority = &AutoGeneratePriority
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -242,16 +256,20 @@ func resourceEgressACLTemplateUpdate(d *schema.ResourceData, m interface{}) erro
 	o.Name = d.Get("name").(string)
 
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("default_allow_ip"); ok {
-		o.DefaultAllowIP = attr.(bool)
+		DefaultAllowIP := attr.(bool)
+		o.DefaultAllowIP = &DefaultAllowIP
 	}
 	if attr, ok := d.GetOk("default_allow_non_ip"); ok {
-		o.DefaultAllowNonIP = attr.(bool)
+		DefaultAllowNonIP := attr.(bool)
+		o.DefaultAllowNonIP = &DefaultAllowNonIP
 	}
 	if attr, ok := d.GetOk("default_install_acl_implicit_rules"); ok {
-		o.DefaultInstallACLImplicitRules = attr.(bool)
+		DefaultInstallACLImplicitRules := attr.(bool)
+		o.DefaultInstallACLImplicitRules = &DefaultInstallACLImplicitRules
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -260,7 +278,8 @@ func resourceEgressACLTemplateUpdate(d *schema.ResourceData, m interface{}) erro
 		o.PolicyState = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("priority_type"); ok {
 		o.PriorityType = attr.(string)
@@ -269,7 +288,8 @@ func resourceEgressACLTemplateUpdate(d *schema.ResourceData, m interface{}) erro
 		o.AssociatedLiveEntityID = attr.(string)
 	}
 	if attr, ok := d.GetOk("auto_generate_priority"); ok {
-		o.AutoGeneratePriority = attr.(bool)
+		AutoGeneratePriority := attr.(bool)
+		o.AutoGeneratePriority = &AutoGeneratePriority
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

@@ -51,6 +51,7 @@ func resourceConnectionendpoint() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"end_point_type": {
 				Type:     schema.TypeString,

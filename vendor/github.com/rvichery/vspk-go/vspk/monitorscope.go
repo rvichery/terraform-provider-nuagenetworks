@@ -60,18 +60,18 @@ type Monitorscope struct {
 	ParentType              string        `json:"parentType,omitempty"`
 	Owner                   string        `json:"owner,omitempty"`
 	Name                    string        `json:"name,omitempty"`
-	ReadOnly                bool          `json:"readOnly"`
+	ReadOnly                *bool         `json:"readOnly,omitempty"`
 	DestinationNSGs         []interface{} `json:"destinationNSGs,omitempty"`
-	AllowAllDestinationNSGs bool          `json:"allowAllDestinationNSGs"`
-	AllowAllSourceNSGs      bool          `json:"allowAllSourceNSGs"`
+	AllowAllDestinationNSGs *bool         `json:"allowAllDestinationNSGs,omitempty"`
+	AllowAllSourceNSGs      *bool         `json:"allowAllSourceNSGs,omitempty"`
 	SourceNSGs              []interface{} `json:"sourceNSGs,omitempty"`
 }
 
 // NewMonitorscope returns a new *Monitorscope
 func NewMonitorscope() *Monitorscope {
-
+	ReadOnly := false
 	return &Monitorscope{
-		ReadOnly: false,
+		ReadOnly: &ReadOnly,
 	}
 }
 

@@ -38,10 +38,12 @@ func resourceWANService() *schema.Resource {
 			"wan_service_identifier": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"irb_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -49,16 +51,17 @@ func resourceWANService() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"service_policy": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"service_type": {
 				Type:     schema.TypeString,
@@ -67,59 +70,71 @@ func resourceWANService() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"vn_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"enterprise_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"domain_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"config_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"orphan": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"use_user_mnemonic": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"user_mnemonic": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_domain_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_vpn_connect_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"tunnel_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_redundancy_group": {
 				Type:          schema.TypeString,
@@ -146,7 +161,8 @@ func resourceWANServiceCreate(d *schema.ResourceData, m interface{}) error {
 		o.WANServiceIdentifier = attr.(string)
 	}
 	if attr, ok := d.GetOk("irb_enabled"); ok {
-		o.IRBEnabled = attr.(bool)
+		IRBEnabled := attr.(bool)
+		o.IRBEnabled = &IRBEnabled
 	}
 	if attr, ok := d.GetOk("permitted_action"); ok {
 		o.PermittedAction = attr.(string)
@@ -158,7 +174,8 @@ func resourceWANServiceCreate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("vn_id"); ok {
-		o.VnId = attr.(int)
+		VnId := attr.(int)
+		o.VnId = &VnId
 	}
 	if attr, ok := d.GetOk("enterprise_name"); ok {
 		o.EnterpriseName = attr.(string)
@@ -170,10 +187,12 @@ func resourceWANServiceCreate(d *schema.ResourceData, m interface{}) error {
 		o.ConfigType = attr.(string)
 	}
 	if attr, ok := d.GetOk("orphan"); ok {
-		o.Orphan = attr.(bool)
+		Orphan := attr.(bool)
+		o.Orphan = &Orphan
 	}
 	if attr, ok := d.GetOk("use_user_mnemonic"); ok {
-		o.UseUserMnemonic = attr.(bool)
+		UseUserMnemonic := attr.(bool)
+		o.UseUserMnemonic = &UseUserMnemonic
 	}
 	if attr, ok := d.GetOk("user_mnemonic"); ok {
 		o.UserMnemonic = attr.(string)
@@ -270,7 +289,8 @@ func resourceWANServiceUpdate(d *schema.ResourceData, m interface{}) error {
 		o.WANServiceIdentifier = attr.(string)
 	}
 	if attr, ok := d.GetOk("irb_enabled"); ok {
-		o.IRBEnabled = attr.(bool)
+		IRBEnabled := attr.(bool)
+		o.IRBEnabled = &IRBEnabled
 	}
 	if attr, ok := d.GetOk("permitted_action"); ok {
 		o.PermittedAction = attr.(string)
@@ -282,7 +302,8 @@ func resourceWANServiceUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("vn_id"); ok {
-		o.VnId = attr.(int)
+		VnId := attr.(int)
+		o.VnId = &VnId
 	}
 	if attr, ok := d.GetOk("enterprise_name"); ok {
 		o.EnterpriseName = attr.(string)
@@ -294,10 +315,12 @@ func resourceWANServiceUpdate(d *schema.ResourceData, m interface{}) error {
 		o.ConfigType = attr.(string)
 	}
 	if attr, ok := d.GetOk("orphan"); ok {
-		o.Orphan = attr.(bool)
+		Orphan := attr.(bool)
+		o.Orphan = &Orphan
 	}
 	if attr, ok := d.GetOk("use_user_mnemonic"); ok {
-		o.UseUserMnemonic = attr.(bool)
+		UseUserMnemonic := attr.(bool)
+		o.UseUserMnemonic = &UseUserMnemonic
 	}
 	if attr, ok := d.GetOk("user_mnemonic"); ok {
 		o.UserMnemonic = attr.(string)

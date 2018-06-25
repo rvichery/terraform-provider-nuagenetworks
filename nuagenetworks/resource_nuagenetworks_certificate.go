@@ -38,31 +38,36 @@ func resourceCertificate() *schema.Resource {
 			"pem_encoded": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"serial_number": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"issuer_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"subject_dn": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"public_key": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 		},
 	}
@@ -76,7 +81,8 @@ func resourceCertificateCreate(d *schema.ResourceData, m interface{}) error {
 		o.PemEncoded = attr.(string)
 	}
 	if attr, ok := d.GetOk("serial_number"); ok {
-		o.SerialNumber = attr.(int)
+		SerialNumber := attr.(int)
+		o.SerialNumber = &SerialNumber
 	}
 	if attr, ok := d.GetOk("issuer_dn"); ok {
 		o.IssuerDN = attr.(string)
@@ -141,7 +147,8 @@ func resourceCertificateUpdate(d *schema.ResourceData, m interface{}) error {
 		o.PemEncoded = attr.(string)
 	}
 	if attr, ok := d.GetOk("serial_number"); ok {
-		o.SerialNumber = attr.(int)
+		SerialNumber := attr.(int)
+		o.SerialNumber = &SerialNumber
 	}
 	if attr, ok := d.GetOk("issuer_dn"); ok {
 		o.IssuerDN = attr.(string)

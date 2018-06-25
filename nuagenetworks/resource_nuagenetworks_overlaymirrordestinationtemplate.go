@@ -41,16 +41,17 @@ func resourceOverlayMirrorDestinationTemplate() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"redundancy_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"end_point_type": {
 				Type:     schema.TypeString,
@@ -58,16 +59,17 @@ func resourceOverlayMirrorDestinationTemplate() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"trigger_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_l2_domain_template": {
 				Type:     schema.TypeString,
@@ -85,7 +87,8 @@ func resourceOverlayMirrorDestinationTemplateCreate(d *schema.ResourceData, m in
 		EndPointType: d.Get("end_point_type").(string),
 	}
 	if attr, ok := d.GetOk("redundancy_enabled"); ok {
-		o.RedundancyEnabled = attr.(bool)
+		RedundancyEnabled := attr.(bool)
+		o.RedundancyEnabled = &RedundancyEnabled
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -148,7 +151,8 @@ func resourceOverlayMirrorDestinationTemplateUpdate(d *schema.ResourceData, m in
 	o.EndPointType = d.Get("end_point_type").(string)
 
 	if attr, ok := d.GetOk("redundancy_enabled"); ok {
-		o.RedundancyEnabled = attr.(bool)
+		RedundancyEnabled := attr.(bool)
+		o.RedundancyEnabled = &RedundancyEnabled
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)

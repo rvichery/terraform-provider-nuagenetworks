@@ -37,24 +37,25 @@ func resourceVirtualFirewallRule() *schema.Resource {
 			},
 			"acl_template_name": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"icmp_code": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"icmp_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dscp": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"action": {
@@ -64,14 +65,17 @@ func resourceVirtualFirewallRule() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"destination_port": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"network_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"network_type": {
 				Type:     schema.TypeString,
@@ -81,6 +85,7 @@ func resourceVirtualFirewallRule() *schema.Resource {
 			"mirror_destination_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"flow_logging_enabled": {
 				Type:     schema.TypeBool,
@@ -89,17 +94,16 @@ func resourceVirtualFirewallRule() *schema.Resource {
 			},
 			"enterprise_name": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"location_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"location_type": {
 				Type:     schema.TypeString,
@@ -107,46 +111,48 @@ func resourceVirtualFirewallRule() *schema.Resource {
 			},
 			"policy_state": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"domain_name": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"source_port": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"protocol": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_l7_application_signature_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_live_entity_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_traffic_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_traffic_type_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"stats_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"stats_logging_enabled": {
@@ -157,10 +163,12 @@ func resourceVirtualFirewallRule() *schema.Resource {
 			"overlay_mirror_destination_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_virtual_firewall_policy": {
 				Type:     schema.TypeString,
@@ -202,7 +210,8 @@ func resourceVirtualFirewallRuleCreate(d *schema.ResourceData, m interface{}) er
 		o.MirrorDestinationID = attr.(string)
 	}
 	if attr, ok := d.GetOk("flow_logging_enabled"); ok {
-		o.FlowLoggingEnabled = attr.(bool)
+		FlowLoggingEnabled := attr.(bool)
+		o.FlowLoggingEnabled = &FlowLoggingEnabled
 	}
 	if attr, ok := d.GetOk("location_id"); ok {
 		o.LocationID = attr.(string)
@@ -211,7 +220,8 @@ func resourceVirtualFirewallRuleCreate(d *schema.ResourceData, m interface{}) er
 		o.SourcePort = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("protocol"); ok {
 		o.Protocol = attr.(string)
@@ -226,7 +236,8 @@ func resourceVirtualFirewallRuleCreate(d *schema.ResourceData, m interface{}) er
 		o.AssociatedTrafficTypeID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stats_logging_enabled"); ok {
-		o.StatsLoggingEnabled = attr.(bool)
+		StatsLoggingEnabled := attr.(bool)
+		o.StatsLoggingEnabled = &StatsLoggingEnabled
 	}
 	if attr, ok := d.GetOk("overlay_mirror_destination_id"); ok {
 		o.OverlayMirrorDestinationID = attr.(string)
@@ -331,7 +342,8 @@ func resourceVirtualFirewallRuleUpdate(d *schema.ResourceData, m interface{}) er
 		o.MirrorDestinationID = attr.(string)
 	}
 	if attr, ok := d.GetOk("flow_logging_enabled"); ok {
-		o.FlowLoggingEnabled = attr.(bool)
+		FlowLoggingEnabled := attr.(bool)
+		o.FlowLoggingEnabled = &FlowLoggingEnabled
 	}
 	if attr, ok := d.GetOk("location_id"); ok {
 		o.LocationID = attr.(string)
@@ -340,7 +352,8 @@ func resourceVirtualFirewallRuleUpdate(d *schema.ResourceData, m interface{}) er
 		o.SourcePort = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("protocol"); ok {
 		o.Protocol = attr.(string)
@@ -355,7 +368,8 @@ func resourceVirtualFirewallRuleUpdate(d *schema.ResourceData, m interface{}) er
 		o.AssociatedTrafficTypeID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stats_logging_enabled"); ok {
-		o.StatsLoggingEnabled = attr.(bool)
+		StatsLoggingEnabled := attr.(bool)
+		o.StatsLoggingEnabled = &StatsLoggingEnabled
 	}
 	if attr, ok := d.GetOk("overlay_mirror_destination_id"); ok {
 		o.OverlayMirrorDestinationID = attr.(string)

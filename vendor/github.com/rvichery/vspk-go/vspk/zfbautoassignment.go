@@ -65,7 +65,7 @@ type ZFBAutoAssignment struct {
 	LastUpdatedBy            string        `json:"lastUpdatedBy,omitempty"`
 	Description              string        `json:"description,omitempty"`
 	EntityScope              string        `json:"entityScope,omitempty"`
-	Priority                 int           `json:"priority"`
+	Priority                 *int          `json:"priority,omitempty"`
 	AssociatedEnterpriseID   string        `json:"associatedEnterpriseID,omitempty"`
 	AssociatedEnterpriseName string        `json:"associatedEnterpriseName,omitempty"`
 	ExternalID               string        `json:"externalID,omitempty"`
@@ -73,7 +73,6 @@ type ZFBAutoAssignment struct {
 
 // NewZFBAutoAssignment returns a new *ZFBAutoAssignment
 func NewZFBAutoAssignment() *ZFBAutoAssignment {
-
 	return &ZFBAutoAssignment{}
 }
 

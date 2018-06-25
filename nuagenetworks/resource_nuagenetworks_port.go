@@ -38,6 +38,7 @@ func resourcePort() *schema.Resource {
 			"vlan_range": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -45,29 +46,29 @@ func resourcePort() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"template_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"physical_name": {
 				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
+				Required: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"port_type": {
@@ -77,30 +78,37 @@ func resourcePort() *schema.Resource {
 			"is_resilient": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"use_user_mnemonic": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"user_mnemonic": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_redundant_port_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_redundancy_group": {
 				Type:          schema.TypeString,
@@ -137,10 +145,12 @@ func resourcePortCreate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("is_resilient"); ok {
-		o.IsResilient = attr.(bool)
+		IsResilient := attr.(bool)
+		o.IsResilient = &IsResilient
 	}
 	if attr, ok := d.GetOk("use_user_mnemonic"); ok {
-		o.UseUserMnemonic = attr.(bool)
+		UseUserMnemonic := attr.(bool)
+		o.UseUserMnemonic = &UseUserMnemonic
 	}
 	if attr, ok := d.GetOk("user_mnemonic"); ok {
 		o.UserMnemonic = attr.(string)
@@ -239,10 +249,12 @@ func resourcePortUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("is_resilient"); ok {
-		o.IsResilient = attr.(bool)
+		IsResilient := attr.(bool)
+		o.IsResilient = &IsResilient
 	}
 	if attr, ok := d.GetOk("use_user_mnemonic"); ok {
-		o.UseUserMnemonic = attr.(bool)
+		UseUserMnemonic := attr.(bool)
+		o.UseUserMnemonic = &UseUserMnemonic
 	}
 	if attr, ok := d.GetOk("user_mnemonic"); ok {
 		o.UserMnemonic = attr.(string)

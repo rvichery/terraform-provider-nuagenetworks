@@ -37,33 +37,36 @@ func resourceGatewaySecuredData() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"data": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"gateway_cert_serial_number": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"keyserver_cert_serial_number": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"signed_data": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_gateway_security": {
 				Type:     schema.TypeString,

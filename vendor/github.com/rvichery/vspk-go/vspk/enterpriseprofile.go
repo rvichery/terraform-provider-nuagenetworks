@@ -59,20 +59,20 @@ type EnterpriseProfile struct {
 	ParentID                               string        `json:"parentID,omitempty"`
 	ParentType                             string        `json:"parentType,omitempty"`
 	Owner                                  string        `json:"owner,omitempty"`
-	BGPEnabled                             bool          `json:"BGPEnabled"`
-	DHCPLeaseInterval                      int           `json:"DHCPLeaseInterval"`
-	VNFManagementEnabled                   bool          `json:"VNFManagementEnabled"`
+	BGPEnabled                             *bool         `json:"BGPEnabled,omitempty"`
+	DHCPLeaseInterval                      *int          `json:"DHCPLeaseInterval,omitempty"`
+	VNFManagementEnabled                   *bool         `json:"VNFManagementEnabled,omitempty"`
 	Name                                   string        `json:"name,omitempty"`
 	LastUpdatedBy                          string        `json:"lastUpdatedBy,omitempty"`
 	ReceiveMultiCastListID                 string        `json:"receiveMultiCastListID,omitempty"`
 	SendMultiCastListID                    string        `json:"sendMultiCastListID,omitempty"`
 	Description                            string        `json:"description,omitempty"`
-	AllowAdvancedQOSConfiguration          bool          `json:"allowAdvancedQOSConfiguration"`
-	AllowGatewayManagement                 bool          `json:"allowGatewayManagement"`
-	AllowTrustedForwardingClass            bool          `json:"allowTrustedForwardingClass"`
+	AllowAdvancedQOSConfiguration          *bool         `json:"allowAdvancedQOSConfiguration,omitempty"`
+	AllowGatewayManagement                 *bool         `json:"allowGatewayManagement,omitempty"`
+	AllowTrustedForwardingClass            *bool         `json:"allowTrustedForwardingClass,omitempty"`
 	AllowedForwardingClasses               []interface{} `json:"allowedForwardingClasses,omitempty"`
-	FloatingIPsQuota                       int           `json:"floatingIPsQuota"`
-	EnableApplicationPerformanceManagement bool          `json:"enableApplicationPerformanceManagement"`
+	FloatingIPsQuota                       *int          `json:"floatingIPsQuota,omitempty"`
+	EnableApplicationPerformanceManagement *bool         `json:"enableApplicationPerformanceManagement,omitempty"`
 	EncryptionManagementMode               string        `json:"encryptionManagementMode,omitempty"`
 	EntityScope                            string        `json:"entityScope,omitempty"`
 	ExternalID                             string        `json:"externalID,omitempty"`
@@ -80,12 +80,11 @@ type EnterpriseProfile struct {
 
 // NewEnterpriseProfile returns a new *EnterpriseProfile
 func NewEnterpriseProfile() *EnterpriseProfile {
-
+	VNFManagementEnabled := false
+	EnableApplicationPerformanceManagement := false
 	return &EnterpriseProfile{
-		DHCPLeaseInterval:                      24,
-		VNFManagementEnabled:                   false,
-		FloatingIPsQuota:                       100,
-		EnableApplicationPerformanceManagement: false,
+		VNFManagementEnabled:                   &VNFManagementEnabled,
+		EnableApplicationPerformanceManagement: &EnableApplicationPerformanceManagement,
 	}
 }
 

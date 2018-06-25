@@ -71,10 +71,7 @@ type Bootstrap struct {
 
 // NewBootstrap returns a new *Bootstrap
 func NewBootstrap() *Bootstrap {
-
-	return &Bootstrap{
-		Status: "INACTIVE",
-	}
+	return &Bootstrap{}
 }
 
 // Identity returns the Identity of the object.

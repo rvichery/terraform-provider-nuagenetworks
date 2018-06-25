@@ -64,12 +64,11 @@ type IPReservation struct {
 	LastUpdatedBy            string `json:"lastUpdatedBy,omitempty"`
 	EntityScope              string `json:"entityScope,omitempty"`
 	ExternalID               string `json:"externalID,omitempty"`
-	DynamicAllocationEnabled bool   `json:"dynamicAllocationEnabled"`
+	DynamicAllocationEnabled *bool  `json:"dynamicAllocationEnabled,omitempty"`
 }
 
 // NewIPReservation returns a new *IPReservation
 func NewIPReservation() *IPReservation {
-
 	return &IPReservation{}
 }
 

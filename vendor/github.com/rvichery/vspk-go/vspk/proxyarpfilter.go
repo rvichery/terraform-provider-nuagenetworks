@@ -69,7 +69,6 @@ type ProxyARPFilter struct {
 
 // NewProxyARPFilter returns a new *ProxyARPFilter
 func NewProxyARPFilter() *ProxyARPFilter {
-
 	return &ProxyARPFilter{
 		IPType: "IPV4",
 	}

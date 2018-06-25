@@ -71,22 +71,19 @@ type SubnetTemplate struct {
 	Netmask                         string `json:"netmask,omitempty"`
 	Encryption                      string `json:"encryption,omitempty"`
 	EntityScope                     string `json:"entityScope,omitempty"`
-	SplitSubnet                     bool   `json:"splitSubnet"`
-	ProxyARP                        bool   `json:"proxyARP"`
+	SplitSubnet                     *bool  `json:"splitSubnet,omitempty"`
+	ProxyARP                        *bool  `json:"proxyARP,omitempty"`
 	UseGlobalMAC                    string `json:"useGlobalMAC,omitempty"`
 	AssociatedMulticastChannelMapID string `json:"associatedMulticastChannelMapID,omitempty"`
 	Multicast                       string `json:"multicast,omitempty"`
 	ExternalID                      string `json:"externalID,omitempty"`
-	DynamicIpv6Address              bool   `json:"dynamicIpv6Address"`
+	DynamicIpv6Address              *bool  `json:"dynamicIpv6Address,omitempty"`
 }
 
 // NewSubnetTemplate returns a new *SubnetTemplate
 func NewSubnetTemplate() *SubnetTemplate {
-
 	return &SubnetTemplate{
-		DPI:       "INHERITED",
-		IPType:    "IPV4",
-		Multicast: "INHERITED",
+		DPI: "INHERITED",
 	}
 }
 

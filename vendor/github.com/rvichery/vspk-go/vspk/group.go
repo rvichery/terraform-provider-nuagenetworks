@@ -63,18 +63,17 @@ type Group struct {
 	Name                string  `json:"name,omitempty"`
 	ManagementMode      string  `json:"managementMode,omitempty"`
 	LastUpdatedBy       string  `json:"lastUpdatedBy,omitempty"`
-	AccountRestrictions bool    `json:"accountRestrictions"`
+	AccountRestrictions *bool   `json:"accountRestrictions,omitempty"`
 	Description         string  `json:"description,omitempty"`
 	RestrictionDate     float64 `json:"restrictionDate,omitempty"`
 	EntityScope         string  `json:"entityScope,omitempty"`
 	Role                string  `json:"role,omitempty"`
-	Private             bool    `json:"private"`
+	Private             *bool   `json:"private,omitempty"`
 	ExternalID          string  `json:"externalID,omitempty"`
 }
 
 // NewGroup returns a new *Group
 func NewGroup() *Group {
-
 	return &Group{}
 }
 

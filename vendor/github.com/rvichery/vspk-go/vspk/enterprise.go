@@ -59,34 +59,34 @@ type Enterprise struct {
 	ParentID                               string        `json:"parentID,omitempty"`
 	ParentType                             string        `json:"parentType,omitempty"`
 	Owner                                  string        `json:"owner,omitempty"`
-	LDAPAuthorizationEnabled               bool          `json:"LDAPAuthorizationEnabled"`
-	LDAPEnabled                            bool          `json:"LDAPEnabled"`
-	BGPEnabled                             bool          `json:"BGPEnabled"`
-	DHCPLeaseInterval                      int           `json:"DHCPLeaseInterval"`
-	VNFManagementEnabled                   bool          `json:"VNFManagementEnabled"`
+	LDAPAuthorizationEnabled               *bool         `json:"LDAPAuthorizationEnabled,omitempty"`
+	LDAPEnabled                            *bool         `json:"LDAPEnabled,omitempty"`
+	BGPEnabled                             *bool         `json:"BGPEnabled,omitempty"`
+	DHCPLeaseInterval                      *int          `json:"DHCPLeaseInterval,omitempty"`
+	VNFManagementEnabled                   *bool         `json:"VNFManagementEnabled,omitempty"`
 	Name                                   string        `json:"name,omitempty"`
 	LastUpdatedBy                          string        `json:"lastUpdatedBy,omitempty"`
 	ReceiveMultiCastListID                 string        `json:"receiveMultiCastListID,omitempty"`
 	SendMultiCastListID                    string        `json:"sendMultiCastListID,omitempty"`
 	Description                            string        `json:"description,omitempty"`
-	SharedEnterprise                       bool          `json:"sharedEnterprise"`
-	DictionaryVersion                      int           `json:"dictionaryVersion"`
-	AllowAdvancedQOSConfiguration          bool          `json:"allowAdvancedQOSConfiguration"`
-	AllowGatewayManagement                 bool          `json:"allowGatewayManagement"`
-	AllowTrustedForwardingClass            bool          `json:"allowTrustedForwardingClass"`
+	SharedEnterprise                       *bool         `json:"sharedEnterprise,omitempty"`
+	DictionaryVersion                      *int          `json:"dictionaryVersion,omitempty"`
+	AllowAdvancedQOSConfiguration          *bool         `json:"allowAdvancedQOSConfiguration,omitempty"`
+	AllowGatewayManagement                 *bool         `json:"allowGatewayManagement,omitempty"`
+	AllowTrustedForwardingClass            *bool         `json:"allowTrustedForwardingClass,omitempty"`
 	AllowedForwardingClasses               []interface{} `json:"allowedForwardingClasses,omitempty"`
-	FloatingIPsQuota                       int           `json:"floatingIPsQuota"`
-	FloatingIPsUsed                        int           `json:"floatingIPsUsed"`
+	FloatingIPsQuota                       *int          `json:"floatingIPsQuota,omitempty"`
+	FloatingIPsUsed                        *int          `json:"floatingIPsUsed,omitempty"`
 	FlowCollectionEnabled                  string        `json:"flowCollectionEnabled,omitempty"`
-	EnableApplicationPerformanceManagement bool          `json:"enableApplicationPerformanceManagement"`
+	EnableApplicationPerformanceManagement *bool         `json:"enableApplicationPerformanceManagement,omitempty"`
 	EncryptionManagementMode               string        `json:"encryptionManagementMode,omitempty"`
 	EnterpriseProfileID                    string        `json:"enterpriseProfileID,omitempty"`
 	EntityScope                            string        `json:"entityScope,omitempty"`
-	LocalAS                                int           `json:"localAS"`
+	LocalAS                                *int          `json:"localAS,omitempty"`
 	AssociatedEnterpriseSecurityID         string        `json:"associatedEnterpriseSecurityID,omitempty"`
 	AssociatedGroupKeyEncryptionProfileID  string        `json:"associatedGroupKeyEncryptionProfileID,omitempty"`
 	AssociatedKeyServerMonitorID           string        `json:"associatedKeyServerMonitorID,omitempty"`
-	CustomerID                             int           `json:"customerID"`
+	CustomerID                             *int          `json:"customerID,omitempty"`
 	AvatarData                             string        `json:"avatarData,omitempty"`
 	AvatarType                             string        `json:"avatarType,omitempty"`
 	ExternalID                             string        `json:"externalID,omitempty"`
@@ -94,12 +94,14 @@ type Enterprise struct {
 
 // NewEnterprise returns a new *Enterprise
 func NewEnterprise() *Enterprise {
-
+	VNFManagementEnabled := false
+	DictionaryVersion := 1
+	EnableApplicationPerformanceManagement := false
 	return &Enterprise{
-		VNFManagementEnabled:                   false,
-		DictionaryVersion:                      1,
+		VNFManagementEnabled:                   &VNFManagementEnabled,
+		DictionaryVersion:                      &DictionaryVersion,
 		FlowCollectionEnabled:                  "DISABLED",
-		EnableApplicationPerformanceManagement: false,
+		EnableApplicationPerformanceManagement: &EnableApplicationPerformanceManagement,
 	}
 }
 

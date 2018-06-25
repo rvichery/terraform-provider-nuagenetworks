@@ -72,7 +72,6 @@ type PortTemplate struct {
 
 // NewPortTemplate returns a new *PortTemplate
 func NewPortTemplate() *PortTemplate {
-
 	return &PortTemplate{}
 }
 

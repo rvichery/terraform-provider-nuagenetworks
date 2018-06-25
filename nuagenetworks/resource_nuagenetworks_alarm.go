@@ -42,52 +42,60 @@ func resourceAlarm() *schema.Resource {
 			"target_object": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"acknowledged": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"reason": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"severity": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"timestamp": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"error_condition": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"number_of_occurances": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_tca": {
 				Type:          schema.TypeString,
@@ -113,7 +121,8 @@ func resourceAlarmCreate(d *schema.ResourceData, m interface{}) error {
 		o.TargetObject = attr.(string)
 	}
 	if attr, ok := d.GetOk("acknowledged"); ok {
-		o.Acknowledged = attr.(bool)
+		Acknowledged := attr.(bool)
+		o.Acknowledged = &Acknowledged
 	}
 	if attr, ok := d.GetOk("reason"); ok {
 		o.Reason = attr.(string)
@@ -125,16 +134,19 @@ func resourceAlarmCreate(d *schema.ResourceData, m interface{}) error {
 		o.Severity = attr.(string)
 	}
 	if attr, ok := d.GetOk("timestamp"); ok {
-		o.Timestamp = attr.(int)
+		Timestamp := attr.(int)
+		o.Timestamp = &Timestamp
 	}
 	if attr, ok := d.GetOk("enterprise_id"); ok {
 		o.EnterpriseID = attr.(string)
 	}
 	if attr, ok := d.GetOk("error_condition"); ok {
-		o.ErrorCondition = attr.(int)
+		ErrorCondition := attr.(int)
+		o.ErrorCondition = &ErrorCondition
 	}
 	if attr, ok := d.GetOk("number_of_occurances"); ok {
-		o.NumberOfOccurances = attr.(int)
+		NumberOfOccurances := attr.(int)
+		o.NumberOfOccurances = &NumberOfOccurances
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -207,7 +219,8 @@ func resourceAlarmUpdate(d *schema.ResourceData, m interface{}) error {
 		o.TargetObject = attr.(string)
 	}
 	if attr, ok := d.GetOk("acknowledged"); ok {
-		o.Acknowledged = attr.(bool)
+		Acknowledged := attr.(bool)
+		o.Acknowledged = &Acknowledged
 	}
 	if attr, ok := d.GetOk("reason"); ok {
 		o.Reason = attr.(string)
@@ -219,16 +232,19 @@ func resourceAlarmUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Severity = attr.(string)
 	}
 	if attr, ok := d.GetOk("timestamp"); ok {
-		o.Timestamp = attr.(int)
+		Timestamp := attr.(int)
+		o.Timestamp = &Timestamp
 	}
 	if attr, ok := d.GetOk("enterprise_id"); ok {
 		o.EnterpriseID = attr.(string)
 	}
 	if attr, ok := d.GetOk("error_condition"); ok {
-		o.ErrorCondition = attr.(int)
+		ErrorCondition := attr.(int)
+		o.ErrorCondition = &ErrorCondition
 	}
 	if attr, ok := d.GetOk("number_of_occurances"); ok {
-		o.NumberOfOccurances = attr.(int)
+		NumberOfOccurances := attr.(int)
+		o.NumberOfOccurances = &NumberOfOccurances
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

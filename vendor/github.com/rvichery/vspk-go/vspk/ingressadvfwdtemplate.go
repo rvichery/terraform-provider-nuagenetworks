@@ -61,20 +61,19 @@ type IngressAdvFwdTemplate struct {
 	Owner                  string `json:"owner,omitempty"`
 	Name                   string `json:"name,omitempty"`
 	LastUpdatedBy          string `json:"lastUpdatedBy,omitempty"`
-	Active                 bool   `json:"active"`
+	Active                 *bool  `json:"active,omitempty"`
 	Description            string `json:"description,omitempty"`
 	EntityScope            string `json:"entityScope,omitempty"`
 	PolicyState            string `json:"policyState,omitempty"`
-	Priority               int    `json:"priority"`
+	Priority               *int   `json:"priority,omitempty"`
 	PriorityType           string `json:"priorityType,omitempty"`
 	AssociatedLiveEntityID string `json:"associatedLiveEntityID,omitempty"`
-	AutoGeneratePriority   bool   `json:"autoGeneratePriority"`
+	AutoGeneratePriority   *bool  `json:"autoGeneratePriority,omitempty"`
 	ExternalID             string `json:"externalID,omitempty"`
 }
 
 // NewIngressAdvFwdTemplate returns a new *IngressAdvFwdTemplate
 func NewIngressAdvFwdTemplate() *IngressAdvFwdTemplate {
-
 	return &IngressAdvFwdTemplate{}
 }
 

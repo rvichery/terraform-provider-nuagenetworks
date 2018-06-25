@@ -68,7 +68,6 @@ type InfrastructureConfig struct {
 
 // NewInfrastructureConfig returns a new *InfrastructureConfig
 func NewInfrastructureConfig() *InfrastructureConfig {
-
 	return &InfrastructureConfig{}
 }
 

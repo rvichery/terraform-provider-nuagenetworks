@@ -60,11 +60,11 @@ type BGPProfile struct {
 	ParentType                      string `json:"parentType,omitempty"`
 	Owner                           string `json:"owner,omitempty"`
 	Name                            string `json:"name,omitempty"`
-	DampeningHalfLife               int    `json:"dampeningHalfLife"`
-	DampeningMaxSuppress            int    `json:"dampeningMaxSuppress"`
+	DampeningHalfLife               *int   `json:"dampeningHalfLife,omitempty"`
+	DampeningMaxSuppress            *int   `json:"dampeningMaxSuppress,omitempty"`
 	DampeningName                   string `json:"dampeningName,omitempty"`
-	DampeningReuse                  int    `json:"dampeningReuse"`
-	DampeningSuppress               int    `json:"dampeningSuppress"`
+	DampeningReuse                  *int   `json:"dampeningReuse,omitempty"`
+	DampeningSuppress               *int   `json:"dampeningSuppress,omitempty"`
 	Description                     string `json:"description,omitempty"`
 	EntityScope                     string `json:"entityScope,omitempty"`
 	AssociatedExportRoutingPolicyID string `json:"associatedExportRoutingPolicyID,omitempty"`
@@ -74,12 +74,15 @@ type BGPProfile struct {
 
 // NewBGPProfile returns a new *BGPProfile
 func NewBGPProfile() *BGPProfile {
-
+	DampeningHalfLife := 15
+	DampeningMaxSuppress := 60
+	DampeningReuse := 750
+	DampeningSuppress := 3000
 	return &BGPProfile{
-		DampeningHalfLife:    15,
-		DampeningMaxSuppress: 60,
-		DampeningReuse:       750,
-		DampeningSuppress:    3000,
+		DampeningHalfLife:    &DampeningHalfLife,
+		DampeningMaxSuppress: &DampeningMaxSuppress,
+		DampeningReuse:       &DampeningReuse,
+		DampeningSuppress:    &DampeningSuppress,
 	}
 }
 

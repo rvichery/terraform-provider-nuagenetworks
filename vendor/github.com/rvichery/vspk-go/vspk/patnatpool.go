@@ -75,12 +75,11 @@ type PATNATPool struct {
 	StartAddressRange     string `json:"startAddressRange,omitempty"`
 	StartSourceAddress    string `json:"startSourceAddress,omitempty"`
 	ExternalID            string `json:"externalID,omitempty"`
-	DynamicSourceEnabled  bool   `json:"dynamicSourceEnabled"`
+	DynamicSourceEnabled  *bool  `json:"dynamicSourceEnabled,omitempty"`
 }
 
 // NewPATNATPool returns a new *PATNATPool
 func NewPATNATPool() *PATNATPool {
-
 	return &PATNATPool{}
 }
 

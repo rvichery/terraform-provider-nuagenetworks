@@ -67,7 +67,6 @@ type MultiCastList struct {
 
 // NewMultiCastList returns a new *MultiCastList
 func NewMultiCastList() *MultiCastList {
-
 	return &MultiCastList{}
 }
 

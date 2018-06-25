@@ -37,12 +37,10 @@ func resourceAddressMap() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"private_ip": {
@@ -52,10 +50,12 @@ func resourceAddressMap() *schema.Resource {
 			"private_port": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_patnat_pool_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"public_ip": {
 				Type:     schema.TypeString,
@@ -64,14 +64,17 @@ func resourceAddressMap() *schema.Resource {
 			"public_port": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_patnat_pool": {
 				Type:     schema.TypeString,
@@ -89,13 +92,15 @@ func resourceAddressMapCreate(d *schema.ResourceData, m interface{}) error {
 		PublicIP:  d.Get("public_ip").(string),
 	}
 	if attr, ok := d.GetOk("private_port"); ok {
-		o.PrivatePort = attr.(int)
+		PrivatePort := attr.(int)
+		o.PrivatePort = &PrivatePort
 	}
 	if attr, ok := d.GetOk("associated_patnat_pool_id"); ok {
 		o.AssociatedPATNATPoolID = attr.(string)
 	}
 	if attr, ok := d.GetOk("public_port"); ok {
-		o.PublicPort = attr.(int)
+		PublicPort := attr.(int)
+		o.PublicPort = &PublicPort
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -156,13 +161,15 @@ func resourceAddressMapUpdate(d *schema.ResourceData, m interface{}) error {
 	o.PublicIP = d.Get("public_ip").(string)
 
 	if attr, ok := d.GetOk("private_port"); ok {
-		o.PrivatePort = attr.(int)
+		PrivatePort := attr.(int)
+		o.PrivatePort = &PrivatePort
 	}
 	if attr, ok := d.GetOk("associated_patnat_pool_id"); ok {
 		o.AssociatedPATNATPoolID = attr.(string)
 	}
 	if attr, ok := d.GetOk("public_port"); ok {
-		o.PublicPort = attr.(int)
+		PublicPort := attr.(int)
+		o.PublicPort = &PublicPort
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

@@ -69,7 +69,6 @@ type Autodiscovereddatacenter struct {
 
 // NewAutodiscovereddatacenter returns a new *Autodiscovereddatacenter
 func NewAutodiscovereddatacenter() *Autodiscovereddatacenter {
-
 	return &Autodiscovereddatacenter{}
 }
 

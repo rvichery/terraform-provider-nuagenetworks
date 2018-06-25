@@ -67,7 +67,6 @@ type IKEGatewayConfig struct {
 
 // NewIKEGatewayConfig returns a new *IKEGatewayConfig
 func NewIKEGatewayConfig() *IKEGatewayConfig {
-
 	return &IKEGatewayConfig{}
 }
 

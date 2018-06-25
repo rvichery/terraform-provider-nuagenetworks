@@ -65,12 +65,11 @@ type BRConnection struct {
 	AdvertisementCriteria string `json:"advertisementCriteria,omitempty"`
 	Netmask               string `json:"netmask,omitempty"`
 	Mode                  string `json:"mode,omitempty"`
-	UplinkID              int    `json:"uplinkID"`
+	UplinkID              *int   `json:"uplinkID,omitempty"`
 }
 
 // NewBRConnection returns a new *BRConnection
 func NewBRConnection() *BRConnection {
-
 	return &BRConnection{}
 }
 

@@ -62,7 +62,7 @@ type OverlayMirrorDestination struct {
 	ESI               string `json:"ESI,omitempty"`
 	Name              string `json:"name,omitempty"`
 	LastUpdatedBy     string `json:"lastUpdatedBy,omitempty"`
-	RedundancyEnabled bool   `json:"redundancyEnabled"`
+	RedundancyEnabled *bool  `json:"redundancyEnabled,omitempty"`
 	TemplateID        string `json:"templateID,omitempty"`
 	Description       string `json:"description,omitempty"`
 	VirtualNetworkID  string `json:"virtualNetworkID,omitempty"`
@@ -74,7 +74,6 @@ type OverlayMirrorDestination struct {
 
 // NewOverlayMirrorDestination returns a new *OverlayMirrorDestination
 func NewOverlayMirrorDestination() *OverlayMirrorDestination {
-
 	return &OverlayMirrorDestination{}
 }
 

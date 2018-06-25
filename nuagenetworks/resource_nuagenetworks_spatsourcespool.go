@@ -43,10 +43,12 @@ func resourceSPATSourcesPool() *schema.Resource {
 			"family": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"address_list": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"parent_domain": {

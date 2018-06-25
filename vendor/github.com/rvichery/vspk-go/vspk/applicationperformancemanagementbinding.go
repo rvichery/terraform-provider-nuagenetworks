@@ -59,16 +59,16 @@ type Applicationperformancemanagementbinding struct {
 	ParentID                                     string `json:"parentID,omitempty"`
 	ParentType                                   string `json:"parentType,omitempty"`
 	Owner                                        string `json:"owner,omitempty"`
-	ReadOnly                                     bool   `json:"readOnly"`
-	Priority                                     int    `json:"priority"`
+	ReadOnly                                     *bool  `json:"readOnly,omitempty"`
+	Priority                                     *int   `json:"priority,omitempty"`
 	AssociatedApplicationPerformanceManagementID string `json:"associatedApplicationPerformanceManagementID,omitempty"`
 }
 
 // NewApplicationperformancemanagementbinding returns a new *Applicationperformancemanagementbinding
 func NewApplicationperformancemanagementbinding() *Applicationperformancemanagementbinding {
-
+	ReadOnly := false
 	return &Applicationperformancemanagementbinding{
-		ReadOnly: false,
+		ReadOnly: &ReadOnly,
 	}
 }
 

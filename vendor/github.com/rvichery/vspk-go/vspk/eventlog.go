@@ -76,7 +76,6 @@ type EventLog struct {
 
 // NewEventLog returns a new *EventLog
 func NewEventLog() *EventLog {
-
 	return &EventLog{}
 }
 

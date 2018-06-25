@@ -85,7 +85,6 @@ type VMInterface struct {
 
 // NewVMInterface returns a new *VMInterface
 func NewVMInterface() *VMInterface {
-
 	return &VMInterface{}
 }
 

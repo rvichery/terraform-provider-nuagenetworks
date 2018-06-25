@@ -65,7 +65,7 @@ type User struct {
 	LastName       string `json:"lastName,omitempty"`
 	LastUpdatedBy  string `json:"lastUpdatedBy,omitempty"`
 	FirstName      string `json:"firstName,omitempty"`
-	Disabled       bool   `json:"disabled"`
+	Disabled       *bool  `json:"disabled,omitempty"`
 	Email          string `json:"email,omitempty"`
 	EntityScope    string `json:"entityScope,omitempty"`
 	MobileNumber   string `json:"mobileNumber,omitempty"`
@@ -77,7 +77,6 @@ type User struct {
 
 // NewUser returns a new *User
 func NewUser() *User {
-
 	return &User{}
 }
 

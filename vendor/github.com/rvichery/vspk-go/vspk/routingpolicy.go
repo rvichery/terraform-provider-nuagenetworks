@@ -69,7 +69,6 @@ type RoutingPolicy struct {
 
 // NewRoutingPolicy returns a new *RoutingPolicy
 func NewRoutingPolicy() *RoutingPolicy {
-
 	return &RoutingPolicy{}
 }
 

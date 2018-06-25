@@ -46,7 +46,6 @@ func resourceOSPFInterface() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"admin_state": {
@@ -67,15 +66,18 @@ func resourceOSPFInterface() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"message_digest_keys": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"metric": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"interface_type": {
 				Type:     schema.TypeString,
@@ -84,7 +86,6 @@ func resourceOSPFInterface() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"priority": {
@@ -99,10 +100,12 @@ func resourceOSPFInterface() *schema.Resource {
 			"mtu": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"authentication_key": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"authentication_type": {
 				Type:     schema.TypeString,
@@ -112,6 +115,7 @@ func resourceOSPFInterface() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_ospf_area": {
 				Type:     schema.TypeString,
@@ -129,16 +133,19 @@ func resourceOSPFInterfaceCreate(d *schema.ResourceData, m interface{}) error {
 		AssociatedSubnetID: d.Get("associated_subnet_id").(string),
 	}
 	if attr, ok := d.GetOk("passive_enabled"); ok {
-		o.PassiveEnabled = attr.(bool)
+		PassiveEnabled := attr.(bool)
+		o.PassiveEnabled = &PassiveEnabled
 	}
 	if attr, ok := d.GetOk("admin_state"); ok {
 		o.AdminState = attr.(string)
 	}
 	if attr, ok := d.GetOk("dead_interval"); ok {
-		o.DeadInterval = attr.(int)
+		DeadInterval := attr.(int)
+		o.DeadInterval = &DeadInterval
 	}
 	if attr, ok := d.GetOk("hello_interval"); ok {
-		o.HelloInterval = attr.(int)
+		HelloInterval := attr.(int)
+		o.HelloInterval = &HelloInterval
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -147,16 +154,19 @@ func resourceOSPFInterfaceCreate(d *schema.ResourceData, m interface{}) error {
 		o.MessageDigestKeys = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("metric"); ok {
-		o.Metric = attr.(int)
+		Metric := attr.(int)
+		o.Metric = &Metric
 	}
 	if attr, ok := d.GetOk("interface_type"); ok {
 		o.InterfaceType = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("mtu"); ok {
-		o.Mtu = attr.(int)
+		Mtu := attr.(int)
+		o.Mtu = &Mtu
 	}
 	if attr, ok := d.GetOk("authentication_key"); ok {
 		o.AuthenticationKey = attr.(string)
@@ -228,16 +238,19 @@ func resourceOSPFInterfaceUpdate(d *schema.ResourceData, m interface{}) error {
 	o.AssociatedSubnetID = d.Get("associated_subnet_id").(string)
 
 	if attr, ok := d.GetOk("passive_enabled"); ok {
-		o.PassiveEnabled = attr.(bool)
+		PassiveEnabled := attr.(bool)
+		o.PassiveEnabled = &PassiveEnabled
 	}
 	if attr, ok := d.GetOk("admin_state"); ok {
 		o.AdminState = attr.(string)
 	}
 	if attr, ok := d.GetOk("dead_interval"); ok {
-		o.DeadInterval = attr.(int)
+		DeadInterval := attr.(int)
+		o.DeadInterval = &DeadInterval
 	}
 	if attr, ok := d.GetOk("hello_interval"); ok {
-		o.HelloInterval = attr.(int)
+		HelloInterval := attr.(int)
+		o.HelloInterval = &HelloInterval
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -246,16 +259,19 @@ func resourceOSPFInterfaceUpdate(d *schema.ResourceData, m interface{}) error {
 		o.MessageDigestKeys = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("metric"); ok {
-		o.Metric = attr.(int)
+		Metric := attr.(int)
+		o.Metric = &Metric
 	}
 	if attr, ok := d.GetOk("interface_type"); ok {
 		o.InterfaceType = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("mtu"); ok {
-		o.Mtu = attr.(int)
+		Mtu := attr.(int)
+		o.Mtu = &Mtu
 	}
 	if attr, ok := d.GetOk("authentication_key"); ok {
 		o.AuthenticationKey = attr.(string)

@@ -38,6 +38,7 @@ func resourceVNFDomainMapping() *schema.Resource {
 			"segmentation_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"segmentation_type": {
 				Type:     schema.TypeString,
@@ -47,10 +48,12 @@ func resourceVNFDomainMapping() *schema.Resource {
 			"associated_ns_gateway_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ns_gateway_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_domain": {
 				Type:     schema.TypeString,
@@ -65,7 +68,8 @@ func resourceVNFDomainMappingCreate(d *schema.ResourceData, m interface{}) error
 	// Initialize VNFDomainMapping object
 	o := &vspk.VNFDomainMapping{}
 	if attr, ok := d.GetOk("segmentation_id"); ok {
-		o.SegmentationID = attr.(int)
+		SegmentationID := attr.(int)
+		o.SegmentationID = &SegmentationID
 	}
 	if attr, ok := d.GetOk("segmentation_type"); ok {
 		o.SegmentationType = attr.(string)
@@ -121,7 +125,8 @@ func resourceVNFDomainMappingUpdate(d *schema.ResourceData, m interface{}) error
 	}
 
 	if attr, ok := d.GetOk("segmentation_id"); ok {
-		o.SegmentationID = attr.(int)
+		SegmentationID := attr.(int)
+		o.SegmentationID = &SegmentationID
 	}
 	if attr, ok := d.GetOk("segmentation_type"); ok {
 		o.SegmentationType = attr.(string)

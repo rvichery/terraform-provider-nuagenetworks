@@ -38,10 +38,12 @@ func resourceVCenterDataCenter() *schema.Resource {
 			"vrs_configuration_time_limit": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"v_require_nuage_metadata": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -50,31 +52,36 @@ func resourceVCenterDataCenter() *schema.Resource {
 			"managed_object_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"data_dns1": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"data_dns2": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"data_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"data_network_portgroup": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"datapath_sync_timeout": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"secondary_data_uplink_dhcp_enabled": {
 				Type:     schema.TypeBool,
@@ -88,6 +95,7 @@ func resourceVCenterDataCenter() *schema.Resource {
 			"secondary_data_uplink_interface": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"secondary_data_uplink_mtu": {
 				Type:     schema.TypeInt,
@@ -97,10 +105,12 @@ func resourceVCenterDataCenter() *schema.Resource {
 			"secondary_data_uplink_primary_controller": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"secondary_data_uplink_secondary_controller": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"secondary_data_uplink_underlay_id": {
 				Type:     schema.TypeInt,
@@ -110,10 +120,12 @@ func resourceVCenterDataCenter() *schema.Resource {
 			"secondary_nuage_controller": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"deleted_from_vcenter": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"memory_size_in_gb": {
 				Type:     schema.TypeString,
@@ -123,6 +135,7 @@ func resourceVCenterDataCenter() *schema.Resource {
 			"remote_syslog_server_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"remote_syslog_server_port": {
 				Type:     schema.TypeInt,
@@ -137,18 +150,22 @@ func resourceVCenterDataCenter() *schema.Resource {
 			"generic_split_activation": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"separate_data_network": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"personality": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"destination_mirror_port": {
 				Type:     schema.TypeString,
@@ -158,34 +175,42 @@ func resourceVCenterDataCenter() *schema.Resource {
 			"metadata_server_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"metadata_server_listen_port": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"metadata_server_port": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"metadata_service_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"network_uplink_interface": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"network_uplink_interface_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"network_uplink_interface_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"network_uplink_interface_netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"revertive_controller_enabled": {
 				Type:     schema.TypeBool,
@@ -198,34 +223,42 @@ func resourceVCenterDataCenter() *schema.Resource {
 			"nfs_log_server": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nfs_mount_path": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"mgmt_dns1": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"mgmt_dns2": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"mgmt_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"mgmt_network_portgroup": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dhcp_relay_server": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"mirror_network_portgroup": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"disable_gro_on_datapath": {
 				Type:     schema.TypeBool,
@@ -240,22 +273,27 @@ func resourceVCenterDataCenter() *schema.Resource {
 			"site_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"allow_data_dhcp": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"allow_mgmt_dhcp": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"flow_eviction_threshold": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"vm_network_portgroup": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"enable_vrs_resource_reservation": {
 				Type:     schema.TypeBool,
@@ -264,7 +302,6 @@ func resourceVCenterDataCenter() *schema.Resource {
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"configured_metrics_push_interval": {
@@ -275,74 +312,92 @@ func resourceVCenterDataCenter() *schema.Resource {
 			"portgroup_metadata": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"nova_client_version": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"nova_identity_url_version": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nova_metadata_service_auth_url": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nova_metadata_service_endpoint": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nova_metadata_service_password": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nova_metadata_service_tenant": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nova_metadata_service_username": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nova_metadata_shared_secret": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nova_os_keystone_username": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nova_project_domain_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nova_project_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nova_region_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nova_user_domain_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"upgrade_package_password": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"upgrade_package_url": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"upgrade_package_username": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"upgrade_script_time_limit": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"cpu_count": {
 				Type:     schema.TypeString,
@@ -357,86 +412,107 @@ func resourceVCenterDataCenter() *schema.Resource {
 			"primary_nuage_controller": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"vrs_password": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"vrs_user_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_vcenter_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"static_route": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"static_route_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"static_route_netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ntp_server1": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ntp_server2": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"mtu": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"multi_vmssupport": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast_receive_interface": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast_receive_interface_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast_receive_interface_netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast_receive_range": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast_send_interface": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast_send_interface_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast_send_interface_netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast_source_portgroup": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"customized_script_url": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ovf_url": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"avrs_enabled": {
 				Type:     schema.TypeBool,
@@ -451,6 +527,7 @@ func resourceVCenterDataCenter() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_vcenter": {
 				Type:     schema.TypeString,
@@ -463,17 +540,22 @@ func resourceVCenterDataCenter() *schema.Resource {
 func resourceVCenterDataCenterCreate(d *schema.ResourceData, m interface{}) error {
 
 	// Initialize VCenterDataCenter object
+	SecondaryDataUplinkEnabled := d.Get("secondary_data_uplink_enabled").(bool)
+	RevertiveControllerEnabled := d.Get("revertive_controller_enabled").(bool)
+	RevertiveTimer := d.Get("revertive_timer").(int)
 	o := &vspk.VCenterDataCenter{
 		Name: d.Get("name").(string),
-		SecondaryDataUplinkEnabled: d.Get("secondary_data_uplink_enabled").(bool),
-		RevertiveControllerEnabled: d.Get("revertive_controller_enabled").(bool),
-		RevertiveTimer:             d.Get("revertive_timer").(int),
+		SecondaryDataUplinkEnabled: &SecondaryDataUplinkEnabled,
+		RevertiveControllerEnabled: &RevertiveControllerEnabled,
+		RevertiveTimer:             &RevertiveTimer,
 	}
 	if attr, ok := d.GetOk("vrs_configuration_time_limit"); ok {
-		o.VRSConfigurationTimeLimit = attr.(int)
+		VRSConfigurationTimeLimit := attr.(int)
+		o.VRSConfigurationTimeLimit = &VRSConfigurationTimeLimit
 	}
 	if attr, ok := d.GetOk("v_require_nuage_metadata"); ok {
-		o.VRequireNuageMetadata = attr.(bool)
+		VRequireNuageMetadata := attr.(bool)
+		o.VRequireNuageMetadata = &VRequireNuageMetadata
 	}
 	if attr, ok := d.GetOk("managed_object_id"); ok {
 		o.ManagedObjectID = attr.(string)
@@ -491,16 +573,19 @@ func resourceVCenterDataCenterCreate(d *schema.ResourceData, m interface{}) erro
 		o.DataNetworkPortgroup = attr.(string)
 	}
 	if attr, ok := d.GetOk("datapath_sync_timeout"); ok {
-		o.DatapathSyncTimeout = attr.(int)
+		DatapathSyncTimeout := attr.(int)
+		o.DatapathSyncTimeout = &DatapathSyncTimeout
 	}
 	if attr, ok := d.GetOk("secondary_data_uplink_dhcp_enabled"); ok {
-		o.SecondaryDataUplinkDHCPEnabled = attr.(bool)
+		SecondaryDataUplinkDHCPEnabled := attr.(bool)
+		o.SecondaryDataUplinkDHCPEnabled = &SecondaryDataUplinkDHCPEnabled
 	}
 	if attr, ok := d.GetOk("secondary_data_uplink_interface"); ok {
 		o.SecondaryDataUplinkInterface = attr.(string)
 	}
 	if attr, ok := d.GetOk("secondary_data_uplink_mtu"); ok {
-		o.SecondaryDataUplinkMTU = attr.(int)
+		SecondaryDataUplinkMTU := attr.(int)
+		o.SecondaryDataUplinkMTU = &SecondaryDataUplinkMTU
 	}
 	if attr, ok := d.GetOk("secondary_data_uplink_primary_controller"); ok {
 		o.SecondaryDataUplinkPrimaryController = attr.(string)
@@ -509,13 +594,15 @@ func resourceVCenterDataCenterCreate(d *schema.ResourceData, m interface{}) erro
 		o.SecondaryDataUplinkSecondaryController = attr.(string)
 	}
 	if attr, ok := d.GetOk("secondary_data_uplink_underlay_id"); ok {
-		o.SecondaryDataUplinkUnderlayID = attr.(int)
+		SecondaryDataUplinkUnderlayID := attr.(int)
+		o.SecondaryDataUplinkUnderlayID = &SecondaryDataUplinkUnderlayID
 	}
 	if attr, ok := d.GetOk("secondary_nuage_controller"); ok {
 		o.SecondaryNuageController = attr.(string)
 	}
 	if attr, ok := d.GetOk("deleted_from_vcenter"); ok {
-		o.DeletedFromVCenter = attr.(bool)
+		DeletedFromVCenter := attr.(bool)
+		o.DeletedFromVCenter = &DeletedFromVCenter
 	}
 	if attr, ok := d.GetOk("memory_size_in_gb"); ok {
 		o.MemorySizeInGB = attr.(string)
@@ -524,16 +611,19 @@ func resourceVCenterDataCenterCreate(d *schema.ResourceData, m interface{}) erro
 		o.RemoteSyslogServerIP = attr.(string)
 	}
 	if attr, ok := d.GetOk("remote_syslog_server_port"); ok {
-		o.RemoteSyslogServerPort = attr.(int)
+		RemoteSyslogServerPort := attr.(int)
+		o.RemoteSyslogServerPort = &RemoteSyslogServerPort
 	}
 	if attr, ok := d.GetOk("remote_syslog_server_type"); ok {
 		o.RemoteSyslogServerType = attr.(string)
 	}
 	if attr, ok := d.GetOk("generic_split_activation"); ok {
-		o.GenericSplitActivation = attr.(bool)
+		GenericSplitActivation := attr.(bool)
+		o.GenericSplitActivation = &GenericSplitActivation
 	}
 	if attr, ok := d.GetOk("separate_data_network"); ok {
-		o.SeparateDataNetwork = attr.(bool)
+		SeparateDataNetwork := attr.(bool)
+		o.SeparateDataNetwork = &SeparateDataNetwork
 	}
 	if attr, ok := d.GetOk("personality"); ok {
 		o.Personality = attr.(string)
@@ -548,13 +638,16 @@ func resourceVCenterDataCenterCreate(d *schema.ResourceData, m interface{}) erro
 		o.MetadataServerIP = attr.(string)
 	}
 	if attr, ok := d.GetOk("metadata_server_listen_port"); ok {
-		o.MetadataServerListenPort = attr.(int)
+		MetadataServerListenPort := attr.(int)
+		o.MetadataServerListenPort = &MetadataServerListenPort
 	}
 	if attr, ok := d.GetOk("metadata_server_port"); ok {
-		o.MetadataServerPort = attr.(int)
+		MetadataServerPort := attr.(int)
+		o.MetadataServerPort = &MetadataServerPort
 	}
 	if attr, ok := d.GetOk("metadata_service_enabled"); ok {
-		o.MetadataServiceEnabled = attr.(bool)
+		MetadataServiceEnabled := attr.(bool)
+		o.MetadataServiceEnabled = &MetadataServiceEnabled
 	}
 	if attr, ok := d.GetOk("network_uplink_interface"); ok {
 		o.NetworkUplinkInterface = attr.(string)
@@ -593,37 +686,46 @@ func resourceVCenterDataCenterCreate(d *schema.ResourceData, m interface{}) erro
 		o.MirrorNetworkPortgroup = attr.(string)
 	}
 	if attr, ok := d.GetOk("disable_gro_on_datapath"); ok {
-		o.DisableGROOnDatapath = attr.(bool)
+		DisableGROOnDatapath := attr.(bool)
+		o.DisableGROOnDatapath = &DisableGROOnDatapath
 	}
 	if attr, ok := d.GetOk("disable_lro_on_datapath"); ok {
-		o.DisableLROOnDatapath = attr.(bool)
+		DisableLROOnDatapath := attr.(bool)
+		o.DisableLROOnDatapath = &DisableLROOnDatapath
 	}
 	if attr, ok := d.GetOk("site_id"); ok {
 		o.SiteId = attr.(string)
 	}
 	if attr, ok := d.GetOk("allow_data_dhcp"); ok {
-		o.AllowDataDHCP = attr.(bool)
+		AllowDataDHCP := attr.(bool)
+		o.AllowDataDHCP = &AllowDataDHCP
 	}
 	if attr, ok := d.GetOk("allow_mgmt_dhcp"); ok {
-		o.AllowMgmtDHCP = attr.(bool)
+		AllowMgmtDHCP := attr.(bool)
+		o.AllowMgmtDHCP = &AllowMgmtDHCP
 	}
 	if attr, ok := d.GetOk("flow_eviction_threshold"); ok {
-		o.FlowEvictionThreshold = attr.(int)
+		FlowEvictionThreshold := attr.(int)
+		o.FlowEvictionThreshold = &FlowEvictionThreshold
 	}
 	if attr, ok := d.GetOk("vm_network_portgroup"); ok {
 		o.VmNetworkPortgroup = attr.(string)
 	}
 	if attr, ok := d.GetOk("enable_vrs_resource_reservation"); ok {
-		o.EnableVRSResourceReservation = attr.(bool)
+		EnableVRSResourceReservation := attr.(bool)
+		o.EnableVRSResourceReservation = &EnableVRSResourceReservation
 	}
 	if attr, ok := d.GetOk("configured_metrics_push_interval"); ok {
-		o.ConfiguredMetricsPushInterval = attr.(int)
+		ConfiguredMetricsPushInterval := attr.(int)
+		o.ConfiguredMetricsPushInterval = &ConfiguredMetricsPushInterval
 	}
 	if attr, ok := d.GetOk("portgroup_metadata"); ok {
-		o.PortgroupMetadata = attr.(bool)
+		PortgroupMetadata := attr.(bool)
+		o.PortgroupMetadata = &PortgroupMetadata
 	}
 	if attr, ok := d.GetOk("nova_client_version"); ok {
-		o.NovaClientVersion = attr.(int)
+		NovaClientVersion := attr.(int)
+		o.NovaClientVersion = &NovaClientVersion
 	}
 	if attr, ok := d.GetOk("nova_identity_url_version"); ok {
 		o.NovaIdentityURLVersion = attr.(string)
@@ -671,13 +773,15 @@ func resourceVCenterDataCenterCreate(d *schema.ResourceData, m interface{}) erro
 		o.UpgradePackageUsername = attr.(string)
 	}
 	if attr, ok := d.GetOk("upgrade_script_time_limit"); ok {
-		o.UpgradeScriptTimeLimit = attr.(int)
+		UpgradeScriptTimeLimit := attr.(int)
+		o.UpgradeScriptTimeLimit = &UpgradeScriptTimeLimit
 	}
 	if attr, ok := d.GetOk("cpu_count"); ok {
 		o.CpuCount = attr.(string)
 	}
 	if attr, ok := d.GetOk("primary_data_uplink_underlay_id"); ok {
-		o.PrimaryDataUplinkUnderlayID = attr.(int)
+		PrimaryDataUplinkUnderlayID := attr.(int)
+		o.PrimaryDataUplinkUnderlayID = &PrimaryDataUplinkUnderlayID
 	}
 	if attr, ok := d.GetOk("primary_nuage_controller"); ok {
 		o.PrimaryNuageController = attr.(string)
@@ -707,10 +811,12 @@ func resourceVCenterDataCenterCreate(d *schema.ResourceData, m interface{}) erro
 		o.NtpServer2 = attr.(string)
 	}
 	if attr, ok := d.GetOk("mtu"); ok {
-		o.Mtu = attr.(int)
+		Mtu := attr.(int)
+		o.Mtu = &Mtu
 	}
 	if attr, ok := d.GetOk("multi_vmssupport"); ok {
-		o.MultiVMSsupport = attr.(bool)
+		MultiVMSsupport := attr.(bool)
+		o.MultiVMSsupport = &MultiVMSsupport
 	}
 	if attr, ok := d.GetOk("multicast_receive_interface"); ok {
 		o.MulticastReceiveInterface = attr.(string)
@@ -743,7 +849,8 @@ func resourceVCenterDataCenterCreate(d *schema.ResourceData, m interface{}) erro
 		o.OvfURL = attr.(string)
 	}
 	if attr, ok := d.GetOk("avrs_enabled"); ok {
-		o.AvrsEnabled = attr.(bool)
+		AvrsEnabled := attr.(bool)
+		o.AvrsEnabled = &AvrsEnabled
 	}
 	if attr, ok := d.GetOk("avrs_profile"); ok {
 		o.AvrsProfile = attr.(string)
@@ -892,15 +999,20 @@ func resourceVCenterDataCenterUpdate(d *schema.ResourceData, m interface{}) erro
 	}
 
 	o.Name = d.Get("name").(string)
-	o.SecondaryDataUplinkEnabled = d.Get("secondary_data_uplink_enabled").(bool)
-	o.RevertiveControllerEnabled = d.Get("revertive_controller_enabled").(bool)
-	o.RevertiveTimer = d.Get("revertive_timer").(int)
+	SecondaryDataUplinkEnabled := d.Get("secondary_data_uplink_enabled").(bool)
+	o.SecondaryDataUplinkEnabled = &SecondaryDataUplinkEnabled
+	RevertiveControllerEnabled := d.Get("revertive_controller_enabled").(bool)
+	o.RevertiveControllerEnabled = &RevertiveControllerEnabled
+	RevertiveTimer := d.Get("revertive_timer").(int)
+	o.RevertiveTimer = &RevertiveTimer
 
 	if attr, ok := d.GetOk("vrs_configuration_time_limit"); ok {
-		o.VRSConfigurationTimeLimit = attr.(int)
+		VRSConfigurationTimeLimit := attr.(int)
+		o.VRSConfigurationTimeLimit = &VRSConfigurationTimeLimit
 	}
 	if attr, ok := d.GetOk("v_require_nuage_metadata"); ok {
-		o.VRequireNuageMetadata = attr.(bool)
+		VRequireNuageMetadata := attr.(bool)
+		o.VRequireNuageMetadata = &VRequireNuageMetadata
 	}
 	if attr, ok := d.GetOk("managed_object_id"); ok {
 		o.ManagedObjectID = attr.(string)
@@ -918,16 +1030,19 @@ func resourceVCenterDataCenterUpdate(d *schema.ResourceData, m interface{}) erro
 		o.DataNetworkPortgroup = attr.(string)
 	}
 	if attr, ok := d.GetOk("datapath_sync_timeout"); ok {
-		o.DatapathSyncTimeout = attr.(int)
+		DatapathSyncTimeout := attr.(int)
+		o.DatapathSyncTimeout = &DatapathSyncTimeout
 	}
 	if attr, ok := d.GetOk("secondary_data_uplink_dhcp_enabled"); ok {
-		o.SecondaryDataUplinkDHCPEnabled = attr.(bool)
+		SecondaryDataUplinkDHCPEnabled := attr.(bool)
+		o.SecondaryDataUplinkDHCPEnabled = &SecondaryDataUplinkDHCPEnabled
 	}
 	if attr, ok := d.GetOk("secondary_data_uplink_interface"); ok {
 		o.SecondaryDataUplinkInterface = attr.(string)
 	}
 	if attr, ok := d.GetOk("secondary_data_uplink_mtu"); ok {
-		o.SecondaryDataUplinkMTU = attr.(int)
+		SecondaryDataUplinkMTU := attr.(int)
+		o.SecondaryDataUplinkMTU = &SecondaryDataUplinkMTU
 	}
 	if attr, ok := d.GetOk("secondary_data_uplink_primary_controller"); ok {
 		o.SecondaryDataUplinkPrimaryController = attr.(string)
@@ -936,13 +1051,15 @@ func resourceVCenterDataCenterUpdate(d *schema.ResourceData, m interface{}) erro
 		o.SecondaryDataUplinkSecondaryController = attr.(string)
 	}
 	if attr, ok := d.GetOk("secondary_data_uplink_underlay_id"); ok {
-		o.SecondaryDataUplinkUnderlayID = attr.(int)
+		SecondaryDataUplinkUnderlayID := attr.(int)
+		o.SecondaryDataUplinkUnderlayID = &SecondaryDataUplinkUnderlayID
 	}
 	if attr, ok := d.GetOk("secondary_nuage_controller"); ok {
 		o.SecondaryNuageController = attr.(string)
 	}
 	if attr, ok := d.GetOk("deleted_from_vcenter"); ok {
-		o.DeletedFromVCenter = attr.(bool)
+		DeletedFromVCenter := attr.(bool)
+		o.DeletedFromVCenter = &DeletedFromVCenter
 	}
 	if attr, ok := d.GetOk("memory_size_in_gb"); ok {
 		o.MemorySizeInGB = attr.(string)
@@ -951,16 +1068,19 @@ func resourceVCenterDataCenterUpdate(d *schema.ResourceData, m interface{}) erro
 		o.RemoteSyslogServerIP = attr.(string)
 	}
 	if attr, ok := d.GetOk("remote_syslog_server_port"); ok {
-		o.RemoteSyslogServerPort = attr.(int)
+		RemoteSyslogServerPort := attr.(int)
+		o.RemoteSyslogServerPort = &RemoteSyslogServerPort
 	}
 	if attr, ok := d.GetOk("remote_syslog_server_type"); ok {
 		o.RemoteSyslogServerType = attr.(string)
 	}
 	if attr, ok := d.GetOk("generic_split_activation"); ok {
-		o.GenericSplitActivation = attr.(bool)
+		GenericSplitActivation := attr.(bool)
+		o.GenericSplitActivation = &GenericSplitActivation
 	}
 	if attr, ok := d.GetOk("separate_data_network"); ok {
-		o.SeparateDataNetwork = attr.(bool)
+		SeparateDataNetwork := attr.(bool)
+		o.SeparateDataNetwork = &SeparateDataNetwork
 	}
 	if attr, ok := d.GetOk("personality"); ok {
 		o.Personality = attr.(string)
@@ -975,13 +1095,16 @@ func resourceVCenterDataCenterUpdate(d *schema.ResourceData, m interface{}) erro
 		o.MetadataServerIP = attr.(string)
 	}
 	if attr, ok := d.GetOk("metadata_server_listen_port"); ok {
-		o.MetadataServerListenPort = attr.(int)
+		MetadataServerListenPort := attr.(int)
+		o.MetadataServerListenPort = &MetadataServerListenPort
 	}
 	if attr, ok := d.GetOk("metadata_server_port"); ok {
-		o.MetadataServerPort = attr.(int)
+		MetadataServerPort := attr.(int)
+		o.MetadataServerPort = &MetadataServerPort
 	}
 	if attr, ok := d.GetOk("metadata_service_enabled"); ok {
-		o.MetadataServiceEnabled = attr.(bool)
+		MetadataServiceEnabled := attr.(bool)
+		o.MetadataServiceEnabled = &MetadataServiceEnabled
 	}
 	if attr, ok := d.GetOk("network_uplink_interface"); ok {
 		o.NetworkUplinkInterface = attr.(string)
@@ -1020,37 +1143,46 @@ func resourceVCenterDataCenterUpdate(d *schema.ResourceData, m interface{}) erro
 		o.MirrorNetworkPortgroup = attr.(string)
 	}
 	if attr, ok := d.GetOk("disable_gro_on_datapath"); ok {
-		o.DisableGROOnDatapath = attr.(bool)
+		DisableGROOnDatapath := attr.(bool)
+		o.DisableGROOnDatapath = &DisableGROOnDatapath
 	}
 	if attr, ok := d.GetOk("disable_lro_on_datapath"); ok {
-		o.DisableLROOnDatapath = attr.(bool)
+		DisableLROOnDatapath := attr.(bool)
+		o.DisableLROOnDatapath = &DisableLROOnDatapath
 	}
 	if attr, ok := d.GetOk("site_id"); ok {
 		o.SiteId = attr.(string)
 	}
 	if attr, ok := d.GetOk("allow_data_dhcp"); ok {
-		o.AllowDataDHCP = attr.(bool)
+		AllowDataDHCP := attr.(bool)
+		o.AllowDataDHCP = &AllowDataDHCP
 	}
 	if attr, ok := d.GetOk("allow_mgmt_dhcp"); ok {
-		o.AllowMgmtDHCP = attr.(bool)
+		AllowMgmtDHCP := attr.(bool)
+		o.AllowMgmtDHCP = &AllowMgmtDHCP
 	}
 	if attr, ok := d.GetOk("flow_eviction_threshold"); ok {
-		o.FlowEvictionThreshold = attr.(int)
+		FlowEvictionThreshold := attr.(int)
+		o.FlowEvictionThreshold = &FlowEvictionThreshold
 	}
 	if attr, ok := d.GetOk("vm_network_portgroup"); ok {
 		o.VmNetworkPortgroup = attr.(string)
 	}
 	if attr, ok := d.GetOk("enable_vrs_resource_reservation"); ok {
-		o.EnableVRSResourceReservation = attr.(bool)
+		EnableVRSResourceReservation := attr.(bool)
+		o.EnableVRSResourceReservation = &EnableVRSResourceReservation
 	}
 	if attr, ok := d.GetOk("configured_metrics_push_interval"); ok {
-		o.ConfiguredMetricsPushInterval = attr.(int)
+		ConfiguredMetricsPushInterval := attr.(int)
+		o.ConfiguredMetricsPushInterval = &ConfiguredMetricsPushInterval
 	}
 	if attr, ok := d.GetOk("portgroup_metadata"); ok {
-		o.PortgroupMetadata = attr.(bool)
+		PortgroupMetadata := attr.(bool)
+		o.PortgroupMetadata = &PortgroupMetadata
 	}
 	if attr, ok := d.GetOk("nova_client_version"); ok {
-		o.NovaClientVersion = attr.(int)
+		NovaClientVersion := attr.(int)
+		o.NovaClientVersion = &NovaClientVersion
 	}
 	if attr, ok := d.GetOk("nova_identity_url_version"); ok {
 		o.NovaIdentityURLVersion = attr.(string)
@@ -1098,13 +1230,15 @@ func resourceVCenterDataCenterUpdate(d *schema.ResourceData, m interface{}) erro
 		o.UpgradePackageUsername = attr.(string)
 	}
 	if attr, ok := d.GetOk("upgrade_script_time_limit"); ok {
-		o.UpgradeScriptTimeLimit = attr.(int)
+		UpgradeScriptTimeLimit := attr.(int)
+		o.UpgradeScriptTimeLimit = &UpgradeScriptTimeLimit
 	}
 	if attr, ok := d.GetOk("cpu_count"); ok {
 		o.CpuCount = attr.(string)
 	}
 	if attr, ok := d.GetOk("primary_data_uplink_underlay_id"); ok {
-		o.PrimaryDataUplinkUnderlayID = attr.(int)
+		PrimaryDataUplinkUnderlayID := attr.(int)
+		o.PrimaryDataUplinkUnderlayID = &PrimaryDataUplinkUnderlayID
 	}
 	if attr, ok := d.GetOk("primary_nuage_controller"); ok {
 		o.PrimaryNuageController = attr.(string)
@@ -1134,10 +1268,12 @@ func resourceVCenterDataCenterUpdate(d *schema.ResourceData, m interface{}) erro
 		o.NtpServer2 = attr.(string)
 	}
 	if attr, ok := d.GetOk("mtu"); ok {
-		o.Mtu = attr.(int)
+		Mtu := attr.(int)
+		o.Mtu = &Mtu
 	}
 	if attr, ok := d.GetOk("multi_vmssupport"); ok {
-		o.MultiVMSsupport = attr.(bool)
+		MultiVMSsupport := attr.(bool)
+		o.MultiVMSsupport = &MultiVMSsupport
 	}
 	if attr, ok := d.GetOk("multicast_receive_interface"); ok {
 		o.MulticastReceiveInterface = attr.(string)
@@ -1170,7 +1306,8 @@ func resourceVCenterDataCenterUpdate(d *schema.ResourceData, m interface{}) erro
 		o.OvfURL = attr.(string)
 	}
 	if attr, ok := d.GetOk("avrs_enabled"); ok {
-		o.AvrsEnabled = attr.(bool)
+		AvrsEnabled := attr.(bool)
+		o.AvrsEnabled = &AvrsEnabled
 	}
 	if attr, ok := d.GetOk("avrs_profile"); ok {
 		o.AvrsProfile = attr.(string)

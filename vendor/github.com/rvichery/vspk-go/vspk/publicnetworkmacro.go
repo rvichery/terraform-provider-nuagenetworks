@@ -71,7 +71,6 @@ type PublicNetworkMacro struct {
 
 // NewPublicNetworkMacro returns a new *PublicNetworkMacro
 func NewPublicNetworkMacro() *PublicNetworkMacro {
-
 	return &PublicNetworkMacro{}
 }
 

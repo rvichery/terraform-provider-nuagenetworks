@@ -61,9 +61,9 @@ type ZFBRequest struct {
 	Owner                    string  `json:"owner,omitempty"`
 	MACAddress               string  `json:"MACAddress,omitempty"`
 	ZFBApprovalStatus        string  `json:"ZFBApprovalStatus,omitempty"`
-	ZFBBootstrapEnabled      bool    `json:"ZFBBootstrapEnabled"`
+	ZFBBootstrapEnabled      *bool   `json:"ZFBBootstrapEnabled,omitempty"`
 	ZFBInfo                  string  `json:"ZFBInfo,omitempty"`
-	ZFBRequestRetryTimer     int     `json:"ZFBRequestRetryTimer"`
+	ZFBRequestRetryTimer     *int    `json:"ZFBRequestRetryTimer,omitempty"`
 	SKU                      string  `json:"SKU,omitempty"`
 	IPAddress                string  `json:"IPAddress,omitempty"`
 	CPUType                  string  `json:"CPUType,omitempty"`
@@ -85,7 +85,6 @@ type ZFBRequest struct {
 
 // NewZFBRequest returns a new *ZFBRequest
 func NewZFBRequest() *ZFBRequest {
-
 	return &ZFBRequest{}
 }
 

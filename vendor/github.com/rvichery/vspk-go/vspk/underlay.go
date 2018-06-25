@@ -69,7 +69,6 @@ type Underlay struct {
 
 // NewUnderlay returns a new *Underlay
 func NewUnderlay() *Underlay {
-
 	return &Underlay{}
 }
 

@@ -59,23 +59,23 @@ type SharedNetworkResource struct {
 	ParentID                    string `json:"parentID,omitempty"`
 	ParentType                  string `json:"parentType,omitempty"`
 	Owner                       string `json:"owner,omitempty"`
-	ECMPCount                   int    `json:"ECMPCount"`
-	DHCPManaged                 bool   `json:"DHCPManaged"`
+	ECMPCount                   *int   `json:"ECMPCount,omitempty"`
+	DHCPManaged                 *bool  `json:"DHCPManaged,omitempty"`
 	BackHaulRouteDistinguisher  string `json:"backHaulRouteDistinguisher,omitempty"`
 	BackHaulRouteTarget         string `json:"backHaulRouteTarget,omitempty"`
-	BackHaulVNID                int    `json:"backHaulVNID"`
+	BackHaulVNID                *int   `json:"backHaulVNID,omitempty"`
 	Name                        string `json:"name,omitempty"`
 	LastUpdatedBy               string `json:"lastUpdatedBy,omitempty"`
 	Gateway                     string `json:"gateway,omitempty"`
 	GatewayMACAddress           string `json:"gatewayMACAddress,omitempty"`
-	AccessRestrictionEnabled    bool   `json:"accessRestrictionEnabled"`
+	AccessRestrictionEnabled    *bool  `json:"accessRestrictionEnabled,omitempty"`
 	Address                     string `json:"address,omitempty"`
 	PermittedActionType         string `json:"permittedActionType,omitempty"`
 	Description                 string `json:"description,omitempty"`
 	Netmask                     string `json:"netmask,omitempty"`
 	SharedResourceParentID      string `json:"sharedResourceParentID,omitempty"`
-	VnID                        int    `json:"vnID"`
-	Underlay                    bool   `json:"underlay"`
+	VnID                        *int   `json:"vnID,omitempty"`
+	Underlay                    *bool  `json:"underlay,omitempty"`
 	EntityScope                 string `json:"entityScope,omitempty"`
 	DomainRouteDistinguisher    string `json:"domainRouteDistinguisher,omitempty"`
 	DomainRouteTarget           string `json:"domainRouteTarget,omitempty"`
@@ -86,17 +86,13 @@ type SharedNetworkResource struct {
 	UseGlobalMAC                string `json:"useGlobalMAC,omitempty"`
 	AssociatedPATMapperID       string `json:"associatedPATMapperID,omitempty"`
 	ExternalID                  string `json:"externalID,omitempty"`
-	DynamicPATAllocationEnabled bool   `json:"dynamicPATAllocationEnabled"`
+	DynamicPATAllocationEnabled *bool  `json:"dynamicPATAllocationEnabled,omitempty"`
 	Type                        string `json:"type,omitempty"`
 }
 
 // NewSharedNetworkResource returns a new *SharedNetworkResource
 func NewSharedNetworkResource() *SharedNetworkResource {
-
-	return &SharedNetworkResource{
-		DHCPManaged: true,
-		Type:        "PUBLIC",
-	}
+	return &SharedNetworkResource{}
 }
 
 // Identity returns the Identity of the object.

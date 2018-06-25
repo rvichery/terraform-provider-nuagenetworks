@@ -63,20 +63,20 @@ type QOS struct {
 	FIPCommittedInformationRate            string `json:"FIPCommittedInformationRate,omitempty"`
 	FIPPeakBurstSize                       string `json:"FIPPeakBurstSize,omitempty"`
 	FIPPeakInformationRate                 string `json:"FIPPeakInformationRate,omitempty"`
-	FIPRateLimitingActive                  bool   `json:"FIPRateLimitingActive"`
+	FIPRateLimitingActive                  *bool  `json:"FIPRateLimitingActive,omitempty"`
 	BUMCommittedBurstSize                  string `json:"BUMCommittedBurstSize,omitempty"`
 	BUMCommittedInformationRate            string `json:"BUMCommittedInformationRate,omitempty"`
 	BUMPeakBurstSize                       string `json:"BUMPeakBurstSize,omitempty"`
 	BUMPeakInformationRate                 string `json:"BUMPeakInformationRate,omitempty"`
-	BUMRateLimitingActive                  bool   `json:"BUMRateLimitingActive"`
+	BUMRateLimitingActive                  *bool  `json:"BUMRateLimitingActive,omitempty"`
 	Name                                   string `json:"name,omitempty"`
 	LastUpdatedBy                          string `json:"lastUpdatedBy,omitempty"`
-	RateLimitingActive                     bool   `json:"rateLimitingActive"`
-	Active                                 bool   `json:"active"`
+	RateLimitingActive                     *bool  `json:"rateLimitingActive,omitempty"`
+	Active                                 *bool  `json:"active,omitempty"`
 	Peak                                   string `json:"peak,omitempty"`
 	ServiceClass                           string `json:"serviceClass,omitempty"`
 	Description                            string `json:"description,omitempty"`
-	RewriteForwardingClass                 bool   `json:"rewriteForwardingClass"`
+	RewriteForwardingClass                 *bool  `json:"rewriteForwardingClass,omitempty"`
 	EgressFIPCommittedBurstSize            string `json:"EgressFIPCommittedBurstSize,omitempty"`
 	EgressFIPCommittedInformationRate      string `json:"EgressFIPCommittedInformationRate,omitempty"`
 	EgressFIPPeakBurstSize                 string `json:"EgressFIPPeakBurstSize,omitempty"`
@@ -84,7 +84,7 @@ type QOS struct {
 	EntityScope                            string `json:"entityScope,omitempty"`
 	CommittedBurstSize                     string `json:"committedBurstSize,omitempty"`
 	CommittedInformationRate               string `json:"committedInformationRate,omitempty"`
-	TrustedForwardingClass                 bool   `json:"trustedForwardingClass"`
+	TrustedForwardingClass                 *bool  `json:"trustedForwardingClass,omitempty"`
 	AssocQosId                             string `json:"assocQosId,omitempty"`
 	AssociatedDSCPForwardingClassTableID   string `json:"associatedDSCPForwardingClassTableID,omitempty"`
 	AssociatedDSCPForwardingClassTableName string `json:"associatedDSCPForwardingClassTableName,omitempty"`
@@ -94,7 +94,6 @@ type QOS struct {
 
 // NewQOS returns a new *QOS
 func NewQOS() *QOS {
-
 	return &QOS{}
 }
 

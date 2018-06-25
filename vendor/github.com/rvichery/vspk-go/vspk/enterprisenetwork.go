@@ -71,10 +71,7 @@ type EnterpriseNetwork struct {
 
 // NewEnterpriseNetwork returns a new *EnterpriseNetwork
 func NewEnterpriseNetwork() *EnterpriseNetwork {
-
-	return &EnterpriseNetwork{
-		IPType: "IPV4",
-	}
+	return &EnterpriseNetwork{}
 }
 
 // Identity returns the Identity of the object.

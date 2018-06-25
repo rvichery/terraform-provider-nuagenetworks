@@ -74,7 +74,6 @@ type NSGatewayTemplate struct {
 
 // NewNSGatewayTemplate returns a new *NSGatewayTemplate
 func NewNSGatewayTemplate() *NSGatewayTemplate {
-
 	return &NSGatewayTemplate{
 		SSHService:          "ENABLED",
 		InstanceSSHOverride: "DISALLOWED",

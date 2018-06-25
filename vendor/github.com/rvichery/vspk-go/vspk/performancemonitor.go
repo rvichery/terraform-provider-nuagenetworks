@@ -61,32 +61,37 @@ type PerformanceMonitor struct {
 	Owner                 string        `json:"owner,omitempty"`
 	Name                  string        `json:"name,omitempty"`
 	LastUpdatedBy         string        `json:"lastUpdatedBy,omitempty"`
-	PayloadSize           int           `json:"payloadSize"`
-	ReadOnly              bool          `json:"readOnly"`
+	PayloadSize           *int          `json:"payloadSize,omitempty"`
+	ReadOnly              *bool         `json:"readOnly,omitempty"`
 	ServiceClass          string        `json:"serviceClass,omitempty"`
 	Description           string        `json:"description,omitempty"`
 	DestinationTargetList []interface{} `json:"destinationTargetList,omitempty"`
-	Timeout               int           `json:"timeout"`
-	Interval              int           `json:"interval"`
+	Timeout               *int          `json:"timeout,omitempty"`
+	Interval              *int          `json:"interval,omitempty"`
 	EntityScope           string        `json:"entityScope,omitempty"`
-	HoldDownTimer         int           `json:"holdDownTimer"`
+	HoldDownTimer         *int          `json:"holdDownTimer,omitempty"`
 	ProbeType             string        `json:"probeType,omitempty"`
-	NumberOfPackets       int           `json:"numberOfPackets"`
+	NumberOfPackets       *int          `json:"numberOfPackets,omitempty"`
 	ExternalID            string        `json:"externalID,omitempty"`
 }
 
 // NewPerformanceMonitor returns a new *PerformanceMonitor
 func NewPerformanceMonitor() *PerformanceMonitor {
-
+	PayloadSize := 137
+	ReadOnly := false
+	Timeout := 1000
+	Interval := 3000
+	HoldDownTimer := 900
+	NumberOfPackets := 1
 	return &PerformanceMonitor{
-		PayloadSize:     137,
-		ReadOnly:        false,
+		PayloadSize:     &PayloadSize,
+		ReadOnly:        &ReadOnly,
 		ServiceClass:    "H",
-		Timeout:         1000,
-		Interval:        3000,
-		HoldDownTimer:   900,
+		Timeout:         &Timeout,
+		Interval:        &Interval,
+		HoldDownTimer:   &HoldDownTimer,
 		ProbeType:       "ONEWAY",
-		NumberOfPackets: 1,
+		NumberOfPackets: &NumberOfPackets,
 	}
 }
 

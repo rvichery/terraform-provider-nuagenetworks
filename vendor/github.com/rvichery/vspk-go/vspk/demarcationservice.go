@@ -60,7 +60,7 @@ type DemarcationService struct {
 	ParentType          string `json:"parentType,omitempty"`
 	Owner               string `json:"owner,omitempty"`
 	RouteDistinguisher  string `json:"routeDistinguisher,omitempty"`
-	Priority            int    `json:"priority"`
+	Priority            *int   `json:"priority,omitempty"`
 	AssociatedGatewayID string `json:"associatedGatewayID,omitempty"`
 	AssociatedVLANID    string `json:"associatedVLANID,omitempty"`
 	Type                string `json:"type,omitempty"`
@@ -68,7 +68,6 @@ type DemarcationService struct {
 
 // NewDemarcationService returns a new *DemarcationService
 func NewDemarcationService() *DemarcationService {
-
 	return &DemarcationService{}
 }
 

@@ -38,6 +38,7 @@ func resourceIKEGatewayConnection() *schema.Resource {
 			"nsg_identifier": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nsg_identifier_type": {
 				Type:     schema.TypeString,
@@ -47,10 +48,12 @@ func resourceIKEGatewayConnection() *schema.Resource {
 			"nsg_role": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"mark": {
 				Type:     schema.TypeInt,
@@ -59,57 +62,66 @@ func resourceIKEGatewayConnection() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"sequence": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"allow_any_subnet": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"unencrypted_psk": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"port_vlan_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ike_authentication_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ike_authentication_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ike_encryption_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ike_gateway_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_vlanid": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_vlan": {
 				Type:     schema.TypeString,
@@ -136,13 +148,16 @@ func resourceIKEGatewayConnectionCreate(d *schema.ResourceData, m interface{}) e
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("mark"); ok {
-		o.Mark = attr.(int)
+		Mark := attr.(int)
+		o.Mark = &Mark
 	}
 	if attr, ok := d.GetOk("sequence"); ok {
-		o.Sequence = attr.(int)
+		Sequence := attr.(int)
+		o.Sequence = &Sequence
 	}
 	if attr, ok := d.GetOk("allow_any_subnet"); ok {
-		o.AllowAnySubnet = attr.(bool)
+		AllowAnySubnet := attr.(bool)
+		o.AllowAnySubnet = &AllowAnySubnet
 	}
 	if attr, ok := d.GetOk("unencrypted_psk"); ok {
 		o.UnencryptedPSK = attr.(string)
@@ -151,7 +166,8 @@ func resourceIKEGatewayConnectionCreate(d *schema.ResourceData, m interface{}) e
 		o.PortVLANName = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("associated_ike_authentication_id"); ok {
 		o.AssociatedIKEAuthenticationID = attr.(string)
@@ -248,13 +264,16 @@ func resourceIKEGatewayConnectionUpdate(d *schema.ResourceData, m interface{}) e
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("mark"); ok {
-		o.Mark = attr.(int)
+		Mark := attr.(int)
+		o.Mark = &Mark
 	}
 	if attr, ok := d.GetOk("sequence"); ok {
-		o.Sequence = attr.(int)
+		Sequence := attr.(int)
+		o.Sequence = &Sequence
 	}
 	if attr, ok := d.GetOk("allow_any_subnet"); ok {
-		o.AllowAnySubnet = attr.(bool)
+		AllowAnySubnet := attr.(bool)
+		o.AllowAnySubnet = &AllowAnySubnet
 	}
 	if attr, ok := d.GetOk("unencrypted_psk"); ok {
 		o.UnencryptedPSK = attr.(string)
@@ -263,7 +282,8 @@ func resourceIKEGatewayConnectionUpdate(d *schema.ResourceData, m interface{}) e
 		o.PortVLANName = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("associated_ike_authentication_id"); ok {
 		o.AssociatedIKEAuthenticationID = attr.(string)

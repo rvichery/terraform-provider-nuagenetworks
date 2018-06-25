@@ -63,14 +63,14 @@ type IKEGatewayConnection struct {
 	NSGIdentifierType                string `json:"NSGIdentifierType,omitempty"`
 	NSGRole                          string `json:"NSGRole,omitempty"`
 	Name                             string `json:"name,omitempty"`
-	Mark                             int    `json:"mark"`
+	Mark                             *int   `json:"mark,omitempty"`
 	LastUpdatedBy                    string `json:"lastUpdatedBy,omitempty"`
-	Sequence                         int    `json:"sequence"`
-	AllowAnySubnet                   bool   `json:"allowAnySubnet"`
+	Sequence                         *int   `json:"sequence,omitempty"`
+	AllowAnySubnet                   *bool  `json:"allowAnySubnet,omitempty"`
 	UnencryptedPSK                   string `json:"unencryptedPSK,omitempty"`
 	EntityScope                      string `json:"entityScope,omitempty"`
 	PortVLANName                     string `json:"portVLANName,omitempty"`
-	Priority                         int    `json:"priority"`
+	Priority                         *int   `json:"priority,omitempty"`
 	AssociatedIKEAuthenticationID    string `json:"associatedIKEAuthenticationID,omitempty"`
 	AssociatedIKEAuthenticationType  string `json:"associatedIKEAuthenticationType,omitempty"`
 	AssociatedIKEEncryptionProfileID string `json:"associatedIKEEncryptionProfileID,omitempty"`
@@ -81,10 +81,10 @@ type IKEGatewayConnection struct {
 
 // NewIKEGatewayConnection returns a new *IKEGatewayConnection
 func NewIKEGatewayConnection() *IKEGatewayConnection {
-
+	Mark := 1
 	return &IKEGatewayConnection{
 		NSGIdentifierType: "ID_KEY_ID",
-		Mark:              1,
+		Mark:              &Mark,
 	}
 }
 

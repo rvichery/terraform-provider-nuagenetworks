@@ -60,9 +60,9 @@ type NSGateway struct {
 	ParentType                         string `json:"parentType,omitempty"`
 	Owner                              string `json:"owner,omitempty"`
 	MACAddress                         string `json:"MACAddress,omitempty"`
-	NATTraversalEnabled                bool   `json:"NATTraversalEnabled"`
-	TCPMSSEnabled                      bool   `json:"TCPMSSEnabled"`
-	TCPMaximumSegmentSize              int    `json:"TCPMaximumSegmentSize"`
+	NATTraversalEnabled                *bool  `json:"NATTraversalEnabled,omitempty"`
+	TCPMSSEnabled                      *bool  `json:"TCPMSSEnabled,omitempty"`
+	TCPMaximumSegmentSize              *int   `json:"TCPMaximumSegmentSize,omitempty"`
 	BIOSReleaseDate                    string `json:"BIOSReleaseDate,omitempty"`
 	BIOSVersion                        string `json:"BIOSVersion,omitempty"`
 	SKU                                string `json:"SKU,omitempty"`
@@ -74,13 +74,13 @@ type NSGateway struct {
 	UUID                               string `json:"UUID,omitempty"`
 	Name                               string `json:"name,omitempty"`
 	Family                             string `json:"family,omitempty"`
-	LastConfigurationReloadTimestamp   int    `json:"lastConfigurationReloadTimestamp"`
+	LastConfigurationReloadTimestamp   *int   `json:"lastConfigurationReloadTimestamp,omitempty"`
 	LastUpdatedBy                      string `json:"lastUpdatedBy,omitempty"`
 	DatapathID                         string `json:"datapathID,omitempty"`
 	Patches                            string `json:"patches,omitempty"`
 	RedundancyGroupID                  string `json:"redundancyGroupID,omitempty"`
 	TemplateID                         string `json:"templateID,omitempty"`
-	Pending                            bool   `json:"pending"`
+	Pending                            *bool  `json:"pending,omitempty"`
 	SerialNumber                       string `json:"serialNumber,omitempty"`
 	DerivedSSHServiceState             string `json:"derivedSSHServiceState,omitempty"`
 	PermittedAction                    string `json:"permittedAction,omitempty"`
@@ -93,8 +93,8 @@ type NSGateway struct {
 	LocationID                         string `json:"locationID,omitempty"`
 	ConfigurationReloadState           string `json:"configurationReloadState,omitempty"`
 	ConfigurationStatus                string `json:"configurationStatus,omitempty"`
-	ControlTrafficCOSValue             int    `json:"controlTrafficCOSValue"`
-	ControlTrafficDSCPValue            int    `json:"controlTrafficDSCPValue"`
+	ControlTrafficCOSValue             *int   `json:"controlTrafficCOSValue,omitempty"`
+	ControlTrafficDSCPValue            *int   `json:"controlTrafficDSCPValue,omitempty"`
 	BootstrapID                        string `json:"bootstrapID,omitempty"`
 	BootstrapStatus                    string `json:"bootstrapStatus,omitempty"`
 	OperationMode                      string `json:"operationMode,omitempty"`
@@ -111,18 +111,22 @@ type NSGateway struct {
 
 // NewNSGateway returns a new *NSGateway
 func NewNSGateway() *NSGateway {
-
+	TCPMSSEnabled := false
+	TCPMaximumSegmentSize := 1330
+	LastConfigurationReloadTimestamp := -1
+	ControlTrafficCOSValue := 7
+	ControlTrafficDSCPValue := 56
 	return &NSGateway{
-		TCPMSSEnabled:                    false,
-		TCPMaximumSegmentSize:            1330,
+		TCPMSSEnabled:                    &TCPMSSEnabled,
+		TCPMaximumSegmentSize:            &TCPMaximumSegmentSize,
 		TPMStatus:                        "UNKNOWN",
 		SSHService:                       "INHERITED",
-		LastConfigurationReloadTimestamp: -1,
+		LastConfigurationReloadTimestamp: &LastConfigurationReloadTimestamp,
 		InheritedSSHServiceState:         "ENABLED",
 		ConfigurationReloadState:         "UNKNOWN",
 		ConfigurationStatus:              "UNKNOWN",
-		ControlTrafficCOSValue:           7,
-		ControlTrafficDSCPValue:          56,
+		ControlTrafficCOSValue:           &ControlTrafficCOSValue,
+		ControlTrafficDSCPValue:          &ControlTrafficDSCPValue,
 	}
 }
 

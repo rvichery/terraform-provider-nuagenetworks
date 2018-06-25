@@ -38,11 +38,13 @@ func resourceContainer() *schema.Resource {
 			"l2_domain_ids": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"vrsid": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"uuid": {
 				Type:     schema.TypeString,
@@ -54,24 +56,27 @@ func resourceContainer() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"reason_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"delete_expiry": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"delete_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"resync_info": {
 				Type:     schema.TypeMap,
 				Optional: true,
+				Computed: true,
 			},
 			"resync_info_raw": {
 				Type:     schema.TypeString,
@@ -81,41 +86,48 @@ func resourceContainer() *schema.Resource {
 			"site_identifier": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"image_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"image_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"interfaces": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"enterprise_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"domain_ids": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"zone_ids": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"orchestration_id": {
@@ -125,27 +137,33 @@ func resourceContainer() *schema.Resource {
 			"user_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"user_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"subnet_ids": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"hypervisor_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 		},
 	}
@@ -169,7 +187,8 @@ func resourceContainerCreate(d *schema.ResourceData, m interface{}) error {
 		o.ReasonType = attr.(string)
 	}
 	if attr, ok := d.GetOk("delete_expiry"); ok {
-		o.DeleteExpiry = attr.(int)
+		DeleteExpiry := attr.(int)
+		o.DeleteExpiry = &DeleteExpiry
 	}
 	if attr, ok := d.GetOk("delete_mode"); ok {
 		o.DeleteMode = attr.(string)
@@ -304,7 +323,8 @@ func resourceContainerUpdate(d *schema.ResourceData, m interface{}) error {
 		o.ReasonType = attr.(string)
 	}
 	if attr, ok := d.GetOk("delete_expiry"); ok {
-		o.DeleteExpiry = attr.(int)
+		DeleteExpiry := attr.(int)
+		o.DeleteExpiry = &DeleteExpiry
 	}
 	if attr, ok := d.GetOk("delete_mode"); ok {
 		o.DeleteMode = attr.(string)

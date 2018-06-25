@@ -60,20 +60,19 @@ type MonitoringPort struct {
 	ParentType      string `json:"parentType,omitempty"`
 	Owner           string `json:"owner,omitempty"`
 	Name            string `json:"name,omitempty"`
-	LastStateChange int    `json:"lastStateChange"`
-	Access          bool   `json:"access"`
+	LastStateChange *int   `json:"lastStateChange,omitempty"`
+	Access          *bool  `json:"access,omitempty"`
 	Description     string `json:"description,omitempty"`
 	ResiliencyState string `json:"resiliencyState,omitempty"`
-	Resilient       bool   `json:"resilient"`
+	Resilient       *bool  `json:"resilient,omitempty"`
 	EntityScope     string `json:"entityScope,omitempty"`
-	Uplink          bool   `json:"uplink"`
+	Uplink          *bool  `json:"uplink,omitempty"`
 	State           string `json:"state,omitempty"`
 	ExternalID      string `json:"externalID,omitempty"`
 }
 
 // NewMonitoringPort returns a new *MonitoringPort
 func NewMonitoringPort() *MonitoringPort {
-
 	return &MonitoringPort{}
 }
 

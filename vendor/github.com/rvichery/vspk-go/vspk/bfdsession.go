@@ -60,21 +60,23 @@ type BFDSession struct {
 	ParentType       string `json:"parentType,omitempty"`
 	Owner            string `json:"owner,omitempty"`
 	BFDDestinationIP string `json:"BFDDestinationIP,omitempty"`
-	BFDMultiplier    int    `json:"BFDMultiplier"`
-	BFDTimer         int    `json:"BFDTimer"`
+	BFDMultiplier    *int   `json:"BFDMultiplier,omitempty"`
+	BFDTimer         *int   `json:"BFDTimer,omitempty"`
 	LastUpdatedBy    string `json:"lastUpdatedBy,omitempty"`
 	EntityScope      string `json:"entityScope,omitempty"`
-	MultiHopEnabled  bool   `json:"multiHopEnabled"`
+	MultiHopEnabled  *bool  `json:"multiHopEnabled,omitempty"`
 	ExternalID       string `json:"externalID,omitempty"`
 }
 
 // NewBFDSession returns a new *BFDSession
 func NewBFDSession() *BFDSession {
-
+	BFDMultiplier := 3
+	BFDTimer := 500
+	MultiHopEnabled := false
 	return &BFDSession{
-		BFDMultiplier:   3,
-		BFDTimer:        500,
-		MultiHopEnabled: false,
+		BFDMultiplier:   &BFDMultiplier,
+		BFDTimer:        &BFDTimer,
+		MultiHopEnabled: &MultiHopEnabled,
 	}
 }
 

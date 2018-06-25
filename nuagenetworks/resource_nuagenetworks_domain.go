@@ -38,22 +38,26 @@ func resourceDomain() *schema.Resource {
 			"pat_enabled": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ecmp_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"bgp_enabled": {
 				Type:     schema.TypeBool,
-				Optional: true,
+				Computed: true,
 			},
 			"dhcp_behavior": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dhcp_server_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"fip_underlay": {
 				Type:     schema.TypeBool,
@@ -67,36 +71,41 @@ func resourceDomain() *schema.Resource {
 			},
 			"label_id": {
 				Type:     schema.TypeInt,
-				Optional: true,
+				Computed: true,
 			},
 			"back_haul_route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"back_haul_route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"back_haul_service_id": {
 				Type:     schema.TypeInt,
-				Optional: true,
 				Computed: true,
 			},
 			"back_haul_subnet_ip_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"back_haul_subnet_mask": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"back_haul_vnid": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"maintenance_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -104,20 +113,22 @@ func resourceDomain() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"advertise_criteria": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"leaking_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"secondary_dhcp_server_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"template_id": {
 				Type:     schema.TypeString,
@@ -126,24 +137,27 @@ func resourceDomain() *schema.Resource {
 			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"service_id": {
 				Type:     schema.TypeInt,
-				Optional: true,
 				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dhcp_server_addresses": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"global_routing_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"flow_collection_enabled": {
 				Type:     schema.TypeString,
@@ -153,91 +167,111 @@ func resourceDomain() *schema.Resource {
 			"import_route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"encryption": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"underlay_enabled": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"local_as": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"policy_change_status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"domain_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"domain_vlanid": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"uplink_preference": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_bgp_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_pat_mapper_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_shared_pat_mapper_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_underlay_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"stretched": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"tunnel_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"customer_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"export_route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -258,10 +292,12 @@ func resourceDomainCreate(d *schema.ResourceData, m interface{}) error {
 		o.PATEnabled = attr.(string)
 	}
 	if attr, ok := d.GetOk("ecmp_count"); ok {
-		o.ECMPCount = attr.(int)
+		ECMPCount := attr.(int)
+		o.ECMPCount = &ECMPCount
 	}
 	if attr, ok := d.GetOk("bgp_enabled"); ok {
-		o.BGPEnabled = attr.(bool)
+		BGPEnabled := attr.(bool)
+		o.BGPEnabled = &BGPEnabled
 	}
 	if attr, ok := d.GetOk("dhcp_behavior"); ok {
 		o.DHCPBehavior = attr.(string)
@@ -270,13 +306,15 @@ func resourceDomainCreate(d *schema.ResourceData, m interface{}) error {
 		o.DHCPServerAddress = attr.(string)
 	}
 	if attr, ok := d.GetOk("fip_underlay"); ok {
-		o.FIPUnderlay = attr.(bool)
+		FIPUnderlay := attr.(bool)
+		o.FIPUnderlay = &FIPUnderlay
 	}
 	if attr, ok := d.GetOk("dpi"); ok {
 		o.DPI = attr.(string)
 	}
 	if attr, ok := d.GetOk("label_id"); ok {
-		o.LabelID = attr.(int)
+		LabelID := attr.(int)
+		o.LabelID = &LabelID
 	}
 	if attr, ok := d.GetOk("back_haul_route_distinguisher"); ok {
 		o.BackHaulRouteDistinguisher = attr.(string)
@@ -291,7 +329,8 @@ func resourceDomainCreate(d *schema.ResourceData, m interface{}) error {
 		o.BackHaulSubnetMask = attr.(string)
 	}
 	if attr, ok := d.GetOk("back_haul_vnid"); ok {
-		o.BackHaulVNID = attr.(int)
+		BackHaulVNID := attr.(int)
+		o.BackHaulVNID = &BackHaulVNID
 	}
 	if attr, ok := d.GetOk("maintenance_mode"); ok {
 		o.MaintenanceMode = attr.(string)
@@ -300,7 +339,8 @@ func resourceDomainCreate(d *schema.ResourceData, m interface{}) error {
 		o.AdvertiseCriteria = attr.(string)
 	}
 	if attr, ok := d.GetOk("leaking_enabled"); ok {
-		o.LeakingEnabled = attr.(bool)
+		LeakingEnabled := attr.(bool)
+		o.LeakingEnabled = &LeakingEnabled
 	}
 	if attr, ok := d.GetOk("secondary_dhcp_server_address"); ok {
 		o.SecondaryDHCPServerAddress = attr.(string)
@@ -315,7 +355,8 @@ func resourceDomainCreate(d *schema.ResourceData, m interface{}) error {
 		o.DhcpServerAddresses = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("global_routing_enabled"); ok {
-		o.GlobalRoutingEnabled = attr.(bool)
+		GlobalRoutingEnabled := attr.(bool)
+		o.GlobalRoutingEnabled = &GlobalRoutingEnabled
 	}
 	if attr, ok := d.GetOk("flow_collection_enabled"); ok {
 		o.FlowCollectionEnabled = attr.(string)
@@ -330,16 +371,19 @@ func resourceDomainCreate(d *schema.ResourceData, m interface{}) error {
 		o.UnderlayEnabled = attr.(string)
 	}
 	if attr, ok := d.GetOk("local_as"); ok {
-		o.LocalAS = attr.(int)
+		LocalAS := attr.(int)
+		o.LocalAS = &LocalAS
 	}
 	if attr, ok := d.GetOk("policy_change_status"); ok {
 		o.PolicyChangeStatus = attr.(string)
 	}
 	if attr, ok := d.GetOk("domain_id"); ok {
-		o.DomainID = attr.(int)
+		DomainID := attr.(int)
+		o.DomainID = &DomainID
 	}
 	if attr, ok := d.GetOk("domain_vlanid"); ok {
-		o.DomainVLANID = attr.(int)
+		DomainVLANID := attr.(int)
+		o.DomainVLANID = &DomainVLANID
 	}
 	if attr, ok := d.GetOk("route_distinguisher"); ok {
 		o.RouteDistinguisher = attr.(string)
@@ -366,7 +410,8 @@ func resourceDomainCreate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedUnderlayID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stretched"); ok {
-		o.Stretched = attr.(bool)
+		Stretched := attr.(bool)
+		o.Stretched = &Stretched
 	}
 	if attr, ok := d.GetOk("multicast"); ok {
 		o.Multicast = attr.(string)
@@ -375,7 +420,8 @@ func resourceDomainCreate(d *schema.ResourceData, m interface{}) error {
 		o.TunnelType = attr.(string)
 	}
 	if attr, ok := d.GetOk("customer_id"); ok {
-		o.CustomerID = attr.(int)
+		CustomerID := attr.(int)
+		o.CustomerID = &CustomerID
 	}
 	if attr, ok := d.GetOk("export_route_target"); ok {
 		o.ExportRouteTarget = attr.(string)
@@ -482,10 +528,12 @@ func resourceDomainUpdate(d *schema.ResourceData, m interface{}) error {
 		o.PATEnabled = attr.(string)
 	}
 	if attr, ok := d.GetOk("ecmp_count"); ok {
-		o.ECMPCount = attr.(int)
+		ECMPCount := attr.(int)
+		o.ECMPCount = &ECMPCount
 	}
 	if attr, ok := d.GetOk("bgp_enabled"); ok {
-		o.BGPEnabled = attr.(bool)
+		BGPEnabled := attr.(bool)
+		o.BGPEnabled = &BGPEnabled
 	}
 	if attr, ok := d.GetOk("dhcp_behavior"); ok {
 		o.DHCPBehavior = attr.(string)
@@ -494,13 +542,15 @@ func resourceDomainUpdate(d *schema.ResourceData, m interface{}) error {
 		o.DHCPServerAddress = attr.(string)
 	}
 	if attr, ok := d.GetOk("fip_underlay"); ok {
-		o.FIPUnderlay = attr.(bool)
+		FIPUnderlay := attr.(bool)
+		o.FIPUnderlay = &FIPUnderlay
 	}
 	if attr, ok := d.GetOk("dpi"); ok {
 		o.DPI = attr.(string)
 	}
 	if attr, ok := d.GetOk("label_id"); ok {
-		o.LabelID = attr.(int)
+		LabelID := attr.(int)
+		o.LabelID = &LabelID
 	}
 	if attr, ok := d.GetOk("back_haul_route_distinguisher"); ok {
 		o.BackHaulRouteDistinguisher = attr.(string)
@@ -515,7 +565,8 @@ func resourceDomainUpdate(d *schema.ResourceData, m interface{}) error {
 		o.BackHaulSubnetMask = attr.(string)
 	}
 	if attr, ok := d.GetOk("back_haul_vnid"); ok {
-		o.BackHaulVNID = attr.(int)
+		BackHaulVNID := attr.(int)
+		o.BackHaulVNID = &BackHaulVNID
 	}
 	if attr, ok := d.GetOk("maintenance_mode"); ok {
 		o.MaintenanceMode = attr.(string)
@@ -524,7 +575,8 @@ func resourceDomainUpdate(d *schema.ResourceData, m interface{}) error {
 		o.AdvertiseCriteria = attr.(string)
 	}
 	if attr, ok := d.GetOk("leaking_enabled"); ok {
-		o.LeakingEnabled = attr.(bool)
+		LeakingEnabled := attr.(bool)
+		o.LeakingEnabled = &LeakingEnabled
 	}
 	if attr, ok := d.GetOk("secondary_dhcp_server_address"); ok {
 		o.SecondaryDHCPServerAddress = attr.(string)
@@ -539,7 +591,8 @@ func resourceDomainUpdate(d *schema.ResourceData, m interface{}) error {
 		o.DhcpServerAddresses = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("global_routing_enabled"); ok {
-		o.GlobalRoutingEnabled = attr.(bool)
+		GlobalRoutingEnabled := attr.(bool)
+		o.GlobalRoutingEnabled = &GlobalRoutingEnabled
 	}
 	if attr, ok := d.GetOk("flow_collection_enabled"); ok {
 		o.FlowCollectionEnabled = attr.(string)
@@ -554,16 +607,19 @@ func resourceDomainUpdate(d *schema.ResourceData, m interface{}) error {
 		o.UnderlayEnabled = attr.(string)
 	}
 	if attr, ok := d.GetOk("local_as"); ok {
-		o.LocalAS = attr.(int)
+		LocalAS := attr.(int)
+		o.LocalAS = &LocalAS
 	}
 	if attr, ok := d.GetOk("policy_change_status"); ok {
 		o.PolicyChangeStatus = attr.(string)
 	}
 	if attr, ok := d.GetOk("domain_id"); ok {
-		o.DomainID = attr.(int)
+		DomainID := attr.(int)
+		o.DomainID = &DomainID
 	}
 	if attr, ok := d.GetOk("domain_vlanid"); ok {
-		o.DomainVLANID = attr.(int)
+		DomainVLANID := attr.(int)
+		o.DomainVLANID = &DomainVLANID
 	}
 	if attr, ok := d.GetOk("route_distinguisher"); ok {
 		o.RouteDistinguisher = attr.(string)
@@ -590,7 +646,8 @@ func resourceDomainUpdate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedUnderlayID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stretched"); ok {
-		o.Stretched = attr.(bool)
+		Stretched := attr.(bool)
+		o.Stretched = &Stretched
 	}
 	if attr, ok := d.GetOk("multicast"); ok {
 		o.Multicast = attr.(string)
@@ -599,7 +656,8 @@ func resourceDomainUpdate(d *schema.ResourceData, m interface{}) error {
 		o.TunnelType = attr.(string)
 	}
 	if attr, ok := d.GetOk("customer_id"); ok {
-		o.CustomerID = attr.(int)
+		CustomerID := attr.(int)
+		o.CustomerID = &CustomerID
 	}
 	if attr, ok := d.GetOk("export_route_target"); ok {
 		o.ExportRouteTarget = attr.(string)

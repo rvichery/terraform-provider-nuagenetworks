@@ -41,7 +41,6 @@ func resourceStatisticsPolicy() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"data_collection_frequency": {
@@ -51,15 +50,16 @@ func resourceStatisticsPolicy() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_zone": {
 				Type:          schema.TypeString,
@@ -108,9 +108,10 @@ func resourceStatisticsPolicy() *schema.Resource {
 func resourceStatisticsPolicyCreate(d *schema.ResourceData, m interface{}) error {
 
 	// Initialize StatisticsPolicy object
+	DataCollectionFrequency := d.Get("data_collection_frequency").(int)
 	o := &vspk.StatisticsPolicy{
 		Name: d.Get("name").(string),
-		DataCollectionFrequency: d.Get("data_collection_frequency").(int),
+		DataCollectionFrequency: &DataCollectionFrequency,
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -216,7 +217,8 @@ func resourceStatisticsPolicyUpdate(d *schema.ResourceData, m interface{}) error
 	}
 
 	o.Name = d.Get("name").(string)
-	o.DataCollectionFrequency = d.Get("data_collection_frequency").(int)
+	DataCollectionFrequency := d.Get("data_collection_frequency").(int)
+	o.DataCollectionFrequency = &DataCollectionFrequency
 
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)

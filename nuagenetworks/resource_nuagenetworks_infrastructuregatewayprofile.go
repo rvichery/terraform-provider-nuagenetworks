@@ -38,10 +38,12 @@ func resourceInfrastructureGatewayProfile() *schema.Resource {
 			"ntp_server_key": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ntp_server_key_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -49,7 +51,6 @@ func resourceInfrastructureGatewayProfile() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"datapath_sync_timeout": {
@@ -60,6 +61,7 @@ func resourceInfrastructureGatewayProfile() *schema.Resource {
 			"dead_timer": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dead_timer_enabled": {
 				Type:     schema.TypeBool,
@@ -74,6 +76,7 @@ func resourceInfrastructureGatewayProfile() *schema.Resource {
 			"remote_log_server_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"remote_log_server_port": {
 				Type:     schema.TypeInt,
@@ -83,10 +86,12 @@ func resourceInfrastructureGatewayProfile() *schema.Resource {
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"metadata_upgrade_path": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"flow_eviction_threshold": {
 				Type:     schema.TypeInt,
@@ -96,10 +101,10 @@ func resourceInfrastructureGatewayProfile() *schema.Resource {
 			"enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"controller_less_duration": {
@@ -149,6 +154,7 @@ func resourceInfrastructureGatewayProfile() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"system_sync_scheduler": {
 				Type:     schema.TypeString,
@@ -170,16 +176,19 @@ func resourceInfrastructureGatewayProfileCreate(d *schema.ResourceData, m interf
 		o.NTPServerKey = attr.(string)
 	}
 	if attr, ok := d.GetOk("ntp_server_key_id"); ok {
-		o.NTPServerKeyID = attr.(int)
+		NTPServerKeyID := attr.(int)
+		o.NTPServerKeyID = &NTPServerKeyID
 	}
 	if attr, ok := d.GetOk("datapath_sync_timeout"); ok {
-		o.DatapathSyncTimeout = attr.(int)
+		DatapathSyncTimeout := attr.(int)
+		o.DatapathSyncTimeout = &DatapathSyncTimeout
 	}
 	if attr, ok := d.GetOk("dead_timer"); ok {
 		o.DeadTimer = attr.(string)
 	}
 	if attr, ok := d.GetOk("dead_timer_enabled"); ok {
-		o.DeadTimerEnabled = attr.(bool)
+		DeadTimerEnabled := attr.(bool)
+		o.DeadTimerEnabled = &DeadTimerEnabled
 	}
 	if attr, ok := d.GetOk("remote_log_mode"); ok {
 		o.RemoteLogMode = attr.(string)
@@ -188,7 +197,8 @@ func resourceInfrastructureGatewayProfileCreate(d *schema.ResourceData, m interf
 		o.RemoteLogServerAddress = attr.(string)
 	}
 	if attr, ok := d.GetOk("remote_log_server_port"); ok {
-		o.RemoteLogServerPort = attr.(int)
+		RemoteLogServerPort := attr.(int)
+		o.RemoteLogServerPort = &RemoteLogServerPort
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -197,7 +207,8 @@ func resourceInfrastructureGatewayProfileCreate(d *schema.ResourceData, m interf
 		o.MetadataUpgradePath = attr.(string)
 	}
 	if attr, ok := d.GetOk("flow_eviction_threshold"); ok {
-		o.FlowEvictionThreshold = attr.(int)
+		FlowEvictionThreshold := attr.(int)
+		o.FlowEvictionThreshold = &FlowEvictionThreshold
 	}
 	if attr, ok := d.GetOk("enterprise_id"); ok {
 		o.EnterpriseID = attr.(string)
@@ -212,19 +223,23 @@ func resourceInfrastructureGatewayProfileCreate(d *schema.ResourceData, m interf
 		o.ControllerLessRemoteDuration = attr.(string)
 	}
 	if attr, ok := d.GetOk("force_immediate_system_sync"); ok {
-		o.ForceImmediateSystemSync = attr.(bool)
+		ForceImmediateSystemSync := attr.(bool)
+		o.ForceImmediateSystemSync = &ForceImmediateSystemSync
 	}
 	if attr, ok := d.GetOk("open_flow_audit_timer"); ok {
-		o.OpenFlowAuditTimer = attr.(int)
+		OpenFlowAuditTimer := attr.(int)
+		o.OpenFlowAuditTimer = &OpenFlowAuditTimer
 	}
 	if attr, ok := d.GetOk("upgrade_action"); ok {
 		o.UpgradeAction = attr.(string)
 	}
 	if attr, ok := d.GetOk("use_two_factor"); ok {
-		o.UseTwoFactor = attr.(bool)
+		UseTwoFactor := attr.(bool)
+		o.UseTwoFactor = &UseTwoFactor
 	}
 	if attr, ok := d.GetOk("stats_collector_port"); ok {
-		o.StatsCollectorPort = attr.(int)
+		StatsCollectorPort := attr.(int)
+		o.StatsCollectorPort = &StatsCollectorPort
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -305,16 +320,19 @@ func resourceInfrastructureGatewayProfileUpdate(d *schema.ResourceData, m interf
 		o.NTPServerKey = attr.(string)
 	}
 	if attr, ok := d.GetOk("ntp_server_key_id"); ok {
-		o.NTPServerKeyID = attr.(int)
+		NTPServerKeyID := attr.(int)
+		o.NTPServerKeyID = &NTPServerKeyID
 	}
 	if attr, ok := d.GetOk("datapath_sync_timeout"); ok {
-		o.DatapathSyncTimeout = attr.(int)
+		DatapathSyncTimeout := attr.(int)
+		o.DatapathSyncTimeout = &DatapathSyncTimeout
 	}
 	if attr, ok := d.GetOk("dead_timer"); ok {
 		o.DeadTimer = attr.(string)
 	}
 	if attr, ok := d.GetOk("dead_timer_enabled"); ok {
-		o.DeadTimerEnabled = attr.(bool)
+		DeadTimerEnabled := attr.(bool)
+		o.DeadTimerEnabled = &DeadTimerEnabled
 	}
 	if attr, ok := d.GetOk("remote_log_mode"); ok {
 		o.RemoteLogMode = attr.(string)
@@ -323,7 +341,8 @@ func resourceInfrastructureGatewayProfileUpdate(d *schema.ResourceData, m interf
 		o.RemoteLogServerAddress = attr.(string)
 	}
 	if attr, ok := d.GetOk("remote_log_server_port"); ok {
-		o.RemoteLogServerPort = attr.(int)
+		RemoteLogServerPort := attr.(int)
+		o.RemoteLogServerPort = &RemoteLogServerPort
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -332,7 +351,8 @@ func resourceInfrastructureGatewayProfileUpdate(d *schema.ResourceData, m interf
 		o.MetadataUpgradePath = attr.(string)
 	}
 	if attr, ok := d.GetOk("flow_eviction_threshold"); ok {
-		o.FlowEvictionThreshold = attr.(int)
+		FlowEvictionThreshold := attr.(int)
+		o.FlowEvictionThreshold = &FlowEvictionThreshold
 	}
 	if attr, ok := d.GetOk("enterprise_id"); ok {
 		o.EnterpriseID = attr.(string)
@@ -347,19 +367,23 @@ func resourceInfrastructureGatewayProfileUpdate(d *schema.ResourceData, m interf
 		o.ControllerLessRemoteDuration = attr.(string)
 	}
 	if attr, ok := d.GetOk("force_immediate_system_sync"); ok {
-		o.ForceImmediateSystemSync = attr.(bool)
+		ForceImmediateSystemSync := attr.(bool)
+		o.ForceImmediateSystemSync = &ForceImmediateSystemSync
 	}
 	if attr, ok := d.GetOk("open_flow_audit_timer"); ok {
-		o.OpenFlowAuditTimer = attr.(int)
+		OpenFlowAuditTimer := attr.(int)
+		o.OpenFlowAuditTimer = &OpenFlowAuditTimer
 	}
 	if attr, ok := d.GetOk("upgrade_action"); ok {
 		o.UpgradeAction = attr.(string)
 	}
 	if attr, ok := d.GetOk("use_two_factor"); ok {
-		o.UseTwoFactor = attr.(bool)
+		UseTwoFactor := attr.(bool)
+		o.UseTwoFactor = &UseTwoFactor
 	}
 	if attr, ok := d.GetOk("stats_collector_port"); ok {
-		o.StatsCollectorPort = attr.(int)
+		StatsCollectorPort := attr.(int)
+		o.StatsCollectorPort = &StatsCollectorPort
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

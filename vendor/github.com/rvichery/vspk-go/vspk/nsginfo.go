@@ -80,7 +80,6 @@ type NSGInfo struct {
 
 // NewNSGInfo returns a new *NSGInfo
 func NewNSGInfo() *NSGInfo {
-
 	return &NSGInfo{}
 }
 

@@ -61,19 +61,20 @@ type QosPolicer struct {
 	Owner         string `json:"owner,omitempty"`
 	Name          string `json:"name,omitempty"`
 	LastUpdatedBy string `json:"lastUpdatedBy,omitempty"`
-	Rate          int    `json:"rate"`
+	Rate          *int   `json:"rate,omitempty"`
 	Description   string `json:"description,omitempty"`
 	EntityScope   string `json:"entityScope,omitempty"`
-	Burst         int    `json:"burst"`
+	Burst         *int   `json:"burst,omitempty"`
 	ExternalID    string `json:"externalID,omitempty"`
 }
 
 // NewQosPolicer returns a new *QosPolicer
 func NewQosPolicer() *QosPolicer {
-
+	Rate := 1
+	Burst := 1
 	return &QosPolicer{
-		Rate:  1,
-		Burst: 1,
+		Rate:  &Rate,
+		Burst: &Burst,
 	}
 }
 

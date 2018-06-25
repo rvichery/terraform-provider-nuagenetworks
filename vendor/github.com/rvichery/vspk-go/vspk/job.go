@@ -72,7 +72,6 @@ type Job struct {
 
 // NewJob returns a new *Job
 func NewJob() *Job {
-
 	return &Job{}
 }
 

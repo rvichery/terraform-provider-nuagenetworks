@@ -70,7 +70,6 @@ type VSP struct {
 
 // NewVSP returns a new *VSP
 func NewVSP() *VSP {
-
 	return &VSP{}
 }
 

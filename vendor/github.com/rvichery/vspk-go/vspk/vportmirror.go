@@ -75,10 +75,7 @@ type VPortMirror struct {
 
 // NewVPortMirror returns a new *VPortMirror
 func NewVPortMirror() *VPortMirror {
-
-	return &VPortMirror{
-		MirrorDirection: "BOTH",
-	}
+	return &VPortMirror{}
 }
 
 // Identity returns the Identity of the object.

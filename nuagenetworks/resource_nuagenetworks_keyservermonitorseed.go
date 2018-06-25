@@ -37,41 +37,46 @@ func resourceKeyServerMonitorSeed() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"seed_traffic_authentication_algorithm": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"seed_traffic_encryption_algorithm": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"seed_traffic_encryption_key_lifetime": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"lifetime": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"creation_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"start_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_key_server_monitor": {
 				Type:     schema.TypeString,
@@ -92,16 +97,20 @@ func resourceKeyServerMonitorSeedCreate(d *schema.ResourceData, m interface{}) e
 		o.SeedTrafficEncryptionAlgorithm = attr.(string)
 	}
 	if attr, ok := d.GetOk("seed_traffic_encryption_key_lifetime"); ok {
-		o.SeedTrafficEncryptionKeyLifetime = attr.(int)
+		SeedTrafficEncryptionKeyLifetime := attr.(int)
+		o.SeedTrafficEncryptionKeyLifetime = &SeedTrafficEncryptionKeyLifetime
 	}
 	if attr, ok := d.GetOk("lifetime"); ok {
-		o.Lifetime = attr.(int)
+		Lifetime := attr.(int)
+		o.Lifetime = &Lifetime
 	}
 	if attr, ok := d.GetOk("creation_time"); ok {
-		o.CreationTime = attr.(int)
+		CreationTime := attr.(int)
+		o.CreationTime = &CreationTime
 	}
 	if attr, ok := d.GetOk("start_time"); ok {
-		o.StartTime = attr.(int)
+		StartTime := attr.(int)
+		o.StartTime = &StartTime
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -162,16 +171,20 @@ func resourceKeyServerMonitorSeedUpdate(d *schema.ResourceData, m interface{}) e
 		o.SeedTrafficEncryptionAlgorithm = attr.(string)
 	}
 	if attr, ok := d.GetOk("seed_traffic_encryption_key_lifetime"); ok {
-		o.SeedTrafficEncryptionKeyLifetime = attr.(int)
+		SeedTrafficEncryptionKeyLifetime := attr.(int)
+		o.SeedTrafficEncryptionKeyLifetime = &SeedTrafficEncryptionKeyLifetime
 	}
 	if attr, ok := d.GetOk("lifetime"); ok {
-		o.Lifetime = attr.(int)
+		Lifetime := attr.(int)
+		o.Lifetime = &Lifetime
 	}
 	if attr, ok := d.GetOk("creation_time"); ok {
-		o.CreationTime = attr.(int)
+		CreationTime := attr.(int)
+		o.CreationTime = &CreationTime
 	}
 	if attr, ok := d.GetOk("start_time"); ok {
-		o.StartTime = attr.(int)
+		StartTime := attr.(int)
+		o.StartTime = &StartTime
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

@@ -59,24 +59,24 @@ type IKEEncryptionprofile struct {
 	ParentID                          string `json:"parentID,omitempty"`
 	ParentType                        string `json:"parentType,omitempty"`
 	Owner                             string `json:"owner,omitempty"`
-	DPDInterval                       int    `json:"DPDInterval"`
+	DPDInterval                       *int   `json:"DPDInterval,omitempty"`
 	DPDMode                           string `json:"DPDMode,omitempty"`
-	DPDTimeout                        int    `json:"DPDTimeout"`
+	DPDTimeout                        *int   `json:"DPDTimeout,omitempty"`
 	IPsecAuthenticationAlgorithm      string `json:"IPsecAuthenticationAlgorithm,omitempty"`
-	IPsecDontFragment                 bool   `json:"IPsecDontFragment"`
-	IPsecEnablePFS                    bool   `json:"IPsecEnablePFS"`
+	IPsecDontFragment                 *bool  `json:"IPsecDontFragment,omitempty"`
+	IPsecEnablePFS                    *bool  `json:"IPsecEnablePFS,omitempty"`
 	IPsecEncryptionAlgorithm          string `json:"IPsecEncryptionAlgorithm,omitempty"`
-	IPsecPreFragment                  bool   `json:"IPsecPreFragment"`
-	IPsecSALifetime                   int    `json:"IPsecSALifetime"`
+	IPsecPreFragment                  *bool  `json:"IPsecPreFragment,omitempty"`
+	IPsecSALifetime                   *int   `json:"IPsecSALifetime,omitempty"`
 	IPsecSAReplayWindowSize           string `json:"IPsecSAReplayWindowSize,omitempty"`
 	ISAKMPAuthenticationMode          string `json:"ISAKMPAuthenticationMode,omitempty"`
 	ISAKMPDiffieHelmanGroupIdentifier string `json:"ISAKMPDiffieHelmanGroupIdentifier,omitempty"`
 	ISAKMPEncryptionAlgorithm         string `json:"ISAKMPEncryptionAlgorithm,omitempty"`
-	ISAKMPEncryptionKeyLifetime       int    `json:"ISAKMPEncryptionKeyLifetime"`
+	ISAKMPEncryptionKeyLifetime       *int   `json:"ISAKMPEncryptionKeyLifetime,omitempty"`
 	ISAKMPHashAlgorithm               string `json:"ISAKMPHashAlgorithm,omitempty"`
 	Name                              string `json:"name,omitempty"`
 	LastUpdatedBy                     string `json:"lastUpdatedBy,omitempty"`
-	Sequence                          int    `json:"sequence"`
+	Sequence                          *int   `json:"sequence,omitempty"`
 	Description                       string `json:"description,omitempty"`
 	EntityScope                       string `json:"entityScope,omitempty"`
 	AssociatedEnterpriseID            string `json:"associatedEnterpriseID,omitempty"`
@@ -85,19 +85,22 @@ type IKEEncryptionprofile struct {
 
 // NewIKEEncryptionprofile returns a new *IKEEncryptionprofile
 func NewIKEEncryptionprofile() *IKEEncryptionprofile {
-
+	DPDInterval := 0
+	DPDTimeout := 0
+	IPsecSALifetime := 3600
+	ISAKMPEncryptionKeyLifetime := 28800
 	return &IKEEncryptionprofile{
-		DPDInterval:                       0,
+		DPDInterval:                       &DPDInterval,
 		DPDMode:                           "REPLY_ONLY",
-		DPDTimeout:                        0,
+		DPDTimeout:                        &DPDTimeout,
 		IPsecAuthenticationAlgorithm:      "HMAC_SHA256",
 		IPsecEncryptionAlgorithm:          "AES256",
-		IPsecSALifetime:                   3600,
+		IPsecSALifetime:                   &IPsecSALifetime,
 		IPsecSAReplayWindowSize:           "WINDOW_SIZE_32",
 		ISAKMPAuthenticationMode:          "PRE_SHARED_KEY",
 		ISAKMPDiffieHelmanGroupIdentifier: "GROUP_5_1536_BIT_DH",
 		ISAKMPEncryptionAlgorithm:         "AES256",
-		ISAKMPEncryptionKeyLifetime:       28800,
+		ISAKMPEncryptionKeyLifetime:       &ISAKMPEncryptionKeyLifetime,
 		ISAKMPHashAlgorithm:               "SHA256",
 	}
 }

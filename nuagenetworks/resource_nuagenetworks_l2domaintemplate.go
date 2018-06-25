@@ -38,6 +38,7 @@ func resourceL2DomainTemplate() *schema.Resource {
 			"dhcp_managed": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"dpi": {
 				Type:     schema.TypeString,
@@ -47,14 +48,17 @@ func resourceL2DomainTemplate() *schema.Resource {
 			"ip_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ipv6_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ipv6_gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -62,41 +66,46 @@ func resourceL2DomainTemplate() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"netmask": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"encryption": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"entity_state": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"policy_change_status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"use_global_mac": {
 				Type:     schema.TypeString,
@@ -106,14 +115,17 @@ func resourceL2DomainTemplate() *schema.Resource {
 			"associated_multicast_channel_map_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"multicast": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dynamic_ipv6_address": {
 				Type:     schema.TypeBool,
@@ -135,7 +147,8 @@ func resourceL2DomainTemplateCreate(d *schema.ResourceData, m interface{}) error
 		Name: d.Get("name").(string),
 	}
 	if attr, ok := d.GetOk("dhcp_managed"); ok {
-		o.DHCPManaged = attr.(bool)
+		DHCPManaged := attr.(bool)
+		o.DHCPManaged = &DHCPManaged
 	}
 	if attr, ok := d.GetOk("dpi"); ok {
 		o.DPI = attr.(string)
@@ -183,7 +196,8 @@ func resourceL2DomainTemplateCreate(d *schema.ResourceData, m interface{}) error
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("dynamic_ipv6_address"); ok {
-		o.DynamicIpv6Address = attr.(bool)
+		DynamicIpv6Address := attr.(bool)
+		o.DynamicIpv6Address = &DynamicIpv6Address
 	}
 	parent := &vspk.Enterprise{ID: d.Get("parent_enterprise").(string)}
 	err := parent.CreateL2DomainTemplate(o)
@@ -248,7 +262,8 @@ func resourceL2DomainTemplateUpdate(d *schema.ResourceData, m interface{}) error
 	o.Name = d.Get("name").(string)
 
 	if attr, ok := d.GetOk("dhcp_managed"); ok {
-		o.DHCPManaged = attr.(bool)
+		DHCPManaged := attr.(bool)
+		o.DHCPManaged = &DHCPManaged
 	}
 	if attr, ok := d.GetOk("dpi"); ok {
 		o.DPI = attr.(string)
@@ -296,7 +311,8 @@ func resourceL2DomainTemplateUpdate(d *schema.ResourceData, m interface{}) error
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("dynamic_ipv6_address"); ok {
-		o.DynamicIpv6Address = attr.(bool)
+		DynamicIpv6Address := attr.(bool)
+		o.DynamicIpv6Address = &DynamicIpv6Address
 	}
 
 	o.Save()

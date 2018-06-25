@@ -37,60 +37,61 @@ func resourceVLANTemplate() *schema.Resource {
 			},
 			"value": {
 				Type:     schema.TypeInt,
-				Optional: true,
-				Computed: true,
+				Required: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"is_uplink": {
 				Type:     schema.TypeBool,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_connection_type": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ingress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_uplink_connection_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_vsc_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"duc_vlan": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"type": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"parent_ns_port_template": {
@@ -110,8 +111,9 @@ func resourceVLANTemplate() *schema.Resource {
 func resourceVLANTemplateCreate(d *schema.ResourceData, m interface{}) error {
 
 	// Initialize VLANTemplate object
+	Value := d.Get("value").(int)
 	o := &vspk.VLANTemplate{
-		Value: d.Get("value").(int),
+		Value: &Value,
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -129,7 +131,8 @@ func resourceVLANTemplateCreate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedVSCProfileID = attr.(string)
 	}
 	if attr, ok := d.GetOk("duc_vlan"); ok {
-		o.DucVlan = attr.(bool)
+		DucVlan := attr.(bool)
+		o.DucVlan = &DucVlan
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)
@@ -196,7 +199,8 @@ func resourceVLANTemplateUpdate(d *schema.ResourceData, m interface{}) error {
 		return err
 	}
 
-	o.Value = d.Get("value").(int)
+	Value := d.Get("value").(int)
+	o.Value = &Value
 
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -214,7 +218,8 @@ func resourceVLANTemplateUpdate(d *schema.ResourceData, m interface{}) error {
 		o.AssociatedVSCProfileID = attr.(string)
 	}
 	if attr, ok := d.GetOk("duc_vlan"); ok {
-		o.DucVlan = attr.(bool)
+		DucVlan := attr.(bool)
+		o.DucVlan = &DucVlan
 	}
 	if attr, ok := d.GetOk("external_id"); ok {
 		o.ExternalID = attr.(string)

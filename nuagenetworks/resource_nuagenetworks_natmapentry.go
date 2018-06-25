@@ -37,12 +37,10 @@ func resourceNATMapEntry() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"private_ip": {
@@ -52,6 +50,7 @@ func resourceNATMapEntry() *schema.Resource {
 			"associated_patnat_pool_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"public_ip": {
 				Type:     schema.TypeString,
@@ -60,6 +59,7 @@ func resourceNATMapEntry() *schema.Resource {
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"type": {
 				Type:     schema.TypeString,

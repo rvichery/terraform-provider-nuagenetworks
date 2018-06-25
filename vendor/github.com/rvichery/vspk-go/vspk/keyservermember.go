@@ -61,7 +61,7 @@ type KeyServerMember struct {
 	Owner                   string `json:"owner,omitempty"`
 	LastUpdatedBy           string `json:"lastUpdatedBy,omitempty"`
 	PemEncoded              string `json:"pemEncoded,omitempty"`
-	CertificateSerialNumber int    `json:"certificateSerialNumber"`
+	CertificateSerialNumber *int   `json:"certificateSerialNumber,omitempty"`
 	EntityScope             string `json:"entityScope,omitempty"`
 	Fqdn                    string `json:"fqdn,omitempty"`
 	IssuerDN                string `json:"issuerDN,omitempty"`
@@ -72,7 +72,6 @@ type KeyServerMember struct {
 
 // NewKeyServerMember returns a new *KeyServerMember
 func NewKeyServerMember() *KeyServerMember {
-
 	return &KeyServerMember{}
 }
 

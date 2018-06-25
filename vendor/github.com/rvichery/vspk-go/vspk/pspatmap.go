@@ -66,7 +66,6 @@ type PSPATMap struct {
 
 // NewPSPATMap returns a new *PSPATMap
 func NewPSPATMap() *PSPATMap {
-
 	return &PSPATMap{}
 }
 

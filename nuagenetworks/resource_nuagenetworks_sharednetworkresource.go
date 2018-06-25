@@ -38,22 +38,27 @@ func resourceSharedNetworkResource() *schema.Resource {
 			"ecmp_count": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"dhcp_managed": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"back_haul_route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"back_haul_route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"back_haul_vnid": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"name": {
 				Type:     schema.TypeString,
@@ -61,20 +66,22 @@ func resourceSharedNetworkResource() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"gateway": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"gateway_mac_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"access_restriction_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"address": {
 				Type:     schema.TypeString,
@@ -83,10 +90,12 @@ func resourceSharedNetworkResource() *schema.Resource {
 			"permitted_action_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"netmask": {
 				Type:     schema.TypeString,
@@ -95,59 +104,71 @@ func resourceSharedNetworkResource() *schema.Resource {
 			"shared_resource_parent_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"vn_id": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"underlay": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"domain_route_distinguisher": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"domain_route_target": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"uplink_gw_vlan_attachment_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"uplink_interface_ip": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"uplink_interface_mac": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"uplink_vport_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"use_global_mac": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_pat_mapper_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dynamic_pat_allocation_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"type": {
 				Type:     schema.TypeString,
@@ -167,10 +188,12 @@ func resourceSharedNetworkResourceCreate(d *schema.ResourceData, m interface{}) 
 		Type:    d.Get("type").(string),
 	}
 	if attr, ok := d.GetOk("ecmp_count"); ok {
-		o.ECMPCount = attr.(int)
+		ECMPCount := attr.(int)
+		o.ECMPCount = &ECMPCount
 	}
 	if attr, ok := d.GetOk("dhcp_managed"); ok {
-		o.DHCPManaged = attr.(bool)
+		DHCPManaged := attr.(bool)
+		o.DHCPManaged = &DHCPManaged
 	}
 	if attr, ok := d.GetOk("back_haul_route_distinguisher"); ok {
 		o.BackHaulRouteDistinguisher = attr.(string)
@@ -179,7 +202,8 @@ func resourceSharedNetworkResourceCreate(d *schema.ResourceData, m interface{}) 
 		o.BackHaulRouteTarget = attr.(string)
 	}
 	if attr, ok := d.GetOk("back_haul_vnid"); ok {
-		o.BackHaulVNID = attr.(int)
+		BackHaulVNID := attr.(int)
+		o.BackHaulVNID = &BackHaulVNID
 	}
 	if attr, ok := d.GetOk("gateway"); ok {
 		o.Gateway = attr.(string)
@@ -188,7 +212,8 @@ func resourceSharedNetworkResourceCreate(d *schema.ResourceData, m interface{}) 
 		o.GatewayMACAddress = attr.(string)
 	}
 	if attr, ok := d.GetOk("access_restriction_enabled"); ok {
-		o.AccessRestrictionEnabled = attr.(bool)
+		AccessRestrictionEnabled := attr.(bool)
+		o.AccessRestrictionEnabled = &AccessRestrictionEnabled
 	}
 	if attr, ok := d.GetOk("permitted_action_type"); ok {
 		o.PermittedActionType = attr.(string)
@@ -200,10 +225,12 @@ func resourceSharedNetworkResourceCreate(d *schema.ResourceData, m interface{}) 
 		o.SharedResourceParentID = attr.(string)
 	}
 	if attr, ok := d.GetOk("vn_id"); ok {
-		o.VnID = attr.(int)
+		VnID := attr.(int)
+		o.VnID = &VnID
 	}
 	if attr, ok := d.GetOk("underlay"); ok {
-		o.Underlay = attr.(bool)
+		Underlay := attr.(bool)
+		o.Underlay = &Underlay
 	}
 	if attr, ok := d.GetOk("domain_route_distinguisher"); ok {
 		o.DomainRouteDistinguisher = attr.(string)
@@ -233,7 +260,8 @@ func resourceSharedNetworkResourceCreate(d *schema.ResourceData, m interface{}) 
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("dynamic_pat_allocation_enabled"); ok {
-		o.DynamicPATAllocationEnabled = attr.(bool)
+		DynamicPATAllocationEnabled := attr.(bool)
+		o.DynamicPATAllocationEnabled = &DynamicPATAllocationEnabled
 	}
 	parent := m.(*vspk.Me)
 	err := parent.CreateSharedNetworkResource(o)
@@ -310,10 +338,12 @@ func resourceSharedNetworkResourceUpdate(d *schema.ResourceData, m interface{}) 
 	o.Type = d.Get("type").(string)
 
 	if attr, ok := d.GetOk("ecmp_count"); ok {
-		o.ECMPCount = attr.(int)
+		ECMPCount := attr.(int)
+		o.ECMPCount = &ECMPCount
 	}
 	if attr, ok := d.GetOk("dhcp_managed"); ok {
-		o.DHCPManaged = attr.(bool)
+		DHCPManaged := attr.(bool)
+		o.DHCPManaged = &DHCPManaged
 	}
 	if attr, ok := d.GetOk("back_haul_route_distinguisher"); ok {
 		o.BackHaulRouteDistinguisher = attr.(string)
@@ -322,7 +352,8 @@ func resourceSharedNetworkResourceUpdate(d *schema.ResourceData, m interface{}) 
 		o.BackHaulRouteTarget = attr.(string)
 	}
 	if attr, ok := d.GetOk("back_haul_vnid"); ok {
-		o.BackHaulVNID = attr.(int)
+		BackHaulVNID := attr.(int)
+		o.BackHaulVNID = &BackHaulVNID
 	}
 	if attr, ok := d.GetOk("gateway"); ok {
 		o.Gateway = attr.(string)
@@ -331,7 +362,8 @@ func resourceSharedNetworkResourceUpdate(d *schema.ResourceData, m interface{}) 
 		o.GatewayMACAddress = attr.(string)
 	}
 	if attr, ok := d.GetOk("access_restriction_enabled"); ok {
-		o.AccessRestrictionEnabled = attr.(bool)
+		AccessRestrictionEnabled := attr.(bool)
+		o.AccessRestrictionEnabled = &AccessRestrictionEnabled
 	}
 	if attr, ok := d.GetOk("permitted_action_type"); ok {
 		o.PermittedActionType = attr.(string)
@@ -343,10 +375,12 @@ func resourceSharedNetworkResourceUpdate(d *schema.ResourceData, m interface{}) 
 		o.SharedResourceParentID = attr.(string)
 	}
 	if attr, ok := d.GetOk("vn_id"); ok {
-		o.VnID = attr.(int)
+		VnID := attr.(int)
+		o.VnID = &VnID
 	}
 	if attr, ok := d.GetOk("underlay"); ok {
-		o.Underlay = attr.(bool)
+		Underlay := attr.(bool)
+		o.Underlay = &Underlay
 	}
 	if attr, ok := d.GetOk("domain_route_distinguisher"); ok {
 		o.DomainRouteDistinguisher = attr.(string)
@@ -376,7 +410,8 @@ func resourceSharedNetworkResourceUpdate(d *schema.ResourceData, m interface{}) 
 		o.ExternalID = attr.(string)
 	}
 	if attr, ok := d.GetOk("dynamic_pat_allocation_enabled"); ok {
-		o.DynamicPATAllocationEnabled = attr.(bool)
+		DynamicPATAllocationEnabled := attr.(bool)
+		o.DynamicPATAllocationEnabled = &DynamicPATAllocationEnabled
 	}
 
 	o.Save()

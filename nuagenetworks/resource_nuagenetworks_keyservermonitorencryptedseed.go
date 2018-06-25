@@ -38,44 +38,50 @@ func resourceKeyServerMonitorEncryptedSeed() *schema.Resource {
 			"sek_creation_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"key_server_certificate_serial_number": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"enterprise_secured_data_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"associated_key_server_monitor_sek_creation_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_key_server_monitor_sekid": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_key_server_monitor_seed_creation_time": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_key_server_monitor_seed_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_key_server_monitor": {
 				Type:     schema.TypeString,
@@ -90,22 +96,26 @@ func resourceKeyServerMonitorEncryptedSeedCreate(d *schema.ResourceData, m inter
 	// Initialize KeyServerMonitorEncryptedSeed object
 	o := &vspk.KeyServerMonitorEncryptedSeed{}
 	if attr, ok := d.GetOk("sek_creation_time"); ok {
-		o.SEKCreationTime = attr.(int)
+		SEKCreationTime := attr.(int)
+		o.SEKCreationTime = &SEKCreationTime
 	}
 	if attr, ok := d.GetOk("key_server_certificate_serial_number"); ok {
-		o.KeyServerCertificateSerialNumber = attr.(int)
+		KeyServerCertificateSerialNumber := attr.(int)
+		o.KeyServerCertificateSerialNumber = &KeyServerCertificateSerialNumber
 	}
 	if attr, ok := d.GetOk("enterprise_secured_data_id"); ok {
 		o.EnterpriseSecuredDataID = attr.(string)
 	}
 	if attr, ok := d.GetOk("associated_key_server_monitor_sek_creation_time"); ok {
-		o.AssociatedKeyServerMonitorSEKCreationTime = attr.(int)
+		AssociatedKeyServerMonitorSEKCreationTime := attr.(int)
+		o.AssociatedKeyServerMonitorSEKCreationTime = &AssociatedKeyServerMonitorSEKCreationTime
 	}
 	if attr, ok := d.GetOk("associated_key_server_monitor_sekid"); ok {
 		o.AssociatedKeyServerMonitorSEKID = attr.(string)
 	}
 	if attr, ok := d.GetOk("associated_key_server_monitor_seed_creation_time"); ok {
-		o.AssociatedKeyServerMonitorSeedCreationTime = attr.(int)
+		AssociatedKeyServerMonitorSeedCreationTime := attr.(int)
+		o.AssociatedKeyServerMonitorSeedCreationTime = &AssociatedKeyServerMonitorSeedCreationTime
 	}
 	if attr, ok := d.GetOk("associated_key_server_monitor_seed_id"); ok {
 		o.AssociatedKeyServerMonitorSeedID = attr.(string)
@@ -164,22 +174,26 @@ func resourceKeyServerMonitorEncryptedSeedUpdate(d *schema.ResourceData, m inter
 	}
 
 	if attr, ok := d.GetOk("sek_creation_time"); ok {
-		o.SEKCreationTime = attr.(int)
+		SEKCreationTime := attr.(int)
+		o.SEKCreationTime = &SEKCreationTime
 	}
 	if attr, ok := d.GetOk("key_server_certificate_serial_number"); ok {
-		o.KeyServerCertificateSerialNumber = attr.(int)
+		KeyServerCertificateSerialNumber := attr.(int)
+		o.KeyServerCertificateSerialNumber = &KeyServerCertificateSerialNumber
 	}
 	if attr, ok := d.GetOk("enterprise_secured_data_id"); ok {
 		o.EnterpriseSecuredDataID = attr.(string)
 	}
 	if attr, ok := d.GetOk("associated_key_server_monitor_sek_creation_time"); ok {
-		o.AssociatedKeyServerMonitorSEKCreationTime = attr.(int)
+		AssociatedKeyServerMonitorSEKCreationTime := attr.(int)
+		o.AssociatedKeyServerMonitorSEKCreationTime = &AssociatedKeyServerMonitorSEKCreationTime
 	}
 	if attr, ok := d.GetOk("associated_key_server_monitor_sekid"); ok {
 		o.AssociatedKeyServerMonitorSEKID = attr.(string)
 	}
 	if attr, ok := d.GetOk("associated_key_server_monitor_seed_creation_time"); ok {
-		o.AssociatedKeyServerMonitorSeedCreationTime = attr.(int)
+		AssociatedKeyServerMonitorSeedCreationTime := attr.(int)
+		o.AssociatedKeyServerMonitorSeedCreationTime = &AssociatedKeyServerMonitorSeedCreationTime
 	}
 	if attr, ok := d.GetOk("associated_key_server_monitor_seed_id"); ok {
 		o.AssociatedKeyServerMonitorSeedID = attr.(string)

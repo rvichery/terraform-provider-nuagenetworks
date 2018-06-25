@@ -61,7 +61,7 @@ type OverlayMirrorDestinationTemplate struct {
 	Owner             string `json:"owner,omitempty"`
 	Name              string `json:"name,omitempty"`
 	LastUpdatedBy     string `json:"lastUpdatedBy,omitempty"`
-	RedundancyEnabled bool   `json:"redundancyEnabled"`
+	RedundancyEnabled *bool  `json:"redundancyEnabled,omitempty"`
 	Description       string `json:"description,omitempty"`
 	EndPointType      string `json:"endPointType,omitempty"`
 	EntityScope       string `json:"entityScope,omitempty"`
@@ -71,7 +71,6 @@ type OverlayMirrorDestinationTemplate struct {
 
 // NewOverlayMirrorDestinationTemplate returns a new *OverlayMirrorDestinationTemplate
 func NewOverlayMirrorDestinationTemplate() *OverlayMirrorDestinationTemplate {
-
 	return &OverlayMirrorDestinationTemplate{}
 }
 

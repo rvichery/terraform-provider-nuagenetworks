@@ -50,16 +50,17 @@ func resourceRedundantPort() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"permitted_action": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"physical_name": {
 				Type:     schema.TypeString,
@@ -68,19 +69,21 @@ func resourceRedundantPort() *schema.Resource {
 			"infrastructure_profile_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"port_peer1_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"port_peer2_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"port_type": {
 				Type:     schema.TypeString,
@@ -89,30 +92,37 @@ func resourceRedundantPort() *schema.Resource {
 			"speed": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"use_untagged_heartbeat_vlan": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"use_user_mnemonic": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"user_mnemonic": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_egress_qos_policy_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_ns_redundant_gateway_group": {
 				Type:     schema.TypeString,
@@ -132,7 +142,8 @@ func resourceRedundantPortCreate(d *schema.ResourceData, m interface{}) error {
 		PortType:     d.Get("port_type").(string),
 	}
 	if attr, ok := d.GetOk("mtu"); ok {
-		o.MTU = attr.(int)
+		MTU := attr.(int)
+		o.MTU = &MTU
 	}
 	if attr, ok := d.GetOk("permitted_action"); ok {
 		o.PermittedAction = attr.(string)
@@ -153,10 +164,12 @@ func resourceRedundantPortCreate(d *schema.ResourceData, m interface{}) error {
 		o.Speed = attr.(string)
 	}
 	if attr, ok := d.GetOk("use_untagged_heartbeat_vlan"); ok {
-		o.UseUntaggedHeartbeatVlan = attr.(bool)
+		UseUntaggedHeartbeatVlan := attr.(bool)
+		o.UseUntaggedHeartbeatVlan = &UseUntaggedHeartbeatVlan
 	}
 	if attr, ok := d.GetOk("use_user_mnemonic"); ok {
-		o.UseUserMnemonic = attr.(bool)
+		UseUserMnemonic := attr.(bool)
+		o.UseUserMnemonic = &UseUserMnemonic
 	}
 	if attr, ok := d.GetOk("user_mnemonic"); ok {
 		o.UserMnemonic = attr.(string)
@@ -235,7 +248,8 @@ func resourceRedundantPortUpdate(d *schema.ResourceData, m interface{}) error {
 	o.PortType = d.Get("port_type").(string)
 
 	if attr, ok := d.GetOk("mtu"); ok {
-		o.MTU = attr.(int)
+		MTU := attr.(int)
+		o.MTU = &MTU
 	}
 	if attr, ok := d.GetOk("permitted_action"); ok {
 		o.PermittedAction = attr.(string)
@@ -256,10 +270,12 @@ func resourceRedundantPortUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Speed = attr.(string)
 	}
 	if attr, ok := d.GetOk("use_untagged_heartbeat_vlan"); ok {
-		o.UseUntaggedHeartbeatVlan = attr.(bool)
+		UseUntaggedHeartbeatVlan := attr.(bool)
+		o.UseUntaggedHeartbeatVlan = &UseUntaggedHeartbeatVlan
 	}
 	if attr, ok := d.GetOk("use_user_mnemonic"); ok {
-		o.UseUserMnemonic = attr.(bool)
+		UseUserMnemonic := attr.(bool)
+		o.UseUserMnemonic = &UseUserMnemonic
 	}
 	if attr, ok := d.GetOk("user_mnemonic"); ok {
 		o.UserMnemonic = attr.(string)

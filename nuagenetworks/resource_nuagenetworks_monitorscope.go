@@ -41,25 +41,28 @@ func resourceMonitorscope() *schema.Resource {
 			},
 			"read_only": {
 				Type:     schema.TypeBool,
-				Optional: true,
-				Default:  false,
+				Computed: true,
 			},
 			"destination_nsgs": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"allow_all_destination_nsgs": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"allow_all_source_nsgs": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"source_nsgs": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"parent_application": {
@@ -83,16 +86,19 @@ func resourceMonitorscopeCreate(d *schema.ResourceData, m interface{}) error {
 		Name: d.Get("name").(string),
 	}
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 	if attr, ok := d.GetOk("destination_nsgs"); ok {
 		o.DestinationNSGs = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("allow_all_destination_nsgs"); ok {
-		o.AllowAllDestinationNSGs = attr.(bool)
+		AllowAllDestinationNSGs := attr.(bool)
+		o.AllowAllDestinationNSGs = &AllowAllDestinationNSGs
 	}
 	if attr, ok := d.GetOk("allow_all_source_nsgs"); ok {
-		o.AllowAllSourceNSGs = attr.(bool)
+		AllowAllSourceNSGs := attr.(bool)
+		o.AllowAllSourceNSGs = &AllowAllSourceNSGs
 	}
 	if attr, ok := d.GetOk("source_nsgs"); ok {
 		o.SourceNSGs = attr.([]interface{})
@@ -155,16 +161,19 @@ func resourceMonitorscopeUpdate(d *schema.ResourceData, m interface{}) error {
 	o.Name = d.Get("name").(string)
 
 	if attr, ok := d.GetOk("read_only"); ok {
-		o.ReadOnly = attr.(bool)
+		ReadOnly := attr.(bool)
+		o.ReadOnly = &ReadOnly
 	}
 	if attr, ok := d.GetOk("destination_nsgs"); ok {
 		o.DestinationNSGs = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("allow_all_destination_nsgs"); ok {
-		o.AllowAllDestinationNSGs = attr.(bool)
+		AllowAllDestinationNSGs := attr.(bool)
+		o.AllowAllDestinationNSGs = &AllowAllDestinationNSGs
 	}
 	if attr, ok := d.GetOk("allow_all_source_nsgs"); ok {
-		o.AllowAllSourceNSGs = attr.(bool)
+		AllowAllSourceNSGs := attr.(bool)
+		o.AllowAllSourceNSGs = &AllowAllSourceNSGs
 	}
 	if attr, ok := d.GetOk("source_nsgs"); ok {
 		o.SourceNSGs = attr.([]interface{})

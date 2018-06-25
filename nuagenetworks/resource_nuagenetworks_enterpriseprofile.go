@@ -38,10 +38,12 @@ func resourceEnterpriseProfile() *schema.Resource {
 			"bgp_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"dhcp_lease_interval": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"vnf_management_enabled": {
 				Type:     schema.TypeBool,
@@ -54,41 +56,46 @@ func resourceEnterpriseProfile() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"receive_multi_cast_list_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"send_multi_cast_list_id": {
 				Type:     schema.TypeString,
-				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"allow_advanced_qos_configuration": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"allow_gateway_management": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"allow_trusted_forwarding_class": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"allowed_forwarding_classes": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"floating_ips_quota": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"enable_application_performance_management": {
 				Type:     schema.TypeBool,
@@ -98,15 +105,16 @@ func resourceEnterpriseProfile() *schema.Resource {
 			"encryption_management_mode": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 		},
 	}
@@ -119,13 +127,16 @@ func resourceEnterpriseProfileCreate(d *schema.ResourceData, m interface{}) erro
 		Name: d.Get("name").(string),
 	}
 	if attr, ok := d.GetOk("bgp_enabled"); ok {
-		o.BGPEnabled = attr.(bool)
+		BGPEnabled := attr.(bool)
+		o.BGPEnabled = &BGPEnabled
 	}
 	if attr, ok := d.GetOk("dhcp_lease_interval"); ok {
-		o.DHCPLeaseInterval = attr.(int)
+		DHCPLeaseInterval := attr.(int)
+		o.DHCPLeaseInterval = &DHCPLeaseInterval
 	}
 	if attr, ok := d.GetOk("vnf_management_enabled"); ok {
-		o.VNFManagementEnabled = attr.(bool)
+		VNFManagementEnabled := attr.(bool)
+		o.VNFManagementEnabled = &VNFManagementEnabled
 	}
 	if attr, ok := d.GetOk("receive_multi_cast_list_id"); ok {
 		o.ReceiveMultiCastListID = attr.(string)
@@ -137,22 +148,27 @@ func resourceEnterpriseProfileCreate(d *schema.ResourceData, m interface{}) erro
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("allow_advanced_qos_configuration"); ok {
-		o.AllowAdvancedQOSConfiguration = attr.(bool)
+		AllowAdvancedQOSConfiguration := attr.(bool)
+		o.AllowAdvancedQOSConfiguration = &AllowAdvancedQOSConfiguration
 	}
 	if attr, ok := d.GetOk("allow_gateway_management"); ok {
-		o.AllowGatewayManagement = attr.(bool)
+		AllowGatewayManagement := attr.(bool)
+		o.AllowGatewayManagement = &AllowGatewayManagement
 	}
 	if attr, ok := d.GetOk("allow_trusted_forwarding_class"); ok {
-		o.AllowTrustedForwardingClass = attr.(bool)
+		AllowTrustedForwardingClass := attr.(bool)
+		o.AllowTrustedForwardingClass = &AllowTrustedForwardingClass
 	}
 	if attr, ok := d.GetOk("allowed_forwarding_classes"); ok {
 		o.AllowedForwardingClasses = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("floating_ips_quota"); ok {
-		o.FloatingIPsQuota = attr.(int)
+		FloatingIPsQuota := attr.(int)
+		o.FloatingIPsQuota = &FloatingIPsQuota
 	}
 	if attr, ok := d.GetOk("enable_application_performance_management"); ok {
-		o.EnableApplicationPerformanceManagement = attr.(bool)
+		EnableApplicationPerformanceManagement := attr.(bool)
+		o.EnableApplicationPerformanceManagement = &EnableApplicationPerformanceManagement
 	}
 	if attr, ok := d.GetOk("encryption_management_mode"); ok {
 		o.EncryptionManagementMode = attr.(string)
@@ -220,13 +236,16 @@ func resourceEnterpriseProfileUpdate(d *schema.ResourceData, m interface{}) erro
 	o.Name = d.Get("name").(string)
 
 	if attr, ok := d.GetOk("bgp_enabled"); ok {
-		o.BGPEnabled = attr.(bool)
+		BGPEnabled := attr.(bool)
+		o.BGPEnabled = &BGPEnabled
 	}
 	if attr, ok := d.GetOk("dhcp_lease_interval"); ok {
-		o.DHCPLeaseInterval = attr.(int)
+		DHCPLeaseInterval := attr.(int)
+		o.DHCPLeaseInterval = &DHCPLeaseInterval
 	}
 	if attr, ok := d.GetOk("vnf_management_enabled"); ok {
-		o.VNFManagementEnabled = attr.(bool)
+		VNFManagementEnabled := attr.(bool)
+		o.VNFManagementEnabled = &VNFManagementEnabled
 	}
 	if attr, ok := d.GetOk("receive_multi_cast_list_id"); ok {
 		o.ReceiveMultiCastListID = attr.(string)
@@ -238,22 +257,27 @@ func resourceEnterpriseProfileUpdate(d *schema.ResourceData, m interface{}) erro
 		o.Description = attr.(string)
 	}
 	if attr, ok := d.GetOk("allow_advanced_qos_configuration"); ok {
-		o.AllowAdvancedQOSConfiguration = attr.(bool)
+		AllowAdvancedQOSConfiguration := attr.(bool)
+		o.AllowAdvancedQOSConfiguration = &AllowAdvancedQOSConfiguration
 	}
 	if attr, ok := d.GetOk("allow_gateway_management"); ok {
-		o.AllowGatewayManagement = attr.(bool)
+		AllowGatewayManagement := attr.(bool)
+		o.AllowGatewayManagement = &AllowGatewayManagement
 	}
 	if attr, ok := d.GetOk("allow_trusted_forwarding_class"); ok {
-		o.AllowTrustedForwardingClass = attr.(bool)
+		AllowTrustedForwardingClass := attr.(bool)
+		o.AllowTrustedForwardingClass = &AllowTrustedForwardingClass
 	}
 	if attr, ok := d.GetOk("allowed_forwarding_classes"); ok {
 		o.AllowedForwardingClasses = attr.([]interface{})
 	}
 	if attr, ok := d.GetOk("floating_ips_quota"); ok {
-		o.FloatingIPsQuota = attr.(int)
+		FloatingIPsQuota := attr.(int)
+		o.FloatingIPsQuota = &FloatingIPsQuota
 	}
 	if attr, ok := d.GetOk("enable_application_performance_management"); ok {
-		o.EnableApplicationPerformanceManagement = attr.(bool)
+		EnableApplicationPerformanceManagement := attr.(bool)
+		o.EnableApplicationPerformanceManagement = &EnableApplicationPerformanceManagement
 	}
 	if attr, ok := d.GetOk("encryption_management_mode"); ok {
 		o.EncryptionManagementMode = attr.(string)

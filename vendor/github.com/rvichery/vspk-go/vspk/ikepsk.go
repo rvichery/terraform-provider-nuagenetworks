@@ -63,19 +63,18 @@ type IKEPSK struct {
 	LastUpdatedBy                     string `json:"lastUpdatedBy,omitempty"`
 	Description                       string `json:"description,omitempty"`
 	Signature                         string `json:"signature,omitempty"`
-	SigningCertificateSerialNumber    int    `json:"signingCertificateSerialNumber"`
+	SigningCertificateSerialNumber    *int   `json:"signingCertificateSerialNumber,omitempty"`
 	EncryptedPSK                      string `json:"encryptedPSK,omitempty"`
-	EncryptingCertificateSerialNumber int    `json:"encryptingCertificateSerialNumber"`
+	EncryptingCertificateSerialNumber *int   `json:"encryptingCertificateSerialNumber,omitempty"`
 	UnencryptedPSK                    string `json:"unencryptedPSK,omitempty"`
 	EntityScope                       string `json:"entityScope,omitempty"`
 	AssociatedEnterpriseID            string `json:"associatedEnterpriseID,omitempty"`
-	AutoCreated                       bool   `json:"autoCreated"`
+	AutoCreated                       *bool  `json:"autoCreated,omitempty"`
 	ExternalID                        string `json:"externalID,omitempty"`
 }
 
 // NewIKEPSK returns a new *IKEPSK
 func NewIKEPSK() *IKEPSK {
-
 	return &IKEPSK{}
 }
 

@@ -68,7 +68,6 @@ type DSCPForwardingClassTable struct {
 
 // NewDSCPForwardingClassTable returns a new *DSCPForwardingClassTable
 func NewDSCPForwardingClassTable() *DSCPForwardingClassTable {
-
 	return &DSCPForwardingClassTable{}
 }
 

@@ -59,30 +59,30 @@ type LicenseStatus struct {
 	ParentID                     string `json:"parentID,omitempty"`
 	ParentType                   string `json:"parentType,omitempty"`
 	Owner                        string `json:"owner,omitempty"`
-	AccumulateLicensesEnabled    bool   `json:"accumulateLicensesEnabled"`
-	TotalLicensedAVRSGsCount     int    `json:"totalLicensedAVRSGsCount"`
-	TotalLicensedAVRSsCount      int    `json:"totalLicensedAVRSsCount"`
-	TotalLicensedGatewaysCount   int    `json:"totalLicensedGatewaysCount"`
-	TotalLicensedNICsCount       int    `json:"totalLicensedNICsCount"`
-	TotalLicensedNSGsCount       int    `json:"totalLicensedNSGsCount"`
-	TotalLicensedUsedAVRSGsCount int    `json:"totalLicensedUsedAVRSGsCount"`
-	TotalLicensedUsedAVRSsCount  int    `json:"totalLicensedUsedAVRSsCount"`
-	TotalLicensedUsedNICsCount   int    `json:"totalLicensedUsedNICsCount"`
-	TotalLicensedUsedNSGsCount   int    `json:"totalLicensedUsedNSGsCount"`
-	TotalLicensedUsedVMsCount    int    `json:"totalLicensedUsedVMsCount"`
-	TotalLicensedUsedVRSGsCount  int    `json:"totalLicensedUsedVRSGsCount"`
-	TotalLicensedUsedVRSsCount   int    `json:"totalLicensedUsedVRSsCount"`
-	TotalLicensedVMsCount        int    `json:"totalLicensedVMsCount"`
-	TotalLicensedVRSGsCount      int    `json:"totalLicensedVRSGsCount"`
-	TotalLicensedVRSsCount       int    `json:"totalLicensedVRSsCount"`
-	TotalUsedGatewaysCount       int    `json:"totalUsedGatewaysCount"`
+	AccumulateLicensesEnabled    *bool  `json:"accumulateLicensesEnabled,omitempty"`
+	TotalLicensedAVRSGsCount     *int   `json:"totalLicensedAVRSGsCount,omitempty"`
+	TotalLicensedAVRSsCount      *int   `json:"totalLicensedAVRSsCount,omitempty"`
+	TotalLicensedGatewaysCount   *int   `json:"totalLicensedGatewaysCount,omitempty"`
+	TotalLicensedNICsCount       *int   `json:"totalLicensedNICsCount,omitempty"`
+	TotalLicensedNSGsCount       *int   `json:"totalLicensedNSGsCount,omitempty"`
+	TotalLicensedUsedAVRSGsCount *int   `json:"totalLicensedUsedAVRSGsCount,omitempty"`
+	TotalLicensedUsedAVRSsCount  *int   `json:"totalLicensedUsedAVRSsCount,omitempty"`
+	TotalLicensedUsedNICsCount   *int   `json:"totalLicensedUsedNICsCount,omitempty"`
+	TotalLicensedUsedNSGsCount   *int   `json:"totalLicensedUsedNSGsCount,omitempty"`
+	TotalLicensedUsedVMsCount    *int   `json:"totalLicensedUsedVMsCount,omitempty"`
+	TotalLicensedUsedVRSGsCount  *int   `json:"totalLicensedUsedVRSGsCount,omitempty"`
+	TotalLicensedUsedVRSsCount   *int   `json:"totalLicensedUsedVRSsCount,omitempty"`
+	TotalLicensedVMsCount        *int   `json:"totalLicensedVMsCount,omitempty"`
+	TotalLicensedVRSGsCount      *int   `json:"totalLicensedVRSGsCount,omitempty"`
+	TotalLicensedVRSsCount       *int   `json:"totalLicensedVRSsCount,omitempty"`
+	TotalUsedGatewaysCount       *int   `json:"totalUsedGatewaysCount,omitempty"`
 }
 
 // NewLicenseStatus returns a new *LicenseStatus
 func NewLicenseStatus() *LicenseStatus {
-
+	AccumulateLicensesEnabled := false
 	return &LicenseStatus{
-		AccumulateLicensesEnabled: false,
+		AccumulateLicensesEnabled: &AccumulateLicensesEnabled,
 	}
 }
 

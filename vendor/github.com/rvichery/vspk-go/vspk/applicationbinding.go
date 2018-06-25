@@ -59,16 +59,16 @@ type ApplicationBinding struct {
 	ParentID                string `json:"parentID,omitempty"`
 	ParentType              string `json:"parentType,omitempty"`
 	Owner                   string `json:"owner,omitempty"`
-	ReadOnly                bool   `json:"readOnly"`
-	Priority                int    `json:"priority"`
+	ReadOnly                *bool  `json:"readOnly,omitempty"`
+	Priority                *int   `json:"priority,omitempty"`
 	AssociatedApplicationID string `json:"associatedApplicationID,omitempty"`
 }
 
 // NewApplicationBinding returns a new *ApplicationBinding
 func NewApplicationBinding() *ApplicationBinding {
-
+	ReadOnly := false
 	return &ApplicationBinding{
-		ReadOnly: false,
+		ReadOnly: &ReadOnly,
 	}
 }
 

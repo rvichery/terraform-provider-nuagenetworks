@@ -71,7 +71,6 @@ type VirtualIP struct {
 
 // NewVirtualIP returns a new *VirtualIP
 func NewVirtualIP() *VirtualIP {
-
 	return &VirtualIP{
 		IPType: "IPV4",
 	}

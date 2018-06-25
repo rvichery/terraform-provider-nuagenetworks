@@ -59,24 +59,27 @@ type Tier struct {
 	ParentID           string `json:"parentID,omitempty"`
 	ParentType         string `json:"parentType,omitempty"`
 	Owner              string `json:"owner,omitempty"`
-	PacketCount        int    `json:"packetCount"`
+	PacketCount        *int   `json:"packetCount,omitempty"`
 	LastUpdatedBy      string `json:"lastUpdatedBy,omitempty"`
 	TierType           string `json:"tierType,omitempty"`
-	Timeout            int    `json:"timeout"`
+	Timeout            *int   `json:"timeout,omitempty"`
 	EntityScope        string `json:"entityScope,omitempty"`
-	DownThresholdCount int    `json:"downThresholdCount"`
-	ProbeInterval      int    `json:"probeInterval"`
+	DownThresholdCount *int   `json:"downThresholdCount,omitempty"`
+	ProbeInterval      *int   `json:"probeInterval,omitempty"`
 	ExternalID         string `json:"externalID,omitempty"`
 }
 
 // NewTier returns a new *Tier
 func NewTier() *Tier {
-
+	PacketCount := 1
+	Timeout := 3000
+	DownThresholdCount := 5
+	ProbeInterval := 10
 	return &Tier{
-		PacketCount:        1,
-		Timeout:            3000,
-		DownThresholdCount: 5,
-		ProbeInterval:      10,
+		PacketCount:        &PacketCount,
+		Timeout:            &Timeout,
+		DownThresholdCount: &DownThresholdCount,
+		ProbeInterval:      &ProbeInterval,
 	}
 }
 

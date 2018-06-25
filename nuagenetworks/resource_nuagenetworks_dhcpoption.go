@@ -38,37 +38,41 @@ func resourceDHCPOption() *schema.Resource {
 			"value": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"actual_type": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"actual_values": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"length": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_shared_network_resource": {
 				Type:          schema.TypeString,
@@ -112,7 +116,8 @@ func resourceDHCPOptionCreate(d *schema.ResourceData, m interface{}) error {
 		o.Value = attr.(string)
 	}
 	if attr, ok := d.GetOk("actual_type"); ok {
-		o.ActualType = attr.(int)
+		ActualType := attr.(int)
+		o.ActualType = &ActualType
 	}
 	if attr, ok := d.GetOk("actual_values"); ok {
 		o.ActualValues = attr.([]interface{})
@@ -215,7 +220,8 @@ func resourceDHCPOptionUpdate(d *schema.ResourceData, m interface{}) error {
 		o.Value = attr.(string)
 	}
 	if attr, ok := d.GetOk("actual_type"); ok {
-		o.ActualType = attr.(int)
+		ActualType := attr.(int)
+		o.ActualType = &ActualType
 	}
 	if attr, ok := d.GetOk("actual_values"); ok {
 		o.ActualValues = attr.([]interface{})

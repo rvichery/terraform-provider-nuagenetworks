@@ -38,93 +38,109 @@ func resourceZFBRequest() *schema.Resource {
 			"mac_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"zfb_approval_status": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"zfb_bootstrap_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"zfb_info": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"zfb_request_retry_timer": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"sku": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ip_address": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"cpu_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"nsg_version": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"uuid": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"family": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_connected_time": {
 				Type:     schema.TypeFloat,
-				Optional: true,
 				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"serial_number": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"hostname": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_enterprise_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_enterprise_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ns_gateway_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_ns_gateway_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"status_string": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_enterprise": {
 				Type:     schema.TypeString,
@@ -145,13 +161,15 @@ func resourceZFBRequestCreate(d *schema.ResourceData, m interface{}) error {
 		o.ZFBApprovalStatus = attr.(string)
 	}
 	if attr, ok := d.GetOk("zfb_bootstrap_enabled"); ok {
-		o.ZFBBootstrapEnabled = attr.(bool)
+		ZFBBootstrapEnabled := attr.(bool)
+		o.ZFBBootstrapEnabled = &ZFBBootstrapEnabled
 	}
 	if attr, ok := d.GetOk("zfb_info"); ok {
 		o.ZFBInfo = attr.(string)
 	}
 	if attr, ok := d.GetOk("zfb_request_retry_timer"); ok {
-		o.ZFBRequestRetryTimer = attr.(int)
+		ZFBRequestRetryTimer := attr.(int)
+		o.ZFBRequestRetryTimer = &ZFBRequestRetryTimer
 	}
 	if attr, ok := d.GetOk("sku"); ok {
 		o.SKU = attr.(string)
@@ -273,13 +291,15 @@ func resourceZFBRequestUpdate(d *schema.ResourceData, m interface{}) error {
 		o.ZFBApprovalStatus = attr.(string)
 	}
 	if attr, ok := d.GetOk("zfb_bootstrap_enabled"); ok {
-		o.ZFBBootstrapEnabled = attr.(bool)
+		ZFBBootstrapEnabled := attr.(bool)
+		o.ZFBBootstrapEnabled = &ZFBBootstrapEnabled
 	}
 	if attr, ok := d.GetOk("zfb_info"); ok {
 		o.ZFBInfo = attr.(string)
 	}
 	if attr, ok := d.GetOk("zfb_request_retry_timer"); ok {
-		o.ZFBRequestRetryTimer = attr.(int)
+		ZFBRequestRetryTimer := attr.(int)
+		o.ZFBRequestRetryTimer = &ZFBRequestRetryTimer
 	}
 	if attr, ok := d.GetOk("sku"); ok {
 		o.SKU = attr.(string)

@@ -72,7 +72,6 @@ type IKEGateway struct {
 
 // NewIKEGateway returns a new *IKEGateway
 func NewIKEGateway() *IKEGateway {
-
 	return &IKEGateway{
 		IKEVersion: "V2",
 		IKEv1Mode:  "NONE",

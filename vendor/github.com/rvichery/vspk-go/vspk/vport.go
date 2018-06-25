@@ -62,12 +62,12 @@ type VPort struct {
 	VLANID                              string `json:"VLANID,omitempty"`
 	DPI                                 string `json:"DPI,omitempty"`
 	Name                                string `json:"name,omitempty"`
-	HasAttachedInterfaces               bool   `json:"hasAttachedInterfaces"`
+	HasAttachedInterfaces               *bool  `json:"hasAttachedInterfaces,omitempty"`
 	LastUpdatedBy                       string `json:"lastUpdatedBy,omitempty"`
 	GatewayMACMoveRole                  string `json:"gatewayMACMoveRole,omitempty"`
-	Active                              bool   `json:"active"`
+	Active                              *bool  `json:"active,omitempty"`
 	AddressSpoofing                     string `json:"addressSpoofing,omitempty"`
-	SegmentationID                      int    `json:"segmentationID"`
+	SegmentationID                      *int   `json:"segmentationID,omitempty"`
 	SegmentationType                    string `json:"segmentationType,omitempty"`
 	Description                         string `json:"description,omitempty"`
 	FlowCollectionEnabled               string `json:"flowCollectionEnabled,omitempty"`
@@ -91,15 +91,10 @@ type VPort struct {
 
 // NewVPort returns a new *VPort
 func NewVPort() *VPort {
-
 	return &VPort{
-		DPI:                   "INHERITED",
-		AddressSpoofing:       "INHERITED",
+		DPI: "INHERITED",
 		FlowCollectionEnabled: "INHERITED",
-		OperationalState:      "INIT",
 		SubType:               "NONE",
-		Multicast:             "INHERITED",
-		Type:                  "VM",
 	}
 }
 

@@ -70,7 +70,6 @@ type DiskStat struct {
 
 // NewDiskStat returns a new *DiskStat
 func NewDiskStat() *DiskStat {
-
 	return &DiskStat{}
 }
 

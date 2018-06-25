@@ -38,57 +38,66 @@ func resourceDomainFIPAclTemplate() *schema.Resource {
 			"name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"active": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"default_allow_ip": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"default_allow_non_ip": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"entries": {
 				Type:     schema.TypeList,
 				Optional: true,
+				Computed: true,
 				Elem:     &schema.Schema{Type: schema.TypeString},
 			},
 			"policy_state": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"priority_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_live_entity_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_domain": {
 				Type:          schema.TypeString,
@@ -112,13 +121,16 @@ func resourceDomainFIPAclTemplateCreate(d *schema.ResourceData, m interface{}) e
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("default_allow_ip"); ok {
-		o.DefaultAllowIP = attr.(bool)
+		DefaultAllowIP := attr.(bool)
+		o.DefaultAllowIP = &DefaultAllowIP
 	}
 	if attr, ok := d.GetOk("default_allow_non_ip"); ok {
-		o.DefaultAllowNonIP = attr.(bool)
+		DefaultAllowNonIP := attr.(bool)
+		o.DefaultAllowNonIP = &DefaultAllowNonIP
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -130,7 +142,8 @@ func resourceDomainFIPAclTemplateCreate(d *schema.ResourceData, m interface{}) e
 		o.PolicyState = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("priority_type"); ok {
 		o.PriorityType = attr.(string)
@@ -214,13 +227,16 @@ func resourceDomainFIPAclTemplateUpdate(d *schema.ResourceData, m interface{}) e
 		o.Name = attr.(string)
 	}
 	if attr, ok := d.GetOk("active"); ok {
-		o.Active = attr.(bool)
+		Active := attr.(bool)
+		o.Active = &Active
 	}
 	if attr, ok := d.GetOk("default_allow_ip"); ok {
-		o.DefaultAllowIP = attr.(bool)
+		DefaultAllowIP := attr.(bool)
+		o.DefaultAllowIP = &DefaultAllowIP
 	}
 	if attr, ok := d.GetOk("default_allow_non_ip"); ok {
-		o.DefaultAllowNonIP = attr.(bool)
+		DefaultAllowNonIP := attr.(bool)
+		o.DefaultAllowNonIP = &DefaultAllowNonIP
 	}
 	if attr, ok := d.GetOk("description"); ok {
 		o.Description = attr.(string)
@@ -232,7 +248,8 @@ func resourceDomainFIPAclTemplateUpdate(d *schema.ResourceData, m interface{}) e
 		o.PolicyState = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("priority_type"); ok {
 		o.PriorityType = attr.(string)

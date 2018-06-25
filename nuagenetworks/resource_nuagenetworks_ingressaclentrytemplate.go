@@ -38,18 +38,22 @@ func resourceIngressACLEntryTemplate() *schema.Resource {
 			"acl_template_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"icmp_code": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"icmp_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"ipv6_address_override": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"dscp": {
 				Type:     schema.TypeString,
@@ -57,7 +61,6 @@ func resourceIngressACLEntryTemplate() *schema.Resource {
 			},
 			"last_updated_by": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"action": {
@@ -67,44 +70,50 @@ func resourceIngressACLEntryTemplate() *schema.Resource {
 			"address_override": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"description": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"destination_port": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"network_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"network_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"mirror_destination_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"flow_logging_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"enterprise_name": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"entity_scope": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"location_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"location_type": {
 				Type:     schema.TypeString,
@@ -113,51 +122,61 @@ func resourceIngressACLEntryTemplate() *schema.Resource {
 			"policy_state": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"domain_name": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"source_port": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"priority": {
 				Type:     schema.TypeInt,
 				Optional: true,
+				Computed: true,
 			},
 			"protocol": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_l7_application_signature_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_live_entity_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_traffic_type": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"associated_traffic_type_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"stateful": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"stats_id": {
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 			"stats_logging_enabled": {
 				Type:     schema.TypeBool,
 				Optional: true,
+				Computed: true,
 			},
 			"ether_type": {
 				Type:     schema.TypeString,
@@ -166,10 +185,12 @@ func resourceIngressACLEntryTemplate() *schema.Resource {
 			"overlay_mirror_destination_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"external_id": {
 				Type:     schema.TypeString,
 				Optional: true,
+				Computed: true,
 			},
 			"parent_domain": {
 				Type:          schema.TypeString,
@@ -230,7 +251,8 @@ func resourceIngressACLEntryTemplateCreate(d *schema.ResourceData, m interface{}
 		o.MirrorDestinationID = attr.(string)
 	}
 	if attr, ok := d.GetOk("flow_logging_enabled"); ok {
-		o.FlowLoggingEnabled = attr.(bool)
+		FlowLoggingEnabled := attr.(bool)
+		o.FlowLoggingEnabled = &FlowLoggingEnabled
 	}
 	if attr, ok := d.GetOk("location_id"); ok {
 		o.LocationID = attr.(string)
@@ -245,7 +267,8 @@ func resourceIngressACLEntryTemplateCreate(d *schema.ResourceData, m interface{}
 		o.SourcePort = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("protocol"); ok {
 		o.Protocol = attr.(string)
@@ -263,10 +286,12 @@ func resourceIngressACLEntryTemplateCreate(d *schema.ResourceData, m interface{}
 		o.AssociatedTrafficTypeID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stateful"); ok {
-		o.Stateful = attr.(bool)
+		Stateful := attr.(bool)
+		o.Stateful = &Stateful
 	}
 	if attr, ok := d.GetOk("stats_logging_enabled"); ok {
-		o.StatsLoggingEnabled = attr.(bool)
+		StatsLoggingEnabled := attr.(bool)
+		o.StatsLoggingEnabled = &StatsLoggingEnabled
 	}
 	if attr, ok := d.GetOk("overlay_mirror_destination_id"); ok {
 		o.OverlayMirrorDestinationID = attr.(string)
@@ -406,7 +431,8 @@ func resourceIngressACLEntryTemplateUpdate(d *schema.ResourceData, m interface{}
 		o.MirrorDestinationID = attr.(string)
 	}
 	if attr, ok := d.GetOk("flow_logging_enabled"); ok {
-		o.FlowLoggingEnabled = attr.(bool)
+		FlowLoggingEnabled := attr.(bool)
+		o.FlowLoggingEnabled = &FlowLoggingEnabled
 	}
 	if attr, ok := d.GetOk("location_id"); ok {
 		o.LocationID = attr.(string)
@@ -421,7 +447,8 @@ func resourceIngressACLEntryTemplateUpdate(d *schema.ResourceData, m interface{}
 		o.SourcePort = attr.(string)
 	}
 	if attr, ok := d.GetOk("priority"); ok {
-		o.Priority = attr.(int)
+		Priority := attr.(int)
+		o.Priority = &Priority
 	}
 	if attr, ok := d.GetOk("protocol"); ok {
 		o.Protocol = attr.(string)
@@ -439,10 +466,12 @@ func resourceIngressACLEntryTemplateUpdate(d *schema.ResourceData, m interface{}
 		o.AssociatedTrafficTypeID = attr.(string)
 	}
 	if attr, ok := d.GetOk("stateful"); ok {
-		o.Stateful = attr.(bool)
+		Stateful := attr.(bool)
+		o.Stateful = &Stateful
 	}
 	if attr, ok := d.GetOk("stats_logging_enabled"); ok {
-		o.StatsLoggingEnabled = attr.(bool)
+		StatsLoggingEnabled := attr.(bool)
+		o.StatsLoggingEnabled = &StatsLoggingEnabled
 	}
 	if attr, ok := d.GetOk("overlay_mirror_destination_id"); ok {
 		o.OverlayMirrorDestinationID = attr.(string)

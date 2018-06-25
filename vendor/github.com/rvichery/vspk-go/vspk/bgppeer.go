@@ -59,7 +59,7 @@ type BGPPeer struct {
 	ParentID        string `json:"parentID,omitempty"`
 	ParentType      string `json:"parentType,omitempty"`
 	Owner           string `json:"owner,omitempty"`
-	LastStateChange int    `json:"lastStateChange"`
+	LastStateChange *int   `json:"lastStateChange,omitempty"`
 	Address         string `json:"address,omitempty"`
 	EntityScope     string `json:"entityScope,omitempty"`
 	Status          string `json:"status,omitempty"`
@@ -68,7 +68,6 @@ type BGPPeer struct {
 
 // NewBGPPeer returns a new *BGPPeer
 func NewBGPPeer() *BGPPeer {
-
 	return &BGPPeer{}
 }
 
